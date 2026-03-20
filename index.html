@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Money Hunters | 50+ Offers + 20 Store Savings</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container { max-width: 700px; margin: 0 auto; }
+        .header {
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            padding: 20px;
+            border-radius: 28px;
+            margin-bottom: 16px;
+            color: white;
+        }
+        .header h1 { font-size: 28px; font-weight: 800; display: flex; justify-content: space-between; flex-wrap: wrap; }
+        .header-stats { font-size: 12px; opacity: 0.9; margin-top: 8px; }
+        
+        .scraper-status {
+            background: white;
+            border-radius: 20px;
+            padding: 12px 16px;
+            margin-bottom: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .scraper-btn { background: #2ecc71; color: white; border: none; padding: 8px 16px; border-radius: 30px; cursor: pointer; font-weight: 600; }
+        .admin-toggle { background: #95a5a6; color: white; border: none; padding: 6px 12px; border-radius: 20px; font-size: 10px; cursor: pointer; }
+        
+        .main-tabs { display: flex; gap: 8px; margin-bottom: 16px; }
+        .main-tab {
+            background: white;
+            border: 1px solid #e0e0e0;
+            padding: 12px;
+            border-radius: 40px;
+            font-weight: 600;
+            color: #666;
+            cursor: pointer;
+            flex: 1;
+            text-align: center;
+        }
+        .main-tab.active { background: #2ecc71; color: white; }
+        
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 16px 0; }
+        .stat-card { background: white; padding: 12px; border-radius: 20px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .stat-card .label { font-size: 11px; color: #666; }
+        .stat-card .value { font-size: 22px; font-weight: 800; color: #2ecc71; }
+        
+        .level-section { background: white; border-radius: 24px; padding: 16px; margin-bottom: 16px; }
+        .level-header { display: flex; justify-content: space-between; margin-bottom: 12px; }
+        .level-name { font-weight: 800; color: #2ecc71; }
+        .progress-bar { background: #e8e8e8; border-radius: 40px; height: 10px; overflow: hidden; }
+        .progress-fill { background: linear-gradient(90deg, #2ecc71, #27ae60); height: 100%; width: 0%; transition: width 0.5s ease; }
+        .streak-badge { background: #fff0e0; padding: 6px 12px; border-radius: 40px; font-size: 12px; display: inline-block; margin-top: 10px; color: #ff8c42; }
+        
+        .daily-tasks { background: white; border-radius: 24px; padding: 16px; margin-bottom: 16px; }
+        .task-item { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #f0f0f0; }
+        .task-btn { background: #f0f0f0; border: none; padding: 6px 16px; border-radius: 30px; cursor: pointer; color: #2ecc71; font-weight: 600; }
+        .task-btn.completed { background: #2ecc71; color: white; }
+        
+        .money-feed { background: white; border-radius: 20px; padding: 12px; margin-bottom: 16px; }
+        .feed-title { font-size: 12px; color: #2ecc71; font-weight: 700; margin-bottom: 8px; }
+        .feed-list { height: 80px; overflow-y: auto; }
+        .feed-item { font-size: 12px; padding: 6px 0; border-bottom: 1px solid #f0f0f0; color: #333; }
+        
+        .store-filters { background: white; border-radius: 20px; padding: 12px; margin-bottom: 16px; overflow-x: auto; white-space: nowrap; }
+        .filter-buttons { display: inline-flex; gap: 8px; }
+        .store-filter { background: #f0f0f0; border: none; padding: 8px 16px; border-radius: 30px; font-size: 12px; cursor: pointer; }
+        .store-filter.active { background: #2ecc71; color: white; }
+        
+        .search-box { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 30px; margin-bottom: 16px; }
+        
+        .store-card, .offer-card {
+            background: white;
+            border-radius: 24px;
+            padding: 18px;
+            margin-bottom: 16px;
+            border-left: 4px solid #2ecc71;
+        }
+        .store-header { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 12px; }
+        .store-name { font-size: 20px; font-weight: 800; color: #333; }
+        .badge-cashback { background: #e8f5e9; color: #2ecc71; padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 600; }
+        .badge-discount { background: #fff3e0; color: #ff9800; padding: 4px 12px; border-radius: 20px; font-size: 11px; }
+        .scraped-badge { background: #9b59b6; color: white; padding: 4px 12px; border-radius: 20px; font-size: 10px; }
+        .urgent-badge { background: #ff4757; color: white; padding: 4px 12px; border-radius: 20px; font-size: 10px; }
+        .trending-badge { background: #FFD966; color: #1e2a1a; padding: 4px 12px; border-radius: 20px; font-size: 10px; }
+        
+        .offer-header { display: flex; justify-content: space-between; margin-bottom: 12px; }
+        .platform { font-weight: 800; background: #f0f0f0; padding: 6px 14px; border-radius: 30px; color: #2ecc71; font-size: 12px; }
+        .reward { font-size: 28px; font-weight: 800; color: #2ecc71; }
+        .title { font-size: 18px; font-weight: 700; margin-bottom: 12px; color: #333; }
+        
+        .steps { background: #f9f9f9; border-radius: 16px; padding: 12px; margin: 12px 0; font-size: 13px; }
+        .steps ol { margin-left: 20px; }
+        
+        .get-offer-btn, .visit-btn {
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            border: none;
+            padding: 14px;
+            border-radius: 60px;
+            font-size: 16px;
+            font-weight: 800;
+            color: white;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 8px;
+        }
+        
+        .admin-panel { background: white; border-radius: 24px; padding: 16px; margin-bottom: 16px; display: none; border: 2px solid #2ecc71; }
+        .admin-panel.show { display: block; }
+        .store-editor { margin-bottom: 16px; padding: 12px; background: #f9f9f9; border-radius: 12px; }
+        .store-editor textarea { width: 100%; padding: 8px; margin: 5px 0; border: 1px solid #ddd; border-radius: 8px; }
+        
+        .achievement-popup { position: fixed; bottom: 20px; left: 20px; right: 20px; background: linear-gradient(135deg, #FFD966, #ffaa33); padding: 12px; border-radius: 60px; animation: slideUp 0.4s ease; z-index: 10000; text-align: center; font-weight: bold; }
+        @keyframes slideUp { from { transform: translateY(100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        @keyframes fall { 0% { transform: translateY(-10px); opacity: 1; } 100% { transform: translateY(100vh); opacity: 0; } }
+        
+        .footer-tip { text-align: center; margin-top: 20px; padding: 12px; background: white; border-radius: 40px; color: #666; font-size: 11px; }
+        .loading-spinner { display: inline-block; width: 16px; height: 16px; border: 2px solid #fff; border-top-color: transparent; border-radius: 50%; animation: spin 0.8s linear infinite; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .reddit-link { display: flex; align-items: center; justify-content: center; gap: 8px; background: #ff6b35; border-radius: 60px; padding: 12px; margin-top: 16px; text-decoration: none; color: white; font-weight: 600; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>💰 MONEY HUNTERS <span style="font-size: 12px;">50+ OFFERS + 20 STORES</span></h1>
+        <div class="header-stats">🕷️ Auto-scraped offers + 🛍️ Store savings + 🎮 Gamification</div>
+    </div>
+    
+    <div class="scraper-status">
+        <div><span>🕷️</span> <span id="scraperStatus">📦 30+ manual offers loaded</span></div>
+        <div>
+            <button class="scraper-btn" onclick="runAllScrapers()" id="scrapeBtn">🔄 Scrape New Offers</button>
+            <button class="admin-toggle" onclick="toggleAdmin()">⚙️ Admin</button>
+        </div>
+    </div>
+    
+    <div class="main-tabs">
+        <button class="main-tab active" data-tab="offers">🔥 OFFERS (<span id="offerCount">30</span>+)</button>
+        <button class="main-tab" data-tab="stores">🛍️ STORE SAVINGS (20)</button>
+    </div>
+    
+    <div class="stats-grid">
+        <div class="stat-card"><div class="label">🏆 LEVEL</div><div class="value" id="level">1</div></div>
+        <div class="stat-card"><div class="label">💰 XP</div><div class="value" id="xpPoints">0</div></div>
+        <div class="stat-card"><div class="label">🎯 CLICKS</div><div class="value" id="clicks">0</div></div>
+        <div class="stat-card"><div class="label">🔥 STREAK</div><div class="value" id="streak">0</div></div>
+    </div>
+    
+    <div class="level-section">
+        <div class="level-header"><span class="level-name" id="levelName">Saver Recruit</span><span id="levelNumber">Level 1</span></div>
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="streak-badge" id="streakBadge">🔥 0 day streak</div>
+    </div>
+    
+    <div class="daily-tasks"><h4>📋 DAILY HUNT</h4><div id="dailyTasks"></div></div>
+    
+    <div class="money-feed"><div class="feed-title">📢 LIVE EARNINGS FEED</div><div class="feed-list" id="feedList"></div></div>
+    
+    <div id="offersSection"><div id="offersContainer"></div></div>
+    
+    <div id="storesSection" style="display: none;">
+        <input type="text" class="search-box" id="storeSearch" placeholder="🔍 Search stores...">
+        <div class="store-filters" id="storeFilters"></div>
+        <div id="storesContainer"></div>
+    </div>
+    
+    <div class="admin-panel" id="adminPanel">
+        <h4 style="margin-bottom: 12px;">✏️ EDIT STORE TIPS</h4>
+        <div id="storeEditor"></div>
+        <button class="scraper-btn" onclick="saveAllTips()" style="margin-top: 12px;">💾 SAVE ALL CHANGES</button>
+    </div>
+    
+    <a href="https://www.reddit.com/r/beermoneyuk/" target="_blank" class="reddit-link">🤝 JOIN THE HUNT → r/beermoneyuk</a>
+    
+    <div class="footer-tip">📦 30+ manual offers from BeermoneyUK + auto-scraped offers from HotUKDeals & Reddit<br>🛍️ 20 UK stores with cashback tips + gamification XP system</div>
+</div>
+
+<script>
+    // ========== GAMIFICATION ==========
+    let userXP = parseInt(localStorage.getItem('userXP')) || 0;
+    let userClicks = parseInt(localStorage.getItem('userClicks')) || 0;
+    let streak = parseInt(localStorage.getItem('streak')) || 0;
+    let lastLoginDate = localStorage.getItem('lastLoginDate');
+    let completedTasks = JSON.parse(localStorage.getItem('completedTasks')) || { click: false, complete: false, login: false };
+    let feedMessages = JSON.parse(localStorage.getItem('feedMessages')) || [];
+    
+    const levelRequirements = { 1: 0, 2: 50, 3: 120, 4: 200, 5: 300, 6: 420, 7: 560, 8: 720, 9: 900, 10: 1100 };
+    const levelNames = { 1: "Saver Recruit", 2: "Saver Recruit", 3: "Coupon Collector", 4: "Coupon Collector", 5: "Cashback Hunter", 6: "Cashback Hunter", 7: "Savings Master", 8: "Savings Master", 9: "Money Hunter", 10: "Money Hunter", 15: "Legendary Saver" };
+    
+    function getCurrentLevel(xp) { let lvl = 1; for (let l in levelRequirements) if (xp >= levelRequirements[l]) lvl = Math.max(lvl, parseInt(l)); return Math.min(lvl, 15); }
+    function updateLevelDisplay() {
+        const level = getCurrentLevel(userXP);
+        const currentXP = levelRequirements[level] || 0;
+        const nextXP = levelRequirements[level + 1] || 1500;
+        const progress = ((userXP - currentXP) / (nextXP - currentXP)) * 100;
+        document.getElementById('level').innerText = level;
+        document.getElementById('xpPoints').innerText = userXP;
+        document.getElementById('levelName').innerText = levelNames[Math.min(level, 15)] || "Legend";
+        document.getElementById('levelNumber').innerText = `Level ${level}`;
+        document.getElementById('progressFill').style.width = Math.min(progress, 100) + '%';
+        document.getElementById('streak').innerText = streak;
+        document.getElementById('streakBadge').innerHTML = `🔥 ${streak} day streak`;
+        document.getElementById('clicks').innerText = userClicks;
+    }
+    function addXP(amount, source) { userXP += amount; localStorage.setItem('userXP', userXP); updateLevelDisplay(); showPopup(`+${amount} XP! ${source}`, "✨"); createConfetti(); }
+    function showPopup(msg, emoji) { const pop = document.createElement('div'); pop.className = 'achievement-popup'; pop.innerHTML = `${emoji} ${msg}`; document.body.appendChild(pop); setTimeout(() => pop.remove(), 2500); }
+    function createConfetti() { for (let i=0;i<40;i++) { let c=document.createElement('div'); c.style.cssText=`position:fixed; left:${Math.random()*window.innerWidth}px; top:-10px; width:8px; height:8px; background:${['#FFD966','#2ecc71','#ffaa33'][Math.floor(Math.random()*3)]}; border-radius:50%; pointer-events:none; animation:fall ${Math.random()*2+1}s linear forwards`; document.body.appendChild(c); setTimeout(()=>c.remove(),2000); } }
+    function addFeedMessage(msg) { feedMessages.unshift(msg); if(feedMessages.length>15) feedMessages.pop(); localStorage.setItem('feedMessages', JSON.stringify(feedMessages)); document.getElementById('feedList').innerHTML = feedMessages.map(m=>`<div class="feed-item">💸 ${m}</div>`).join(''); }
+    
+    function renderDailyTasks() {
+        const today = new Date().toDateString();
+        if(localStorage.getItem('lastTaskReset') !== today) { completedTasks = { click: false, complete: false, login: false }; localStorage.setItem('completedTasks', JSON.stringify(completedTasks)); localStorage.setItem('lastTaskReset', today); }
+        document.getElementById('dailyTasks').innerHTML = `
+            <div class="task-item"><span>🎯 Click 2 offers</span><button class="task-btn ${completedTasks.click?'completed':''}" onclick="completeTask('click')" ${completedTasks.click?'disabled':''}>${completedTasks.click?'✓ DONE':'+5 XP'}</button></div>
+            <div class="task-item"><span>✅ Complete 1 offer</span><button class="task-btn ${completedTasks.complete?'completed':''}" onclick="completeTask('complete')" ${completedTasks.complete?'disabled':''}>${completedTasks.complete?'✓ DONE':'+15 XP'}</button></div>
+            <div class="task-item"><span>📅 Log in today</span><button class="task-btn ${completedTasks.login?'completed':''}" onclick="completeTask('login')" ${completedTasks.login?'disabled':''}>${completedTasks.login?'✓ DONE':'+3 XP'}</button></div>
+        `;
+    }
+    function completeTask(taskType) { if(completedTasks[taskType]) return; let xp={click:5,complete:15,login:3}[taskType]; completedTasks[taskType]=true; localStorage.setItem('completedTasks',JSON.stringify(completedTasks)); addXP(xp,`Daily task: ${taskType}`); renderDailyTasks(); }
+    function checkStreak() {
+        const today = new Date().toDateString();
+        if(lastLoginDate===today) return;
+        if(lastLoginDate){ const yesterday=new Date(); yesterday.setDate(yesterday.getDate()-1); if(lastLoginDate===yesterday.toDateString()){ streak++; if(streak===3)addXP(10,"3-day streak!"); if(streak===7)addXP(25,"7-day streak!"); } else streak=1; }
+        else streak=1;
+        localStorage.setItem('streak',streak); localStorage.setItem('lastLoginDate',today); updateLevelDisplay();
+    }
+    
+    // ========== ALL YOUR BEERMONEYUK OFFERS (30+ MANUAL OFFERS) ==========
+    let manualOffers = [
+        { id: "m1", platform: "Lloyds Bank", title: "Open Account - £50 Free + £200 Switch", reward: 250, category: "bank", difficulty: "Easy", points: 50, source: "BeermoneyUK", referralLink: "https://apply.lloydsbank.co.uk/sales-content/cwa/l/onboardpca/index-app.html?from=ob&webDirect=true&redesign=true&token=JpGVwskEUPxoFpO3Mg4RTAUZg6q6Emjz578QtNaABT8=&redesign=true#/refer-friend", steps: ["Click link to open Lloyds account", "Complete application", "Get £50 free within 1 month", "Switch using CASS for extra £200"], timeFrame: "~1 month", trending: true, highValue: true },
+        { id: "m2", platform: "Monzo", title: "Spend £1 → Get £5-£50", reward: 10, category: "bank", difficulty: "Easy", points: 15, source: "BeermoneyUK", referralLink: "https://join.monzo.com/r/", steps: ["Sign up for Monzo", "Spend £1", "Get £5-£50 free"], timeFrame: "Immediate", trending: true },
+        { id: "m3", platform: "Chase UK", title: "Deposit £1,000 → £50", reward: 50, category: "bank", difficulty: "Easy", points: 25, source: "BeermoneyUK", referralLink: "https://chase.co.uk/raf", steps: ["Copy code: J2SK9W", "Open Chase UK", "Pay in £1,000 in 30 days"], timeFrame: "30 days", code: "J2SK9W", endingSoon: true, highValue: true },
+        { id: "m4", platform: "Revolut", title: "Spend £1 → Get £20", reward: 20, category: "bank", difficulty: "Easy", points: 20, source: "BeermoneyUK", referralLink: "https://revolut.com/referral/?referral-code=ludoviv2sq!MAR1-26-AR-H2&geo-redirect", steps: ["Sign up for Revolut", "Spend £1", "Get £20 free"], timeFrame: "~1 month" },
+        { id: "m5", platform: "Zilch", title: "Sign Up → £5 Free", reward: 5, category: "free", difficulty: "Easy", points: 10, source: "BeermoneyUK", referralLink: "https://zilch.onelink.me/x8EV/zdehyy8s", steps: ["Sign up for Zilch", "Get £5 credit instantly"], timeFrame: "Instant" },
+        { id: "m6", platform: "Zopa (Biscuit)", title: "Open Account → £10 Free", reward: 10, category: "free", difficulty: "Easy", points: 15, source: "BeermoneyUK", referralLink: "www.zopa.com/mgma?referralCode=ed204ce1b3dd265fa533", steps: ["Open Biscuit account", "Get £10 instantly"], timeFrame: "Instant" },
+        { id: "m7", platform: "PensionBee", title: "Sign Up → £50 in Pension", reward: 50, category: "pension", difficulty: "Easy", points: 30, source: "BeermoneyUK", referralLink: "https://www.pensionbee.com/", steps: ["Sign up for PensionBee", "Get £50 in your pension"], timeFrame: "~1 month" },
+        { id: "m8", platform: "Freetrade", title: "Deposit £1 → Free Share (£10-£100)", reward: 10, category: "invest", difficulty: "Easy", points: 30, source: "BeermoneyUK", referralLink: "https://magic.freetrade.io/join/alberto/6f308795", steps: ["Download Freetrade", "Deposit £1", "Get free share worth £10-£100"], timeFrame: "Few days" },
+        { id: "m9", platform: "Robinhood", title: "Deposit £1 → Free Share", reward: 10, category: "invest", difficulty: "Easy", points: 20, source: "BeermoneyUK", referralLink: "https://join.robinhood.com/albertb-d5dfe0", steps: ["Join Robinhood", "Deposit £1", "Get free share up to £140"], timeFrame: "Few days" },
+        { id: "m10", platform: "Plum", title: "Refer 3 Friends → £75", reward: 75, category: "invest", difficulty: "Easy", points: 40, source: "BeermoneyUK", referralLink: "https://friends.withplum.com/r/RxK7c2fUNa", steps: ["Join Plum", "Link bank", "Refer 3 friends by April 7th", "Get £75"], timeFrame: "Expires April 7th", endingSoon: true, highValue: true },
+        { id: "m11", platform: "Webull", title: "Deposit £500 → £50 Credit", reward: 50, category: "invest", difficulty: "Medium", points: 30, source: "BeermoneyUK", referralLink: "https://www.webull-uk.com/s/zEUukbJam8GjmUx6yq", steps: ["Sign up with link", "Deposit £500", "Keep 60 days", "Both get £50"], timeFrame: "60 days" },
+        { id: "m12", platform: "TopCashback", title: "Cashback Site → £10 Bonus", reward: 10, category: "cashback", difficulty: "Easy", points: 20, source: "BeermoneyUK", referralLink: "https://www.topcashback.co.uk/ref/Panzadeferr/?source_id=4", steps: ["Join TopCashback", "Shop through site"], timeFrame: "Lifetime" },
+        { id: "m13", platform: "Quidco", title: "Cashback Site → £20 Bonus", reward: 20, category: "cashback", difficulty: "Easy", points: 25, source: "BeermoneyUK", referralLink: "https://quidco.onelink.me/nKzg/v2f3f7m0", steps: ["Sign up for Quidco", "Earn £5 cashback", "Get £20 bonus"], timeFrame: "After earning £5" },
+        { id: "m14", platform: "Rakuten", title: "Cashback Site → £25 Bonus", reward: 25, category: "cashback", difficulty: "Easy", points: 25, source: "BeermoneyUK", referralLink: "www.rakuten.co.uk/r/ALBERT24541?eeid=28187", steps: ["Join Rakuten", "Spend £50 + VAT", "Get £25 bonus"], timeFrame: "After first purchase" },
+        { id: "m15", platform: "Airtime", title: "Gift Card Cashback → £2 Bonus", reward: 2, category: "cashback", difficulty: "Easy", points: 10, source: "BeermoneyUK", referralLink: "https://airtimerewards.app.link/6Waa7E1IF1b", steps: ["Download Airtime", "Use code: FRJKFXX3", "Spend £5 in 7 days"], timeFrame: "7 days", code: "FRJKFXX3" },
+        { id: "m16", platform: "Cheddar", title: "Gift Card Cashback → £3 Bonus", reward: 3, category: "cashback", difficulty: "Easy", points: 10, source: "BeermoneyUK", referralLink: "https://get.cheddar.me/app/FVESBGB", steps: ["Download Cheddar", "Use code: FVESBGB", "Earn cashback at retailers"], timeFrame: "Ongoing", code: "FVESBGB" },
+        { id: "m17", platform: "Tide", title: "Business Account → £75 Free", reward: 75, category: "business", difficulty: "Easy", points: 30, source: "BeermoneyUK", referralLink: "https://www.tide.co/", steps: ["Sign up for Tide Business", "Use code: 3834VA", "Make first transaction"], timeFrame: "After first transaction", code: "3834VA", highValue: true },
+        { id: "m18", platform: "WorldFirst", title: "Business → Up to £355 Reward", reward: 355, category: "business", difficulty: "Hard", points: 80, source: "BeermoneyUK", referralLink: "https://s.worldfirst.com/2TuviC?default_source=WF-Ts00000OCun2&referral_id=WF-Ts00000OCun2&utm_campaign=COE_MGM_UK_2602&utm_date=app&lang=en_GB", steps: ["Open WorldFirst business account", "Complete verification", "Make qualifying transactions"], timeFrame: "Varies", highValue: true },
+        { id: "m19", platform: "Octopus Energy", title: "Switch Energy → £50 Credit", reward: 50, category: "utilities", difficulty: "Easy", points: 30, source: "BeermoneyUK", referralLink: "https://share.octopus.energy/ocean-quoll-258", steps: ["Switch to Octopus Energy", "Use referral link", "Both get £50 credit"], timeFrame: "After switch" },
+        { id: "m20", platform: "Wise", title: "Free Transfer + Card", reward: 0, category: "referral", difficulty: "Easy", points: 15, source: "BeermoneyUK", referralLink: "https://wise.com/invite/ahpc/albertob1508", steps: ["Sign up for Wise", "First transfer free", "Get free physical card"], timeFrame: "Immediate" },
+        { id: "m21", platform: "AMEX", title: "Spend £3,000 → £150+", reward: 150, category: "credit", difficulty: "Medium", points: 50, source: "BeermoneyUK", referralLink: "https://americanexpress.com/en-gb/referral/platinum-charge?ref=aLBERBf3Ob&XL=MNMNS", steps: ["Apply for AMEX card", "Spend £3,000 in 3 months", "Get up to £150 back"], timeFrame: "3 months", highValue: true },
+        { id: "m22", platform: "Costa", title: "Free Cake + Coffee", reward: 5, category: "freebies", difficulty: "Free", points: 5, source: "BeermoneyUK", referralLink: "https://www.costa.co.uk/", steps: ["Sign up for Costa Club", "Get free cake & half drink"], timeFrame: "Immediate" },
+        { id: "m23", platform: "Waitrose", title: "Free Coffee Daily", reward: 3, category: "freebies", difficulty: "Free", points: 5, source: "BeermoneyUK", referralLink: "https://www.waitrose.com/", steps: ["Get Waitrose card", "Free tea/coffee daily in store"], timeFrame: "Daily" },
+        { id: "m24", platform: "TrainPal", title: "£3 Off Train Tickets", reward: 3, category: "travel", difficulty: "Easy", points: 10, source: "BeermoneyUK", referralLink: "https://t.trainpal.com/wUEPLNq", steps: ["Download TrainPal", "Use code: 03ba089c$00", "Save on train tickets"], timeFrame: "Use within 7 days", code: "03ba089c$00" },
+        { id: "m25", platform: "Lebara", title: "Mobile SIM Deal", reward: 0, category: "utilities", difficulty: "Easy", points: 10, source: "BeermoneyUK", referralLink: "https://aklam.io/hgY3HOvR", steps: ["Sign up for Lebara mobile", "Get great SIM deals"], timeFrame: "Immediate" },
+        { id: "m26", platform: "Moneybox", title: "Save & Invest", reward: 0, category: "invest", difficulty: "Easy", points: 10, source: "BeermoneyUK", referralLink: "https://go.onelink.me/5M0L?pid=share&c=EN8YW8", steps: ["Download Moneybox", "Great for direct debits and savings"], timeFrame: "Ongoing" },
+        { id: "m27", platform: "Wealthify", title: "Invest £1,000 → £50 Bonus", reward: 50, category: "invest", difficulty: "Medium", points: 25, source: "BeermoneyUK", referralLink: "https://invest.wealthify.com/refer/81122944", steps: ["Join Wealthify", "Invest £1,000", "Get £50 investing bonus"], timeFrame: "6 months" },
+        { id: "m28", platform: "Capital on Tap", title: "Business Card → £75 Free", reward: 75, category: "business", difficulty: "Easy", points: 25, source: "BeermoneyUK", referralLink: "https://www.capitalontap.com/", steps: ["Ltd companies only", "Make any spend", "Get £75 free"], timeFrame: "~1 week" },
+        { id: "m29", platform: "Jam Doughnut", title: "Gift Card Cashback", reward: 3, category: "cashback", difficulty: "Easy", points: 10, source: "BeermoneyUK", referralLink: "https://www.jamdoughnut.com/", steps: ["Download Jam Doughnut", "Use code: 8TGF", "Buy gift cards with cashback"], timeFrame: "Immediate", code: "8TGF" },
+        { id: "m30", platform: "EverUp", title: "Gift Card Cashback", reward: 2, category: "cashback", difficulty: "Easy", points: 8, source: "BeermoneyUK", referralLink: "https://everup.onelink.me/9lgD/3d22pmln", steps: ["Join EverUp", "Link cards", "Earn cashback automatically"], timeFrame: "Ongoing" }
+    ];
+    
+    let scrapedOffers = [];
+    let clickCount = 0;
+    
+    function getAllOffers() { return [...manualOffers, ...scrapedOffers]; }
+    document.getElementById('offerCount').innerText = manualOffers.length + scrapedOffers.length;
+    
+    // ========== SCRAPERS ==========
+    async function scrapeHotUKDeals() {
+        try {
+            const proxyUrl = 'https://api.allorigins.win/get?url=';
+            const targetUrl = 'https://www.hotukdeals.com/tag/bank-switch-offers';
+            const response = await fetch(proxyUrl + encodeURIComponent(targetUrl));
+            const data = await response.json();
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(data.contents, 'text/html');
+            const offers = [];
+            const dealItems = doc.querySelectorAll('.dealItem, article.dealItem');
+            dealItems.forEach((item, idx) => {
+                if(idx < 8) {
+                    const titleElem = item.querySelector('.title a, h2 a');
+                    if(titleElem) {
+                        const title = titleElem.textContent.trim();
+                        const rewardMatch = title.match(/£(\d+)/);
+                        const reward = rewardMatch ? parseInt(rewardMatch[1]) : 0;
+                        if(reward > 5) {
+                            offers.push({
+                                id: `hukd_${Date.now()}_${idx}`,
+                                platform: detectPlatform(title),
+                                title: title.substring(0, 70),
+                                reward: reward,
+                                category: "bank",
+                                difficulty: "Medium",
+                                points: Math.floor(reward / 5) + 10,
+                                source: "HotUKDeals",
+                                referralLink: item.querySelector('a')?.href || "#",
+                                steps: ["Click the link", "Follow the offer instructions", "Complete requirements", "Earn £" + reward],
+                                timeFrame: "Varies",
+                                trending: true,
+                                scraped: true
+                            });
+                        }
+                    }
+                }
+            });
+            return offers;
+        } catch(e) { return []; }
+    }
+    
+    async function scrapeReddit() {
+        try {
+            let offers = [];
+            const subs = ['beermoneyuk', 'UKPersonalFinance'];
+            for(const sub of subs) {
+                const url = `https://www.reddit.com/r/${sub}/new.json?limit=15`;
+                const response = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0' } });
+                const data = await response.json();
+                const posts = data.data?.children || [];
+                posts.forEach((post, idx) => {
+                    const title = post.data.title;
+                    const rewardMatch = title.match(/£(\d+)/);
+                    const reward = rewardMatch ? parseInt(rewardMatch[1]) : 0;
+                    if(reward > 5 && (title.toLowerCase().includes('switch') || title.toLowerCase().includes('referral') || title.toLowerCase().includes('bonus'))) {
+                        offers.push({
+                            id: `reddit_${Date.now()}_${idx}`,
+                            platform: detectPlatform(title),
+                            title: title.substring(0, 70),
+                            reward: reward,
+                            category: "bank",
+                            difficulty: "Medium",
+                            points: Math.floor(reward / 5) + 10,
+                            source: `Reddit/r/${sub}`,
+                            referralLink: `https://reddit.com${post.data.permalink}`,
+                            steps: ["Read the Reddit post", "Follow the OP's instructions", "Complete the offer"],
+                            timeFrame: "Check post",
+                            trending: true,
+                            scraped: true
+                        });
+                    }
+                });
+            }
+            return offers;
+        } catch(e) { return []; }
+    }
+    
+    function detectPlatform(text) {
+        const platforms = ['Monzo','Tide','Lloyds','NatWest','Halifax','Santander','Barclays','HSBC','First Direct','Revolut','Wise','Amex','Chase','Plum','Freetrade','Robinhood','Webull','Zopa','Zilch'];
+        for(let p of platforms) if(text.toLowerCase().includes(p.toLowerCase())) return p;
+        return 'Other';
+    }
+    
+    async function runAllScrapers() {
+        const btn = document.getElementById('scrapeBtn');
+        const statusSpan = document.getElementById('scraperStatus');
+        btn.innerHTML = '<div class="loading-spinner"></div> Scraping...';
+        statusSpan.innerHTML = '🕷️ Scraping HotUKDeals & Reddit...';
+        try {
+            const [hukdOffers, redditOffers] = await Promise.all([scrapeHotUKDeals(), scrapeReddit()]);
+            const allScraped = [...hukdOffers, ...redditOffers];
+            const unique = [];
+            const seen = new Set();
+            for(let o of allScraped) {
+                const key = `${o.platform}_${o.reward}`;
+                if(!seen.has(key)) { seen.add(key); unique.push(o); }
+            }
+            scrapedOffers = unique;
+            localStorage.setItem('scrapedOffers', JSON.stringify(scrapedOffers));
+            statusSpan.innerHTML = `✅ Found ${unique.length} new scraped offers!`;
+            document.getElementById('offerCount').innerText = manualOffers.length + scrapedOffers.length;
+            showPopup(`🎉 Found ${unique.length} new offers from HotUKDeals & Reddit!`, "🕷️");
+            addFeedMessage(`Scraper found ${unique.length} new offers! Total now: ${manualOffers.length + scrapedOffers.length}`);
+            displayOffers();
+        } catch(e) { statusSpan.innerHTML = '❌ Scrape failed'; showPopup("❌ Scraping failed. Check internet.", "⚠️"); }
+        finally { btn.innerHTML = '🔄 Scrape New Offers'; setTimeout(() => statusSpan.innerHTML = '✅ Ready', 3000); }
+    }
+    
+    // ========== STORES ==========
+    let stores = [
+        { name: "Amazon", cashback: 1.5, discountCodes: "Student 6 months free", tips: "Buy gift cards at 3-5% discount. Stack with cashback sites for up to 5% total savings!" },
+        { name: "eBay", cashback: 2, discountCodes: "15-20% off selected", tips: "Check TopCashback for 2-3% cashback. Buy gift cards for extra 3%." },
+        { name: "Tesco", cashback: 4.5, discountCodes: "Clubcard prices", tips: "Gift cards via Jam Doughnut (4% off) + cashback = up to 8.5% savings!" },
+        { name: "Sainsbury's", cashback: 5, discountCodes: "Nectar prices", tips: "Cheddar app (5%) + gift cards (4%) + Nectar = up to 11% savings!" },
+        { name: "Boots", cashback: 5, discountCodes: "Advantage Card", tips: "Gift cards at 5% discount + 5% cashback = 10% total!" },
+        { name: "ASOS", cashback: 3, discountCodes: "Student 20%", tips: "Student discount (20%) + cashback (3%) + gift cards = up to 27% off!" },
+        { name: "Currys", cashback: 3, discountCodes: "Student 10%", tips: "Stack cashback (3%) + gift cards (4%) + student = up to 17% savings!" },
+        { name: "Argos", cashback: 2.5, discountCodes: "Student 10%", tips: "Use Nectar points + gift cards at 3-5% discount." },
+        { name: "Very", cashback: 4, discountCodes: "First order 20%", tips: "First order 20% + cashback (4%) + gift cards = up to 24% off!" },
+        { name: "John Lewis", cashback: 2.5, discountCodes: "My John Lewis card", tips: "Price match guarantee + gift cards (4% off) = up to 6.5% savings." },
+        { name: "Marks & Spencer", cashback: 4, discountCodes: "Sparks card", tips: "Gift cards (4.5% off) + cashback (4%) + Sparks = up to 10% savings." },
+        { name: "IKEA", cashback: 2, discountCodes: "Family card", tips: "Check As-is section for bargains + gift cards (2-3% off)." },
+        { name: "Next", cashback: 3.5, discountCodes: "Clearance sales", tips: "Buy gift cards at 4-5% discount + cashback = best deals." },
+        { name: "H&M", cashback: 4, discountCodes: "Sign up 15%", tips: "Sign-up 15% + cashback (4%) + gift cards = up to 22% savings." },
+        { name: "Zara", cashback: 2, discountCodes: "Sales only", tips: "Wait for seasonal sales + gift cards (3% off) = best strategy." },
+        { name: "Sports Direct", cashback: 3, discountCodes: "Student 10%", tips: "Student discount + cashback + gift cards = up to 17% off." },
+        { name: "Decathlon", cashback: 3, discountCodes: "Membership points", tips: "Membership gives points + gift cards (3% off) = 6% savings." },
+        { name: "Game", cashback: 3.5, discountCodes: "Trade-in offers", tips: "Trade in old games + gift cards (3% off) = 6.5% savings." },
+        { name: "Waitrose", cashback: 3, discountCodes: "MyWaitrose card", tips: "Free coffee + gift cards (3-4% off) = 6-7% savings." },
+        { name: "Ocado", cashback: 5, discountCodes: "First order 25%", tips: "First order 25% + cashback (5%) + gift cards = up to 33% off!" }
+    ];
+    
+    let storeCategory = "all", storeSearch = "";
+    function renderStores() {
+        let filtered = stores.filter(s => storeCategory === "all" || s.category === storeCategory);
+        if(storeSearch) filtered = filtered.filter(s => s.name.toLowerCase().includes(storeSearch.toLowerCase()));
+        const container = document.getElementById('storesContainer');
+        if(filtered.length === 0) { container.innerHTML = '<div style="text-align:center; padding:40px;">No stores found</div>'; return; }
+        container.innerHTML = filtered.map(store => `
+            <div class="store-card">
+                <div class="store-header"><div class="store-name">🛍️ ${store.name}</div>
+                <div class="store-badges"><span class="badge-cashback">💰 ${store.cashback}% Cashback</span></div></div>
+                <div class="savings-section"><div class="tip-text">${store.tips}</div></div>
+                <button class="visit-btn" onclick="visitStore('${store.name}', ${store.cashback})">🚀 Visit ${store.name} & Save</button>
+            </div>
+        `).join('');
+    }
+    
+    function visitStore(name, cashback) { addXP(cashback, `Visited ${name}`); addFeedMessage(`You saved with ${name} and earned ${cashback} XP!`); window.open(`https://www.${name.toLowerCase().replace(/['&]/g, '')}.co.uk`, '_blank'); }
+    
+    function renderStoreFilters() { const cats=["all","Online","Supermarket","Fashion","Electronics","Retail"]; document.getElementById('storeFilters').innerHTML = `<div class="filter-buttons">${cats.map(c=>`<button class="store-filter ${storeCategory===c?'active':''}" onclick="setStoreCategory('${c}')">${c==='all'?'🔥 ALL':c}</button>`).join('')}</div>`; }
+    function setStoreCategory(cat) { storeCategory=cat; renderStoreFilters(); renderStores(); }
+    
+    // Admin panel
+    function toggleAdmin() { const p=document.getElementById('adminPanel'); p.classList.toggle('show'); if(p.classList.contains('show')){ document.getElementById('storeEditor').innerHTML = stores.map((s,i)=>`<div class="store-editor"><strong>${s.name}</strong><textarea id="tip_${i}" rows="2">${s.tips}</textarea><button class="scraper-btn" style="margin-top:5px;" onclick="saveStore(${i})">💾 Save</button></div>`).join(''); } }
+    function saveStore(i) { stores[i].tips=document.getElementById(`tip_${i}`).value; localStorage.setItem('stores',JSON.stringify(stores)); showPopup(`✅ ${stores[i].name} saved!`,"💾"); renderStores(); }
+    function saveAllTips() { for(let i=0;i<stores.length;i++) stores[i].tips=document.getElementById(`tip_${i}`).value; localStorage.setItem('stores',JSON.stringify(stores)); showPopup("✅ All store tips saved!","💾"); renderStores(); document.getElementById('adminPanel').classList.remove('show'); }
+    
+    // Display offers
+    let currentMainTab = "offers";
+    function displayOffers() {
+        const container = document.getElementById('offersContainer');
+        let offers = getAllOffers();
+        if(offers.length === 0) { container.innerHTML = '<div style="text-align:center; padding:40px;">🕷️ Click "Scrape New Offers" to find fresh deals!</div>'; return; }
+        container.innerHTML = offers.map(offer => `
+            <div class="offer-card">
+                <div class="offer-badges">${offer.endingSoon?'<span class="urgent-badge">⏳ ENDING SOON</span>':''}${offer.trending?'<span class="trending-badge">🔥 TRENDING</span>':''}${offer.highValue?'<span class="trending-badge">💰 HIGH VALUE</span>':''}${offer.scraped?'<span class="scraped-badge">🕷️ SCRAPED</span>':''}</div>
+                <div class="offer-header"><span class="platform">${offer.platform}</span><span class="reward">${offer.reward>0?'£'+offer.reward:'Bonus'}</span></div>
+                <div class="title">${offer.title}</div>
+                <div class="badges"><span class="badge">${offer.difficulty||'Medium'}</span><span class="badge">+${offer.points||15} XP</span><span class="badge">📱 ${offer.source||'BeermoneyUK'}</span>${offer.code?`<span class="badge">🔑 ${offer.code}</span>`:''}</div>
+                <div class="steps"><strong>🎯 STEPS:</strong><br><ol>${(offer.steps||["Click the link","Follow instructions","Complete offer","Get paid!"]).map(s=>`<li>${s}</li>`).join('')}</ol><strong>⏳ Time:</strong> ${offer.timeFrame||'Varies'}</div>
+                <button class="get-offer-btn" onclick="handleGetOffer('${offer.id}', ${offer.reward}, ${offer.points||15})">💎 CLAIM OFFER (+${offer.points||15} XP)</button>
+            </div>
+        `).join('');
+    }
+    
+    function handleGetOffer(id, reward, points) {
+        clickCount++; userClicks++; localStorage.setItem('userClicks', userClicks); addXP(points, `Claimed offer`);
+        const offer = getAllOffers().find(o=>o.id===id);
+        if(offer?.referralLink && offer.referralLink!=='#') window.open(offer.referralLink,'_blank');
+        else showPopup("🔗 Link: " + (offer?.referralLink || "Check offer details"), "🔗");
+        addFeedMessage(`You earned ${reward>0?'£'+reward:'bonus'} from ${offer?.platform||'offer'}`);
+        if(!completedTasks.click && clickCount>=2) completeTask('click');
+        updateLevelDisplay();
+    }
+    
+    // Tab switching
+    document.querySelectorAll('.main-tab').forEach(tab=>{
+        tab.addEventListener('click',()=>{
+            document.querySelectorAll('.main-tab').forEach(t=>t.classList.remove('active'));
+            tab.classList.add('active');
+            currentMainTab = tab.dataset.tab;
+            if(currentMainTab === 'offers') {
+                document.getElementById('offersSection').style.display = 'block';
+                document.getElementById('storesSection').style.display = 'none';
+                displayOffers();
+            } else {
+                document.getElementById('offersSection').style.display = 'none';
+                document.getElementById('storesSection').style.display = 'block';
+                renderStores();
+            }
+        });
+    });
+    
+    document.getElementById('storeSearch')?.addEventListener('input', (e)=>{ storeSearch=e.target.value; renderStores(); });
+    
+    // Load saved data
+    const savedStores = localStorage.getItem('stores'); if(savedStores) stores = JSON.parse(savedStores);
+    const savedScraped = localStorage.getItem('scrapedOffers'); if(savedScraped) scrapedOffers = JSON.parse(savedScraped);
+    
+    // Initialize
+    checkStreak(); updateLevelDisplay(); renderDailyTasks(); displayOffers(); renderStoreFilters(); renderStores();
+    if(feedMessages.length===0) addFeedMessage("🚀 30+ manual offers loaded! Click 'Scrape New Offers' for more!");
+    setInterval(()=>{ const msgs=["Someone just earned £50 from a bank switch!","New offer posted on HotUKDeals!","User saved £15 at Tesco with gift cards!","Level 5 unlocked by a Money Hunter!"]; addFeedMessage(msgs[Math.floor(Math.random()*msgs.length)]); }, 45000);
+    
+    // Expose functions globally
+    window.runAllScrapers = runAllScrapers; window.toggleAdmin = toggleAdmin; window.saveStore = saveStore; window.saveAllTips = saveAllTips;
+    window.setStoreCategory = setStoreCategory; window.handleGetOffer = handleGetOffer; window.visitStore = visitStore; window.completeTask = completeTask;
+</script>
+</body>
+</html>
