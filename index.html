@@ -47,11 +47,6 @@
             white-space: nowrap;
         }
         
-        .trust-badge {
-            background: linear-gradient(135deg, #10b981, #059669);
-            animation: pulse-glow 2s infinite;
-        }
-        
         .sticky-footer {
             position: fixed;
             bottom: 0;
@@ -120,6 +115,22 @@
             animation: spin 0.8s linear infinite;
         }
         @keyframes spin { to { transform: rotate(360deg); } }
+        
+        .store-card {
+            background: white;
+            border-radius: 16px;
+            padding: 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-left: 4px solid #10b981;
+        }
+        .cashback-badge {
+            background: #e8f5e9;
+            color: #2ecc71;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
     </style>
 </head>
 <body class="bg-gray-50 font-sans antialiased pb-24">
@@ -155,7 +166,7 @@
         <div class="flex gap-2 mb-6 bg-white p-1 rounded-2xl shadow-sm overflow-x-auto">
             <button data-tab="offers" class="tab-btn flex-1 py-3 rounded-xl font-semibold transition-all bg-emerald-600 text-white shadow-md whitespace-nowrap px-3">🔥 Offers (<span id="offerCount">40+</span>)</button>
             <button data-tab="supermarket" class="tab-btn flex-1 py-3 rounded-xl font-semibold transition-all bg-white text-gray-600 whitespace-nowrap px-3">🛒 Supermarket Stacking</button>
-            <button data-tab="stores" class="tab-btn flex-1 py-3 rounded-xl font-semibold transition-all bg-white text-gray-600 whitespace-nowrap px-3">🏪 Store Savings</button>
+            <button data-tab="stores" class="tab-btn flex-1 py-3 rounded-xl font-semibold transition-all bg-white text-gray-600 whitespace-nowrap px-3">🏪 Store Savings (20)</button>
             <button data-tab="codes" class="tab-btn flex-1 py-3 rounded-xl font-semibold transition-all bg-white text-gray-600 whitespace-nowrap px-3">🎫 Voucher Codes</button>
         </div>
 
@@ -171,9 +182,9 @@
             <div class="grid gap-6 md:grid-cols-2" id="supermarketContainer"></div>
         </div>
 
-        <!-- ========== STORE SAVINGS SECTION ========== -->
+        <!-- ========== STORE SAVINGS SECTION - FULLY POPULATED ========== -->
         <div id="storesSection" class="hidden">
-            <div class="grid gap-5 md:grid-cols-2" id="storesContainer"></div>
+            <div class="grid gap-4 md:grid-cols-2" id="storesContainer"></div>
         </div>
 
         <!-- ========== VOUCHER CODES SECTION ========== -->
@@ -295,7 +306,7 @@
             }
         }
         
-        // ========== AUTO-SCRAPERS (HotUKDeals, Reddit, MSE) ==========
+        // ========== AUTO-SCRAPERS ==========
         function detectPlatform(text) {
             const platforms = ['Monzo', 'Tide', 'Lloyds', 'NatWest', 'Halifax', 'Santander', 'Barclays', 'HSBC', 'First Direct', 'Revolut', 'Wise', 'Amex', 'Chase', 'Plum', 'Freetrade', 'Robinhood'];
             for (let p of platforms) if (text.toLowerCase().includes(p.toLowerCase())) return p;
@@ -517,21 +528,67 @@
             document.getElementById('offerCount').innerHTML = manualOffers.length + scrapedOffers.length;
         }
         
-        // ========== SUPERMARKET & STORES (simplified) ==========
-        function loadSupermarketDeals() { document.getElementById('supermarketContainer').innerHTML = '<div class="col-span-2 text-center py-8 text-gray-500">Supermarket deals loading...</div>'; }
-        function loadStores() { document.getElementById('storesContainer').innerHTML = '<div class="col-span-2 text-center py-8 text-gray-500">Store savings loading...</div>'; }
-        function loadVoucherCodes() {
-            document.getElementById('voucherCodesContainer').innerHTML = `
-                <div class="bg-white rounded-2xl p-5 shadow-md border-l-4 border-orange-500"><h3 class="font-bold text-lg">🛒 Ocado</h3><p class="text-gray-600 mb-2">25% off £60+ first order</p><button onclick="claimOffer('https://www.ocado.com', 'VOU7311870', 'Ocado')" class="w-full bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-xl font-bold transition-all">📋 COPY CODE: VOU7311870 →</button></div>
-                <div class="bg-white rounded-2xl p-5 shadow-md border-l-4 border-blue-500"><h3 class="font-bold text-lg">🛒 Morrisons</h3><p class="text-gray-600 mb-2">£15 off £60+ first order</p><button onclick="claimOffer('https://www.morrisons.com', 'fresh15', 'Morrisons')" class="w-full bg-blue-500 hover:bg-blue-600 text-white py-3 rounded-xl font-bold transition-all">📋 COPY CODE: fresh15 →</button></div>
-                <div class="bg-white rounded-2xl p-5 shadow-md border-l-4 border-green-500"><h3 class="font-bold text-lg">🛒 Sainsbury's</h3><p class="text-gray-600 mb-2">£7 off £105 first order</p><button onclick="claimOffer('https://www.sainsburys.co.uk', 'K7J', 'Sainsbury\'s')" class="w-full bg-green-500 hover:bg-green-600 text-white py-3 rounded-xl font-bold transition-all">📋 COPY CODE: K7J →</button></div>
+        // ========== STORE SAVINGS - FULL 20 STORES ==========
+        const stores = [
+            { name: "Amazon", cashback: 1.5, tip: "Buy gift cards at 3-5% discount. Stack with cashback sites for up to 5% total savings!" },
+            { name: "eBay", cashback: 2, tip: "Check TopCashback for 2-3% cashback. Buy gift cards for extra 3%." },
+            { name: "Tesco", cashback: 4.5, tip: "Gift cards via Jam Doughnut (4% off) + cashback = up to 8.5% savings!" },
+            { name: "Sainsbury's", cashback: 5, tip: "Cheddar app (5%) + gift cards (4%) + Nectar = up to 11% savings!" },
+            { name: "Boots", cashback: 5, tip: "Gift cards at 5% discount + 5% cashback = 10% total!" },
+            { name: "ASOS", cashback: 3, tip: "Student discount (20%) + cashback (3%) + gift cards = up to 27% off!" },
+            { name: "Currys", cashback: 3, tip: "Stack cashback (3%) + gift cards (4%) + student = up to 17% savings!" },
+            { name: "Argos", cashback: 2.5, tip: "Use Nectar points + gift cards at 3-5% discount." },
+            { name: "Very", cashback: 4, tip: "First order 20% + cashback (4%) + gift cards = up to 24% off!" },
+            { name: "John Lewis", cashback: 2.5, tip: "Price match guarantee + gift cards (4% off) = up to 6.5% savings." },
+            { name: "Marks & Spencer", cashback: 4, tip: "Gift cards (4.5% off) + cashback (4%) + Sparks = up to 10% savings." },
+            { name: "IKEA", cashback: 2, tip: "Check As-is section for bargains + gift cards (2-3% off)." },
+            { name: "Next", cashback: 3.5, tip: "Buy gift cards at 4-5% discount + cashback = best deals." },
+            { name: "H&M", cashback: 4, tip: "Sign-up 15% + cashback (4%) + gift cards = up to 22% savings." },
+            { name: "Zara", cashback: 2, tip: "Wait for seasonal sales + gift cards (3% off) = best strategy." },
+            { name: "Sports Direct", cashback: 3, tip: "Student discount + cashback + gift cards = up to 17% off." },
+            { name: "Decathlon", cashback: 3, tip: "Membership gives points + gift cards (3% off) = 6% savings." },
+            { name: "Game", cashback: 3.5, tip: "Trade in old games + gift cards (3% off) = 6.5% savings." },
+            { name: "Waitrose", cashback: 3, tip: "Free coffee + gift cards (3-4% off) = 6-7% savings." },
+            { name: "Ocado", cashback: 5, tip: "First order 25% + cashback (5%) + gift cards = up to 33% off!" }
+        ];
+        
+        function loadStores() {
+            const container = document.getElementById('storesContainer');
+            container.innerHTML = stores.map(store => `
+                <div class="store-card card-hover">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-lg text-gray-800">🛍️ ${store.name}</h3>
+                        <span class="cashback-badge">💰 ${store.cashback}% Cashback</span>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-3">${store.tip}</p>
+                    <button onclick="window.open('https://www.${store.name.toLowerCase().replace(/[&']/g, '')}.co.uk', '_blank'); addXP(2, 'Visited ${store.name}'); addClick();" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-2 rounded-xl font-medium transition text-sm">🚀 Shop at ${store.name}</button>
+                </div>
+            `).join('');
+        }
+        
+        // ========== SUPERMARKET & CODES ==========
+        function loadSupermarketDeals() {
+            document.getElementById('supermarketContainer').innerHTML = `
+                <div class="bg-white rounded-2xl p-5 shadow-md border-l-4 border-emerald-500"><h3 class="font-bold text-lg">🛒 Tesco Clubcard Prices</h3><p class="text-gray-600">Up to 50% off selected items</p><button onclick="window.open('https://www.tesco.com', '_blank')" class="mt-3 w-full bg-emerald-600 text-white py-2 rounded-xl">View Deals</button></div>
+                <div class="bg-white rounded-2xl p-5 shadow-md border-l-4 border-emerald-500"><h3 class="font-bold text-lg">🛒 Asda Payday Deals</h3><p class="text-gray-600">Up to 40% off selected items</p><button onclick="window.open('https://www.asda.com', '_blank')" class="mt-3 w-full bg-emerald-600 text-white py-2 rounded-xl">View Deals</button></div>
+                <div class="bg-white rounded-2xl p-5 shadow-md border-l-4 border-emerald-500"><h3 class="font-bold text-lg">🛒 Sainsbury's Nectar Prices</h3><p class="text-gray-600">Exclusive prices for Nectar members</p><button onclick="window.open('https://www.sainsburys.co.uk', '_blank')" class="mt-3 w-full bg-emerald-600 text-white py-2 rounded-xl">View Deals</button></div>
+                <div class="bg-white rounded-2xl p-5 shadow-md border-l-4 border-emerald-500"><h3 class="font-bold text-lg">🛒 Iceland Bonus Club</h3><p class="text-gray-600">Members-only prices</p><button onclick="window.open('https://www.iceland.co.uk', '_blank')" class="mt-3 w-full bg-emerald-600 text-white py-2 rounded-xl">View Deals</button></div>
             `;
         }
+        
         function loadVoucherHighlights() {
             document.getElementById('voucherHighlights').innerHTML = `
                 <div class="voucher-highlight rounded-2xl p-6 text-white shadow-xl"><div class="flex justify-between"><div><h3 class="text-2xl font-extrabold">🛒 Ocado</h3><p class="text-3xl font-bold mt-2">25% OFF</p><p class="text-sm opacity-90">on £60+ first order</p></div><span class="bg-white/20 px-3 py-1 rounded-full text-sm">🔥 HOT DEAL</span></div><button onclick="claimOffer('https://www.ocado.com', 'VOU7311870', 'Ocado')" class="w-full mt-4 bg-white text-orange-600 py-3 rounded-xl font-bold transition-all">📋 COPY CODE: VOU7311870 →</button></div>
                 <div class="voucher-highlight rounded-2xl p-6 text-white shadow-xl"><div class="flex justify-between"><div><h3 class="text-2xl font-extrabold">🛒 Morrisons</h3><p class="text-3xl font-bold mt-2">£15 OFF</p><p class="text-sm opacity-90">on £60+ first order</p></div><span class="bg-white/20 px-3 py-1 rounded-full text-sm">🔥 HOT DEAL</span></div><button onclick="claimOffer('https://www.morrisons.com', 'fresh15', 'Morrisons')" class="w-full mt-4 bg-white text-orange-600 py-3 rounded-xl font-bold transition-all">📋 COPY CODE: fresh15 →</button></div>
                 <div class="voucher-highlight rounded-2xl p-6 text-white shadow-xl"><div class="flex justify-between"><div><h3 class="text-2xl font-extrabold">🛒 Sainsbury's</h3><p class="text-3xl font-bold mt-2">£7 OFF</p><p class="text-sm opacity-90">on £105+ first order</p></div><span class="bg-white/20 px-3 py-1 rounded-full text-sm">🔥 HOT DEAL</span></div><button onclick="claimOffer('https://www.sainsburys.co.uk', 'K7J', 'Sainsbury\'s')" class="w-full mt-4 bg-white text-orange-600 py-3 rounded-xl font-bold transition-all">📋 COPY CODE: K7J →</button></div>
+            `;
+        }
+        
+        function loadVoucherCodes() {
+            document.getElementById('voucherCodesContainer').innerHTML = `
+                <div class="bg-white rounded-2xl p-5 shadow-md border-l-4 border-orange-500"><h3 class="font-bold text-lg">🛒 Ocado</h3><p class="text-gray-600 mb-2">25% off £60+ first order</p><button onclick="claimOffer('https://www.ocado.com', 'VOU7311870', 'Ocado')" class="w-full bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-xl font-bold transition-all">📋 COPY CODE: VOU7311870 →</button></div>
+                <div class="bg-white rounded-2xl p-5 shadow-md border-l-4 border-blue-500"><h3 class="font-bold text-lg">🛒 Morrisons</h3><p class="text-gray-600 mb-2">£15 off £60+ first order</p><button onclick="claimOffer('https://www.morrisons.com', 'fresh15', 'Morrisons')" class="w-full bg-blue-500 hover:bg-blue-600 text-white py-3 rounded-xl font-bold transition-all">📋 COPY CODE: fresh15 →</button></div>
+                <div class="bg-white rounded-2xl p-5 shadow-md border-l-4 border-green-500"><h3 class="font-bold text-lg">🛒 Sainsbury's</h3><p class="text-gray-600 mb-2">£7 off £105 first order</p><button onclick="claimOffer('https://www.sainsburys.co.uk', 'K7J', 'Sainsbury\'s')" class="w-full bg-green-500 hover:bg-green-600 text-white py-3 rounded-xl font-bold transition-all">📋 COPY CODE: K7J →</button></div>
             `;
         }
         
