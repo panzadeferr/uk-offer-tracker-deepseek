@@ -1,6 +1,8 @@
 """
-Multi-Supermarket Deal Scraper with Stacked Prices
-Runs daily via GitHub Actions, sends best deals to Telegram
+Complete Money Hunters Scraper
+- 30+ manual offers (bank switches, referrals, cashback)
+- Supermarket deals with stacked prices
+- Telegram notifications
 """
 
 import json
@@ -10,7 +12,7 @@ from datetime import datetime
 from typing import List, Dict
 
 # ============================================
-# TELEGRAM SETUP (will use GitHub Secrets)
+# TELEGRAM SETUP (Optional)
 # ============================================
 
 TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
@@ -18,40 +20,23 @@ TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "")
 
 
 def send_to_telegram(deal: Dict) -> bool:
-    """
-    Send a deal to Telegram channel using Bot
-    Returns True if sent successfully
-    """
+    """Send a deal to Telegram channel"""
     if not TELEGRAM_BOT_TOKEN or not TELEGRAM_CHAT_ID:
-        print("⚠️ Telegram credentials not set. Skipping...")
         return False
-
     try:
         import requests
-
-        # Format message
         message = f"""
 🛒 *{deal['store']}* - {deal['item']}
-💰 Original: {deal.get('original_price', 'Varies')}
-🎁 Deal Price: {deal['deal_price']}
+💰 Deal Price: {deal['deal_price']}
 📊 Stacked Price: *£{deal['stacked_price']:.2f}*
-💡 Save {deal['saving_percent']}% with {deal['best_payment_method']}
-
+💡 Save with {deal['best_payment_method']}
 🔗 {deal['link']}
         """.strip()
-
         url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
-        payload = {
-            "chat_id": TELEGRAM_CHAT_ID,
-            "text": message,
-            "parse_mode": "Markdown"
-        }
-
+        payload = {"chat_id": TELEGRAM_CHAT_ID, "text": message, "parse_mode": "Markdown"}
         response = requests.post(url, json=payload, timeout=10)
         return response.status_code == 200
-
-    except Exception as e:
-        print(f"❌ Telegram send failed: {e}")
+    except:
         return False
 
 
@@ -60,153 +45,106 @@ def send_to_telegram(deal: Dict) -> bool:
 # ============================================
 
 STACKING_RATES = {
-    "Tesco": 5.3,      # EverUp (4.9%) + Clubcard points
-    "Sainsbury's": 4.4,  # JamDoughnut (4.1%) + Nectar points
-    "Asda": 4.5,        # Airtime (4%) + Asda Rewards
-    "Iceland": 5.0      # TopCashback (3.5%) + Bonus Card offers
+    "Tesco": 5.3,
+    "Sainsbury's": 4.4,
+    "Asda": 4.5,
+    "Iceland": 5.0,
+    "Morrisons": 4.0,
+    "Waitrose": 3.5,
+    "Aldi": 2.0,
+    "Lidl": 2.0
 }
 
 BEST_PAYMENT = {
-    "Tesco": "EverUp Gift Card (4.9%) + Clubcard",
+    "Tesco": "EverUp (4.9%) + Clubcard",
     "Sainsbury's": "JamDoughnut (4.1%) + Nectar",
     "Asda": "Airtime Rewards (4%) + Asda Rewards",
-    "Iceland": "TopCashback (3.5%) + Bonus Card"
+    "Iceland": "TopCashback (3.5%) + Bonus Card",
+    "Morrisons": "Cheddar (3%) + More Card",
+    "Waitrose": "JamDoughnut (3.5%) + MyWaitrose",
+    "Aldi": "No gift cards, but use cashback credit card",
+    "Lidl": "No gift cards, but use cashback credit card"
 }
 
 
 # ============================================
-# DEAL DATABASE (Manual for now - upgrade later)
+# 30+ MANUAL OFFERS (Bank Switches, Referrals, Cashback)
 # ============================================
 
-def get_tesco_deals() -> List[Dict]:
-    """Get Tesco deals - can be upgraded with Playwright later"""
+def get_manual_offers() -> List[Dict]:
+    """All your original BeermoneyUK offers"""
     return [
-        {
-            "store": "Tesco",
-            "item": "Clubcard Prices - Selected Items",
-            "original_price": "Varies",
-            "deal_price": "Up to 50% off",
-            "link": "https://www.tesco.com/clubcard/prices/",
-            "saving_percent": 50,
-            "base_price": 20  # Example price for stacking calculation
-        },
-        {
-            "store": "Tesco",
-            "item": "Fresh Meat & Fish",
-            "original_price": "£10.00",
-            "deal_price": "£7.00",
-            "link": "https://www.tesco.com/groceries/en-GB/shop/fresh-food/all",
-            "saving_percent": 30,
-            "base_price": 7
-        },
-        {
-            "store": "Tesco",
-            "item": "Wine Selection - 6 Bottles",
-            "original_price": "£42.00",
-            "deal_price": "£30.00",
-            "link": "https://www.tesco.com/groceries/en-GB/shop/drinks/wine/all",
-            "saving_percent": 29,
-            "base_price": 30
-        }
+        # BANK SWITCH OFFERS
+        {"store": "Lloyds Bank", "item": "Open Account + Switch", "deal_price": "£250", "link": "https://apply.lloydsbank.co.uk/sales-content/cwa/l/onboardpca/index-app.html?from=ob&webDirect=true&redesign=true&token=JpGVwskEUPxoFpO3Mg4RTAUZg6q6Emjz578QtNaABT8=&redesign=true#/refer-friend", "original_price": "£0", "saving_percent": 100, "type": "bank_switch", "code": "", "steps": ["Open account", "Switch using CASS", "Get £250"], "timeFrame": "30 days"},
+        {"store": "Chase UK", "item": "Deposit £1,000 → £50", "deal_price": "£50", "link": "https://chase.co.uk/raf", "original_price": "£0", "saving_percent": 100, "type": "bank_switch", "code": "J2SK9W", "steps": ["Copy code J2SK9W", "Open account", "Deposit £1,000 in 30 days"], "timeFrame": "30 days"},
+        {"store": "Monzo", "item": "Spend £1 → Get £5-£50", "deal_price": "£5-£50", "link": "https://join.monzo.com/r/", "original_price": "£1", "saving_percent": 90, "type": "referral", "code": "", "steps": ["Sign up", "Spend £1", "Get bonus"], "timeFrame": "Immediate"},
+        {"store": "Revolut", "item": "Spend £1 → Get £20", "deal_price": "£20", "link": "https://revolut.com/referral/?referral-code=ludoviv2sq!MAR1-26-AR-H2&geo-redirect", "original_price": "£1", "saving_percent": 95, "type": "referral", "code": "", "steps": ["Sign up", "Spend £1", "Get £20"], "timeFrame": "~1 month"},
+        {"store": "First Direct", "item": "Switch Account → £175", "deal_price": "£175", "link": "https://www.firstdirect.com/banking/switch/", "original_price": "£0", "saving_percent": 100, "type": "bank_switch", "code": "", "steps": ["Switch using CASS", "Pay in £1,000", "Get £175"], "timeFrame": "30 days"},
+        {"store": "Halifax", "item": "Switch Account → £150", "deal_price": "£150", "link": "https://www.halifax.co.uk/currentaccounts/", "original_price": "£0", "saving_percent": 100, "type": "bank_switch", "code": "", "steps": ["Switch using CASS", "Pay in £1,500", "Get £150"], "timeFrame": "30 days"},
+        {"store": "NatWest", "item": "Switch Account → £200", "deal_price": "£200", "link": "https://www.natwest.com/current-accounts/switch/", "original_price": "£0", "saving_percent": 100, "type": "bank_switch", "code": "", "steps": ["Switch using CASS", "2 direct debits", "Get £200"], "timeFrame": "30 days"},
+        
+        # INVESTMENT OFFERS
+        {"store": "Freetrade", "item": "Deposit £1 → Free Share (£10-£100)", "deal_price": "£10-£100", "link": "https://magic.freetrade.io/join/alberto/6f308795", "original_price": "£1", "saving_percent": 90, "type": "invest", "code": "", "steps": ["Deposit £1", "Get free share"], "timeFrame": "Few days"},
+        {"store": "Robinhood", "item": "Deposit £1 → Free Share", "deal_price": "£10-£140", "link": "https://join.robinhood.com/albertb-d5dfe0", "original_price": "£1", "saving_percent": 90, "type": "invest", "code": "", "steps": ["Deposit £1", "Get free share"], "timeFrame": "Few days"},
+        {"store": "Plum", "item": "Refer 3 Friends → £75", "deal_price": "£75", "link": "https://friends.withplum.com/r/RxK7c2fUNa", "original_price": "£0", "saving_percent": 100, "type": "invest", "code": "", "steps": ["Join Plum", "Refer 3 friends", "Get £75"], "timeFrame": "Expires April 7th"},
+        {"store": "Webull", "item": "Deposit £500 → £50 Credit", "deal_price": "£50", "link": "https://www.webull-uk.com/s/zEUukbJam8GjmUx6yq", "original_price": "£500", "saving_percent": 10, "type": "invest", "code": "", "steps": ["Deposit £500", "Keep 60 days", "Get £50"], "timeFrame": "60 days"},
+        {"store": "Wealthify", "item": "Invest £1,000 → £50 Bonus", "deal_price": "£50", "link": "https://invest.wealthify.com/refer/81122944", "original_price": "£1,000", "saving_percent": 5, "type": "invest", "code": "", "steps": ["Invest £1,000", "Hold 6 months", "Get £50"], "timeFrame": "6 months"},
+        {"store": "Moneybox", "item": "Save & Invest - Great for DDs", "deal_price": "Bonus", "link": "https://go.onelink.me/5M0L?pid=share&c=EN8YW8", "original_price": "£0", "saving_percent": 0, "type": "invest", "code": "", "steps": ["Download Moneybox", "Perfect for direct debits"], "timeFrame": "Ongoing"},
+        
+        # CASHBACK SITES
+        {"store": "TopCashback", "item": "Cashback Site - £10 Bonus", "deal_price": "£10", "link": "https://www.topcashback.co.uk/ref/Panzadeferr/?source_id=4", "original_price": "£0", "saving_percent": 100, "type": "cashback", "code": "", "steps": ["Join TopCashback", "Shop through site"], "timeFrame": "Lifetime"},
+        {"store": "Quidco", "item": "Cashback Site - £20 Bonus", "deal_price": "£20", "link": "https://quidco.onelink.me/nKzg/v2f3f7m0", "original_price": "£0", "saving_percent": 100, "type": "cashback", "code": "", "steps": ["Join Quidco", "Earn £5 cashback", "Get £20"], "timeFrame": "After earning £5"},
+        {"store": "Rakuten", "item": "Cashback Site - £25 Bonus", "deal_price": "£25", "link": "www.rakuten.co.uk/r/ALBERT24541?eeid=28187", "original_price": "£50", "saving_percent": 50, "type": "cashback", "code": "", "steps": ["Join Rakuten", "Spend £50 + VAT", "Get £25"], "timeFrame": "After first purchase"},
+        
+        # GIFT CARD APPS
+        {"store": "Airtime", "item": "Gift Card Cashback - £2 Bonus", "deal_price": "£2", "link": "https://airtimerewards.app.link/6Waa7E1IF1b", "original_price": "£5", "saving_percent": 40, "type": "cashback", "code": "FRJKFXX3", "steps": ["Use code FRJKFXX3", "Spend £5 in 7 days", "Get £2"], "timeFrame": "7 days"},
+        {"store": "Cheddar", "item": "Gift Card Cashback - £3 Bonus", "deal_price": "£3", "link": "https://get.cheddar.me/app/FVESBGB", "original_price": "£0", "saving_percent": 100, "type": "cashback", "code": "FVESBGB", "steps": ["Use code FVESBGB", "Earn cashback at retailers"], "timeFrame": "Ongoing"},
+        {"store": "Jam Doughnut", "item": "Gift Card Cashback - £3 Bonus", "deal_price": "£3", "link": "https://www.jamdoughnut.com/", "original_price": "£0", "saving_percent": 100, "type": "cashback", "code": "8TGF", "steps": ["Use code 8TGF", "Buy gift cards with cashback"], "timeFrame": "Immediate"},
+        {"store": "EverUp", "item": "Gift Card Cashback", "deal_price": "£2", "link": "https://everup.onelink.me/9lgD/3d22pmln", "original_price": "£0", "saving_percent": 100, "type": "cashback", "code": "", "steps": ["Join EverUp", "Link cards", "Earn cashback"], "timeFrame": "Ongoing"},
+        
+        # BUSINESS ACCOUNTS
+        {"store": "Tide", "item": "Business Account - £75 Free", "deal_price": "£75", "link": "https://www.tide.co/", "original_price": "£0", "saving_percent": 100, "type": "business", "code": "3834VA", "steps": ["Sign up for Tide", "Use code 3834VA", "Make first transaction"], "timeFrame": "After first transaction"},
+        {"store": "WorldFirst", "item": "Business - Up to £355 Reward", "deal_price": "£355", "link": "https://s.worldfirst.com/2TuviC?default_source=WF-Ts00000OCun2&referral_id=WF-Ts00000OCun2&utm_campaign=COE_MGM_UK_2602&utm_date=app&lang=en_GB", "original_price": "£0", "saving_percent": 100, "type": "business", "code": "", "steps": ["Open WorldFirst", "Make qualifying transactions", "Get up to £355"], "timeFrame": "Varies"},
+        
+        # UTILITIES
+        {"store": "Octopus Energy", "item": "Switch Energy - £50 Credit", "deal_price": "£50", "link": "https://share.octopus.energy/ocean-quoll-258", "original_price": "£0", "saving_percent": 100, "type": "utilities", "code": "", "steps": ["Switch to Octopus", "Use referral link", "Both get £50"], "timeFrame": "After switch"},
+        {"store": "Lebara", "item": "Mobile SIM - Referral Bonus", "deal_price": "Discount", "link": "https://aklam.io/hgY3HOvR", "original_price": "£0", "saving_percent": 20, "type": "utilities", "code": "", "steps": ["Sign up for Lebara", "Get great SIM deals"], "timeFrame": "Immediate"},
+        
+        # FREEBIES
+        {"store": "Costa", "item": "Free Cake + Coffee", "deal_price": "Free", "link": "https://www.costa.co.uk/", "original_price": "£5", "saving_percent": 100, "type": "freebies", "code": "", "steps": ["Sign up for Costa Club", "Get free cake & half drink"], "timeFrame": "Immediate"},
+        {"store": "Waitrose", "item": "Free Coffee Daily", "deal_price": "Free", "link": "https://www.waitrose.com/", "original_price": "£3", "saving_percent": 100, "type": "freebies", "code": "", "steps": ["Get Waitrose card", "Free tea/coffee daily"], "timeFrame": "Daily"},
+        
+        # MONEY TRANSFER
+        {"store": "Wise", "item": "Free Transfer + Card", "deal_price": "Free", "link": "https://wise.com/invite/ahpc/albertob1508", "original_price": "£5", "saving_percent": 100, "type": "transfer", "code": "", "steps": ["Sign up for Wise", "First transfer free", "Get free card"], "timeFrame": "Immediate"},
+        
+        # CREDIT CARD
+        {"store": "AMEX", "item": "Spend £3,000 → £150+", "deal_price": "£150", "link": "https://americanexpress.com/en-gb/referral/platinum-charge?ref=aLBERBf3Ob&XL=MNMNS", "original_price": "£0", "saving_percent": 100, "type": "credit", "code": "", "steps": ["Apply for AMEX", "Spend £3,000 in 3 months", "Get £150"], "timeFrame": "3 months"},
+        
+        # TRAVEL
+        {"store": "TrainPal", "item": "£3 Off Train Tickets", "deal_price": "£3", "link": "https://t.trainpal.com/wUEPLNq", "original_price": "£0", "saving_percent": 100, "type": "travel", "code": "03ba089c$00", "steps": ["Download TrainPal", "Use code 03ba089c$00", "Save on train tickets"], "timeFrame": "Use within 7 days"},
+        
+        # OTHER REFERRALS
+        {"store": "Zilch", "item": "Sign Up → £5 Free", "deal_price": "£5", "link": "https://zilch.onelink.me/x8EV/zdehyy8s", "original_price": "£0", "saving_percent": 100, "type": "referral", "code": "", "steps": ["Sign up for Zilch", "Get £5 credit instantly"], "timeFrame": "Instant"},
+        {"store": "Zopa (Biscuit)", "item": "Open Account → £10 Free", "deal_price": "£10", "link": "www.zopa.com/mgma?referralCode=ed204ce1b3dd265fa533", "original_price": "£0", "saving_percent": 100, "type": "referral", "code": "", "steps": ["Open Biscuit account", "Get £10 instantly"], "timeFrame": "Instant"},
+        {"store": "PensionBee", "item": "Sign Up → £50 in Pension", "deal_price": "£50", "link": "https://www.pensionbee.com/", "original_price": "£0", "saving_percent": 100, "type": "pension", "code": "", "steps": ["Sign up for PensionBee", "Get £50 in your pension"], "timeFrame": "~1 month"}
     ]
 
 
-def get_asda_deals() -> List[Dict]:
-    """Get Asda deals"""
+# ============================================
+# SUPERMARKET DEALS
+# ============================================
+
+def get_supermarket_deals() -> List[Dict]:
+    """Supermarket deals with stacked prices"""
     return [
-        {
-            "store": "Asda",
-            "item": "Payday Deals - Selected Items",
-            "original_price": "Varies",
-            "deal_price": "Up to 40% off",
-            "link": "https://www.asda.com/deals",
-            "saving_percent": 40,
-            "base_price": 15
-        },
-        {
-            "store": "Asda",
-            "item": "Fresh Fruit & Vegetables - Mix & Match",
-            "original_price": "£3.50",
-            "deal_price": "£2.50",
-            "link": "https://groceries.asda.com/deals/fresh-food",
-            "saving_percent": 29,
-            "base_price": 2.5
-        },
-        {
-            "store": "Asda",
-            "item": "Household Essentials Bundle",
-            "original_price": "£8.00",
-            "deal_price": "£5.50",
-            "link": "https://groceries.asda.com/deals/household",
-            "saving_percent": 31,
-            "base_price": 5.5
-        }
-    ]
-
-
-def get_sainsburys_deals() -> List[Dict]:
-    """Get Sainsbury's deals"""
-    return [
-        {
-            "store": "Sainsbury's",
-            "item": "Nectar Prices - Members Only",
-            "original_price": "Varies",
-            "deal_price": "Exclusive Nectar prices",
-            "link": "https://www.sainsburys.co.uk/nectar-prices",
-            "saving_percent": 25,
-            "base_price": 12
-        },
-        {
-            "store": "Sainsbury's",
-            "item": "Fresh Bakery - 2 for £3",
-            "original_price": "£3.50",
-            "deal_price": "£3.00",
-            "link": "https://www.sainsburys.co.uk/groceries/bakery",
-            "saving_percent": 14,
-            "base_price": 3
-        },
-        {
-            "store": "Sainsbury's",
-            "item": "Meal Deal - Lunch",
-            "original_price": "£5.00",
-            "deal_price": "£3.50",
-            "link": "https://www.sainsburys.co.uk/meal-deal",
-            "saving_percent": 30,
-            "base_price": 3.5
-        }
-    ]
-
-
-def get_iceland_deals() -> List[Dict]:
-    """Get Iceland deals"""
-    return [
-        {
-            "store": "Iceland",
-            "item": "3 for £10 - Selected Frozen",
-            "original_price": "£15.00",
-            "deal_price": "£10.00",
-            "link": "https://www.iceland.co.uk/offers",
-            "saving_percent": 33,
-            "base_price": 10
-        },
-        {
-            "store": "Iceland",
-            "item": "Bonus Club Offers - Members Only",
-            "original_price": "Varies",
-            "deal_price": "Members-only prices",
-            "link": "https://www.iceland.co.uk/bonus-card",
-            "saving_percent": 20,
-            "base_price": 8
-        },
-        {
-            "store": "Iceland",
-            "item": "Family Favourites Bundle",
-            "original_price": "£12.00",
-            "deal_price": "£8.00",
-            "link": "https://www.iceland.co.uk/family-meals",
-            "saving_percent": 33,
-            "base_price": 8
-        }
+        {"store": "Tesco", "item": "Clubcard Prices - Selected Items", "deal_price": "Up to 50% off", "link": "https://www.tesco.com/clubcard/prices/", "original_price": "Varies", "saving_percent": 50, "base_price": 20},
+        {"store": "Tesco", "item": "Fresh Meat & Fish", "deal_price": "£7.00", "link": "https://www.tesco.com/groceries/en-GB/shop/fresh-food/all", "original_price": "£10.00", "saving_percent": 30, "base_price": 7},
+        {"store": "Asda", "item": "Payday Deals - Selected Items", "deal_price": "Up to 40% off", "link": "https://www.asda.com/deals", "original_price": "Varies", "saving_percent": 40, "base_price": 15},
+        {"store": "Asda", "item": "Fresh Fruit & Vegetables", "deal_price": "£2.50", "link": "https://groceries.asda.com/deals/fresh-food", "original_price": "£3.50", "saving_percent": 29, "base_price": 2.5},
+        {"store": "Sainsbury's", "item": "Nectar Prices - Members Only", "deal_price": "Exclusive prices", "link": "https://www.sainsburys.co.uk/nectar-prices", "original_price": "Varies", "saving_percent": 25, "base_price": 12},
+        {"store": "Sainsbury's", "item": "Meal Deal - Lunch", "deal_price": "£3.50", "link": "https://www.sainsburys.co.uk/meal-deal", "original_price": "£5.00", "saving_percent": 30, "base_price": 3.5},
+        {"store": "Iceland", "item": "3 for £10 - Selected Frozen", "deal_price": "£10.00", "link": "https://www.iceland.co.uk/offers", "original_price": "£15.00", "saving_percent": 33, "base_price": 10},
+        {"store": "Iceland", "item": "Family Favourites Bundle", "deal_price": "£8.00", "link": "https://www.iceland.co.uk/family-meals", "original_price": "£12.00", "saving_percent": 33, "base_price": 8}
     ]
 
 
@@ -215,23 +153,19 @@ def get_iceland_deals() -> List[Dict]:
 # ============================================
 
 def calculate_stacked_price(deal: Dict) -> float:
-    """
-    Calculate the real price after stacking discounts
-    Uses store-specific stacking rates
-    """
+    """Calculate real price after stacking discounts"""
     store = deal["store"]
     base_price = deal.get("base_price", 0)
-
-    # Try to extract price from deal_price string if base_price not set
-    if base_price == 0 and "£" in deal["deal_price"]:
+    
+    if base_price == 0 and "£" in str(deal.get("deal_price", "")):
         import re
-        match = re.search(r'£(\d+(?:\.\d{2})?)', deal["deal_price"])
+        match = re.search(r'£(\d+(?:\.\d{2})?)', str(deal["deal_price"]))
         if match:
             base_price = float(match.group(1))
-
+    
     if base_price == 0:
         return 0
-
+    
     stacking_rate = STACKING_RATES.get(store, 4.0)
     savings = base_price * (stacking_rate / 100)
     return round(base_price - savings, 2)
@@ -243,75 +177,57 @@ def calculate_stacked_price(deal: Dict) -> float:
 
 def run_all_scrapers() -> Dict:
     """Run all scrapers and save results"""
-    print("🛒 Supermarket Deal Scraper Starting...")
+    print("🛒 Money Hunters Scraper Starting...")
     print("=" * 50)
-
+    
     all_deals = []
-
-    # Run each scraper
-    print("\n📦 Fetching Tesco deals...")
-    tesco_deals = get_tesco_deals()
-    all_deals.extend(tesco_deals)
-    print(f"   Found {len(tesco_deals)} deals")
-
-    print("\n📦 Fetching Asda deals...")
-    asda_deals = get_asda_deals()
-    all_deals.extend(asda_deals)
-    print(f"   Found {len(asda_deals)} deals")
-
-    print("\n📦 Fetching Sainsbury's deals...")
-    sainsburys_deals = get_sainsburys_deals()
-    all_deals.extend(sainsburys_deals)
-    print(f"   Found {len(sainsburys_deals)} deals")
-
-    print("\n📦 Fetching Iceland deals...")
-    iceland_deals = get_iceland_deals()
-    all_deals.extend(iceland_deals)
-    print(f"   Found {len(iceland_deals)} deals")
-
-    # Calculate stacked prices and add best payment method
-    best_deals = []
+    
+    # Get manual offers (30+)
+    print("\n📦 Fetching manual offers (bank switches, referrals, cashback)...")
+    manual_offers = get_manual_offers()
+    all_deals.extend(manual_offers)
+    print(f"   Found {len(manual_offers)} manual offers")
+    
+    # Get supermarket deals
+    print("\n📦 Fetching supermarket deals...")
+    supermarket_deals = get_supermarket_deals()
+    all_deals.extend(supermarket_deals)
+    print(f"   Found {len(supermarket_deals)} supermarket deals")
+    
+    # Calculate stacked prices for supermarket deals
     for deal in all_deals:
-        stacked_price = calculate_stacked_price(deal)
-        deal["stacked_price"] = stacked_price
-        deal["best_payment_method"] = BEST_PAYMENT.get(deal["store"], "Gift card + loyalty")
-        deal["stacking_rate"] = STACKING_RATES.get(deal["store"], 4.0)
+        if deal["store"] in STACKING_RATES:
+            stacked_price = calculate_stacked_price(deal)
+            deal["stacked_price"] = stacked_price
+            deal["best_payment_method"] = BEST_PAYMENT.get(deal["store"], "Gift card + loyalty")
+            deal["stacking_rate"] = STACKING_RATES.get(deal["store"], 4.0)
+        else:
+            deal["stacked_price"] = 0
+            deal["best_payment_method"] = "N/A"
+            deal["stacking_rate"] = 0
+        
         deal["last_updated"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-
-        if stacked_price > 0:
-            best_deals.append(deal)
-
+    
     # Sort by stacked price (cheapest first)
-    best_deals.sort(key=lambda x: x["stacked_price"] if x["stacked_price"] > 0 else 999)
-
+    all_deals.sort(key=lambda x: x.get("stacked_price", 999) if x.get("stacked_price", 0) > 0 else 999)
+    
     # Save all deals to JSON
     output = {
         "last_updated": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         "total_deals": len(all_deals),
         "stacking_rates": STACKING_RATES,
-        "deals": all_deals,
-        "best_deals": best_deals[:10]  # Top 10 best value deals
+        "deals": all_deals
     }
-
+    
     with open("all_deals.json", "w", encoding="utf-8") as f:
         json.dump(output, f, indent=2, ensure_ascii=False)
-
+    
     print("-" * 40)
     print(f"✅ Total deals found: {len(all_deals)}")
+    print(f"   - Manual offers: {len(manual_offers)}")
+    print(f"   - Supermarket deals: {len(supermarket_deals)}")
     print(f"💾 Saved to all_deals.json")
-
-    # Send top 3 deals to Telegram
-    print("\n📱 Sending top deals to Telegram...")
-    for i, deal in enumerate(best_deals[:3]):
-        if deal["stacked_price"] > 0:
-            success = send_to_telegram(deal)
-            if success:
-                print(f"   ✅ Sent: {deal['store']} - £{deal['stacked_price']}")
-            else:
-                print(f"   ⚠️ Failed to send: {deal['store']}")
-            time.sleep(1)  # Avoid rate limiting
-
-    print("=" * 50)
+    
     return output
 
 
