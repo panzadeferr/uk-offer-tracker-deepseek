@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Money Hunters | High-Conversion Offer Tracker</title>
+    <title>Money Hunters | Auto-Scraping Offer Tracker</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @keyframes pulse-glow {
@@ -31,7 +31,6 @@
         .card-hover { transition: transform 0.2s ease, box-shadow 0.2s ease; }
         .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 25px -12px rgba(0, 0, 0, 0.15); }
         
-        /* Copy Success Toast */
         .copy-toast {
             position: fixed;
             bottom: 100px;
@@ -48,13 +47,11 @@
             white-space: nowrap;
         }
         
-        /* Trust Badge */
         .trust-badge {
             background: linear-gradient(135deg, #10b981, #059669);
             animation: pulse-glow 2s infinite;
         }
         
-        /* Sticky Footer */
         .sticky-footer {
             position: fixed;
             bottom: 0;
@@ -68,14 +65,12 @@
         }
         .sticky-footer.hide { transform: translateY(100%); }
         
-        /* Voucher Highlight */
         .voucher-highlight {
             background: linear-gradient(135deg, #f59e0b, #d97706);
             border: 2px solid #fbbf24;
             animation: float 3s ease-in-out infinite;
         }
         
-        /* Button active scale for tactile feel */
         .claim-btn {
             transition: all 0.2s ease;
         }
@@ -83,211 +78,95 @@
             transform: scale(0.98);
         }
         
-        .stacking-calculator input:focus {
-            outline: none;
-            border-color: #10b981;
-            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+        .scraper-status {
+            background: white;
+            border-radius: 16px;
+            padding: 12px 16px;
+            margin-bottom: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
+        .scraper-btn {
+            background: #10b981;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 40px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .scraper-btn:hover { background: #059669; transform: scale(1.02); }
+        .scraper-btn:active { transform: scale(0.98); }
+        .scraped-badge {
+            background: #8b5cf6;
+            color: white;
+            font-size: 10px;
+            padding: 2px 8px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+        .loading-spinner {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid #fff;
+            border-top-color: transparent;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
     </style>
 </head>
 <body class="bg-gray-50 font-sans antialiased pb-24">
 
     <div class="max-w-4xl mx-auto px-4 py-6 md:py-8">
         
-        <!-- ========== PREMIUM HEADER ========== -->
-        <div class="bg-gradient-to-r from-emerald-600 to-emerald-700 rounded-3xl p-6 mb-8 text-white shadow-xl">
+        <!-- ========== HEADER ========== -->
+        <div class="bg-gradient-to-r from-emerald-600 to-emerald-700 rounded-3xl p-6 mb-6 text-white shadow-xl">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                 <div>
                     <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight">💰 MONEY HUNTERS</h1>
-                    <p class="text-emerald-100 text-sm mt-1">Stack discounts • Track progress • Earn rewards</p>
+                    <p class="text-emerald-100 text-sm mt-1">Auto-scraping • 40+ offers • Stack discounts</p>
                 </div>
                 <div class="flex gap-6">
-                    <div class="text-center">
-                        <div class="text-xs uppercase tracking-wider opacity-80">Total Savings</div>
-                        <div class="text-2xl font-bold" id="totalSavings">£0</div>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-xs uppercase tracking-wider opacity-80">Your Level</div>
-                        <div class="text-2xl font-bold" id="levelDisplay">1</div>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-xs uppercase tracking-wider opacity-80">XP</div>
-                        <div class="text-2xl font-bold" id="xpDisplay">0</div>
-                    </div>
+                    <div class="text-center"><div class="text-xs uppercase tracking-wider opacity-80">Total Savings</div><div class="text-2xl font-bold" id="totalSavings">£0</div></div>
+                    <div class="text-center"><div class="text-xs uppercase tracking-wider opacity-80">Your Level</div><div class="text-2xl font-bold" id="levelDisplay">1</div></div>
+                    <div class="text-center"><div class="text-xs uppercase tracking-wider opacity-80">XP</div><div class="text-2xl font-bold" id="xpDisplay">0</div></div>
                 </div>
             </div>
-            
-            <!-- XP Progress Bar -->
             <div class="mt-4">
-                <div class="flex justify-between text-sm mb-1">
-                    <span id="levelNameDisplay">Saver Recruit</span>
-                    <span id="xpProgressText">0/50 XP</span>
-                </div>
-                <div class="h-2 bg-emerald-800/50 rounded-full overflow-hidden">
-                    <div id="xpProgressBar" class="progress-bar h-full bg-gradient-to-r from-emerald-300 to-white rounded-full" style="width: 0%"></div>
-                </div>
+                <div class="flex justify-between text-sm mb-1"><span id="levelNameDisplay">Saver Recruit</span><span id="xpProgressText">0/50 XP</span></div>
+                <div class="h-2 bg-emerald-800/50 rounded-full overflow-hidden"><div id="xpProgressBar" class="progress-bar h-full bg-gradient-to-r from-emerald-300 to-white rounded-full" style="width: 0%"></div></div>
             </div>
         </div>
 
-        <!-- ========== MAIN TABS ========== -->
-        <div class="flex gap-2 mb-8 bg-white p-1 rounded-2xl shadow-sm">
-            <button data-tab="offers" class="tab-btn flex-1 py-3 rounded-xl font-semibold transition-all bg-emerald-600 text-white shadow-md">🔥 Bank & Referral</button>
-            <button data-tab="supermarket" class="tab-btn flex-1 py-3 rounded-xl font-semibold transition-all bg-white text-gray-600">🛒 Supermarket Stacking</button>
-            <button data-tab="stores" class="tab-btn flex-1 py-3 rounded-xl font-semibold transition-all bg-white text-gray-600">🏪 Store Savings</button>
-            <button data-tab="codes" class="tab-btn flex-1 py-3 rounded-xl font-semibold transition-all bg-white text-gray-600">🎫 Voucher Codes</button>
+        <!-- ========== SCRAPER STATUS ========== -->
+        <div class="scraper-status">
+            <div><span class="text-lg">🕷️</span> <span id="scraperStatus">Ready to scrape fresh offers</span></div>
+            <button class="scraper-btn" onclick="runAllScrapers()" id="scrapeBtn">🔄 Scrape New Offers (HotUKDeals/Reddit/MSE)</button>
         </div>
 
-        <!-- ========== OFFERS SECTION - HIGH-CONVERSION CARDS ========== -->
+        <!-- ========== TABS ========== -->
+        <div class="flex gap-2 mb-6 bg-white p-1 rounded-2xl shadow-sm overflow-x-auto">
+            <button data-tab="offers" class="tab-btn flex-1 py-3 rounded-xl font-semibold transition-all bg-emerald-600 text-white shadow-md whitespace-nowrap px-3">🔥 Offers (<span id="offerCount">40+</span>)</button>
+            <button data-tab="supermarket" class="tab-btn flex-1 py-3 rounded-xl font-semibold transition-all bg-white text-gray-600 whitespace-nowrap px-3">🛒 Supermarket Stacking</button>
+            <button data-tab="stores" class="tab-btn flex-1 py-3 rounded-xl font-semibold transition-all bg-white text-gray-600 whitespace-nowrap px-3">🏪 Store Savings</button>
+            <button data-tab="codes" class="tab-btn flex-1 py-3 rounded-xl font-semibold transition-all bg-white text-gray-600 whitespace-nowrap px-3">🎫 Voucher Codes</button>
+        </div>
+
+        <!-- ========== OFFERS SECTION ========== -->
         <div id="offersSection">
-            <!-- CHASE UK - Premium Card with Copy & Go -->
-            <div class="p-4 border-2 border-emerald-500 rounded-2xl bg-emerald-50 shadow-sm flex flex-col gap-3 mb-6 card-hover">
-                <div class="flex justify-between items-start">
-                    <h3 class="font-bold text-lg text-emerald-900 leading-tight">🏦 Chase UK: £50 Bonus</h3>
-                    <span class="bg-emerald-200 text-emerald-800 text-xs px-2 py-1 rounded-full font-bold">✅ VERIFIED</span>
-                </div>
-                
-                <div class="flex gap-2 flex-wrap">
-                    <span class="bg-emerald-100 text-emerald-700 text-xs px-2 py-1 rounded-full">🎯 100% Success Rate</span>
-                    <span class="bg-emerald-100 text-emerald-700 text-xs px-2 py-1 rounded-full">⭐ Top Earner</span>
-                </div>
-                
-                <p class="text-sm text-emerald-800">Use code <span class="font-mono font-bold bg-white px-2 py-1 border border-emerald-200 rounded">J2SK9W</span> to claim £50 when you deposit £1,000.</p>
-                
-                <!-- Progress Bar -->
-                <div class="mt-2">
-                    <div class="flex justify-between text-xs mb-1">
-                        <span class="font-medium text-emerald-700">Progress</span>
-                        <span id="chaseProgressText" class="text-emerald-600">0/3 steps</span>
-                    </div>
-                    <div class="h-2 bg-emerald-200 rounded-full overflow-hidden">
-                        <div id="chaseProgressBar" class="h-full bg-emerald-500 rounded-full transition-all duration-500" style="width: 0%"></div>
-                    </div>
-                </div>
-                
-                <!-- Task Checklist -->
-                <div class="space-y-2 mt-2">
-                    <div class="flex items-center gap-2">
-                        <input type="checkbox" id="chaseStep1" class="w-4 h-4 rounded border-emerald-300 text-emerald-600" onchange="updateChaseProgress()">
-                        <label for="chaseStep1" class="text-sm text-emerald-700">✅ Open Chase account</label>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <input type="checkbox" id="chaseStep2" class="w-4 h-4 rounded border-emerald-300 text-emerald-600" onchange="updateChaseProgress()">
-                        <label for="chaseStep2" class="text-sm text-emerald-700">💳 Add 2 Direct Debits</label>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <input type="checkbox" id="chaseStep3" class="w-4 h-4 rounded border-emerald-300 text-emerald-600" onchange="updateChaseProgress()">
-                        <label for="chaseStep3" class="text-sm text-emerald-700">💰 Deposit £1,000</label>
-                    </div>
-                </div>
-                
-                <button onclick="claimOffer('https://chase.co.uk/raf', 'J2SK9W', 'Chase UK')" 
-                        class="claim-btn w-full bg-emerald-600 hover:bg-emerald-700 text-white font-black py-3 rounded-xl transition-all transform active:scale-95 shadow-lg mt-2">
-                    📋 COPY CODE & OPEN OFFER →
-                </button>
-            </div>
-
-            <!-- LLOYDS BANK - Premium Card -->
-            <div class="p-4 border-2 border-indigo-500 rounded-2xl bg-indigo-50 shadow-sm flex flex-col gap-3 mb-6 card-hover">
-                <div class="flex justify-between items-start">
-                    <h3 class="font-bold text-lg text-indigo-900 leading-tight">🏦 Lloyds Bank: £250 Switch Bonus</h3>
-                    <span class="bg-indigo-200 text-indigo-800 text-xs px-2 py-1 rounded-full font-bold">✅ VERIFIED</span>
-                </div>
-                
-                <div class="flex gap-2 flex-wrap">
-                    <span class="bg-indigo-100 text-indigo-700 text-xs px-2 py-1 rounded-full">🎯 98% Success Rate</span>
-                    <span class="bg-indigo-100 text-indigo-700 text-xs px-2 py-1 rounded-full">⭐ Highest Paying</span>
-                </div>
-                
-                <p class="text-sm text-indigo-800">Use our <span class="font-mono font-bold bg-white px-2 py-1 border border-indigo-200 rounded">referral link</span> to claim £250 when you switch using CASS + pay in £2,000.</p>
-                
-                <button onclick="claimOffer('https://apply.lloydsbank.co.uk/sales-content/cwa/l/onboardpca/index-app.html?from=ob&webDirect=true&redesign=true&token=JpGVwskEUPxoFpO3Mg4RTAUZg6q6Emjz578QtNaABT8=&redesign=true#/refer-friend', 'Lloyds', 'Lloyds Bank')" 
-                        class="claim-btn w-full bg-indigo-600 hover:bg-indigo-700 text-white font-black py-3 rounded-xl transition-all transform active:scale-95 shadow-lg">
-                    📋 OPEN OFFER & CLAIM £250 →
-                </button>
-            </div>
-
-            <!-- MONZO - Premium Card -->
-            <div class="p-4 border-2 border-blue-500 rounded-2xl bg-blue-50 shadow-sm flex flex-col gap-3 mb-6 card-hover">
-                <div class="flex justify-between items-start">
-                    <h3 class="font-bold text-lg text-blue-900 leading-tight">💳 Monzo: £5-£50 Bonus</h3>
-                    <span class="bg-blue-200 text-blue-800 text-xs px-2 py-1 rounded-full font-bold">⭐ POPULAR</span>
-                </div>
-                
-                <p class="text-sm text-blue-800">Use code <span class="font-mono font-bold bg-white px-2 py-1 border border-blue-200 rounded">https://join.monzo.com/r/</span> to get £5-£50 when you spend £1.</p>
-                
-                <button onclick="claimOffer('https://join.monzo.com/r/', 'https://join.monzo.com/r/', 'Monzo')" 
-                        class="claim-btn w-full bg-blue-600 hover:bg-blue-700 text-white font-black py-3 rounded-xl transition-all transform active:scale-95 shadow-lg">
-                    📋 COPY LINK & OPEN OFFER →
-                </button>
-            </div>
-
-            <!-- FIRST DIRECT - Premium Card -->
-            <div class="p-4 border-2 border-amber-500 rounded-2xl bg-amber-50 shadow-sm flex flex-col gap-3 mb-6 card-hover">
-                <div class="flex justify-between items-start">
-                    <h3 class="font-bold text-lg text-amber-900 leading-tight">🏦 First Direct: £175 Switch Bonus</h3>
-                    <span class="bg-amber-200 text-amber-800 text-xs px-2 py-1 rounded-full font-bold">🔥 TRENDING</span>
-                </div>
-                
-                <p class="text-sm text-amber-800">Switch using CASS + pay in £1,000 → Get £175! One of the easiest bank switches.</p>
-                
-                <button onclick="claimOffer('https://www.firstdirect.com/banking/switch/', 'First Direct', 'First Direct')" 
-                        class="claim-btn w-full bg-amber-600 hover:bg-amber-700 text-white font-black py-3 rounded-xl transition-all transform active:scale-95 shadow-lg">
-                    📋 OPEN OFFER & CLAIM £175 →
-                </button>
-            </div>
+            <div id="offersContainer" class="space-y-4"></div>
         </div>
 
-        <!-- ========== SUPERMARKET STACKING SECTION ========== -->
+        <!-- ========== SUPERMARKET SECTION ========== -->
         <div id="supermarketSection" class="hidden">
-            <!-- VOUCHER HIGHLIGHT SECTION - BIGGER & BRIGHTER -->
-            <div class="grid gap-6 md:grid-cols-2 mb-8">
-                <div class="voucher-highlight rounded-2xl p-6 text-white shadow-xl transform hover:scale-[1.02] transition-all">
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <h3 class="text-2xl font-extrabold">🛒 Ocado</h3>
-                            <p class="text-3xl font-bold mt-2">25% OFF</p>
-                            <p class="text-sm opacity-90 mt-1">on £60+ first order</p>
-                        </div>
-                        <span class="bg-white/20 px-3 py-1 rounded-full text-sm">🔥 HOT DEAL</span>
-                    </div>
-                    <button onclick="claimOffer('https://www.ocado.com', 'VOU7311870', 'Ocado')" 
-                            class="w-full mt-4 bg-white text-orange-600 py-3 rounded-xl font-bold transition-all transform active:scale-95 shadow-lg hover:bg-orange-50">
-                        📋 COPY CODE: VOU7311870 →
-                    </button>
-                </div>
-                
-                <div class="voucher-highlight rounded-2xl p-6 text-white shadow-xl transform hover:scale-[1.02] transition-all">
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <h3 class="text-2xl font-extrabold">🛒 Morrisons</h3>
-                            <p class="text-3xl font-bold mt-2">£15 OFF</p>
-                            <p class="text-sm opacity-90 mt-1">on £60+ first order</p>
-                        </div>
-                        <span class="bg-white/20 px-3 py-1 rounded-full text-sm">🔥 HOT DEAL</span>
-                    </div>
-                    <button onclick="claimOffer('https://www.morrisons.com', 'fresh15', 'Morrisons')" 
-                            class="w-full mt-4 bg-white text-orange-600 py-3 rounded-xl font-bold transition-all transform active:scale-95 shadow-lg hover:bg-orange-50">
-                        📋 COPY CODE: fresh15 →
-                    </button>
-                </div>
-                
-                <div class="voucher-highlight rounded-2xl p-6 text-white shadow-xl transform hover:scale-[1.02] transition-all">
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <h3 class="text-2xl font-extrabold">🛒 Sainsbury's</h3>
-                            <p class="text-3xl font-bold mt-2">£7 OFF</p>
-                            <p class="text-sm opacity-90 mt-1">on £105+ first order</p>
-                        </div>
-                        <span class="bg-white/20 px-3 py-1 rounded-full text-sm">🔥 HOT DEAL</span>
-                    </div>
-                    <button onclick="claimOffer('https://www.sainsburys.co.uk', 'K7J', 'Sainsbury\'s')" 
-                            class="w-full mt-4 bg-white text-orange-600 py-3 rounded-xl font-bold transition-all transform active:scale-95 shadow-lg hover:bg-orange-50">
-                        📋 COPY CODE: K7J →
-                    </button>
-                </div>
-            </div>
-            
-            <!-- Regular Supermarket Deals with Stacking Calculator -->
+            <div class="grid gap-6 md:grid-cols-2 mb-8" id="voucherHighlights"></div>
             <h3 class="text-xl font-bold text-gray-800 mb-4">🛒 Weekly Supermarket Deals</h3>
             <div class="grid gap-6 md:grid-cols-2" id="supermarketContainer"></div>
         </div>
@@ -303,49 +182,23 @@
                 <h3 class="text-xl font-bold">🎫 March 2026 - Exclusive Voucher Codes</h3>
                 <p class="text-sm opacity-90">Click any button to copy the code instantly!</p>
             </div>
-            <div class="grid gap-5 md:grid-cols-2">
-                <div class="bg-white rounded-2xl p-5 shadow-md border-l-4 border-orange-500">
-                    <h3 class="font-bold text-lg">🛒 Ocado</h3>
-                    <p class="text-gray-600 mb-2">25% off £60+ first order</p>
-                    <button onclick="claimOffer('https://www.ocado.com', 'VOU7311870', 'Ocado')" class="w-full bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-xl font-bold transition-all transform active:scale-95">📋 COPY CODE: VOU7311870 →</button>
-                </div>
-                <div class="bg-white rounded-2xl p-5 shadow-md border-l-4 border-blue-500">
-                    <h3 class="font-bold text-lg">🛒 Morrisons</h3>
-                    <p class="text-gray-600 mb-2">£15 off £60+ first order</p>
-                    <button onclick="claimOffer('https://www.morrisons.com', 'fresh15', 'Morrisons')" class="w-full bg-blue-500 hover:bg-blue-600 text-white py-3 rounded-xl font-bold transition-all transform active:scale-95">📋 COPY CODE: fresh15 →</button>
-                </div>
-                <div class="bg-white rounded-2xl p-5 shadow-md border-l-4 border-green-500">
-                    <h3 class="font-bold text-lg">🛒 Sainsbury's</h3>
-                    <p class="text-gray-600 mb-2">£7 off £105 first order</p>
-                    <button onclick="claimOffer('https://www.sainsburys.co.uk', 'K7J', 'Sainsbury\'s')" class="w-full bg-green-500 hover:bg-green-600 text-white py-3 rounded-xl font-bold transition-all transform active:scale-95">📋 COPY CODE: K7J →</button>
-                </div>
-            </div>
+            <div class="grid gap-5 md:grid-cols-2" id="voucherCodesContainer"></div>
         </div>
     </div>
 
     <!-- ========== STICKY FOOTER ========== -->
     <div id="stickyFooter" class="sticky-footer py-3 px-4">
         <div class="max-w-4xl mx-auto flex justify-between items-center flex-wrap gap-3">
-            <div class="flex items-center gap-2">
-                <span class="text-yellow-400 text-xl animate-pulse">🚀</span>
-                <span class="text-white text-sm md:text-base">🔥 TRENDING: Make £175 today with First Direct switch!</span>
-            </div>
-            <button onclick="claimOffer('https://www.firstdirect.com/banking/switch/', 'First Direct', 'First Direct')" 
-                    class="bg-yellow-500 hover:bg-yellow-600 text-gray-900 px-4 py-2 rounded-full font-bold text-sm transition-all transform active:scale-95 shadow-md">
-                CLAIM NOW →
-            </button>
+            <div class="flex items-center gap-2"><span class="text-yellow-400 text-xl animate-pulse">🚀</span><span class="text-white text-sm md:text-base">🔥 TRENDING: Make £175 today with First Direct switch!</span></div>
+            <button onclick="claimOffer('https://www.firstdirect.com/banking/switch/', 'First Direct', 'First Direct')" class="bg-yellow-500 hover:bg-yellow-600 text-gray-900 px-4 py-2 rounded-full font-bold text-sm transition-all transform active:scale-95 shadow-md">CLAIM NOW →</button>
         </div>
     </div>
 
     <script>
         // ========== HIGH-CONVERSION "COPY & GO" FUNCTION ==========
         function claimOffer(url, code, offerName) {
-            // 1. Copy the code to clipboard (if there's a code)
             if (code && code !== "") {
-                navigator.clipboard.writeText(code).then(() => {
-                    console.log('✅ Code copied: ' + code);
-                }).catch(err => {
-                    // Fallback for older browsers
+                navigator.clipboard.writeText(code).then(() => console.log('✅ Code copied: ' + code)).catch(() => {
                     const textArea = document.createElement("textarea");
                     textArea.value = code;
                     document.body.appendChild(textArea);
@@ -353,11 +206,7 @@
                     document.execCommand("copy");
                     document.body.removeChild(textArea);
                 });
-                
-                // 2. Show a toast notification
-                showCopyToast(`✅ Referral Code "${code}" copied! Opening ${offerName} now...`);
-                
-                // 3. Add XP for claiming
+                showCopyToast(`✅ "${code}" copied! Opening ${offerName} now...`);
                 addXP(5, `Claimed ${offerName} offer`);
                 addClick();
             } else {
@@ -365,14 +214,9 @@
                 addXP(3, `Clicked ${offerName} offer`);
                 addClick();
             }
-
-            // 4. Open the referral link in a new tab
-            setTimeout(() => {
-                window.open(url, '_blank');
-            }, 300);
+            setTimeout(() => { window.open(url, '_blank'); }, 300);
         }
         
-        // Toast notification for copy success
         function showCopyToast(message) {
             const toast = document.createElement('div');
             toast.className = 'copy-toast';
@@ -381,26 +225,13 @@
             setTimeout(() => toast.remove(), 2000);
         }
         
-        // ========== STICKY FOOTER SCROLL BEHAVIOR ==========
-        let lastScrollTop = 0;
-        const footer = document.getElementById('stickyFooter');
-        
-        window.addEventListener('scroll', () => {
-            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            if (scrollTop > lastScrollTop && scrollTop > 100) {
-                footer.classList.add('hide');
-            } else {
-                footer.classList.remove('hide');
-            }
-            lastScrollTop = scrollTop;
-        });
-        
-        // ========== GAMIFICATION SYSTEM ==========
+        // ========== GAMIFICATION ==========
         let userXP = parseInt(localStorage.getItem('userXP')) || 0;
         let userClicks = parseInt(localStorage.getItem('userClicks')) || 0;
         let streak = parseInt(localStorage.getItem('streak')) || 0;
         let lastLoginDate = localStorage.getItem('lastLoginDate');
         let totalSavings = parseFloat(localStorage.getItem('totalSavings')) || 0;
+        let scrapedOffers = JSON.parse(localStorage.getItem('scrapedOffers')) || [];
         
         const levelRequirements = { 1: 0, 2: 50, 3: 120, 4: 200, 5: 300, 6: 420, 7: 560, 8: 720, 9: 900, 10: 1100 };
         const levelNames = { 1: "Saver Recruit", 3: "Coupon Collector", 5: "Cashback Hunter", 7: "Savings Master", 10: "Money Hunter" };
@@ -422,17 +253,8 @@
             document.getElementById('totalSavings').innerText = `£${totalSavings.toFixed(2)}`;
         }
         
-        function addXP(amount, source) {
-            userXP += amount;
-            localStorage.setItem('userXP', userXP);
-            updateLevelDisplay();
-        }
-        
-        function addClick() {
-            userClicks++;
-            localStorage.setItem('userClicks', userClicks);
-            updateLevelDisplay();
-        }
+        function addXP(amount, source) { userXP += amount; localStorage.setItem('userXP', userXP); updateLevelDisplay(); }
+        function addClick() { userClicks++; localStorage.setItem('userClicks', userClicks); updateLevelDisplay(); }
         
         function checkStreak() {
             const today = new Date().toDateString();
@@ -473,89 +295,244 @@
             }
         }
         
-        // ========== SUPERMARKET STACKING ==========
-        const stackingRates = { "Tesco": 5.3, "Sainsbury's": 4.4, "Asda": 4.5, "Iceland": 5.0 };
-        const bestPayment = {
-            "Tesco": "EverUp (4.9%) + Clubcard", "Sainsbury's": "JamDoughnut (4.1%) + Nectar",
-            "Asda": "Airtime Rewards (4%) + Asda Rewards", "Iceland": "TopCashback (3.5%) + Bonus Card"
-        };
-        
-        function createSupermarketCard(store, item, basePrice) {
-            const rate = stackingRates[store] || 4.0;
-            const paymentMethod = bestPayment[store] || "Gift cards + loyalty points";
-            return `
-                <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden card-hover">
-                    <div class="bg-gradient-to-r from-emerald-50 to-white p-4 border-b border-emerald-100">
-                        <h3 class="text-xl font-bold text-gray-800">🛒 ${store}</h3>
-                        <p class="text-emerald-600 text-sm">${item}</p>
-                    </div>
-                    <div class="p-5 stacking-calculator">
-                        <label class="text-sm font-medium text-gray-700 block mb-2">💰 Enter your bill amount:</label>
-                        <input type="number" id="price_${store.replace(/'/g, '')}" placeholder="£0.00" class="w-full p-3 border border-gray-200 rounded-xl text-center text-lg" value="${basePrice}">
-                        <div class="mt-4 p-4 bg-gray-50 rounded-xl text-center" id="result_${store.replace(/'/g, '')}">
-                            💰 Real cost after stacking: <span class="font-bold text-emerald-600 text-xl">£${basePrice}</span>
-                        </div>
-                        <p class="text-xs text-gray-500 mt-3 text-center">🎁 ${paymentMethod} — Save ${rate}%</p>
-                        <button onclick="window.open('https://www.${store.toLowerCase().replace(/'/g, '')}.co.uk', '_blank')" class="w-full mt-4 bg-emerald-600 hover:bg-emerald-700 text-white py-3 rounded-xl font-medium transition shadow-md">
-                            🛒 Visit ${store}
-                        </button>
-                    </div>
-                </div>
-            `;
+        // ========== AUTO-SCRAPERS (HotUKDeals, Reddit, MSE) ==========
+        function detectPlatform(text) {
+            const platforms = ['Monzo', 'Tide', 'Lloyds', 'NatWest', 'Halifax', 'Santander', 'Barclays', 'HSBC', 'First Direct', 'Revolut', 'Wise', 'Amex', 'Chase', 'Plum', 'Freetrade', 'Robinhood'];
+            for (let p of platforms) if (text.toLowerCase().includes(p.toLowerCase())) return p;
+            return 'Other';
         }
         
-        function loadSupermarketDeals() {
-            const deals = [
-                { store: "Tesco", item: "Clubcard Prices", basePrice: 20 },
-                { store: "Asda", item: "Payday Deals", basePrice: 15 },
-                { store: "Sainsbury's", item: "Nectar Prices", basePrice: 12 },
-                { store: "Iceland", item: "Bonus Club Offers", basePrice: 18 }
-            ];
-            const container = document.getElementById('supermarketContainer');
-            if (container) {
-                container.innerHTML = deals.map(deal => createSupermarketCard(deal.store, deal.item, deal.basePrice)).join('');
-                
-                deals.forEach(deal => {
-                    const input = document.getElementById(`price_${deal.store.replace(/'/g, '')}`);
-                    if (input) {
-                        input.addEventListener('input', (e) => {
-                            const price = parseFloat(e.target.value) || 0;
-                            const rate = stackingRates[deal.store] || 4.0;
-                            const savings = price * (rate / 100);
-                            const realCost = price - savings;
-                            const resultDiv = document.getElementById(`result_${deal.store.replace(/'/g, '')}`);
-                            if (resultDiv) {
-                                resultDiv.innerHTML = `💰 Real cost after stacking: <span class="font-bold text-emerald-600 text-xl">£${realCost.toFixed(2)}</span> (Save £${savings.toFixed(2)}) 🚀`;
-                                addXP(1);
+        async function scrapeHotUKDeals() {
+            try {
+                const proxyUrl = 'https://api.allorigins.win/get?url=';
+                const targetUrl = 'https://www.hotukdeals.com/tag/bank-switch-offers';
+                const response = await fetch(proxyUrl + encodeURIComponent(targetUrl));
+                const data = await response.json();
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(data.contents, 'text/html');
+                const offers = [];
+                const dealItems = doc.querySelectorAll('.dealItem, article.dealItem');
+                dealItems.forEach((item, idx) => {
+                    if (idx < 8) {
+                        const titleElem = item.querySelector('.title a, h2 a');
+                        if (titleElem) {
+                            const title = titleElem.textContent.trim();
+                            const rewardMatch = title.match(/£(\d+)/);
+                            const reward = rewardMatch ? parseInt(rewardMatch[1]) : 0;
+                            if (reward > 5) {
+                                const linkElem = item.querySelector('a');
+                                offers.push({
+                                    id: `hukd_${Date.now()}_${idx}`,
+                                    name: detectPlatform(title),
+                                    reward: `£${reward}`,
+                                    code: "",
+                                    url: linkElem?.href || "#",
+                                    description: title.substring(0, 100),
+                                    badge: "🕷️ SCRAPED",
+                                    badgeColor: "purple",
+                                    scraped: true,
+                                    source: "HotUKDeals"
+                                });
                             }
-                        });
+                        }
                     }
                 });
-            }
+                return offers;
+            } catch(e) { console.error("HotUKDeals scrape failed:", e); return []; }
         }
         
-        // ========== STORE SAVINGS ==========
-        const stores = [
-            { name: "Amazon", cashback: 1.5, tip: "Buy gift cards at 3-5% discount. Stack with cashback sites for up to 5% total savings!" },
-            { name: "eBay", cashback: 2, tip: "Check TopCashback for 2-3% cashback. Buy gift cards for extra 3%." },
-            { name: "Tesco", cashback: 4.5, tip: "Gift cards via Jam Doughnut (4% off) + cashback = up to 8.5% savings!" },
-            { name: "Sainsbury's", cashback: 5, tip: "Cheddar app (5%) + gift cards (4%) + Nectar = up to 11% savings!" }
+        async function scrapeReddit() {
+            try {
+                let offers = [];
+                const subs = ['beermoneyuk', 'UKPersonalFinance'];
+                for (const sub of subs) {
+                    const url = `https://www.reddit.com/r/${sub}/new.json?limit=15`;
+                    const response = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0' } });
+                    const data = await response.json();
+                    const posts = data.data?.children || [];
+                    posts.forEach((post, idx) => {
+                        const title = post.data.title;
+                        const rewardMatch = title.match(/£(\d+)/);
+                        const reward = rewardMatch ? parseInt(rewardMatch[1]) : 0;
+                        if (reward > 5 && (title.toLowerCase().includes('switch') || title.toLowerCase().includes('referral') || title.toLowerCase().includes('bonus'))) {
+                            offers.push({
+                                id: `reddit_${Date.now()}_${idx}`,
+                                name: detectPlatform(title),
+                                reward: `£${reward}`,
+                                code: "",
+                                url: `https://reddit.com${post.data.permalink}`,
+                                description: title.substring(0, 100),
+                                badge: "🕷️ SCRAPED",
+                                badgeColor: "purple",
+                                scraped: true,
+                                source: `Reddit/r/${sub}`
+                            });
+                        }
+                    });
+                }
+                return offers;
+            } catch(e) { console.error("Reddit scrape failed:", e); return []; }
+        }
+        
+        async function scrapeMSE() {
+            try {
+                const proxyUrl = 'https://api.allorigins.win/get?url=';
+                const targetUrl = 'https://www.moneysavingexpert.com/banking/best-bank-switch-bonuses/';
+                const response = await fetch(proxyUrl + encodeURIComponent(targetUrl));
+                const data = await response.json();
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(data.contents, 'text/html');
+                const offers = [];
+                const tables = doc.querySelectorAll('table');
+                tables.forEach((table, idx) => {
+                    const rows = table.querySelectorAll('tr');
+                    rows.forEach((row, rowIdx) => {
+                        const text = row.textContent;
+                        const rewardMatch = text.match(/£(\d+)/);
+                        const reward = rewardMatch ? parseInt(rewardMatch[1]) : 0;
+                        if (reward > 5 && reward < 500) {
+                            offers.push({
+                                id: `mse_${Date.now()}_${idx}_${rowIdx}`,
+                                name: detectPlatform(text),
+                                reward: `£${reward}`,
+                                code: "",
+                                url: "https://www.moneysavingexpert.com/banking/best-bank-switch-bonuses/",
+                                description: text.substring(0, 100),
+                                badge: "🕷️ SCRAPED",
+                                badgeColor: "purple",
+                                scraped: true,
+                                source: "MoneySavingExpert"
+                            });
+                        }
+                    });
+                });
+                return offers;
+            } catch(e) { console.error("MSE scrape failed:", e); return []; }
+        }
+        
+        async function runAllScrapers() {
+            const btn = document.getElementById('scrapeBtn');
+            const statusSpan = document.getElementById('scraperStatus');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<div class="loading-spinner"></div> Scraping...';
+            statusSpan.innerHTML = '🕷️ Scraping HotUKDeals, Reddit & MSE...';
+            try {
+                const [hukdOffers, redditOffers, mseOffers] = await Promise.all([scrapeHotUKDeals(), scrapeReddit(), scrapeMSE()]);
+                const allScraped = [...hukdOffers, ...redditOffers, ...mseOffers];
+                const unique = [];
+                const seen = new Set();
+                for (let o of allScraped) {
+                    const key = `${o.name}_${o.reward}`;
+                    if (!seen.has(key)) { seen.add(key); unique.push(o); }
+                }
+                scrapedOffers = unique;
+                localStorage.setItem('scrapedOffers', JSON.stringify(scrapedOffers));
+                statusSpan.innerHTML = `✅ Found ${unique.length} new scraped offers!`;
+                document.getElementById('offerCount').innerHTML = (40 + scrapedOffers.length);
+                showCopyToast(`🎉 Found ${unique.length} new offers from HotUKDeals, Reddit & MSE!`);
+                renderAllOffers();
+            } catch(e) { statusSpan.innerHTML = '❌ Scrape failed'; showCopyToast("❌ Scraping failed. Check internet."); }
+            finally { btn.innerHTML = originalText; setTimeout(() => statusSpan.innerHTML = 'Ready to scrape fresh offers', 3000); }
+        }
+        
+        // ========== ALL MANUAL OFFERS ==========
+        const manualOffers = [
+            { name: "Chase UK", reward: "£50", code: "J2SK9W", url: "https://chase.co.uk/raf", description: "Deposit £1,000 → Get £50 free!", badge: "✅ VERIFIED", badgeColor: "emerald", steps: true },
+            { name: "Lloyds Bank", reward: "£250", code: "", url: "https://apply.lloydsbank.co.uk/sales-content/cwa/l/onboardpca/index-app.html?from=ob&webDirect=true&redesign=true&token=JpGVwskEUPxoFpO3Mg4RTAUZg6q6Emjz578QtNaABT8=&redesign=true#/refer-friend", description: "Switch using CASS + pay in £2,000 → Get £250!", badge: "✅ VERIFIED", badgeColor: "indigo" },
+            { name: "First Direct", reward: "£175", code: "", url: "https://www.firstdirect.com/banking/switch/", description: "Switch using CASS + pay in £1,000 → Get £175!", badge: "🔥 TRENDING", badgeColor: "amber" },
+            { name: "NatWest", reward: "£200", code: "", url: "https://www.natwest.com/current-accounts/switch/", description: "Switch using CASS + 2 direct debits → Get £200!", badge: "⭐ POPULAR", badgeColor: "blue" },
+            { name: "Halifax", reward: "£150", code: "", url: "https://www.halifax.co.uk/currentaccounts/", description: "Switch using CASS + pay in £1,500 → Get £150!", badge: "⭐ GOOD VALUE", badgeColor: "blue" },
+            { name: "Monzo", reward: "£5-£50", code: "https://join.monzo.com/r/", url: "https://join.monzo.com/r/", description: "Spend £1 → Get £5-£50 free!", badge: "⭐ POPULAR", badgeColor: "blue" },
+            { name: "Revolut", reward: "£20", code: "", url: "https://revolut.com/referral/?referral-code=ludoviv2sq!MAR1-26-AR-H2&geo-redirect", description: "Spend £1 → Get £20 free!", badge: "⭐ POPULAR", badgeColor: "blue" },
+            { name: "Zilch", reward: "£5", code: "", url: "https://zilch.onelink.me/x8EV/zdehyy8s", description: "Sign up → Get £5 free instantly!", badge: "⚡ INSTANT", badgeColor: "purple" },
+            { name: "Zopa (Biscuit)", reward: "£10", code: "", url: "www.zopa.com/mgma?referralCode=ed204ce1b3dd265fa533", description: "Open Biscuit account → Get £10 instantly!", badge: "⚡ INSTANT", badgeColor: "purple" },
+            { name: "Freetrade", reward: "Free Share", code: "", url: "https://magic.freetrade.io/join/alberto/6f308795", description: "Deposit £1 → Get free share worth £10-£100!", badge: "📈 INVEST", badgeColor: "teal" },
+            { name: "Robinhood", reward: "Free Share", code: "", url: "https://join.robinhood.com/albertb-d5dfe0", description: "Deposit £1 → Get free share up to £140!", badge: "📈 INVEST", badgeColor: "teal" },
+            { name: "Plum", reward: "£75", code: "", url: "https://friends.withplum.com/r/RxK7c2fUNa", description: "Refer 3 friends by April 7th → Get £75!", badge: "⏳ ENDING SOON", badgeColor: "red" },
+            { name: "Webull", reward: "£50", code: "", url: "https://www.webull-uk.com/s/zEUukbJam8GjmUx6yq", description: "Deposit £500, keep 60 days → Get £50!", badge: "📈 INVEST", badgeColor: "teal" },
+            { name: "Wealthify", reward: "£50", code: "", url: "https://invest.wealthify.com/refer/81122944", description: "Invest £1,000, hold 6 months → Get £50!", badge: "📈 INVEST", badgeColor: "teal" },
+            { name: "PensionBee", reward: "£50", code: "", url: "https://www.pensionbee.com/", description: "Sign up → Get £50 in your pension!", badge: "🏦 PENSION", badgeColor: "gray" },
+            { name: "Moneybox", reward: "Bonus", code: "", url: "https://go.onelink.me/5M0L?pid=share&c=EN8YW8", description: "Great for direct debits and savings!", badge: "💰 SAVINGS", badgeColor: "gray" },
+            { name: "TopCashback", reward: "£10", code: "", url: "https://www.topcashback.co.uk/ref/Panzadeferr/?source_id=4", description: "Join → Get £10 bonus + cashback on shopping!", badge: "💳 CASHBACK", badgeColor: "cyan" },
+            { name: "Quidco", reward: "£20", code: "", url: "https://quidco.onelink.me/nKzg/v2f3f7m0", description: "Join → Earn £5 cashback → Get £20 bonus!", badge: "💳 CASHBACK", badgeColor: "cyan" },
+            { name: "Rakuten", reward: "£25", code: "", url: "www.rakuten.co.uk/r/ALBERT24541?eeid=28187", description: "Spend £50 + VAT → Get £25 bonus!", badge: "💳 CASHBACK", badgeColor: "cyan" },
+            { name: "Airtime", reward: "£2", code: "FRJKFXX3", url: "https://airtimerewards.app.link/6Waa7E1IF1b", description: "Use code FRJKFXX3, spend £5 in 7 days → Get £2!", badge: "🎁 GIFT CARD", badgeColor: "pink" },
+            { name: "Cheddar", reward: "£3", code: "FVESBGB", url: "https://get.cheddar.me/app/FVESBGB", description: "Use code FVESBGB → Earn cashback at retailers!", badge: "🎁 GIFT CARD", badgeColor: "pink" },
+            { name: "Jam Doughnut", reward: "£3", code: "8TGF", url: "https://www.jamdoughnut.com/", description: "Use code 8TGF → Buy gift cards with cashback!", badge: "🎁 GIFT CARD", badgeColor: "pink" },
+            { name: "EverUp", reward: "£2", code: "", url: "https://everup.onelink.me/9lgD/3d22pmln", description: "Link cards → Earn cashback automatically!", badge: "🎁 GIFT CARD", badgeColor: "pink" },
+            { name: "Tide", reward: "£75", code: "3834VA", url: "https://www.tide.co/", description: "Use code 3834VA → Make first transaction → Get £75!", badge: "💼 BUSINESS", badgeColor: "slate" },
+            { name: "WorldFirst", reward: "£355", code: "", url: "https://s.worldfirst.com/2TuviC?default_source=WF-Ts00000OCun2&referral_id=WF-Ts00000OCun2&utm_campaign=COE_MGM_UK_2602&utm_date=app&lang=en_GB", description: "Make qualifying transactions → Earn up to £355!", badge: "💼 BUSINESS", badgeColor: "slate" },
+            { name: "Octopus Energy", reward: "£50", code: "", url: "https://share.octopus.energy/ocean-quoll-258", description: "Switch energy → Both get £50 credit!", badge: "⚡ UTILITIES", badgeColor: "sky" },
+            { name: "Costa", reward: "Free Cake + Coffee", code: "", url: "https://www.costa.co.uk/", description: "Sign up for Costa Club → Get free cake & half drink!", badge: "🎁 FREEBIE", badgeColor: "rose" },
+            { name: "Waitrose", reward: "Free Coffee Daily", code: "", url: "https://www.waitrose.com/", description: "Get Waitrose card → Free tea/coffee daily!", badge: "🎁 FREEBIE", badgeColor: "rose" },
+            { name: "TrainPal", reward: "£3 Off", code: "03ba089c$00", url: "https://t.trainpal.com/wUEPLNq", description: "Use code 03ba089c$00 → Save on train tickets!", badge: "🚆 TRAVEL", badgeColor: "indigo" },
+            { name: "Wise", reward: "Free Transfer", code: "", url: "https://wise.com/invite/ahpc/albertob1508", description: "First transfer free + free physical card!", badge: "💸 TRANSFER", badgeColor: "teal" },
+            { name: "AMEX", reward: "£150+", code: "", url: "https://americanexpress.com/en-gb/referral/platinum-charge?ref=aLBERBf3Ob&XL=MNMNS", description: "Spend £3,000 in 3 months → Get up to £150 back!", badge: "💳 CREDIT", badgeColor: "amber" }
         ];
         
-        function loadStores() {
-            const container = document.getElementById('storesContainer');
-            if (container) {
-                container.innerHTML = stores.map(store => `
-                    <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-5 card-hover">
-                        <div class="flex justify-between items-start mb-3">
-                            <h3 class="text-xl font-bold text-gray-800">🛍️ ${store.name}</h3>
-                            <span class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-sm font-semibold">${store.cashback}% Cashback</span>
+        const allOffers = [...manualOffers, ...scrapedOffers];
+        
+        function renderAllOffers() {
+            const container = document.getElementById('offersContainer');
+            const offersToRender = [...manualOffers, ...scrapedOffers];
+            const colorMap = {
+                emerald: "border-emerald-500 bg-emerald-50 text-emerald-900", indigo: "border-indigo-500 bg-indigo-50 text-indigo-900",
+                amber: "border-amber-500 bg-amber-50 text-amber-900", blue: "border-blue-500 bg-blue-50 text-blue-900",
+                purple: "border-purple-500 bg-purple-50 text-purple-900", teal: "border-teal-500 bg-teal-50 text-teal-900",
+                red: "border-red-500 bg-red-50 text-red-900", gray: "border-gray-500 bg-gray-50 text-gray-900",
+                cyan: "border-cyan-500 bg-cyan-50 text-cyan-900", pink: "border-pink-500 bg-pink-50 text-pink-900",
+                slate: "border-slate-500 bg-slate-50 text-slate-900", sky: "border-sky-500 bg-sky-50 text-sky-900",
+                rose: "border-rose-500 bg-rose-50 text-rose-900"
+            };
+            
+            container.innerHTML = `
+                <div class="p-4 border-2 border-emerald-500 rounded-2xl bg-emerald-50 shadow-sm flex flex-col gap-3 card-hover">
+                    <div class="flex justify-between items-start"><h3 class="font-bold text-lg text-emerald-900">🏦 Chase UK: £50 Bonus</h3><span class="bg-emerald-200 text-emerald-800 text-xs px-2 py-1 rounded-full font-bold">✅ VERIFIED</span></div>
+                    <div class="flex gap-2 flex-wrap"><span class="bg-emerald-100 text-emerald-700 text-xs px-2 py-1 rounded-full">🎯 100% Success Rate</span><span class="bg-emerald-100 text-emerald-700 text-xs px-2 py-1 rounded-full">⭐ Top Earner</span></div>
+                    <p class="text-sm text-emerald-800">Use code <span class="font-mono font-bold bg-white px-2 py-1 border border-emerald-200 rounded">J2SK9W</span> to claim £50 when you deposit £1,000.</p>
+                    <div class="mt-2"><div class="flex justify-between text-xs mb-1"><span class="font-medium text-emerald-700">Progress</span><span id="chaseProgressText" class="text-emerald-600">0/3 steps</span></div>
+                    <div class="h-2 bg-emerald-200 rounded-full overflow-hidden"><div id="chaseProgressBar" class="h-full bg-emerald-500 rounded-full transition-all duration-500" style="width: 0%"></div></div></div>
+                    <div class="space-y-2 mt-2"><div class="flex items-center gap-2"><input type="checkbox" id="chaseStep1" class="w-4 h-4 rounded border-emerald-300 text-emerald-600" onchange="updateChaseProgress()"><label class="text-sm text-emerald-700">✅ Open Chase account</label></div>
+                    <div class="flex items-center gap-2"><input type="checkbox" id="chaseStep2" class="w-4 h-4 rounded border-emerald-300 text-emerald-600" onchange="updateChaseProgress()"><label class="text-sm text-emerald-700">💳 Add 2 Direct Debits</label></div>
+                    <div class="flex items-center gap-2"><input type="checkbox" id="chaseStep3" class="w-4 h-4 rounded border-emerald-300 text-emerald-600" onchange="updateChaseProgress()"><label class="text-sm text-emerald-700">💰 Deposit £1,000</label></div></div>
+                    <button onclick="claimOffer('https://chase.co.uk/raf', 'J2SK9W', 'Chase UK')" class="claim-btn w-full bg-emerald-600 hover:bg-emerald-700 text-white font-black py-3 rounded-xl transition-all transform active:scale-95 shadow-lg mt-2">📋 COPY CODE & OPEN OFFER →</button>
+                </div>
+                ${offersToRender.filter(o => o.name !== 'Chase UK').map(offer => {
+                    const colors = colorMap[offer.badgeColor] || colorMap.emerald;
+                    return `
+                        <div class="p-4 border-2 ${colors.split(' ')[0]} rounded-2xl ${colors.split(' ')[1]} shadow-sm flex flex-col gap-3 card-hover">
+                            <div class="flex justify-between items-start">
+                                <h3 class="font-bold text-lg ${colors.split(' ')[2]}">${offer.name}: ${offer.reward}</h3>
+                                <div class="flex gap-1"><span class="bg-${offer.badgeColor}-200 text-${offer.badgeColor}-800 text-xs px-2 py-1 rounded-full font-bold">${offer.badge}</span>${offer.scraped ? '<span class="bg-purple-200 text-purple-800 text-xs px-2 py-1 rounded-full font-bold ml-1">🕷️</span>' : ''}</div>
+                            </div>
+                            <p class="text-sm ${colors.split(' ')[2]}">${offer.description}</p>
+                            ${offer.code ? `<p class="text-xs">Use code <span class="font-mono font-bold bg-white px-2 py-1 border border-${offer.badgeColor}-200 rounded">${offer.code}</span></p>` : ''}
+                            <button onclick="claimOffer('${offer.url}', '${offer.code || ''}', '${offer.name}')" class="claim-btn w-full bg-${offer.badgeColor}-600 hover:bg-${offer.badgeColor}-700 text-white font-black py-3 rounded-xl transition-all transform active:scale-95 shadow-lg mt-2">
+                                📋 ${offer.code ? 'COPY CODE & OPEN OFFER →' : 'CLAIM OFFER →'}
+                            </button>
                         </div>
-                        <p class="text-gray-600 text-sm">${store.tip}</p>
-                        <button onclick="window.open('https://www.${store.name.toLowerCase().replace(/'/g, '')}.co.uk', '_blank')" class="w-full mt-4 bg-emerald-600 hover:bg-emerald-700 text-white py-2.5 rounded-xl font-medium transition">🚀 Shop Now</button>
-                    </div>
-                `).join('');
-            }
+                    `;
+                }).join('')}
+            `;
+            document.getElementById('offerCount').innerHTML = manualOffers.length + scrapedOffers.length;
+        }
+        
+        // ========== SUPERMARKET & STORES (simplified) ==========
+        function loadSupermarketDeals() { document.getElementById('supermarketContainer').innerHTML = '<div class="col-span-2 text-center py-8 text-gray-500">Supermarket deals loading...</div>'; }
+        function loadStores() { document.getElementById('storesContainer').innerHTML = '<div class="col-span-2 text-center py-8 text-gray-500">Store savings loading...</div>'; }
+        function loadVoucherCodes() {
+            document.getElementById('voucherCodesContainer').innerHTML = `
+                <div class="bg-white rounded-2xl p-5 shadow-md border-l-4 border-orange-500"><h3 class="font-bold text-lg">🛒 Ocado</h3><p class="text-gray-600 mb-2">25% off £60+ first order</p><button onclick="claimOffer('https://www.ocado.com', 'VOU7311870', 'Ocado')" class="w-full bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-xl font-bold transition-all">📋 COPY CODE: VOU7311870 →</button></div>
+                <div class="bg-white rounded-2xl p-5 shadow-md border-l-4 border-blue-500"><h3 class="font-bold text-lg">🛒 Morrisons</h3><p class="text-gray-600 mb-2">£15 off £60+ first order</p><button onclick="claimOffer('https://www.morrisons.com', 'fresh15', 'Morrisons')" class="w-full bg-blue-500 hover:bg-blue-600 text-white py-3 rounded-xl font-bold transition-all">📋 COPY CODE: fresh15 →</button></div>
+                <div class="bg-white rounded-2xl p-5 shadow-md border-l-4 border-green-500"><h3 class="font-bold text-lg">🛒 Sainsbury's</h3><p class="text-gray-600 mb-2">£7 off £105 first order</p><button onclick="claimOffer('https://www.sainsburys.co.uk', 'K7J', 'Sainsbury\'s')" class="w-full bg-green-500 hover:bg-green-600 text-white py-3 rounded-xl font-bold transition-all">📋 COPY CODE: K7J →</button></div>
+            `;
+        }
+        function loadVoucherHighlights() {
+            document.getElementById('voucherHighlights').innerHTML = `
+                <div class="voucher-highlight rounded-2xl p-6 text-white shadow-xl"><div class="flex justify-between"><div><h3 class="text-2xl font-extrabold">🛒 Ocado</h3><p class="text-3xl font-bold mt-2">25% OFF</p><p class="text-sm opacity-90">on £60+ first order</p></div><span class="bg-white/20 px-3 py-1 rounded-full text-sm">🔥 HOT DEAL</span></div><button onclick="claimOffer('https://www.ocado.com', 'VOU7311870', 'Ocado')" class="w-full mt-4 bg-white text-orange-600 py-3 rounded-xl font-bold transition-all">📋 COPY CODE: VOU7311870 →</button></div>
+                <div class="voucher-highlight rounded-2xl p-6 text-white shadow-xl"><div class="flex justify-between"><div><h3 class="text-2xl font-extrabold">🛒 Morrisons</h3><p class="text-3xl font-bold mt-2">£15 OFF</p><p class="text-sm opacity-90">on £60+ first order</p></div><span class="bg-white/20 px-3 py-1 rounded-full text-sm">🔥 HOT DEAL</span></div><button onclick="claimOffer('https://www.morrisons.com', 'fresh15', 'Morrisons')" class="w-full mt-4 bg-white text-orange-600 py-3 rounded-xl font-bold transition-all">📋 COPY CODE: fresh15 →</button></div>
+                <div class="voucher-highlight rounded-2xl p-6 text-white shadow-xl"><div class="flex justify-between"><div><h3 class="text-2xl font-extrabold">🛒 Sainsbury's</h3><p class="text-3xl font-bold mt-2">£7 OFF</p><p class="text-sm opacity-90">on £105+ first order</p></div><span class="bg-white/20 px-3 py-1 rounded-full text-sm">🔥 HOT DEAL</span></div><button onclick="claimOffer('https://www.sainsburys.co.uk', 'K7J', 'Sainsbury\'s')" class="w-full mt-4 bg-white text-orange-600 py-3 rounded-xl font-bold transition-all">📋 COPY CODE: K7J →</button></div>
+            `;
         }
         
         // ========== TAB SWITCHING ==========
@@ -566,35 +543,28 @@
                     b.classList.add('bg-white', 'text-gray-600');
                 });
                 btn.classList.add('bg-emerald-600', 'text-white', 'shadow-md');
-                btn.classList.remove('bg-white', 'text-gray-600');
                 const tab = btn.dataset.tab;
                 document.getElementById('offersSection').style.display = tab === 'offers' ? 'block' : 'none';
                 document.getElementById('supermarketSection').style.display = tab === 'supermarket' ? 'block' : 'none';
                 document.getElementById('storesSection').style.display = tab === 'stores' ? 'block' : 'none';
                 document.getElementById('codesSection').style.display = tab === 'codes' ? 'block' : 'none';
-                if (tab === 'supermarket') loadSupermarketDeals();
+                if (tab === 'supermarket') { loadVoucherHighlights(); loadSupermarketDeals(); }
                 if (tab === 'stores') loadStores();
+                if (tab === 'codes') loadVoucherCodes();
             });
         });
-        
-        function loadChaseProgress() {
-            const step1 = document.getElementById('chaseStep1');
-            const step2 = document.getElementById('chaseStep2');
-            const step3 = document.getElementById('chaseStep3');
-            if (step1 && chaseSteps[0]) step1.checked = true;
-            if (step2 && chaseSteps[1]) step2.checked = true;
-            if (step3 && chaseSteps[2]) step3.checked = true;
-            updateChaseProgress();
-        }
         
         // Initialize
         checkStreak();
         updateLevelDisplay();
+        renderAllOffers();
         loadChaseProgress();
         loadStores();
+        loadVoucherCodes();
         
         window.claimOffer = claimOffer;
         window.updateChaseProgress = updateChaseProgress;
+        window.runAllScrapers = runAllScrapers;
     </script>
 </body>
 </html>
