@@ -1,0 +1,22 @@
+{
+  "name": "Money Hunters UK",
+  "short_name": "Money Hunters",
+  "description": "46+ UK referral deals, bank switches and cashback stacking tracker",
+  "start_url": "/MoneyHunterUk/",
+  "scope": "/MoneyHunterUk/",
+  "display": "standalone",
+  "background_color": "#0a0a0f",
+  "theme_color": "#0a0a0f",
+  "orientation": "portrait",
+  "icons": [
+    {"src": "https://raw.githubusercontent.com/panzadeferr/MoneyHunterUk/main/icon-192.png", "sizes": "192x192", "type": "image/png"},
+    {"src": "https://raw.githubusercontent.com/panzadeferr/MoneyHunterUk/main/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
+  ],
+  "shortcuts": [
+    {"name": "View Offers", "url": "/MoneyHunterUk/#offers", "description": "See all live UK referral deals"},
+    {"name": "Pending Payouts", "url": "/MoneyHunterUk/#home", "description": "Track your pending payments"},
+    {"name": "Stacking Guide", "url": "/MoneyHunterUk/#stack", "description": "Cashback stacking strategies"}
+  ],
+  "categories": ["finance", "utilities"],
+  "lang": "en-GB"
+}
