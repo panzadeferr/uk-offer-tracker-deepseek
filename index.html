@@ -30,8 +30,16 @@
   --fh:'Syne',sans-serif;--fb:'DM Sans',sans-serif;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{height:100%}
-body{background:var(--bg);font-family:var(--fb);color:var(--t);min-height:100vh;min-height:100dvh;padding-bottom:80px;-webkit-font-smoothing:antialiased;overflow-x:hidden;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;height:100dvh;overflow:hidden}
+body{background:var(--bg);font-family:var(--fb);color:var(--t);-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent;overscroll-behavior:none}
+
+/* NATIVE APP SHELL */
+.app{display:flex;flex-direction:column;height:100%;height:100dvh;position:relative;overflow:hidden}
+.app-scroll{flex:1;overflow:hidden;position:relative}
+.tab-wrap{display:flex;width:500%;height:100%;transition:transform .32s cubic-bezier(.4,0,.2,1)}
+.tab-pane{width:20%;height:100%;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;overscroll-behavior-y:contain}
+.tab-pane::-webkit-scrollbar{display:none}
+.tab-inner{padding:14px 14px 20px;max-width:760px;margin:0 auto}
 
 /* SPLASH */
 .splash{position:fixed;inset:0;background:var(--bg);z-index:99999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;transition:opacity .5s ease,visibility .5s ease}
@@ -44,12 +52,12 @@ body{background:var(--bg);font-family:var(--fb);color:var(--t);min-height:100vh;
 @keyframes splashLoad{0%{width:0}100%{width:100%}}
 
 /* PULL TO REFRESH */
-.ptr{height:0;overflow:hidden;display:flex;align-items:center;justify-content:center;transition:height .3s ease;background:var(--bg)}
+.ptr{height:0;overflow:hidden;display:flex;align-items:center;justify-content:center;transition:height .3s ease;background:var(--bg);flex-shrink:0}
 .ptr.active{height:48px}
 .ptr-spin{width:20px;height:20px;border:2px solid var(--br2);border-top-color:var(--g);border-radius:50%;animation:spin .7s linear infinite}
 
 /* TICKER */
-.ticker-wrap{background:var(--bg2);overflow:hidden;padding:9px 0;border-bottom:1px solid var(--br)}
+.ticker-wrap{background:var(--bg2);overflow:hidden;padding:9px 0;border-bottom:1px solid var(--br);flex-shrink:0}
 .ticker-inner{display:flex;animation:ticker 45s linear infinite;width:max-content}
 .ticker-inner:hover{animation-play-state:paused}
 @keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
@@ -60,7 +68,7 @@ body{background:var(--bg);font-family:var(--fb);color:var(--t);min-height:100vh;
 .tick-amt{color:var(--t);font-family:var(--fh);font-size:13px}
 
 /* HEADER — scrolls with page, not sticky */
-.hdr{background:linear-gradient(180deg,var(--bg2) 0%,var(--bg) 100%);padding:16px 16px 12px;border-bottom:1px solid var(--br)}
+.hdr{background:linear-gradient(180deg,var(--bg2) 0%,var(--bg) 100%);padding:14px 16px 10px;border-bottom:1px solid var(--br);flex-shrink:0}
 .hdr-in{max-width:760px;margin:0 auto}
 .hdr-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
 .brand{font-family:var(--fh);font-size:22px;color:var(--t);letter-spacing:-.5px}
@@ -82,18 +90,16 @@ body{background:var(--bg);font-family:var(--fb);color:var(--t);min-height:100vh;
 .bc{background:var(--gl);border:1px solid rgba(0,230,118,.2);border-radius:20px;padding:2px 8px;font-size:10px;color:var(--g);font-weight:600}
 
 /* BOTTOM NAV */
-.bottom-nav{position:fixed;bottom:0;left:0;right:0;background:rgba(17,17,24,.97);border-top:1px solid var(--br);display:flex;z-index:200;padding-bottom:env(safe-area-inset-bottom);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
-.nav-item{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:10px 0 8px;cursor:pointer;transition:.2s;border:none;background:none;font-family:var(--fb)}
-.nav-icon{font-size:22px;line-height:1;transition:.2s}
-.nav-label{font-size:10px;font-weight:600;color:var(--tl);transition:.2s}
+.bottom-nav{position:relative;flex-shrink:0;background:rgba(17,17,24,.97);border-top:1px solid var(--br);display:flex;z-index:200;padding-bottom:env(safe-area-inset-bottom);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+.nav-item{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:12px 0 8px;cursor:pointer;transition:.2s;border:none;background:none;font-family:var(--fb)}
+.nav-icon{font-size:24px;line-height:1;transition:.25s}
+.nav-label{font-size:10px;font-weight:600;color:var(--tl);transition:.2s;letter-spacing:.02em}
 .nav-item.on .nav-label{color:var(--g)}
-.nav-item.on .nav-icon{transform:translateY(-2px)}
+.nav-item.on .nav-icon{transform:translateY(-3px) scale(1.08)}
 .nav-dot{width:4px;height:4px;border-radius:50%;background:var(--g);margin-top:1px;opacity:0;transition:.2s}
 .nav-item.on .nav-dot{opacity:1}
 
-/* MAIN */
-.main{max-width:760px;margin:0 auto;padding:14px 14px 20px}
-.tab-content{display:none}.tab-content.on{display:block}
+/* LAYOUT — no .main or .tab-content needed anymore */
 .sec-title{font-family:var(--fh);font-size:16px;color:var(--t);margin:16px 0 10px;display:flex;align-items:center;gap:8px}
 .sec-title::after{content:'';flex:1;height:1px;background:var(--br)}
 
@@ -110,6 +116,21 @@ body{background:var(--bg);font-family:var(--fb);color:var(--t);min-height:100vh;
 .offer-reward.amber{color:var(--a)}
 .offer-sub{font-size:12px;color:var(--tl);margin-bottom:6px;line-height:1.4}
 .offer-bottom{display:flex;align-items:center;gap:5px;flex-wrap:wrap}
+
+/* SKELETON LOADING */
+.skel{background:linear-gradient(90deg,var(--bg3) 25%,var(--bg4) 50%,var(--bg3) 75%);background-size:200% 100%;animation:skelShim 1.4s ease infinite;border-radius:8px}
+@keyframes skelShim{0%{background-position:200% 0}100%{background-position:-200% 0}}
+.skel-card{background:var(--card);border:1px solid var(--br);border-radius:var(--rad);padding:14px;margin-bottom:8px;display:flex;gap:12px;align-items:center}
+.skel-accent{width:4px;height:60px;border-radius:4px}
+.skel-body{flex:1;display:flex;flex-direction:column;gap:8px}
+.skel-line{height:12px}.skel-line.short{width:40%}.skel-line.med{width:65%}.skel-line.full{width:90%}
+.skel-reward{width:48px;height:20px;border-radius:6px;flex-shrink:0}
+
+/* CARD IMPROVEMENTS */
+.offer-row{transition:transform .15s,border-color .15s,box-shadow .15s}
+.offer-row:active{transform:scale(.985);box-shadow:0 2px 16px rgba(0,0,0,.3)}
+.offer-name{font-size:15px;font-weight:700}
+.offer-sub{font-size:12px;line-height:1.5;margin-bottom:8px}
 
 /* BADGE COLOURS — using bx class */
 .bx{display:inline-block;font-size:10px;font-weight:700;padding:2px 7px;border-radius:20px;letter-spacing:.03em;margin-right:4px}
@@ -372,10 +393,11 @@ body{background:var(--bg);font-family:var(--fb);color:var(--t);min-height:100vh;
   </div>
 </div>
 
+<div class="app" id="appShell">
 <!-- TICKER -->
 <div class="ticker-wrap"><div class="ticker-inner" id="tickerInner"></div></div>
 
-<!-- HEADER — scrolls with page -->
+<!-- HEADER — fixed in app shell -->
 <div class="hdr">
   <div class="hdr-in">
     <div class="hdr-top">
@@ -388,10 +410,10 @@ body{background:var(--bg);font-family:var(--fb);color:var(--t);min-height:100vh;
       </div>
     </div>
     <div class="stats-row">
-      <div class="stat"><div class="stat-l">Saved</div><div class="stat-v green" id="totalSav">£0</div></div>
-      <div class="stat"><div class="stat-l">Streak</div><div class="stat-v amber" id="strDisp">0🔥</div></div>
-      <div class="stat"><div class="stat-l">Level</div><div class="stat-v" id="lvlDisp">1</div></div>
-      <div class="stat"><div class="stat-l">XP</div><div class="stat-v" id="xpDisp">0</div></div>
+      <div class="stat"><div class="stat-l">💰 Saved</div><div class="stat-v green" id="totalSav">£0</div></div>
+      <div class="stat"><div class="stat-l">🔥 Streak</div><div class="stat-v amber" id="strDisp">0</div></div>
+      <div class="stat"><div class="stat-l">⚡ Level</div><div class="stat-v" id="lvlDisp">1</div></div>
+      <div class="stat"><div class="stat-l">✨ XP</div><div class="stat-v" id="xpDisp">0</div></div>
     </div>
     <div class="lvl-row"><span id="lvlName">Saver Recruit</span><span id="xpTxt">0/50 XP</span></div>
     <div class="lvl-bg"><div class="lvl-fill" id="lvlBar" style="width:0%"></div></div>
@@ -399,11 +421,15 @@ body{background:var(--bg);font-family:var(--fb);color:var(--t);min-height:100vh;
   </div>
 </div>
 
-<!-- PULL TO REFRESH INDICATOR -->
 <div class="ptr" id="ptr"><div class="ptr-spin"></div></div>
 
-<!-- MAIN -->
-<div class="main">
+<!-- TAB SCROLL AREA -->
+<div class="app-scroll" id="appScroll">
+<div class="tab-wrap" id="tabWrap">
+
+<!-- PANE 0: HOME -->
+<div class="tab-pane" id="pane-home">
+<div class="tab-inner">
 
   <!-- ADMIN (hidden — type ADM or go to #admin) -->
   <div class="adm" id="adminPanel">
@@ -423,8 +449,8 @@ body{background:var(--bg);font-family:var(--fb);color:var(--t);min-height:100vh;
     <div class="adm-list"><div style="font-weight:700;font-size:13px;margin-bottom:7px;color:var(--tm)">Manage offers:</div><div id="adminList"></div></div>
   </div>
 
-  <!-- HOME TAB -->
-  <div id="tab-home" class="tab-content on">
+  <!-- HOME TAB CONTENT -->
+  <div id="tab-home">
     <div class="mystery-box" id="mysteryBox" onclick="openMysteryBox()">
       <span class="mb-chest" id="mbChest">🎁</span>
       <div class="mb-title" id="mbTitle">Daily Mystery Box</div>
@@ -465,8 +491,12 @@ body{background:var(--bg);font-family:var(--fb);color:var(--t);min-height:100vh;
     </div>
   </div>
 
-  <!-- OFFERS TAB -->
-  <div id="tab-offers" class="tab-content">
+</div></div></div>
+
+<!-- PANE 1: OFFERS -->
+<div class="tab-pane" id="pane-offers">
+<div class="tab-inner">
+  <div id="tab-offers">
     <div class="sw"><span class="si-icon">🔍</span><input class="search" type="text" placeholder="Search 46+ offers..." id="srch" oninput="renderOffers()"></div>
     <div class="filters">
       <button class="fp on" onclick="setFilter('all',this)">All</button>
@@ -483,8 +513,12 @@ body{background:var(--bg);font-family:var(--fb);color:var(--t);min-height:100vh;
     <div id="offersEmpty" class="empty" style="display:none"><div style="font-size:32px">🔍</div><p>No offers match your search.</p></div>
   </div>
 
-  <!-- STACK TAB -->
-  <div id="tab-stack" class="tab-content">
+</div></div></div>
+
+<!-- PANE 2: STACK -->
+<div class="tab-pane" id="pane-stack">
+<div class="tab-inner">
+  <div id="tab-stack">
     <div class="stk"><div class="stk-t">🛒 Supermarket shop — up to 30% off</div>
       <div class="stk-s"><div class="stk-n">1</div><div class="stk-x">Buy gift card at typically 2-8% off via Jam Doughnut (code 8TGF) — always check current rate first</div></div>
       <div class="stk-s"><div class="stk-n">2</div><div class="stk-x">Pay with Amex Business Platinum to earn 130k MR points on spend</div></div>
@@ -523,8 +557,12 @@ body{background:var(--bg);font-family:var(--fb);color:var(--t);min-height:100vh;
     </div>
   </div>
 
-  <!-- PROGRESS TAB -->
-  <div id="tab-progress" class="tab-content">
+</div></div></div>
+
+<!-- PANE 3: PROGRESS -->
+<div class="tab-pane" id="pane-progress">
+<div class="tab-inner">
+  <div id="tab-progress">
     <div class="prog-hero">
       <div class="prog-stats">
         <div class="prog-stat"><div class="prog-stat-v" id="progSaved">£0</div><div class="prog-stat-l">Total saved</div></div>
@@ -545,12 +583,27 @@ body{background:var(--bg);font-family:var(--fb);color:var(--t);min-height:100vh;
     </div>
   </div>
 
-  <!-- COMMUNITY TAB -->
-  <div id="tab-community" class="tab-content">
+</div></div></div>
+
+<!-- PANE 4: COMMUNITY -->
+<div class="tab-pane" id="pane-community">
+<div class="tab-inner">
+  <div id="tab-community">
     <div class="share-box">
       <div style="font-family:var(--fh);font-size:17px;margin-bottom:4px;color:var(--t)">💰 Money Hunters UK</div>
       <p>Share the app · earn 10 XP · help friends make money</p>
       <button class="btn" style="background:var(--g);color:#000;font-weight:700" onclick="shareApp()">🔗 Share (+10 XP)</button>
+    </div>
+    <div style="background:linear-gradient(135deg,#1a0d00,#2d1a00);border:1px solid rgba(255,153,0,.2);border-radius:var(--rad);padding:14px;margin-bottom:10px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+        <div style="width:36px;height:36px;background:rgba(255,153,0,.15);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">📦</div>
+        <div><div style="font-family:var(--fh);font-size:14px;color:var(--t)">Amazon Deals</div><div style="font-size:11px;color:rgba(255,153,0,.8)">Earn cashback stacking Amazon + TopCashback</div></div>
+      </div>
+      <div style="font-size:12px;color:var(--tm);line-height:1.6;margin-bottom:10px">Stack Amazon gift cards (2% via Airtime) + TopCashback portal + Prime benefits. Buy gift cards at a discount, use for everyday Amazon orders.</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:7px">
+        <a href="https://airtimerewards.app.link/6Waa7E1IF1b" target="_blank" style="background:rgba(255,153,0,.15);color:#ff9900;border:1px solid rgba(255,153,0,.3);border-radius:10px;padding:9px;font-size:12px;font-weight:700;text-align:center;text-decoration:none;display:block">Airtime 2% →</a>
+        <a href="https://www.topcashback.co.uk/ref/Panzadeferr/?source_id=4" target="_blank" style="background:rgba(0,230,118,.1);color:var(--g);border:1px solid rgba(0,230,118,.2);border-radius:10px;padding:9px;font-size:12px;font-weight:700;text-align:center;text-decoration:none;display:block">TopCashback →</a>
+      </div>
     </div>
     <div class="comm-card"><div class="comm-icon">💬</div><div class="comm-title">r/ReferralHunterUK</div><div class="comm-desc">Our community subreddit. Run by Alberto — a real beermoney UK veteran. Share codes, find deals, discuss stacking.</div><a href="https://www.reddit.com/r/ReferralHunterUK/" target="_blank" class="btn btn-out" style="display:inline-block;text-decoration:none">Join the community →</a></div>
     <div class="comm-card"><div class="comm-icon">📲</div><div class="comm-title">Daily 8am Telegram Alerts</div><div class="comm-desc">Best UK referral deals every morning at 8am. Bank switches Monday, invest Tuesday, stacking Wednesday and more.</div><a href="https://t.me/MoneyHunterUK" target="_blank" class="btn btn-b" style="display:inline-block;text-decoration:none">Join @MoneyHunterUK →</a></div>
@@ -574,7 +627,9 @@ body{background:var(--bg);font-family:var(--fb);color:var(--t);min-height:100vh;
       </div>
     </div>
   </div>
-</div>
+</div></div></div>
+</div><!-- end tab-wrap -->
+</div><!-- end app-scroll -->
 
 <!-- SLIDE-UP DETAIL PANEL -->
 <div class="slide-panel" id="slidePanel">
@@ -595,6 +650,7 @@ body{background:var(--bg);font-family:var(--fb);color:var(--t);min-height:100vh;
   <button class="nav-item" onclick="switchTab('progress',this)" id="nav-progress"><span class="nav-icon">📊</span><span class="nav-label">Progress</span><div class="nav-dot"></div></button>
   <button class="nav-item" onclick="switchTab('community',this)" id="nav-community"><span class="nav-icon">💬</span><span class="nav-label">Community</span><div class="nav-dot"></div></button>
 </nav>
+</div><!-- end .app -->
 
 <script>
 // PWA — proper service worker registration
@@ -789,7 +845,7 @@ function checkWeek(){const now=new Date(),ws=new Date(now);ws.setDate(now.getDat
 function getLevel(xp){let c=LEVELS[0];for(const l of LEVELS){if(xp>=l.xp)c=l;else break;}return c;}
 function updateUI(){
   const lvl=getLevel(S.xp);const prog=lvl.next>lvl.xp?((S.xp-lvl.xp)/(lvl.next-lvl.xp))*100:100;
-  document.getElementById('xpDisp').textContent=S.xp;document.getElementById('lvlDisp').textContent=lvl.l;document.getElementById('lvlName').textContent=lvl.name;document.getElementById('xpTxt').textContent=(S.xp-lvl.xp)+'/'+(lvl.next-lvl.xp)+' XP';document.getElementById('lvlBar').style.width=Math.min(prog,100)+'%';document.getElementById('totalSav').textContent='£'+S.savings.toFixed(2);document.getElementById('strDisp').textContent=S.streak+'🔥';
+  document.getElementById('xpDisp').textContent=S.xp;document.getElementById('lvlDisp').textContent=lvl.l;document.getElementById('lvlName').textContent=lvl.name;document.getElementById('xpTxt').textContent=(S.xp-lvl.xp)+'/'+(lvl.next-lvl.xp)+' XP';document.getElementById('lvlBar').style.width=Math.min(prog,100)+'%';document.getElementById('totalSav').textContent='£'+S.savings.toFixed(2);document.getElementById('strDisp').textContent=S.streak;
   const today=new Date().toDateString();if(S.spinsDate!==today){S.spinsToday=0;S.spinsDate=today;save();}
   const maxSpins=getLevel(S.xp).l>=5?5:3;const left=Math.max(0,maxSpins-S.spinsToday);
   if(document.getElementById('xpForSpin'))document.getElementById('xpForSpin').textContent=S.xp;
@@ -948,7 +1004,16 @@ function buildCard(o){
   const progressHtml=stepsTotal>0?'<div style="display:flex;align-items:center;gap:5px;margin-top:5px"><div style="flex:1;height:3px;background:var(--bg3);border-radius:2px;overflow:hidden"><div style="height:100%;background:var(--g);border-radius:2px;width:'+(stepsDone/stepsTotal*100)+'%"></div></div><span style="font-size:10px;color:var(--tl)">'+stepsDone+'/'+stepsTotal+'</span></div>':'';
   return'<div class="'+rowClass+'" id="card_'+o.id+'" onclick="openSlidePanel(\''+o.id+'\');haptic(15)"><div class="offer-accent" style="background:'+accent+'"></div><div class="offer-body"><div class="offer-top"><div class="offer-name">'+o.name+(status==='completed'?' ✅':'')+'</div><div class="offer-reward'+(isAmber?' amber':'')+'">'+o.reward+'</div></div><div class="offer-sub">'+o.desc.substring(0,72)+(o.desc.length>72?'...':'')+'</div><div class="offer-bottom"><span class="bx '+o.bt+'">'+o.badge+'</span>'+(o.code?'<span style="background:var(--bg3);border:1px solid var(--br2);border-radius:5px;padding:2px 7px;font-family:monospace;font-size:10px;color:var(--a)">'+o.code+'</span>':'')+'<div style="flex:1"></div><div style="width:8px;height:8px;border-radius:50%;flex-shrink:0;'+statusDot+'"></div><span style="color:var(--tl);font-size:14px;margin-left:5px">›</span></div>'+progressHtml+'</div></div>';
 }
-function renderOffers(){const q=document.getElementById('srch')?.value.toLowerCase().trim()||'';const grid=document.getElementById('offersGrid');const empty=document.getElementById('offersEmpty');if(!grid)return;const all=[...OFFERS,...S.adminOffers,...S.scraped].filter(o=>!o.expired);const filtered=all.filter(o=>(activeFilter==='all'||o.cat===activeFilter)&&(!q||o.name.toLowerCase().includes(q)||o.desc.toLowerCase().includes(q)||o.cat.toLowerCase().includes(q)));if(filtered.length===0){grid.innerHTML='';empty.style.display='block';}else{empty.style.display='none';grid.innerHTML=filtered.map(buildCard).join('');}}
+function showSkeletons(n=6){const grid=document.getElementById('offersGrid');if(!grid)return;grid.innerHTML=Array.from({length:n},()=>'<div class="skel-card"><div class="skel skel-accent"></div><div class="skel-body"><div class="skel skel-line full"></div><div class="skel skel-line med"></div><div class="skel skel-line short"></div></div><div class="skel skel-reward"></div></div>').join('');}
+function renderOffers(skeleton=false){
+  if(skeleton){showSkeletons();setTimeout(()=>renderOffers(false),400);return;}
+  const q=document.getElementById('srch')?.value.toLowerCase().trim()||'';
+  const grid=document.getElementById('offersGrid');const empty=document.getElementById('offersEmpty');if(!grid)return;
+  const all=[...OFFERS,...S.adminOffers,...S.scraped].filter(o=>!o.expired);
+  const filtered=all.filter(o=>(activeFilter==='all'||o.cat===activeFilter)&&(!q||o.name.toLowerCase().includes(q)||o.desc.toLowerCase().includes(q)||o.cat.toLowerCase().includes(q)));
+  if(filtered.length===0){grid.innerHTML='';empty.style.display='block';}
+  else{empty.style.display='none';grid.innerHTML=filtered.map(buildCard).join('');}
+}
 function setFilter(f,btn){activeFilter=f;document.querySelectorAll('.fp').forEach(b=>b.classList.remove('on'));btn.classList.add('on');renderOffers();}
 
 // SUPERMARKET BATTLE TABLE
@@ -973,20 +1038,53 @@ function drawWheel(rot){const canvas=document.getElementById('wheelCanvas');if(!
 let wheelRot=0;
 function spinWheel(){if(spinning)return;const today=new Date().toDateString();if(S.spinsDate!==today){S.spinsToday=0;S.spinsDate=today;}const maxSpins=getLevel(S.xp).l>=5?5:3;if(S.spinsToday>=maxSpins){toast('No spins left today!');return;}if(S.xp<20){toast('Need 20 XP to spin! Claim some offers first.');return;}spinning=true;S.xp-=20;S.spins++;S.spinsToday++;save();document.getElementById('spinBtn').disabled=true;document.getElementById('wheelResult').textContent='';haptic([30,50,30]);const prizeIdx=Math.floor(Math.random()*WHEEL.length);const arc=(2*Math.PI)/WHEEL.length;const target=-(prizeIdx*arc)+(Math.PI*10)+(Math.PI/2);const start=Date.now(),dur=4000,startRot=wheelRot;function animate(){const elapsed=Date.now()-start,t=Math.min(elapsed/dur,1);const ease=1-Math.pow(1-t,4);wheelRot=startRot+target*ease;drawWheel(wheelRot);if(t<1){requestAnimationFrame(animate);}else{const prize=WHEEL[prizeIdx];if(prize.xp>0){addXP(prize.xp);document.getElementById('wheelResult').textContent='🎉 You won '+prize.xp+' XP!';toast('🎰 +'+prize.xp+' XP!');haptic(100);}else{document.getElementById('wheelResult').textContent='😅 Try again tomorrow!';updateUI();}spinning=false;document.getElementById('spinBtn').disabled=false;if(document.getElementById('xpForSpin'))document.getElementById('xpForSpin').textContent=S.xp;}}requestAnimationFrame(animate);}
 
-// NAVIGATION
+// NAVIGATION — slide panes like a native app
+const TABS=['home','offers','stack','progress','community'];
+let currentTab=0;
 function switchTab(tab,btn){
-  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('on'));
+  const idx=TABS.indexOf(tab);if(idx<0)return;
+  currentTab=idx;
+  document.getElementById('tabWrap').style.transform='translateX(-'+idx*20+'%)';
   document.querySelectorAll('.nav-item').forEach(b=>b.classList.remove('on'));
-  const el=document.getElementById('tab-'+tab);
-  el.classList.add('on');el.classList.add('view-enter');
-  setTimeout(()=>el.classList.remove('view-enter'),400);
-  btn.classList.add('on');haptic(10);window.scrollTo(0,0);
-  if(tab==='offers')renderOffers();
+  btn.classList.add('on');
+  haptic(10);
+  // Scroll pane to top
+  const pane=document.getElementById('pane-'+tab);
+  if(pane)pane.scrollTop=0;
+  if(tab==='offers')renderOffers(true);
   if(tab==='progress'){renderProgressTab();updateUI();}
   if(tab==='community')renderLeaderboard();
   if(tab==='stack'){renderSuperTable();if(S.stackVisit===0){S.stackVisit++;save();checkBadges();}}
 }
-function goToOffer(id){const btn=document.getElementById('nav-offers');switchTab('offers',btn);setTimeout(()=>openSlidePanel(id),300);}
+function goToOffer(id){
+  const btn=document.getElementById('nav-offers');
+  switchTab('offers',btn);
+  setTimeout(()=>openSlidePanel(id),300);
+}
+
+// SWIPE BETWEEN TABS
+(function(){
+  const wrap=document.getElementById('appScroll');
+  if(!wrap)return;
+  let sx=0,sy=0,swiping=false;
+  wrap.addEventListener('touchstart',e=>{
+    // Don't swipe if slide panel is open
+    if(document.getElementById('slidePanel').classList.contains('active'))return;
+    sx=e.touches[0].clientX;sy=e.touches[0].clientY;swiping=true;
+  },{passive:true});
+  wrap.addEventListener('touchend',e=>{
+    if(!swiping)return;swiping=false;
+    const dx=e.changedTouches[0].clientX-sx;
+    const dy=e.changedTouches[0].clientY-sy;
+    if(Math.abs(dx)>Math.abs(dy)*1.5&&Math.abs(dx)>55){
+      const next=dx<0?Math.min(currentTab+1,TABS.length-1):Math.max(currentTab-1,0);
+      if(next!==currentTab){
+        const btn=document.getElementById('nav-'+TABS[next]);
+        if(btn)switchTab(TABS[next],btn);
+      }
+    }
+  },{passive:true});
+})();
 
 // ADMIN
 function adminAdd(){const name=document.getElementById('adm-name').value.trim();const reward=document.getElementById('adm-reward').value.trim();const url=document.getElementById('adm-url').value.trim();const code=document.getElementById('adm-code').value.trim();const cat=document.getElementById('adm-cat').value;const desc=document.getElementById('adm-desc').value.trim();const tipsRaw=document.getElementById('adm-tips').value.trim();const warnRaw=document.getElementById('adm-warnings').value.trim();const stepsRaw=document.getElementById('adm-steps').value.trim();if(!name||!reward||!url||!desc){toast('❌ Fill all required fields');return;}if(!url.startsWith('http')){toast('❌ URL must start with https://');return;}S.adminOffers.push({id:'adm_'+Date.now(),name,reward,cat,badge:'✅ Admin Added',bt:'bg2',url,code,xp:10,desc,verified:new Date().toLocaleDateString('en-GB',{month:'short',year:'numeric'}),adminAdded:true,tips:tipsRaw?tipsRaw.split('\n').filter(s=>s.trim()):[],warnings:warnRaw?warnRaw.split('\n').filter(s=>s.trim()):[],steps:stepsRaw?stepsRaw.split('\n').filter(s=>s.trim()):[],bankSwitch:cat==='bank'});save();['adm-name','adm-reward','adm-url','adm-code','adm-desc','adm-tips','adm-warnings','adm-steps'].forEach(id=>document.getElementById(id).value='');toast('✅ "'+name+'" added!');renderAdminList();renderOffers();}
@@ -1008,19 +1106,22 @@ checkAdminAccess();
 initTicker();
 initMysteryBox();
 updateUI();
-renderOffers();
+renderOffers(true);
 renderPending();
 renderSuperTable();
 
-// PULL TO REFRESH — works on body scroll (no .app-content wrapper needed)
+// PULL TO REFRESH — on home pane scroll
 (function(){
-  let startY=0,pulling=false,ptr=document.getElementById('ptr');
-  document.addEventListener('touchstart',e=>{if(window.scrollY<=0)startY=e.touches[0].clientY;},{passive:true});
-  document.addEventListener('touchmove',e=>{
+  let startY=0,pulling=false;
+  const ptr=document.getElementById('ptr');
+  const homePan=document.getElementById('pane-home');
+  if(!homePan)return;
+  homePan.addEventListener('touchstart',e=>{if(homePan.scrollTop<=0)startY=e.touches[0].clientY;},{passive:true});
+  homePan.addEventListener('touchmove',e=>{
     const dy=e.touches[0].clientY-startY;
-    if(dy>60&&!pulling&&window.scrollY<=0){pulling=true;if(ptr)ptr.classList.add('active');haptic(20);}
+    if(dy>60&&!pulling&&homePan.scrollTop<=0){pulling=true;if(ptr)ptr.classList.add('active');haptic(20);}
   },{passive:true});
-  document.addEventListener('touchend',()=>{
+  homePan.addEventListener('touchend',()=>{
     if(pulling){pulling=false;if(ptr)ptr.classList.remove('active');runScraper();}
     startY=0;
   });
