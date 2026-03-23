@@ -1,794 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Money Hunters UK | Free UK Referral Deals & Cashback Tracker</title>
-<meta name="description" content="Track 46+ UK bank switch bonuses, referral deals and cashback offers. Free stacking guides, daily Telegram alerts and community leaderboard.">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-:root{--g:#10b981;--gd:#059669;--gl:#d1fae5;--gll:#f0fdf4;--a:#f59e0b;--ad:#d97706;--al:#fef3c7;--p:#8b5cf6;--pd:#7c3aed;--pl:#ede9fe;--b:#3b82f6;--bd:#2563eb;--bl:#dbeafe;--r:#ef4444;--rl:#fee2e2;--t:#111827;--tm:#374151;--tl:#6b7280;--br:#e5e7eb;--w:#fff;--bg:#f0fdf4;--sh:0 1px 3px rgba(0,0,0,.06),0 4px 12px rgba(0,0,0,.04);--shh:0 4px 20px rgba(0,0,0,.10),0 1px 3px rgba(0,0,0,.06);--rad:16px;--rads:10px;--fh:'Syne',sans-serif;--fb:'DM Sans',sans-serif}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);font-family:var(--fb);color:var(--t);min-height:100vh;padding-bottom:90px}
-/* LANDING */
-.landing{background:linear-gradient(135deg,#022c22,#064e3b,#065f46);padding:40px 16px;text-align:center}
-.landing-in{max-width:640px;margin:0 auto}
-.landing-logo{font-family:var(--fh);font-size:36px;color:#fff;letter-spacing:-1px;margin-bottom:8px}
-.landing-logo span{color:#6ee7b7}
-.landing-sub{font-size:15px;color:#a7f3d0;margin-bottom:24px;line-height:1.6}
-.landing-pills{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:28px}
-.lp{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;padding:7px 14px;border-radius:40px;font-size:13px;font-weight:600;cursor:pointer;transition:.2s;text-decoration:none;display:inline-block}
-.lp:hover{background:rgba(255,255,255,.22);transform:translateY(-1px)}
-.landing-ctas{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}
-.cta-primary{background:var(--a);color:#111;padding:13px 26px;border-radius:40px;font-weight:700;font-size:14px;text-decoration:none;transition:.2s;border:none;cursor:pointer;font-family:var(--fb)}
-.cta-primary:hover{background:var(--ad);color:#fff}
-.cta-secondary{background:rgba(255,255,255,.15);color:#fff;padding:13px 26px;border-radius:40px;font-weight:700;font-size:14px;text-decoration:none;transition:.2s;border:2px solid rgba(255,255,255,.3)}
-.cta-secondary:hover{background:rgba(255,255,255,.25)}
-.landing-stats{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
-.lst{text-align:center}
-.lst-v{font-family:var(--fh);font-size:26px;color:#fff}
-.lst-l{font-size:12px;color:#6ee7b7;margin-top:2px}
-/* START HERE */
-.start-here{background:linear-gradient(135deg,#1e3a5f,#1e40af);border-radius:var(--rad);padding:18px;margin:12px 0}
-.sh-title{font-family:var(--fh);font-size:18px;color:#fff;margin-bottom:4px}
-.sh-sub{font-size:13px;color:#93c5fd;margin-bottom:14px}
-.sh-steps{display:grid;gap:8px}
-.sh-step{background:rgba(255,255,255,.1);border-radius:10px;padding:12px;display:flex;align-items:center;gap:12px;cursor:pointer;transition:.2s;text-decoration:none}
-.sh-step:hover{background:rgba(255,255,255,.18)}
-.sh-num{background:var(--a);color:#111;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0}
-.sh-info{flex:1}
-.sh-name{font-weight:700;font-size:14px;color:#fff}
-.sh-desc{font-size:12px;color:#93c5fd;margin-top:1px}
-.sh-reward{font-family:var(--fh);font-size:16px;color:#fcd34d}
-/* TICKER */
-.ticker-wrap{background:#022c22;overflow:hidden;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.08)}
-.ticker-inner{display:flex;animation:ticker 40s linear infinite;width:max-content}
-.ticker-inner:hover{animation-play-state:paused}
-@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-.tick-item{display:inline-flex;align-items:center;gap:8px;padding:0 28px;white-space:nowrap;font-size:13px;font-weight:600;color:#6ee7b7}
-.tick-dot{width:7px;height:7px;border-radius:50%;background:#10b981;flex-shrink:0;animation:pulse 2s ease infinite}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
-.tick-amt{color:#fff;font-family:var(--fh);font-size:14px}
-/* HEADER */
-.hdr{background:linear-gradient(135deg,#064e3b,#065f46,#047857);padding:16px 16px 13px}
-.hdr-in{max-width:760px;margin:0 auto}
-.hdr-top{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:11px}
-.brand{font-family:var(--fh);font-size:21px;color:#fff;letter-spacing:-.5px}
-.brand span{color:#6ee7b7}
-.hdr-links{display:flex;gap:6px;flex-wrap:wrap}
-.hl{display:inline-flex;align-items:center;gap:4px;background:rgba(255,255,255,.15);color:#fff;font-size:11px;font-weight:600;padding:5px 10px;border-radius:40px;text-decoration:none;transition:.2s;border:none;cursor:pointer;font-family:var(--fb)}
-.hl:hover{background:rgba(255,255,255,.25)}
-.hl-kofi{background:rgba(255,94,91,.3);border:1px solid rgba(255,94,91,.5)}
-.stats-row{display:flex;gap:7px;flex-wrap:wrap}
-.stat{background:rgba(255,255,255,.12);border-radius:9px;padding:7px 10px;flex:1;min-width:50px}
-.stat-l{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:#a7f3d0;font-weight:600}
-.stat-v{font-family:var(--fh);font-size:17px;color:#fff;margin-top:1px}
-.lvl-sec{margin-top:10px}
-.lvl-row{display:flex;justify-content:space-between;font-size:12px;color:#a7f3d0;margin-bottom:4px;font-weight:500}
-.lvl-bg{height:6px;background:rgba(255,255,255,.2);border-radius:3px;overflow:hidden}
-.lvl-fill{height:100%;background:linear-gradient(90deg,#6ee7b7,#fff);border-radius:3px;transition:width .6s cubic-bezier(.22,1,.36,1)}
-.badges-row{display:flex;gap:5px;margin-top:8px;flex-wrap:wrap;min-height:20px}
-.bc{background:rgba(255,255,255,.15);border-radius:20px;padding:2px 8px;font-size:11px;color:#fff;font-weight:600}
-/* POPUPS */
-.popup-overlay{position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:9998;display:flex;align-items:center;justify-content:center;padding:20px}
-.popup{background:var(--w);border-radius:24px;padding:26px;text-align:center;max-width:320px;width:100%;box-shadow:0 24px 60px rgba(0,0,0,.25);animation:popIn .4s cubic-bezier(.34,1.56,.64,1)}
-@keyframes popIn{from{opacity:0;transform:scale(.7)}to{opacity:1;transform:scale(1)}}
-.popup-icon{font-size:46px;margin-bottom:7px}
-.popup-title{font-family:var(--fh);font-size:20px;color:var(--t);margin-bottom:5px}
-.popup-sub{font-size:13px;color:var(--tl);margin-bottom:12px;line-height:1.5}
-.popup-xp{font-family:var(--fh);font-size:28px;color:var(--g);margin-bottom:12px}
-.streak-dots{display:flex;justify-content:center;gap:5px;margin-bottom:12px}
-.sd{width:28px;height:28px;border-radius:50%;background:var(--br);display:flex;align-items:center;justify-content:center;font-size:12px}
-.sd.done{background:var(--a)}
-.un-input{width:100%;border:2px solid var(--br);border-radius:var(--rads);padding:10px 14px;font-size:15px;font-family:var(--fb);outline:none;text-align:center;margin-bottom:12px;color:var(--t)}
-.un-input:focus{border-color:var(--g)}
-/* PENDING POPUP */
-.pend-popup{position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:9997;display:flex;align-items:center;justify-content:center;padding:20px}
-.pend-box{background:var(--w);border-radius:20px;padding:22px;max-width:300px;width:100%;box-shadow:0 24px 60px rgba(0,0,0,.25);animation:popIn .3s cubic-bezier(.34,1.56,.64,1)}
-.pend-title{font-family:var(--fh);font-size:17px;margin-bottom:4px}
-.pend-sub{font-size:13px;color:var(--tl);margin-bottom:14px}
-.pend-row{display:flex;gap:8px;align-items:center;margin-bottom:12px}
-.pend-in{flex:1;border:2px solid var(--br);border-radius:var(--rads);padding:9px 12px;font-size:14px;font-family:var(--fb);outline:none;text-align:center}
-.pend-in:focus{border-color:var(--b)}
-.pend-label{font-size:13px;color:var(--tm);white-space:nowrap}
-/* MAIN */
-.main{max-width:760px;margin:0 auto;padding:12px}
-/* CHALLENGE */
-.challenge{background:var(--w);border-radius:var(--rad);border:2px solid var(--a);box-shadow:var(--sh);padding:12px;margin-bottom:10px}
-.ch-title{font-weight:700;font-size:13px;color:var(--t);margin-bottom:2px}
-.ch-bg{height:7px;background:var(--al);border-radius:4px;overflow:hidden;margin:6px 0 4px}
-.ch-fill{height:100%;background:var(--a);border-radius:4px;transition:width .5s}
-.ch-row{display:flex;justify-content:space-between;font-size:12px;font-weight:600}
-/* PENDING */
-.pending-wrap{background:var(--w);border-radius:var(--rad);border:1px solid var(--br);box-shadow:var(--sh);margin-bottom:10px;overflow:hidden}
-.pending-hdr{background:linear-gradient(135deg,#1e3a5f,#1e40af);padding:11px 14px;display:flex;justify-content:space-between;align-items:center}
-.pending-title{font-family:var(--fh);font-size:14px;color:#fff}
-.pending-total{font-family:var(--fh);font-size:17px;color:#93c5fd}
-.pending-body{padding:11px 14px}
-.pending-row{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid var(--br)}
-.pending-row:last-child{border-bottom:none}
-.pending-name{flex:1;font-weight:600;font-size:13px}
-.pending-amt{font-family:var(--fh);font-size:14px;color:var(--bd);min-width:48px}
-.pending-countdown{font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px}
-.pc-soon{background:#fee2e2;color:#991b1b}.pc-mid{background:#fef3c7;color:#92400e}.pc-ok{background:#d1fae5;color:#065f46}
-.pending-del{background:none;border:none;cursor:pointer;color:var(--tl);font-size:14px;padding:2px}
-.add-pending{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
-.ap-sel{flex:1;min-width:120px;border:1px solid var(--br);border-radius:var(--rads);padding:7px 9px;font-size:12px;font-family:var(--fb);outline:none;background:var(--w);color:var(--t)}
-.ap-in{width:65px;border:1px solid var(--br);border-radius:var(--rads);padding:7px 8px;font-size:12px;font-family:var(--fb);outline:none;text-align:center}
-.ap-btn{background:var(--b);color:#fff;border:none;border-radius:var(--rads);padding:7px 11px;font-size:12px;font-weight:600;cursor:pointer;font-family:var(--fb);white-space:nowrap}
-/* SCRAPER */
-.scr-bar{background:var(--w);border-radius:var(--rads);padding:10px 13px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;box-shadow:var(--sh);border:1px solid var(--br)}
-.scr-s{font-size:13px;color:var(--tm);display:flex;align-items:center;gap:6px}
-.dot{width:8px;height:8px;border-radius:50%;background:var(--g);flex-shrink:0}
-@keyframes dp{0%,100%{opacity:1}50%{opacity:.2}}.dot.sp{animation:dp 1s ease infinite}
-.scr-btn{background:var(--g);color:#fff;border:none;padding:7px 14px;border-radius:40px;cursor:pointer;font-weight:600;font-size:13px;font-family:var(--fb);transition:.2s;display:flex;align-items:center;gap:5px;white-space:nowrap}
-.scr-btn:hover{background:var(--gd)}.scr-btn:active{transform:scale(.97)}
-.ld{display:inline-block;width:13px;height:13px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
-/* SEARCH & FILTERS */
-.sw{position:relative;margin-bottom:9px}
-.si-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:14px;pointer-events:none}
-.search{width:100%;background:var(--w);border:1px solid var(--br);border-radius:var(--rads);padding:10px 12px 10px 35px;font-size:14px;font-family:var(--fb);color:var(--t);outline:none;box-shadow:var(--sh)}
-.search:focus{border-color:var(--g);box-shadow:0 0 0 3px rgba(16,185,129,.1)}
-.search::placeholder{color:var(--tl)}
-.filters{display:flex;gap:5px;margin-bottom:10px;overflow-x:auto;padding-bottom:2px;scrollbar-width:none}
-.filters::-webkit-scrollbar{display:none}
-.fp{background:var(--w);border:1px solid var(--br);border-radius:40px;padding:5px 11px;font-size:12px;font-weight:500;cursor:pointer;white-space:nowrap;transition:.15s;color:var(--tm);flex-shrink:0}
-.fp.on{background:var(--g);border-color:var(--g);color:#fff}
-/* TABS */
-.tabs{display:flex;gap:4px;margin-bottom:12px;background:var(--w);padding:4px;border-radius:var(--rad);box-shadow:var(--sh);border:1px solid var(--br);overflow-x:auto}
-.tb{flex:1;padding:9px 6px;border-radius:11px;border:none;background:transparent;cursor:pointer;font-weight:600;font-size:12px;font-family:var(--fb);color:var(--tl);transition:.2s;white-space:nowrap}
-.tb.on{background:var(--g);color:#fff;box-shadow:0 2px 8px rgba(16,185,129,.3)}
-/* CARDS */
-.grid{display:grid;gap:10px}
-@media(min-width:560px){.grid{grid-template-columns:1fr 1fr}}
-.card{background:var(--w);border-radius:var(--rad);border:1px solid var(--br);box-shadow:var(--sh);overflow:hidden;transition:transform .2s,box-shadow .2s}
-.card:hover{transform:translateY(-2px);box-shadow:var(--shh)}
-.card.status-completed{opacity:.6;border-color:var(--g)}
-.card.status-pending{border-color:var(--a);border-width:2px}
-.ca{height:4px}.cb{padding:13px}
-.ct{display:flex;justify-content:space-between;align-items:flex-start;gap:6px;margin-bottom:5px}
-.cn{font-family:var(--fh);font-size:15px;color:var(--t)}
-.cr{font-family:var(--fh);font-size:17px;color:var(--gd)}
-.cd{font-size:12px;color:var(--tm);line-height:1.5;margin-bottom:7px}
-.cc{display:inline-flex;align-items:center;gap:4px;background:#f8fafc;border:1px solid var(--br);border-radius:5px;padding:3px 8px;font-family:monospace;font-size:12px;font-weight:700;color:var(--t);margin-bottom:7px}
-.bx{display:inline-block;font-size:10px;font-weight:700;padding:2px 6px;border-radius:20px;letter-spacing:.03em}
-.bg2{background:var(--gl);color:#065f46}.ba2{background:var(--al);color:#92400e}.bp2{background:var(--pl);color:#5b21b6}.bb2{background:var(--bl);color:#1e40af}.br2{background:var(--rl);color:#991b1b}.bs2{background:#f3e8ff;color:#6d28d9}.bo2{background:#fff7ed;color:#9a3412}.by2{background:#fef9c3;color:#713f12}
-.vd{font-size:11px;color:#b45309;background:#fffbeb;border:1px solid #fde68a;border-radius:5px;padding:3px 7px;margin-bottom:6px;display:inline-block}
-/* STATUS BUTTONS */
-.status-row{display:flex;gap:5px;margin-bottom:8px}
-.status-btn{flex:1;padding:6px 4px;border:1px solid var(--br);border-radius:6px;font-size:11px;font-weight:600;cursor:pointer;font-family:var(--fb);background:var(--w);color:var(--tl);transition:.15s}
-.status-btn.active-ns{background:#f1f5f9;color:var(--t);border-color:#94a3b8}
-.status-btn.active-pend{background:var(--al);color:#92400e;border-color:var(--a)}
-.status-btn.active-comp{background:var(--gl);color:#065f46;border-color:var(--g)}
-/* STEPS */
-.steps-wrap{background:var(--gll);border-radius:8px;padding:10px;margin-bottom:8px}
-.steps-header{display:flex;justify-content:space-between;font-size:12px;margin-bottom:6px;font-weight:600;color:var(--tm)}
-.sp-bg{height:4px;background:var(--gl);border-radius:2px;margin-bottom:8px;overflow:hidden}
-.sp-f{height:100%;background:var(--g);border-radius:2px;transition:width .4s}
-.si2{display:flex;align-items:center;gap:7px;padding:3px 0}
-.si2 input{width:15px;height:15px;accent-color:var(--g);cursor:pointer}
-.si2 label{font-size:12px;color:var(--tm);cursor:pointer}
-.si2 input:checked+label{text-decoration:line-through;color:var(--tl)}
-/* BUTTONS */
-.btn{width:100%;padding:11px;border:none;border-radius:var(--rads);font-weight:700;font-size:13px;font-family:var(--fb);cursor:pointer;transition:.2s}
-.btn:active{transform:scale(.98)}
-.btn-g{background:var(--g);color:#fff}.btn-g:hover{background:var(--gd)}.btn-a{background:var(--a);color:#fff}.btn-a:hover{background:var(--ad)}.btn-p{background:var(--p);color:#fff}.btn-p:hover{background:var(--pd)}.btn-b{background:var(--b);color:#fff}.btn-b:hover{background:var(--bd)}.btn-out{background:transparent;color:var(--g);border:2px solid var(--g)}.btn-out:hover{background:var(--gll)}
-.sv-row{display:flex;align-items:center;gap:6px;margin-top:8px;padding-top:8px;border-top:1px solid var(--br)}
-.sv-l{font-size:11px;color:var(--tl);white-space:nowrap}
-.sv-in{flex:1;border:1px solid var(--br);border-radius:6px;padding:4px 7px;font-size:13px;font-family:var(--fb);outline:none}
-.sv-in:focus{border-color:var(--g)}
-.sv-btn{background:var(--gll);border:1px solid var(--gl);color:var(--gd);border-radius:6px;padding:4px 9px;font-size:12px;font-weight:600;cursor:pointer;font-family:var(--fb);white-space:nowrap}
-/* PROGRESS TAB */
-.progress-section{background:var(--w);border-radius:var(--rad);border:1px solid var(--br);box-shadow:var(--sh);padding:16px;margin-bottom:12px}
-.ps-title{font-family:var(--fh);font-size:16px;margin-bottom:12px;color:var(--t)}
-.ms-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(118px,1fr));gap:8px;margin-bottom:4px}
-.ms-card{background:var(--w);border-radius:var(--rads);border:2px solid var(--br);padding:11px;text-align:center;transition:.2s}
-.ms-card.done{border-color:var(--g);background:var(--gll)}.ms-card.locked{opacity:.4}
-.ms-icon{font-size:22px;margin-bottom:3px}.ms-name{font-weight:700;font-size:12px}.ms-desc{font-size:11px;color:var(--tl);margin-top:2px}
-.unlock-card{background:var(--w);border-radius:var(--rad);border:1px solid var(--br);box-shadow:var(--sh);padding:11px;margin-bottom:7px;display:flex;align-items:center;gap:10px}
-.unlock-lvl{font-family:var(--fh);font-size:18px;min-width:38px;text-align:center}
-.unlock-info{flex:1}.unlock-name{font-weight:700;font-size:13px}.unlock-desc{font-size:12px;color:var(--tl);margin-top:1px}
-.udone{background:var(--gl);color:#065f46;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px}
-.ulocked{background:var(--br);color:var(--tl);font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px}
-/* WHEEL */
-.wheel-section{background:linear-gradient(135deg,#1a1a2e,#2d1b69);border-radius:var(--rad);padding:20px;text-align:center;margin-top:8px}
-.wt{font-family:var(--fh);font-size:20px;color:#fff;margin-bottom:4px}
-.ws{font-size:13px;color:#a78bfa;margin-bottom:14px}
-.wr{font-size:15px;font-weight:700;color:#6ee7b7;min-height:22px;margin-bottom:9px}
-.spins-left{font-size:12px;color:#a78bfa;margin-bottom:9px}
-/* LB */
-.lb-card{background:var(--w);border-radius:var(--rad);border:1px solid var(--br);box-shadow:var(--sh);overflow:hidden;margin-bottom:12px}
-.lb-row{display:flex;align-items:center;gap:10px;padding:11px 13px;border-bottom:1px solid var(--br)}
-.lb-row:last-child{border-bottom:none}
-.lb-rank{font-family:var(--fh);font-size:17px;min-width:32px;text-align:center}
-.lb-name{flex:1;font-weight:600;font-size:13px}
-.lb-score{font-family:var(--fh);font-size:14px;color:var(--gd)}
-.lb-you{background:var(--gll);border-left:3px solid var(--g)}
-/* COMMUNITY */
-.comm-card{background:var(--w);border-radius:var(--rad);border:1px solid var(--br);box-shadow:var(--sh);padding:16px;margin-bottom:10px;text-align:center}
-.comm-icon{font-size:32px;margin-bottom:6px}.comm-title{font-family:var(--fh);font-size:16px;margin-bottom:4px}.comm-desc{font-size:13px;color:var(--tl);margin-bottom:10px;line-height:1.5}
-/* STORE */
-.sc{background:var(--w);border-radius:var(--rad);border:1px solid var(--br);border-left:4px solid var(--g);box-shadow:var(--sh);padding:12px;transition:transform .2s,box-shadow .2s}
-.sc:hover{transform:translateY(-2px);box-shadow:var(--shh)}
-.sh2{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
-.sn{font-weight:700;font-size:14px}.cp{background:var(--gl);color:#065f46;font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px}
-.st{font-size:12px;color:var(--tm);line-height:1.5;margin-bottom:8px}
-/* STACKING */
-.stk{background:var(--w);border-radius:var(--rad);border:1px solid var(--br);box-shadow:var(--sh);padding:14px;margin-bottom:10px}
-.stk-t{font-weight:700;font-size:14px;margin-bottom:8px}
-.stk-s{display:flex;gap:8px;align-items:flex-start;margin-bottom:6px}
-.stk-n{background:var(--g);color:#fff;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;margin-top:1px}
-.stk-x{font-size:12px;color:var(--tm);line-height:1.5}
-.stk-v{font-size:13px;font-weight:700;color:var(--gd);margin-top:7px;padding-top:7px;border-top:1px solid var(--br)}
-/* ADMIN */
-.adm{background:var(--w);border-radius:var(--rad);border:2px solid var(--p);box-shadow:var(--sh);padding:16px;margin-bottom:12px;display:none}
-.adm.show{display:block}
-.adm-title{font-family:var(--fh);font-size:16px;color:var(--pd);margin-bottom:11px}
-.adm-form{display:grid;gap:8px}
-.adm-2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.adm-in{width:100%;border:1px solid var(--br);border-radius:var(--rads);padding:8px 10px;font-size:13px;font-family:var(--fb);outline:none;color:var(--t)}
-.adm-in:focus{border-color:var(--p)}
-.adm-sel{width:100%;border:1px solid var(--br);border-radius:var(--rads);padding:8px 10px;font-size:13px;font-family:var(--fb);outline:none;background:var(--w);color:var(--t)}
-.adm-list{margin-top:12px}
-.adm-row2{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid var(--br);font-size:12px}
-.adm-del{background:var(--rl);color:var(--r);border:none;border-radius:4px;padding:2px 7px;cursor:pointer;font-size:11px;font-weight:700}
-.adm-exp{background:var(--al);color:var(--ad);border:none;border-radius:4px;padding:2px 7px;cursor:pointer;font-size:11px;font-weight:700;margin-right:4px}
-/* DD */
-.dd-card{background:linear-gradient(135deg,#1e3a5f,#1e40af);border-radius:var(--rad);padding:18px;margin-bottom:12px;color:#fff}
-.dd-title{font-family:var(--fh);font-size:18px;margin-bottom:6px}
-.dd-sub{font-size:13px;opacity:.85;margin-bottom:14px;line-height:1.5}
-.dd-steps{display:grid;gap:8px;margin-bottom:14px}
-.dd-step{display:flex;align-items:flex-start;gap:9px;background:rgba(255,255,255,.1);border-radius:10px;padding:10px}
-.dd-num{background:var(--a);color:#111;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0}
-.dd-text{font-size:13px;line-height:1.5}
-/* TOAST & LUP */
-.toast{position:fixed;bottom:95px;left:50%;transform:translateX(-50%);background:#065f46;color:#fff;padding:10px 20px;border-radius:40px;font-weight:600;font-size:13px;z-index:9999;animation:ta 2.2s ease forwards;box-shadow:0 8px 24px rgba(0,0,0,.15);white-space:nowrap;max-width:calc(100vw - 32px);text-align:center}
-@keyframes ta{0%{opacity:0;transform:translateX(-50%) translateY(10px)}15%{opacity:1;transform:translateX(-50%) translateY(0)}75%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(-8px)}}
-.lup{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#065f46;color:#fff;padding:22px 30px;border-radius:20px;text-align:center;z-index:9999;animation:lua 2.5s ease forwards;box-shadow:0 20px 60px rgba(0,0,0,.25)}
-@keyframes lua{0%{opacity:0;transform:translate(-50%,-50%) scale(.8)}15%{opacity:1;transform:translate(-50%,-50%) scale(1)}75%{opacity:1}100%{opacity:0;transform:translate(-50%,-50%) scale(1.05)}}
-.lup-e{font-size:34px;display:block;margin-bottom:5px}.lup-t{font-family:var(--fh);font-size:19px}.lup-s{font-size:12px;color:#a7f3d0;margin-top:2px}
-/* FOOTER */
-.app-footer{background:#111827;padding:22px 16px;margin-top:20px}
-.af-in{max-width:760px;margin:0 auto}
-.af-grid{display:grid;gap:16px}
-@media(min-width:560px){.af-grid{grid-template-columns:1fr 1fr}}
-.af-title{font-family:var(--fh);font-size:14px;color:#fff;margin-bottom:8px}
-.af-text{font-size:12px;color:#9ca3af;line-height:1.6}
-.af-divider{border:none;border-top:1px solid #374151;margin:16px 0}
-.af-legal{font-size:11px;color:#6b7280;line-height:1.7;text-align:center}
-/* STICKY */
-.sticky-footer{position:fixed;bottom:0;left:0;right:0;background:#1a1a2e;border-top:1px solid rgba(255,255,255,.08);padding:10px 14px;z-index:1000}
-.footer-in{max-width:760px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:10px}
-.footer-t{color:#fff;font-size:12px;font-weight:500}.footer-t strong{color:#fcd34d}
-.footer-btn{background:var(--a);color:#111;padding:7px 14px;border-radius:40px;font-weight:700;font-size:12px;border:none;cursor:pointer;font-family:var(--fb);transition:.2s;white-space:nowrap;flex-shrink:0}
-.footer-btn:hover{background:var(--ad);color:#fff}
-.sec-title{font-family:var(--fh);font-size:15px;color:var(--t);margin:14px 0 8px}
-.empty{text-align:center;padding:32px 20px;color:var(--tl)}.empty p{font-size:14px;margin-top:6px}
-.share-box{background:linear-gradient(135deg,#065f46,#059669);border-radius:var(--rad);padding:15px;margin-bottom:11px;color:#fff;text-align:center}
-.share-box p{font-size:13px;opacity:.9;margin:4px 0 11px}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Money Hunters UK | Deal Stacking App</title>
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Money Hunters">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2248%22 fill=%22%230a0a0f%22 stroke=%22%2300e676%22 stroke-width=%224%22/><text y=%22.9em%22 font-size=%2270%22 x=%2250%25%22 text-anchor=%22middle%22 font-family=%22serif%22 fill=%22%23ffd740%22>M</text></svg>">
+
+    <style>
+        :root {
+            --bg: #0a0a0f; --bg2: #111118; --bg3: #1a1a24; --bg4: #222230;
+            --g: #00e676; --a: #ffd740; --p: #b388ff; --b: #448aff; --r: #ff5252;
+            --t: #ffffff; --tm: #b0bec5; --tl: #607d8b; --gl: rgba(0, 230, 118, 0.15);
+            --br: rgba(255, 255, 255, 0.08); --rad: 22px; --rads: 14px;
+            --fh: 'Syne', sans-serif; --fb: 'DM Sans', sans-serif;
+        }
+
+        body { 
+            background: var(--bg); font-family: var(--fb); color: var(--t); 
+            margin: 0; padding-bottom: 90px; overflow-x: hidden; -webkit-tap-highlight-color: transparent;
+        }
+
+        /* --- NAVIGATION --- */
+        .view { display: none; padding: 16px; max-width: 600px; margin: 0 auto; animation: slideUp 0.4s cubic-bezier(0, 0, 0.2, 1); }
+        .view.active { display: block; }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        .hdr { padding: 20px 16px; text-align: center; border-bottom: 1px solid var(--br); background: var(--bg); position: sticky; top: 0; z-index: 100; }
+        .brand { font-family: var(--fh); font-size: 24px; letter-spacing: -1px; text-transform: uppercase; }
+        .brand span { color: var(--g); }
+
+        .bottom-nav { 
+            position: fixed; bottom: 0; left: 0; right: 0; 
+            background: rgba(17, 17, 24, 0.95); backdrop-filter: blur(15px);
+            display: flex; border-top: 1px solid var(--br); 
+            padding-bottom: env(safe-area-inset-bottom); z-index: 1000; 
+        }
+        .nav-item { flex: 1; display: flex; flex-direction: column; align-items: center; padding: 14px 0; cursor: pointer; color: var(--tl); transition: 0.3s; }
+        .nav-item.on { color: var(--g); transform: translateY(-4px); }
+        .nav-icon { font-size: 22px; margin-bottom: 4px; }
+        .nav-label { font-size: 10px; font-weight: 800; letter-spacing: 0.5px; }
+
+        /* --- MYSTERY BOX --- */
+        .mystery-box { 
+            background: linear-gradient(145deg, #1a1a2e, #0f0f1b); 
+            border: 2px dashed var(--a); border-radius: var(--rad); 
+            padding: 30px; text-align: center; margin-bottom: 25px; cursor: pointer;
+        }
+        .chest-icon { font-size: 55px; display: block; margin-bottom: 12px; }
+        .shake { animation: shake 0.5s infinite; }
+        @keyframes shake { 0%, 100% { transform: rotate(0); } 25% { transform: rotate(8deg); } 75% { transform: rotate(-8deg); } }
+
+        /* --- BATTLE TABLE --- */
+        .battle-card { background: var(--bg2); border: 1px solid var(--br); border-radius: var(--rad); overflow: hidden; }
+        .battle-row { 
+            display: flex; align-items: center; padding: 18px 16px; 
+            border-bottom: 1px solid var(--br); gap: 14px; cursor: pointer;
+        }
+        .battle-row:active { background: var(--bg3); }
+        .brand-icon { width: 42px; height: 42px; background: var(--bg3); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; }
+        .brand-info { flex: 1; }
+        .brand-name { font-weight: 700; font-size: 16px; }
+        .platform-tag { font-size: 11px; color: var(--tl); margin-top: 2px; }
+        .rate-val { font-family: var(--fh); font-size: 18px; color: var(--g); }
+        .rate-val.boost { color: var(--a); animation: pulse 1.5s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+
+        /* --- SLIDE-UP PANEL --- */
+        .detail-panel {
+            position: fixed; inset: 0; background: var(--bg); z-index: 2000;
+            display: none; flex-direction: column; 
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+        .detail-panel.active { display: flex; animation: slideIn 0.4s cubic-bezier(0, 0, 0.2, 1); }
+        @keyframes slideIn { from { transform: translateY(100%); } to { transform: translateY(0); } }
+        .detail-hdr { padding: 20px; display: flex; align-items: center; border-bottom: 1px solid var(--br); }
+        .close-btn { background: var(--bg3); border: none; color: white; width: 40px; height: 40px; border-radius: 50%; font-size: 20px; cursor: pointer; margin-right: 15px; }
+        .claim-btn { background: var(--g); color: #000; width: 100%; border: none; padding: 18px; border-radius: 14px; font-weight: 800; font-size: 16px; cursor: pointer; margin-top: 20px; }
+        .founder-btn { width: 100%; padding: 14px; border-radius: 12px; border: none; font-weight: 800; font-size: 13px; cursor: pointer; margin-top: 10px; }
+    </style>
 </head>
 <body>
-<!-- USERNAME POPUP -->
-<div class="popup-overlay" id="unPopup" style="display:none">
-  <div class="popup">
-    <div class="popup-icon">👤</div>
-    <div class="popup-title">Choose your username</div>
-    <div class="popup-sub">Shows on the earnings feed and leaderboard. Pick anything — no real name needed.</div>
-    <input class="un-input" id="unInput" placeholder="e.g. DealHunter92" maxlength="20">
-    <button class="btn btn-g" onclick="saveUsername()">Let's Hunt! 💰</button>
-  </div>
+
+<header class="hdr">
+    <div class="brand">MONEY<span>HUNTERS</span></div>
+</header>
+
+<main id="home" class="view active">
+    <div class="mystery-box" id="dailyBox" onclick="openBox()">
+        <span class="chest-icon" id="chest">🎁</span>
+        <div id="boxText">
+            <div style="font-weight: 800; color: var(--a); font-size: 18px; font-family: var(--fh);">DAILY MYSTERY BOX</div>
+            <div style="font-size: 12px; color: var(--tm); margin-top: 4px;">Tap to claim your daily Hunter XP</div>
+        </div>
+    </div>
+    <div style="font-family: var(--fh); margin-bottom: 12px; font-size: 18px;">Hunter Status</div>
+    <div style="background: var(--bg2); padding: 20px; border-radius: var(--rad); border: 1px solid var(--br);">
+        <div style="display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 10px;">
+            <span>Level 2 Stacker</span>
+            <span style="color: var(--g);">450 / 1000 XP</span>
+        </div>
+        <div style="height: 8px; background: var(--bg3); border-radius: 4px; overflow: hidden;">
+            <div style="width: 45%; height: 100%; background: var(--g);"></div>
+        </div>
+    </div>
+</main>
+
+<main id="missions" class="view">
+    <div style="font-family: var(--fh); font-size: 22px; margin-bottom: 15px;">Live Battle Table ⚔️</div>
+    <div class="battle-card">
+        <div class="battle-row" onclick="openDetail('ASDA', '4.5%', '🍓 JamDoughnut', 'STACKING TIP: Pay for your JamDoughnut gift card using your Chase Debit Card to earn an extra 1% cashback on top of the 4.5% shown here.')">
+            <div class="brand-icon">🛒</div>
+            <div class="brand-info">
+                <div class="brand-name">ASDA</div>
+                <div class="platform-tag">Via JamDoughnut</div>
+            </div>
+            <div class="rate-val boost">4.5%</div>
+        </div>
+        <div class="battle-row" onclick="openDetail('Morrisons', '4.0%', '🏢 Tillo', 'Great for large family shops. Vouchers are delivered instantly to your Hunter wallet.')">
+            <div class="brand-icon">🥦</div>
+            <div class="brand-info">
+                <div class="brand-name">Morrisons</div>
+                <div class="platform-tag">Via Tillo Infrastructure</div>
+            </div>
+            <div class="rate-val">4.0%</div>
+        </div>
+        <div class="battle-row" onclick="openDetail('Waitrose', '3.5%', '🥂 TopCashback', 'Check your TopCashback app for specialized brand boosts before buying.')">
+            <div class="brand-icon">🥂</div>
+            <div class="brand-info">
+                <div class="brand-name">Waitrose</div>
+                <div class="platform-tag">Via TopCashback</div>
+            </div>
+            <div class="rate-val">3.5%</div>
+        </div>
+    </div>
+</main>
+
+<main id="progress" class="view">
+    <div style="text-align: center; padding: 20px 0;">
+        <div style="font-size: 40px;">📊</div>
+        <div style="font-family: var(--fh); font-size: 24px;">Founder Dashboard</div>
+    </div>
+    
+    <div style="padding: 20px; background: #111; border: 1px dashed var(--b); border-radius: var(--rad);">
+        <div style="font-family: var(--fh); font-size: 12px; color: var(--b); margin-bottom: 10px; letter-spacing: 1px;">🛡️ ADMIN TOOLS</div>
+        <button class="founder-btn" style="background: var(--b); color: white;" onclick="copyPartnerEmail()">COPY OUTREACH EMAIL</button>
+        <button class="founder-btn" style="background: #24A1DE; color: white;" onclick="window.open('https://t.me/MoneyHunterUk', '_blank')">OPEN TELEGRAM BOT</button>
+    </div>
+</main>
+
+<div id="detailPanel" class="detail-panel">
+    <div class="detail-hdr">
+        <button class="close-btn" onclick="closeDetail()">✕</button>
+        <div style="font-family: var(--fh); font-size: 20px;" id="detailTitle">Brand Name</div>
+    </div>
+    <div style="padding: 25px;">
+        <div style="font-size: 48px; margin-bottom: 10px;">🔥</div>
+        <div style="font-family: var(--fh); font-size: 32px; color: var(--g);" id="detailRate">--%</div>
+        <div style="color: var(--tl); font-weight: 700; margin-bottom: 20px;" id="detailSource">Source</div>
+        
+        <div style="background: var(--bg2); padding: 20px; border-radius: 16px; border: 1px solid var(--br);">
+            <div style="font-weight: 800; font-size: 12px; color: var(--a); margin-bottom: 8px;">HUNTER TIP:</div>
+            <p id="detailTip" style="font-size: 14px; line-height: 1.6; color: var(--tm); margin: 0;"></p>
+        </div>
+        
+        <button class="claim-btn" onclick="window.open('https://t.me/MoneyHunterUk', '_blank')">GET REWARD NOW</button>
+    </div>
 </div>
-<!-- DAILY BONUS POPUP -->
-<div class="popup-overlay" id="popupOverlay" style="display:none">
-  <div class="popup">
-    <div class="popup-icon" id="popupIcon">🔥</div>
-    <div class="popup-title" id="popupTitle">Daily Bonus!</div>
-    <div class="popup-sub" id="popupSub">You are on a streak!</div>
-    <div class="popup-xp" id="popupXP">+5 XP</div>
-    <div class="streak-dots" id="streakDots"></div>
-    <button class="btn btn-g" onclick="closePopup()">Let's Hunt! 💰</button>
-  </div>
-</div>
-<!-- PENDING POPUP -->
-<div class="pend-popup" id="pendPopup" style="display:none">
-  <div class="pend-box">
-    <div class="pend-title">💸 Add to Pending Payouts?</div>
-    <div class="pend-sub" id="pendPopupSub">When do you expect this to pay out?</div>
-    <div class="pend-row">
-      <span class="pend-label">Expected in</span>
-      <input class="pend-in" id="pendPopupDays" type="number" placeholder="30" min="1" max="90" value="30">
-      <span class="pend-label">days</span>
+
+<nav class="bottom-nav">
+    <div class="nav-item on" onclick="changeTab('home', this)">
+      <span class="nav-icon">🏠</span><span class="nav-label">HOME</span>
     </div>
-    <div style="display:grid;gap:7px">
-      <button class="btn btn-b" onclick="confirmPending()">✅ Yes, add it</button>
-      <button class="btn" style="background:var(--br);color:var(--tm)" onclick="document.getElementById('pendPopup').style.display='none'">Skip</button>
+    <div class="nav-item" onclick="changeTab('missions', this)">
+      <span class="nav-icon">⚔️</span><span class="nav-label">BATTLE</span>
     </div>
-  </div>
-</div>
-<!-- LANDING -->
-<div class="landing">
-  <div class="landing-in">
-    <div class="landing-logo">💰 Money <span>Hunters UK</span></div>
-    <div class="landing-sub">The free UK app for bank switch bonuses, referral deals and cashback stacking. Real offers, real money, real community.</div>
-    <div class="landing-pills">
-      <a class="lp" onclick="scrollToTab('offers')">🏦 46+ Live Offers</a>
-      <a class="lp" onclick="scrollToOffers('bank')">💰 Up to £1,000+ from switches</a>
-      <a class="lp" onclick="scrollToTab('stacking')">🧩 Stacking Guides</a>
-      <a class="lp" href="https://t.me/MoneyHunterUK" target="_blank">📲 Daily Telegram Alerts</a>
-      <a class="lp" onclick="scrollToTab('progress')">🎰 Gamified Tracker</a>
+    <div class="nav-item" onclick="changeTab('progress', this)">
+      <span class="nav-icon">🛡️</span><span class="nav-label">ADMIN</span>
     </div>
-    <div class="landing-ctas">
-      <button class="cta-primary" onclick="scrollToTab('offers')">🚀 Start Hunting →</button>
-      <a class="cta-secondary" href="https://t.me/MoneyHunterUK" target="_blank">📲 Join Telegram</a>
-    </div>
-    <div class="landing-stats">
-      <div class="lst"><div class="lst-v">£1,000+</div><div class="lst-l">Max from switches</div></div>
-      <div class="lst"><div class="lst-v">46+</div><div class="lst-l">Live offers</div></div>
-      <div class="lst"><div class="lst-v">Free</div><div class="lst-l">Always free</div></div>
-    </div>
-  </div>
-</div>
-<!-- TICKER -->
-<div class="ticker-wrap"><div class="ticker-inner" id="tickerInner"></div></div>
-<!-- HEADER -->
-<div class="hdr" id="app-start">
-  <div class="hdr-in">
-    <div class="hdr-top">
-      <div class="brand">💰 Money <span>Hunters UK</span></div>
-      <div class="hdr-links">
-        <a class="hl" href="https://www.reddit.com/r/ReferralHunterUK/" target="_blank">💬 Reddit</a>
-        <a class="hl" href="https://t.me/MoneyHunterUK" target="_blank">📲 Telegram</a>
-        <button class="hl" onclick="shareApp()">🔗 Share</button>
-        <a class="hl hl-kofi" href="https://ko-fi.com/moneyhunteruk" target="_blank">☕ Support</a>
-      </div>
-    </div>
-    <div class="stats-row">
-      <div class="stat"><div class="stat-l">Saved</div><div class="stat-v" id="totalSav">£0</div></div>
-      <div class="stat"><div class="stat-l">Level</div><div class="stat-v" id="lvlDisp">1</div></div>
-      <div class="stat"><div class="stat-l">XP</div><div class="stat-v" id="xpDisp">0</div></div>
-      <div class="stat"><div class="stat-l">Streak</div><div class="stat-v" id="strDisp">0🔥</div></div>
-      <div class="stat"><div class="stat-l">Claimed</div><div class="stat-v" id="clmDisp">0</div></div>
-    </div>
-    <div class="lvl-sec">
-      <div class="lvl-row"><span id="lvlName">Saver Recruit</span><span id="xpTxt">0/50 XP</span></div>
-      <div class="lvl-bg"><div class="lvl-fill" id="lvlBar" style="width:0%"></div></div>
-    </div>
-    <div class="badges-row" id="badgesRow"></div>
-  </div>
-</div>
-<div class="main">
-  <!-- ADMIN (hidden) -->
-  <div class="adm" id="adminPanel">
-    <div class="adm-title">🔐 Admin Panel</div>
-    <div class="adm-form">
-      <div class="adm-2"><input class="adm-in" id="adm-name" placeholder="Name"><input class="adm-in" id="adm-reward" placeholder="Reward (e.g. £10)"></div>
-      <input class="adm-in" id="adm-url" placeholder="Referral URL (https://...)">
-      <div class="adm-2"><input class="adm-in" id="adm-code" placeholder="Code (optional)">
-        <select class="adm-sel" id="adm-cat"><option value="bank">🏦 Bank Switch</option><option value="invest">📈 Invest</option><option value="cashback">💳 Cashback</option><option value="giftcard">🎁 Gift Cards</option><option value="business">💼 Business</option><option value="earn">💻 Earn Online</option><option value="freebie">⭐ Freebie</option><option value="mobile">📱 Mobile</option></select>
-      </div>
-      <input class="adm-in" id="adm-desc" placeholder="What does the user need to do?">
-      <input class="adm-in" id="adm-steps" placeholder="Steps (one per line, optional)">
-      <button class="btn btn-p" onclick="adminAdd()">➕ Add Offer</button>
-    </div>
-    <div class="adm-list"><div style="font-weight:700;font-size:13px;margin-bottom:7px;color:var(--tm)">Manage offers:</div><div id="adminList"></div></div>
-  </div>
-  <!-- START HERE -->
-  <div class="start-here" id="startHere">
-    <div class="sh-title">💰 Make your first £200 today</div>
-    <div class="sh-sub">New here? Start with these 3 quick wins — no experience needed</div>
-    <div class="sh-steps">
-      <a class="sh-step" onclick="scrollToOffer('chase')">
-        <div class="sh-num">1</div>
-        <div class="sh-info"><div class="sh-name">Chase UK — easiest start</div><div class="sh-desc">Download app, add code, deposit £1,000</div></div>
-        <div class="sh-reward">£50</div>
-      </a>
-      <a class="sh-step" onclick="scrollToOffer('topcashback')">
-        <div class="sh-num">2</div>
-        <div class="sh-info"><div class="sh-name">TopCashback — instant win</div><div class="sh-desc">Join free, get £10 bonus immediately</div></div>
-        <div class="sh-reward">£10</div>
-      </a>
-      <a class="sh-step" onclick="scrollToOffer('lloyds')">
-        <div class="sh-num">3</div>
-        <div class="sh-info"><div class="sh-name">Lloyds Bank — biggest switch</div><div class="sh-desc">Switch via CASS, pay in £2,000</div></div>
-        <div class="sh-reward">£250</div>
-      </a>
-      <a class="sh-step" onclick="scrollToOffer('freetrade')">
-        <div class="sh-num">4</div>
-        <div class="sh-info"><div class="sh-name">Freetrade — deposit just £1</div><div class="sh-desc">Get a free share worth £10-£100</div></div>
-        <div class="sh-reward">Free share</div>
-      </a>
-    </div>
-  </div>
-  <!-- CHALLENGE -->
-  <div class="challenge">
-    <div class="ch-title">🎯 Weekly Challenge — Claim 3 offers for 50 bonus XP</div>
-    <div class="ch-bg"><div class="ch-fill" id="chBar" style="width:0%"></div></div>
-    <div class="ch-row"><span id="chProg">0/3 claimed this week</span><span style="color:var(--ad)">+50 XP reward</span></div>
-  </div>
-  <!-- PENDING PAYOUTS -->
-  <div class="pending-wrap">
-    <div class="pending-hdr">
-      <div class="pending-title">💸 Pending Payouts</div>
-      <div class="pending-total">Total: <span id="pendingTotal">£0</span></div>
-    </div>
-    <div class="pending-body">
-      <div id="pendingList"><div style="font-size:13px;color:var(--tl);text-align:center;padding:8px 0">Claim an offer below — you will be asked to add it here automatically</div></div>
-      <div class="add-pending">
-        <select class="ap-sel" id="pendingOffer"><option value="">Add manually...</option></select>
-        <input class="ap-in" id="pendingDays" type="number" placeholder="Days" min="1" max="90">
-        <button class="ap-btn" onclick="addPendingManual()">+ Add</button>
-      </div>
-    </div>
-  </div>
-  <div class="scr-bar">
-    <div class="scr-s"><div class="dot" id="scrDot"></div><span id="scrStatus">Ready to fetch latest deals</span></div>
-    <button class="scr-btn" id="scrBtn" onclick="runScraper()">🔄 Refresh Deals</button>
-  </div>
-  <div class="sw"><span class="si-icon">🔍</span><input class="search" type="text" placeholder="Search 46+ offers..." id="srch" oninput="renderOffers()"></div>
-  <div class="filters">
-    <button class="fp on" onclick="setFilter('all',this)">All</button>
-    <button class="fp" onclick="setFilter('bank',this)">🏦 Bank</button>
-    <button class="fp" onclick="setFilter('invest',this)">📈 Invest</button>
-    <button class="fp" onclick="setFilter('cashback',this)">💳 Cashback</button>
-    <button class="fp" onclick="setFilter('giftcard',this)">🎁 Gift Cards</button>
-    <button class="fp" onclick="setFilter('business',this)">💼 Business</button>
-    <button class="fp" onclick="setFilter('earn',this)">💻 Earn</button>
-    <button class="fp" onclick="setFilter('mobile',this)">📱 Mobile</button>
-    <button class="fp" onclick="setFilter('freebie',this)">⭐ Freebies</button>
-  </div>
-  <div class="tabs" id="mainTabs">
-    <button class="tb on" onclick="switchTab('offers',this)">🔥 Offers</button>
-    <button class="tb" onclick="switchTab('stacking',this)">🧩 Stack</button>
-    <button class="tb" onclick="switchTab('supermarket',this)">🛒 Super</button>
-    <button class="tb" onclick="switchTab('stores',this)">🏪 Stores</button>
-    <button class="tb" onclick="switchTab('directdebit',this)">🏦 DD</button>
-    <button class="tb" onclick="switchTab('community',this)">💬 Community</button>
-    <button class="tb" onclick="switchTab('progress',this)">📊 Progress</button>
-  </div>
-  <!-- OFFERS TAB -->
-  <div id="tab-offers"><div class="grid" id="offersGrid"></div><div id="offersEmpty" class="empty" style="display:none"><div style="font-size:28px">🔍</div><p>No offers match your search.</p></div></div>
-  <!-- STACKING TAB -->
-  <div id="tab-stacking" style="display:none">
-    <div class="stk"><div class="stk-t">🛒 Supermarket shop — up to 30% off</div>
-      <div class="stk-s"><div class="stk-n">1</div><div class="stk-x">Buy gift card at typically 2-8% off via Jam Doughnut (code 8TGF) — always check current rate</div></div>
-      <div class="stk-s"><div class="stk-n">2</div><div class="stk-x">Pay with Amex Business Platinum to earn 130k MR points on spend</div></div>
-      <div class="stk-s"><div class="stk-n">3</div><div class="stk-x">Activate Clubcard or Nectar member prices — up to 50% off selected items</div></div>
-      <div class="stk-s"><div class="stk-n">4</div><div class="stk-x">Shop through Cheddar (code FVESBGB) or TopCashback for 2-5% back on top</div></div>
-      <div class="stk-v">💰 Total: up to 30% off your regular weekly shop</div></div>
-    <div class="stk"><div class="stk-t">🏦 Bank switch stacking — £1,000+</div>
-      <div class="stk-s"><div class="stk-n">1</div><div class="stk-x">Lloyds CASS + £2,000 + 2 DDs → £200 + £50 RAF = £250</div></div>
-      <div class="stk-s"><div class="stk-n">2</div><div class="stk-x">NatWest CASS + 2 DDs → £150. Then First Direct CASS → £175 + £50 RAF</div></div>
-      <div class="stk-s"><div class="stk-n">3</div><div class="stk-x">Santander (£200) + Barclays (£175, ends 28 May) if still eligible</div></div>
-      <div class="stk-s"><div class="stk-n">4</div><div class="stk-x">Keep Chase as main — 1% cashback daily, code J2SK9W for £50</div></div>
-      <div class="stk-v">💰 Total: £1,000+ tax-free from bank switches alone</div></div>
-    <div class="stk"><div class="stk-t">🎁 Gift card arbitrage</div>
-      <div class="stk-s"><div class="stk-n">1</div><div class="stk-x">Buy discounted gift cards (typically 2-8% off — check Jam Doughnut, TopGiftCards, Slide)</div></div>
-      <div class="stk-s"><div class="stk-n">2</div><div class="stk-x">Pay with Amex for MR points and check TopCashback for additional cashback</div></div>
-      <div class="stk-s"><div class="stk-n">3</div><div class="stk-x">Use personally or resell on Cardyard at face value for instant margin</div></div>
-      <div class="stk-v">💰 Total margin: typically 3-10% per card</div></div>
-    <div class="stk"><div class="stk-t">📈 Invest referral chain</div>
-      <div class="stk-s"><div class="stk-n">1</div><div class="stk-x">Freetrade — deposit £1 → free share £10-£100</div></div>
-      <div class="stk-s"><div class="stk-n">2</div><div class="stk-x">Robinhood UK — deposit £1 → free share up to £140</div></div>
-      <div class="stk-s"><div class="stk-n">3</div><div class="stk-x">Webull — deposit £500, hold 60 days → £50</div></div>
-      <div class="stk-v">💰 Total potential: £200-£350 for minimal capital</div></div>
-    <div style="background:var(--w);border-radius:var(--rad);border:1px solid var(--br);padding:13px;box-shadow:var(--sh);text-align:center">
-      <div style="font-weight:700;font-size:14px;margin-bottom:5px">💬 Found a better stack?</div>
-      <a href="https://www.reddit.com/r/ReferralHunterUK/submit" target="_blank" class="btn btn-g" style="display:inline-block;text-decoration:none;width:auto;padding:9px 18px">Post to r/ReferralHunterUK →</a>
-    </div>
-  </div>
-  <!-- SUPERMARKET TAB -->
-  <div id="tab-supermarket" style="display:none">
-    <p style="font-size:13px;color:var(--tl);margin-bottom:11px">⚠️ Voucher codes expire quickly — always verify before checkout</p>
-    <div class="grid" id="superGrid"></div>
-  </div>
-  <!-- STORES TAB -->
-  <div id="tab-stores" style="display:none">
-    <p style="font-size:13px;color:var(--tl);margin-bottom:10px">💡 Gift card cashback rates change daily — always check Jam Doughnut, TopGiftCards and Slide before buying</p>
-    <div class="grid" id="storesGrid"></div>
-  </div>
-  <!-- DIRECT DEBIT TAB -->
-  <div id="tab-directdebit" style="display:none">
-    <div class="dd-card">
-      <div class="dd-title">🏦 Set Up Direct Debits Instantly</div>
-      <div class="dd-sub">Most bank switch bonuses require 2 active Direct Debits. Set them up here in minutes — no gym membership or charity needed.</div>
-      <div class="dd-steps">
-        <div class="dd-step"><div class="dd-num">1</div><div class="dd-text">Click below to set up a £1/month Direct Debit via Stripe — takes 2 minutes</div></div>
-        <div class="dd-step"><div class="dd-num">2</div><div class="dd-text">Appears on your bank statement within 5-7 working days as a real BACS Direct Debit</div></div>
-        <div class="dd-step"><div class="dd-num">3</div><div class="dd-text">Set up a second one if your switch needs 2 DDs — click the button again</div></div>
-        <div class="dd-step"><div class="dd-num">4</div><div class="dd-text">Cancel anytime through your bank app or via the Stripe cancellation link</div></div>
-      </div>
-      <a href="https://buy.stripe.com/aFa8wP9gM4oW1kc1Bj7IY00" target="_blank" class="btn" style="background:var(--a);color:#111;font-weight:700;text-decoration:none;display:block;text-align:center" onclick="toast('Opening secure Stripe payment page...');addXP(5)">⚡ Set Up £1 Direct Debit Now →</a>
-      <p style="font-size:11px;color:rgba(255,255,255,.7);text-align:center;margin-top:8px">Powered by Stripe · Cancel anytime · 5-7 working days to activate</p>
-    </div>
-    <div style="background:var(--w);border-radius:var(--rad);border:1px solid var(--br);padding:14px;box-shadow:var(--sh);margin-bottom:12px">
-      <div style="font-weight:700;font-size:14px;margin-bottom:6px">❓ Which switches need Direct Debits?</div>
-      <div style="font-size:13px;color:var(--tm);line-height:1.7">
-        <div>🔴 <strong>Lloyds £200</strong> — requires 2 active DDs</div>
-        <div>🔴 <strong>NatWest £150</strong> — requires 2 active DDs</div>
-        <div>🔴 <strong>First Direct £175</strong> — requires 1 active DD</div>
-        <div>🔴 <strong>Santander £200</strong> — requires 2 active DDs</div>
-        <div>🟡 <strong>Chase £50</strong> — no DD required, just deposit £1,000</div>
-        <div>🟡 <strong>Barclays £175</strong> — check current T&Cs, ends 28 May</div>
-      </div>
-    </div>
-    <div style="background:var(--w);border-radius:var(--rad);border:1px solid var(--br);padding:14px;box-shadow:var(--sh)">
-      <div style="font-weight:700;font-size:14px;margin-bottom:6px">⚠️ Important — Read Before You Switch</div>
-      <div style="font-size:12px;color:var(--tm);line-height:1.7">
-        <div>• Do NOT use Chase as a dummy switch account — may cause permanent closure</div>
-        <div>• Always use the Current Account Switch Service (CASS) to trigger the bonus</div>
-        <div>• Keep previous account open until switch completes (usually 7 working days)</div>
-        <div>• You can do multiple switches per year — close previous account first</div>
-        <div>• Switch bonuses are tax-free — classified as inducements not income</div>
-      </div>
-    </div>
-  </div>
-  <!-- COMMUNITY TAB -->
-  <div id="tab-community" style="display:none">
-    <div class="share-box">
-      <div style="font-family:var(--fh);font-size:17px;margin-bottom:4px">💰 Money Hunters UK</div>
-      <p>Share this app and earn 10 XP. Help friends make money!</p>
-      <button class="btn" style="background:#fff;color:#065f46;font-weight:700" onclick="shareApp()">🔗 Share App (+10 XP)</button>
-    </div>
-    <div class="comm-card"><div class="comm-icon">💬</div><div class="comm-title">r/ReferralHunterUK</div><div class="comm-desc">Our community subreddit. Share referral codes, find new deals and discuss stacking strategies. Run by Alberto — a real beermoney UK veteran.</div><a href="https://www.reddit.com/r/ReferralHunterUK/" target="_blank" class="btn btn-g" style="display:inline-block;text-decoration:none">Join r/ReferralHunterUK →</a></div>
-    <div class="comm-card"><div class="comm-icon">📲</div><div class="comm-title">Telegram — Daily 8am Alerts</div><div class="comm-desc">Best UK referral deals sent every morning at 8am. Day-specific — bank switches Monday, invest Tuesday, stacking guides Wednesday and more.</div><a href="https://t.me/MoneyHunterUK" target="_blank" class="btn btn-b" style="display:inline-block;text-decoration:none">Join @MoneyHunterUK →</a></div>
-    <div class="comm-card"><div class="comm-icon">☕</div><div class="comm-title">Support Money Hunters</div><div class="comm-desc">This app is free and always will be. If it helped you make money, consider buying Alberto a coffee.</div><a href="https://ko-fi.com/moneyhunteruk" target="_blank" class="btn btn-a" style="display:inline-block;text-decoration:none">☕ Buy a Coffee →</a></div>
-    <div class="comm-card"><div class="comm-icon">🕷️</div><div class="comm-title">Submit a Deal</div><div class="comm-desc">Found a deal not in the app? Post it to r/ReferralHunterUK — if verified Alberto will add it for everyone.</div><a href="https://www.reddit.com/r/ReferralHunterUK/submit" target="_blank" class="btn btn-out" style="display:inline-block;text-decoration:none">Submit a Deal →</a></div>
-    <div class="sec-title">🏆 Community Leaderboard</div>
-    <div class="lb-card" id="leaderboard"></div>
-  </div>
-  <!-- PROGRESS TAB -->
-  <div id="tab-progress" style="display:none">
-    <div class="progress-section">
-      <div class="ps-title">📊 Your Progress</div>
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:14px">
-        <div style="text-align:center;background:var(--gll);border-radius:10px;padding:12px"><div style="font-family:var(--fh);font-size:22px;color:var(--gd)" id="progSaved">£0</div><div style="font-size:11px;color:var(--tl);margin-top:2px">Total saved</div></div>
-        <div style="text-align:center;background:var(--bl);border-radius:10px;padding:12px"><div style="font-family:var(--fh);font-size:22px;color:var(--bd)" id="progPending">£0</div><div style="font-size:11px;color:var(--tl);margin-top:2px">Pending</div></div>
-        <div style="text-align:center;background:var(--pl);border-radius:10px;padding:12px"><div style="font-family:var(--fh);font-size:22px;color:var(--pd)" id="progClaimed">0</div><div style="font-size:11px;color:var(--tl);margin-top:2px">Claimed</div></div>
-      </div>
-    </div>
-    <div class="sec-title">🏆 Level Unlocks</div>
-    <div id="unlocksGrid"></div>
-    <div class="sec-title">🎖️ Badges</div>
-    <div class="ms-grid" id="badgesGrid"></div>
-    <div class="sec-title">💰 Savings Milestones</div>
-    <div class="ms-grid" id="milestonesGrid"></div>
-    <div class="wheel-section">
-      <div class="wt">🎰 XP Spin Wheel</div>
-      <div class="ws">Earn XP by claiming offers, then spend 20 XP to spin!</div>
-      <canvas id="wheelCanvas" width="240" height="240" style="display:block;margin:0 auto 12px"></canvas>
-      <div class="wr" id="wheelResult"></div>
-      <div class="spins-left">You have <strong id="xpForSpin">0</strong> XP · <strong id="spinsLeft">3</strong> spins left today</div>
-      <button class="btn btn-p" onclick="spinWheel()" id="spinBtn" style="max-width:280px;margin:0 auto;display:block">🎰 Spin the Wheel (20 XP)</button>
-    </div>
-  </div>
-</div>
-<!-- FOOTER -->
-<div class="app-footer">
-  <div class="af-in">
-    <div class="af-grid">
-      <div><div class="af-title">💰 Money Hunters UK</div><div class="af-text">Free UK referral deal tracker. 46+ verified offers including bank switches, cashback, invest bonuses and gift card stacking guides.</div></div>
-      <div><div class="af-title">🔗 Links</div><div class="af-text"><a href="https://www.reddit.com/r/ReferralHunterUK/" target="_blank" style="color:#6ee7b7;display:block;margin-bottom:4px">r/ReferralHunterUK</a><a href="https://t.me/MoneyHunterUK" target="_blank" style="color:#6ee7b7;display:block;margin-bottom:4px">Telegram @MoneyHunterUK</a><a href="https://ko-fi.com/moneyhunteruk" target="_blank" style="color:#6ee7b7;display:block">☕ Support on Ko-fi</a></div></div>
-    </div>
-    <hr class="af-divider">
-    <div class="af-legal">
-      <strong style="color:#9ca3af">Referral Disclosure:</strong> This site contains referral links. If you sign up via our links we may earn a commission or referral bonus at no extra cost to you.<br><br>
-      <strong style="color:#9ca3af">Not Financial Advice:</strong> Money Hunters UK is for informational purposes only. Always read full terms and conditions before applying. Offers change frequently — verify directly with the provider.<br><br>
-      <strong style="color:#9ca3af">Affiliation:</strong> Money Hunters UK is an independent community project. Not affiliated with any banks or services listed.<br><br>
-      © 2026 Money Hunters UK · Built by the community, for the community
-    </div>
-  </div>
-</div>
-<div class="sticky-footer">
-  <div class="footer-in">
-    <div class="footer-t">🔥 <strong>£200</strong> Lloyds + <strong>£50</strong> RAF bonus live now</div>
-    <button class="footer-btn" onclick="claim('https://apply.lloydsbank.co.uk/sales-content/cwa/l/onboardpca/index-app.html?from=ob&webDirect=true&redesign=true&token=JpGVwskEUPxoFpO3Mg4RTAUZg6q6Emjz578QtNaABT8=&redesign=true#/refer-friend','','Lloyds Bank','bank',false)">Claim £200 →</button>
-  </div>
-</div>
+</nav>
+
 <script>
-const OFFERS=[
-{id:'chase',name:'Chase UK',reward:'£50',cat:'bank',badge:'✅ Verified',bt:'bg2',url:'https://chase.co.uk/raf',code:'J2SK9W',xp:15,desc:'Copy code J2SK9W → download Chase app → deposit £1,000 in 30 days → get £50 free.',verified:'Mar 2026',bankSwitch:false,steps:['Download the Chase app','Enter referral code J2SK9W','Deposit £1,000 within 30 days','Receive £50 bonus (up to 30 days)']},
-{id:'lloyds',name:'Lloyds Bank',reward:'£200 + £50 RAF',cat:'bank',badge:'🔥 Top Pick',bt:'ba2',url:'https://apply.lloydsbank.co.uk/sales-content/cwa/l/onboardpca/index-app.html?from=ob&webDirect=true&redesign=true&token=JpGVwskEUPxoFpO3Mg4RTAUZg6q6Emjz578QtNaABT8=&redesign=true#/refer-friend',code:'',xp:20,desc:'Switch via CASS + pay in £2,000 + 2 Direct Debits → £200. Extra £50 if referred by a friend.',verified:'Mar 2026',bankSwitch:true,expectedDays:30,steps:['Open Lloyds account via link','Use CASS to switch your existing bank','Pay in £2,000 within 30 days','Set up 2 Direct Debits (use our DD tab)','Receive £200 bonus within 30 days']},
-{id:'firstdirect',name:'First Direct',reward:'£175 + £50 RAF',cat:'bank',badge:'⭐ Popular',bt:'bb2',url:'https://www.firstdirect.com/banking/switch/',code:'',xp:18,desc:'Switch via CASS + pay in £1,000 → £175. Extra £50 via Refer a Friend. Also unlocks 7% regular saver.',verified:'Mar 2026',bankSwitch:true,expectedDays:28,steps:['Open First Direct account','Use CASS to switch your existing bank','Pay in £1,000 within 3 months','Set up 1 Direct Debit (use our DD tab)','Receive £175 bonus within 28 days']},
-{id:'natwest',name:'NatWest',reward:'£150',cat:'bank',badge:'⭐ Popular',bt:'bb2',url:'https://www.natwest.com/current-accounts/switch/',code:'',xp:15,desc:'Switch via CASS + set up 2 Direct Debits → £150 paid within 30 days. Unlocks 7% regular saver.',verified:'Mar 2026',bankSwitch:true,expectedDays:30,steps:['Open NatWest account via link','Use CASS to switch your existing bank','Set up 2 Direct Debits (use our DD tab)','Receive £150 bonus within 30 days']},
-{id:'santander',name:'Santander',reward:'£200',cat:'bank',badge:'🆕 New',bt:'bg2',url:'https://www.santander.co.uk/personal/current-accounts',code:'',xp:18,desc:'Switch via CASS to Santander Edge + 2 Direct Debits → £200.',verified:'Mar 2026',bankSwitch:true,expectedDays:30,steps:['Open Santander Edge account','Use CASS to switch your existing bank','Set up 2 Direct Debits (use our DD tab)','Pay in required amount','Receive £200 bonus within 30 days']},
-{id:'barclays',name:'Barclays',reward:'£175',cat:'bank',badge:'⏳ Ends 28 May',bt:'ba2',url:'https://www.barclays.co.uk/current-accounts/',code:'',xp:15,desc:'Switch via CASS + pay in £2,000 + 2 DDs → £175. Must not have had a Barclays account since 10 March 2026. Ends 28 May.',verified:'Mar 2026',bankSwitch:true,expectedDays:30,steps:['Confirm no Barclays account since 10 March 2026','Open Barclays account via link','Use CASS to switch','Pay in £2,000 within 30 days','Set up 2 Direct Debits','Receive £175 bonus']},
-{id:'cooperative',name:'Co-operative Bank',reward:'£175',cat:'bank',badge:'🆕 Added',bt:'bg2',url:'https://www.co-operativebank.co.uk/current-accounts',code:'',xp:16,desc:'Switch via CASS to Co-op Bank → £175. Check full eligibility on their website.',verified:'Mar 2026',bankSwitch:true,expectedDays:30,steps:['Open Co-operative Bank account','Use CASS to switch your existing bank','Meet eligibility requirements','Receive £175 bonus']},
-{id:'monzo',name:'Monzo',reward:'£5 to £50',cat:'bank',badge:'📱 App',bt:'bp2',url:'https://join.monzo.com/r/',code:'',xp:8,desc:'Sign up + spend £1 in 30 days → random reward between £5 and £50.',verified:'Mar 2026',bankSwitch:false,steps:['Sign up via referral link','Spend £1 anywhere within 30 days','Receive random reward £5-£50']},
-{id:'revolut',name:'Revolut',reward:'£20',cat:'bank',badge:'📱 App',bt:'bp2',url:'https://revolut.com/referral/?referral-code=ludoviv2sq!MAR1-26-AR-H2&geo-redirect',code:'',xp:8,desc:'Sign up via referral + spend £1 within 30 days → £20 free.',verified:'Mar 2026',bankSwitch:false,steps:['Sign up via referral link','Spend £1 within 30 days','Receive £20 bonus']},
-{id:'zilch',name:'Zilch',reward:'£5',cat:'bank',badge:'⚡ Instant',bt:'bp2',url:'https://zilch.onelink.me/x8EV/zdehyy8s',code:'',xp:5,desc:'Sign up to Zilch → we both get £5 in rewards instantly.',verified:'Mar 2026',bankSwitch:false,steps:['Sign up via referral link','Verify your account','Receive £5 instantly']},
-{id:'zopa',name:'Zopa Biscuit',reward:'£20',cat:'bank',badge:'⚡ Instant',bt:'bp2',url:'https://www.zopa.com/mgma?referralCode=ed204ce1b3dd265fa533',code:'',xp:8,desc:'Open Biscuit savings account via referral → we both earn £20 instantly.',verified:'Mar 2026',bankSwitch:false,steps:['Open Biscuit savings account via link','Complete account setup','Receive £20 instantly']},
-{id:'curve',name:'Curve Pay',reward:'1% Cashback',cat:'bank',badge:'💳 Wallet',bt:'bp2',url:'https://www.curve.com/join#NQ77G4WE',code:'',xp:8,desc:'Sign up via referral → 1% cashback for 30 days. Stack cards, skip FX fees.',verified:'Mar 2026',bankSwitch:false,steps:['Sign up via referral link','Add your existing cards to Curve','Use Curve card for purchases','Earn 1% cashback for 30 days']},
-{id:'freetrade',name:'Freetrade',reward:'Free Share',cat:'invest',badge:'📈 Invest',bt:'bb2',url:'https://magic.freetrade.io/join/alberto/6f308795',code:'',xp:10,desc:'Deposit £1 → free share worth £10-£100. Average about £25. Capital at risk.',verified:'Mar 2026',bankSwitch:false,steps:['Sign up via referral link','Deposit just £1','Receive free share worth £10-£100']},
-{id:'robinhood',name:'Robinhood UK',reward:'Free Share',cat:'invest',badge:'📈 Invest',bt:'bb2',url:'https://join.robinhood.com/albertb-d5dfe0',code:'',xp:10,desc:'Deposit £1 → free share worth up to £140.',verified:'Mar 2026',bankSwitch:false,steps:['Sign up via referral link','Deposit £1','Receive free share up to £140']},
-{id:'webull',name:'Webull',reward:'£50',cat:'invest',badge:'📈 Invest',bt:'bb2',url:'https://www.webull-uk.com/s/zEUukbJam8GjmUx6yq',code:'',xp:10,desc:'Deposit £500 and hold for 60 days → £50 bonus.',verified:'Mar 2026',bankSwitch:false,steps:['Sign up via referral link','Deposit £500','Hold for 60 days without withdrawing','Receive £50 bonus']},
-{id:'wealthify',name:'Wealthify',reward:'£50',cat:'invest',badge:'📈 Invest',bt:'bb2',url:'https://invest.wealthify.com/refer/81122944',code:'',xp:10,desc:'Invest £1,000 and hold 6 months → £50 added to your plan.',verified:'Mar 2026',bankSwitch:false,steps:['Sign up via referral link','Invest £1,000','Hold for 6 months','Receive £50 bonus']},
-{id:'wealthyhood',name:'Wealthyhood',reward:'Bonus',cat:'invest',badge:'📈 Invest',bt:'bb2',url:'https://wealthyhood.com',code:'1461h9hv',xp:8,desc:'Use code 1461h9hv → sign up and get your join bonus.',verified:'Mar 2026',bankSwitch:false,steps:['Sign up via link','Enter code 1461h9hv','Complete account setup','Receive bonus']},
-{id:'ig',name:'IG Trading',reward:'Bonus',cat:'invest',badge:'📈 Invest',bt:'bb2',url:'https://refer.ig.com/albertob-2757',code:'',xp:10,desc:'Open an IG account via referral → trading bonus. Check T&Cs.',verified:'Mar 2026',bankSwitch:false,steps:['Open IG account via referral link','Complete verification','Make qualifying trade','Receive bonus']},
-{id:'ifast',name:'iFAST Global Bank',reward:'Bonus',cat:'invest',badge:'🏦 Bank',bt:'bb2',url:'https://www.ifastgb.com/tellafriend/albertob367',code:'',xp:10,desc:'Join iFAST Global Bank via referral → impressive rates, easy to set up.',verified:'Mar 2026',bankSwitch:false,steps:['Sign up via referral link','Complete KYC verification','Make first deposit','Receive bonus']},
-{id:'plum',name:'Plum',reward:'£75',cat:'invest',badge:'⏳ Check Terms',bt:'br2',url:'https://friends.withplum.com/r/RxK7c2fUNa',code:'',xp:12,desc:'Refer 3 friends → £75 bonus. Check current terms — deadline varies.',verified:'Mar 2026',bankSwitch:false,steps:['Sign up via referral link','Refer 3 friends using your link','All 3 friends complete sign-up','Receive £75 bonus']},
-{id:'pensionbee',name:'PensionBee',reward:'£50',cat:'invest',badge:'🏦 Pension',bt:'bb2',url:'https://www.pensionbee.com/',code:'',xp:10,desc:'Consolidate your pension with PensionBee → £50 added to your pot.',verified:'Mar 2026',bankSwitch:false,steps:['Sign up via referral link','Transfer a pension to PensionBee','Receive £50 in your pension pot']},
-{id:'moneybox',name:'Moneybox',reward:'Bonus Rate',cat:'invest',badge:'💰 Savings',bt:'bb2',url:'https://go.onelink.me/5M0L?pid=share&c=EN8YW8',code:'',xp:6,desc:'Open savings account → bonus rate and round-up savings.',verified:'Mar 2026',bankSwitch:false,steps:['Sign up via referral link','Open a savings account','Enjoy bonus interest rate']},
-{id:'avios',name:'Avios / British Airways',reward:'Bonus Avios',cat:'invest',badge:'✈️ Travel',bt:'bo2',url:'https://avios.mention-me.com/m/ol/yn2yt-alberto-bolla',code:'',xp:8,desc:'Join Avios via referral → earn bonus Avios points for flights, hotels and shopping.',verified:'Mar 2026',bankSwitch:false,steps:['Join via referral link','Complete registration','Receive bonus Avios points']},
-{id:'glint',name:'Glint Pay',reward:'Bonus',cat:'invest',badge:'🥇 Gold',bt:'ba2',url:'https://glintpay.com',code:'X2PPG7-VF502',xp:8,desc:'Use code X2PPG7-VF502 → buy and spend digital gold.',verified:'Mar 2026',bankSwitch:false,steps:['Sign up via link','Enter code X2PPG7-VF502','Make first gold purchase','Receive bonus']},
-{id:'topcashback',name:'TopCashback',reward:'£10 Bonus',cat:'cashback',badge:'💳 Cashback',bt:'bg2',url:'https://www.topcashback.co.uk/ref/Panzadeferr/?source_id=4',code:'',xp:8,desc:'Join via referral → £10 bonus on top of earning cashback on every online purchase.',verified:'Mar 2026',bankSwitch:false,steps:['Join via referral link','Earn your first cashback','Receive £10 bonus']},
-{id:'quidco',name:'Quidco',reward:'£20 Bonus',cat:'cashback',badge:'💳 Cashback',bt:'bg2',url:'https://quidco.onelink.me/nKzg/v2f3f7m0',code:'',xp:10,desc:'Join and earn £5 cashback on first purchase → £20 bonus on top.',verified:'Mar 2026',bankSwitch:false,steps:['Join via referral link','Earn £5 cashback on first purchase','Receive £20 bonus on top']},
-{id:'rakuten',name:'Rakuten',reward:'£25 Bonus',cat:'cashback',badge:'💳 Cashback',bt:'bg2',url:'https://www.rakuten.co.uk/r/ALBERT24541?eeid=28187',code:'',xp:10,desc:'Spend £50 plus VAT within 90 days of joining → £25 bonus.',verified:'Mar 2026',bankSwitch:false,steps:['Join via referral link','Spend £50+VAT through Rakuten within 90 days','Receive £25 bonus']},
-{id:'slide',name:'Slide',reward:'Cashback',cat:'cashback',badge:'💳 Cashback',bt:'bg2',url:'https://slide.app.link/ho64MGlHF1b',code:'',xp:6,desc:'Join Slide via referral → earn cashback on gift card purchases.',verified:'Mar 2026',bankSwitch:false,steps:['Join via referral link','Buy a gift card through Slide','Earn cashback automatically']},
-{id:'airtime',name:'Airtime Rewards',reward:'£2',cat:'giftcard',badge:'🎁 Gift Cards',bt:'bp2',url:'https://airtimerewards.app.link/6Waa7E1IF1b',code:'FRJKFXX3',xp:5,desc:'Use code FRJKFXX3, spend £5 in 7 days → £2 off your mobile bill.',verified:'Mar 2026',bankSwitch:false,steps:['Sign up via link','Enter code FRJKFXX3','Spend £5 within 7 days','Receive £2 off mobile bill']},
-{id:'cheddar',name:'Cheddar',reward:'£3 Bonus',cat:'giftcard',badge:'🎁 Gift Cards',bt:'bp2',url:'https://get.cheddar.me/app/FVESBGB',code:'FVESBGB',xp:5,desc:'Use code FVESBGB → cashback at Tesco, Sainsburys, Costa. Earn £5 and we both get £3 bonus.',verified:'Mar 2026',bankSwitch:false,steps:['Sign up via link','Enter code FVESBGB','Link your bank card','Earn £5 cashback — both get £3 bonus']},
-{id:'jamdoughnut',name:'Jam Doughnut',reward:'2-8% Cashback',cat:'giftcard',badge:'🎁 Gift Cards',bt:'bp2',url:'https://www.jamdoughnut.com/',code:'8TGF',xp:5,desc:'Use code 8TGF → buy gift cards with typically 2-8% cashback. Rates change daily — always check before buying.',verified:'Mar 2026',bankSwitch:false,steps:['Sign up via link','Enter code 8TGF','Check current cashback rate','Buy gift card at discount']},
-{id:'everup',name:'EverUp',reward:'Cashback',cat:'giftcard',badge:'🎁 Gift Cards',bt:'bp2',url:'https://everup.onelink.me/9lgD/3d22pmln',code:'',xp:5,desc:'Link bank cards → earn automatic cashback at dozens of UK retailers.',verified:'Mar 2026',bankSwitch:false,steps:['Sign up via referral link','Link your bank card','Shop at partner retailers','Earn automatic cashback']},
-{id:'tide',name:'Tide Business',reward:'£75',cat:'business',badge:'💼 Business',bt:'bg2',url:'https://www.tide.co/',code:'3834VA',xp:12,desc:'Use code 3834VA → open Tide business account and make first transaction → £75.',verified:'Mar 2026',bankSwitch:false,steps:['Sign up via link','Enter code 3834VA','Complete business verification','Make first transaction','Receive £75 bonus']},
-{id:'worldfirst',name:'WorldFirst',reward:'Up to £355',cat:'business',badge:'💼 Business',bt:'bg2',url:'https://s.worldfirst.com/2TuviC?default_source=WF-Ts00000OCun2&referral_id=WF-Ts00000OCun2&utm_campaign=COE_MGM_UK_2602&utm_date=app&lang=en_GB',code:'',xp:15,desc:'Open WorldFirst FX account + qualifying transactions → up to £355 in rewards.',verified:'Mar 2026',bankSwitch:false,steps:['Open WorldFirst account via link','Complete business verification','Make qualifying transactions','Receive up to £355 in rewards']},
-{id:'amex',name:'Amex Business Platinum',reward:'130k Points',cat:'business',badge:'💳 Premium',bt:'ba2',url:'https://americanexpress.com/en-gb/referral/platinum-charge?ref=aLBERBf3Ob&XL=MNMNS',code:'',xp:15,desc:'Spend £3,000 in 3 months → 130,000 Amex MR points. Stack with HMRC payments.',verified:'Mar 2026',bankSwitch:false,steps:['Apply via referral link','Get approved for Amex Business Platinum','Spend £3,000 within 3 months','Stack with HMRC payments','Receive 130,000 MR points']},
-{id:'freecash',name:'Freecash',reward:'Bonus Cash',cat:'earn',badge:'💻 Earn',bt:'by2',url:'https://freecash.com/r/89cab33004',code:'',xp:8,desc:'Sign up via referral → earn cash completing surveys, offers and tasks online.',verified:'Mar 2026',bankSwitch:false,steps:['Sign up via referral link','Complete your first offer or survey','Receive bonus cash']},
-{id:'swagbucks',name:'Swagbucks',reward:'Bonus SB',cat:'earn',badge:'💻 Earn',bt:'by2',url:'https://www.swagbucks.com/p/register?rb=150886036',code:'',xp:6,desc:'Join via referral → earn Swagbucks for surveys, shopping and videos. Redeem for PayPal cash.',verified:'Mar 2026',bankSwitch:false,steps:['Sign up via referral link','Complete first survey or task','Earn SB points — redeem for PayPal cash']},
-{id:'gemsloot',name:'Gemsloot',reward:'Bonus',cat:'earn',badge:'💻 Earn',bt:'by2',url:'https://gemsloot.com/?aff=Panza',code:'',xp:5,desc:'Sign up via referral → earn gems completing tasks and offers.',verified:'Mar 2026',bankSwitch:false,steps:['Sign up via referral link','Complete tasks and offers','Earn and redeem gems']},
-{id:'cashinstyle',name:'Cash in Style',reward:'Bonus',cat:'earn',badge:'💻 Earn',bt:'by2',url:'https://cashinstyle.com/?ref=69bdbedalvc1bahm',code:'',xp:5,desc:'Join Cash in Style → earn cashback and rewards on everyday shopping.',verified:'Mar 2026',bankSwitch:false,steps:['Join via referral link','Shop through the platform','Earn cashback and rewards']},
-{id:'lebara',name:'Lebara Mobile',reward:'Bonus',cat:'mobile',badge:'📱 Mobile',bt:'bo2',url:'https://aklam.io/hgY3HOvR',code:'',xp:5,desc:'Switch to Lebara mobile via referral → great value SIM deals and bonus on sign-up.',verified:'Mar 2026',bankSwitch:false,steps:['Sign up via referral link','Choose your SIM plan','Activate SIM','Receive sign-up bonus']},
-{id:'octopus',name:'Octopus Energy',reward:'£50 Each',cat:'freebie',badge:'⚡ Energy',bt:'bg2',url:'https://share.octopus.energy/ocean-quoll-258',code:'',xp:10,desc:'Switch energy to Octopus via referral → you and your referrer both get £50 credit.',verified:'Mar 2026',bankSwitch:false,steps:['Click referral link','Switch energy supply to Octopus','Both receive £50 credit']},
-{id:'trainpal',name:'TrainPal',reward:'£3 Off',cat:'freebie',badge:'🚆 Travel',bt:'bb2',url:'https://t.trainpal.com/wUEPLNq',code:'03ba089c$00',xp:5,desc:'Use code 03ba089c$00 → £3 off first booking.',verified:'Mar 2026',bankSwitch:false,steps:['Download TrainPal app','Enter code 03ba089c$00','Book first train ticket','Save £3 automatically']},
-{id:'wise',name:'Wise',reward:'Free Transfer',cat:'freebie',badge:'💸 Transfer',bt:'bb2',url:'https://wise.com/invite/ahpc/albertob1508',code:'',xp:5,desc:'Join via referral → first transfer fee-free and free physical debit card.',verified:'Mar 2026',bankSwitch:false,steps:['Sign up via referral link','Complete identity verification','Make first transfer — fee free','Receive free physical card']},
-{id:'trading212',name:'Trading 212',reward:'Coming Soon',cat:'invest',badge:'⏸️ Paused',bt:'br2',url:'https://www.trading212.com',code:'',xp:0,desc:'Trading 212 referral bonus currently paused. One of the best when active — will be added immediately when it returns.',verified:'Mar 2026',bankSwitch:false,steps:[]},
-];
-const SUPERMARKET=[{name:'Ocado',discount:'25% OFF',min:'£60+ first order',code:'VOU7311870',url:'https://www.ocado.com',warn:true},{name:'Morrisons',discount:'£15 OFF',min:'£60+ first order',code:'FRESH15',url:'https://www.morrisons.com',warn:true},{name:"Sainsbury's",discount:'£7 OFF',min:'£105+ first order',code:'K7J',url:'https://www.sainsburys.co.uk',warn:true},{name:'Tesco',discount:'Clubcard Prices',min:'Up to 50% off selected items',code:'',url:'https://www.tesco.com',warn:false},{name:'Asda',discount:'Rollback Deals',min:'Weekly rotating discounts',code:'',url:'https://www.asda.com',warn:false},{name:'Iceland',discount:'Bonus Card 2%',min:'Back on every purchase',code:'',url:'https://www.iceland.co.uk',warn:false}];
-const STORES=[{name:'Amazon',cb:'1-3%',tip:'Gift cards typically 2-4% off via Jam Doughnut. Stack with TopCashback. Rates change daily.'},{name:'Tesco',cb:'2-5%',tip:'Gift cards typically 2-4% off + Cheddar cashback + Clubcard prices. Check before buying.'},{name:"Sainsbury's",cb:'2-5%',tip:'Gift cards 2-4% off + Cheddar 5% + Nectar prices. Check Jam Doughnut for best rate.'},{name:'Boots',cb:'2-5%',tip:'Gift cards typically 3-5% off + cashback portal. Check before buying.'},{name:'ASOS',cb:'1-3%',tip:'Student 20% + cashback 1-3% + gift cards at typical 2-4% off.'},{name:'Currys',cb:'1-3%',tip:'Cashback 1-3% + gift cards typically 2-4% off. Check before buying.'},{name:'Very',cb:'2-4%',tip:'First order 20% + cashback 2-4% + gift cards. Verify rate before purchasing.'},{name:'John Lewis',cb:'1-3%',tip:'Price match + gift cards typically 2-4% off. Check TopGiftCards.'},{name:'M&S',cb:'2-4%',tip:'Gift cards typically 2-4% off + Sparks card. Check Jam Doughnut.'},{name:'IKEA',cb:'1-2%',tip:'As-is section bargains + gift cards typically 1-3% off.'},{name:'Next',cb:'1-3%',tip:'Gift cards typically 2-4% off + cashback. Check before buying.'},{name:'H&M',cb:'1-3%',tip:'Sign-up discount + cashback 1-3% + gift cards.'},{name:'Sports Direct',cb:'1-3%',tip:'Student + cashback + gift cards typically 2-4% off.'},{name:'Game',cb:'1-3%',tip:'Trade-in old games then stack cashback + gift cards.'},{name:'Waitrose',cb:'1-3%',tip:'Free coffee every visit + gift cards typically 2-3% off.'},{name:'Ocado',cb:'2-5%',tip:'First order big discount + cashback 2-5% + gift cards.'},{name:'eBay',cb:'1-2%',tip:'TopCashback 1-2% + discounted gift cards.'},{name:'Decathlon',cb:'1-3%',tip:'Membership points + gift cards typically 1-3% off.'},{name:'Zara',cb:'1-2%',tip:'Seasonal sales + gift cards typically 2-3% off.'},{name:'Argos',cb:'1-2%',tip:'Nectar points + gift cards typically 2-4% off.'}];
-const LEVELS=[{l:1,name:'Saver Recruit',xp:0,next:50,unlock:'Access to all offers'},{l:2,name:'Coupon Collector',xp:50,next:120,unlock:'Unlock stacking guides'},{l:3,name:'Cashback Hunter',xp:120,next:220,unlock:'Unlock spin wheel'},{l:4,name:'Referral Pro',xp:220,next:360,unlock:'Unlock weekly challenges'},{l:5,name:'Deal Stacker',xp:360,next:550,unlock:'5 spins per day (was 3)'},{l:6,name:'Savings Master',xp:550,next:800,unlock:'Bonus XP on every claim'},{l:7,name:'Arbitrage King',xp:800,next:1100,unlock:'VIP Telegram direct link'},{l:8,name:'Money Machine',xp:1100,next:1500,unlock:'Featured on leaderboard'},{l:9,name:'Elite Hunter',xp:1500,next:2000,unlock:'Early access to new offers'},{l:10,name:'Money Hunter',xp:2000,next:9999,unlock:'Legend status — all unlocked'}];
-const BADGES=[{id:'first_claim',icon:'🎯',name:'First Blood',desc:'Claimed first offer',check:s=>s.claimed>=1},{id:'streak3',icon:'🔥',name:'On Fire',desc:'3-day streak',check:s=>s.streak>=3},{id:'streak7',icon:'⚡',name:'Weekly Warrior',desc:'7-day streak',check:s=>s.streak>=7},{id:'streak30',icon:'🏅',name:'Monthly Legend',desc:'30-day streak',check:s=>s.streak>=30},{id:'save50',icon:'💰',name:'Fifty Club',desc:'Saved £50+',check:s=>s.savings>=50},{id:'save100',icon:'💎',name:'Century Saver',desc:'Saved £100+',check:s=>s.savings>=100},{id:'save250',icon:'🏆',name:'Quarter Grand',desc:'Saved £250+',check:s=>s.savings>=250},{id:'save500',icon:'👑',name:'Half Grand',desc:'Saved £500+',check:s=>s.savings>=500},{id:'save1000',icon:'🦁',name:'Grand Hunter',desc:'Saved £1,000+',check:s=>s.savings>=1000},{id:'level5',icon:'🚀',name:'Level 5',desc:'Reached level 5',check:s=>s.level>=5},{id:'level10',icon:'🌟',name:'Max Level',desc:'Reached level 10',check:s=>s.level>=10},{id:'spin1',icon:'🎰',name:'High Roller',desc:'Spun the wheel',check:s=>s.spins>=1},{id:'claim5',icon:'📋',name:'Serial Claimer',desc:'Claimed 5 offers',check:s=>s.claimed>=5},{id:'claim10',icon:'🤑',name:'Offer Hunter',desc:'Claimed 10 offers',check:s=>s.claimed>=10},{id:'claim20',icon:'💥',name:'Deal Machine',desc:'Claimed 20 offers',check:s=>s.claimed>=20},{id:'stack1',icon:'🧩',name:'Stacker',desc:'Visited stacking guide',check:s=>s.stackVisit>=1},{id:'share1',icon:'🔗',name:'Spreader',desc:'Shared the app',check:s=>s.shares>=1}];
-const MILESTONES=[{icon:'🌱',name:'First £',amount:1},{icon:'🥉',name:'£50',amount:50},{icon:'🥈',name:'£100',amount:100},{icon:'🥇',name:'£250',amount:250},{icon:'💎',name:'£500',amount:500},{icon:'👑',name:'£1,000',amount:1000}];
-const WHEEL=[{label:'10 XP',xp:10,color:'#10b981'},{label:'25 XP',xp:25,color:'#3b82f6'},{label:'5 XP',xp:5,color:'#6b7280'},{label:'50 XP',xp:50,color:'#f59e0b'},{label:'15 XP',xp:15,color:'#8b5cf6'},{label:'Try Again',xp:0,color:'#ef4444'},{label:'100 XP',xp:100,color:'#065f46'},{label:'20 XP',xp:20,color:'#0284c7'}];
-const ACCENTS={bg2:'#10b981',ba2:'#f59e0b',bp2:'#8b5cf6',bb2:'#3b82f6',br2:'#ef4444',bs2:'#7c3aed',bo2:'#ea580c',by2:'#ca8a04'};
-const ADMIN_PASS='moneyhunter2026';
-const SEEDED_FEED=[{username:'LondonDeal92',amount:'£200',offer:'Lloyds Bank',time:'2 mins ago'},{username:'NorthernSaver',amount:'£175',offer:'First Direct',time:'8 mins ago'},{username:'CashbackKing',amount:'£50',offer:'Chase UK',time:'15 mins ago'},{username:'DealHunterMel',amount:'Free Share',offer:'Freetrade',time:'22 mins ago'},{username:'BirminghamSave',amount:'£150',offer:'NatWest',time:'31 mins ago'},{username:'ManchesterMike',amount:'£200',offer:'Santander',time:'45 mins ago'},{username:'ScottishSaver',amount:'£10',offer:'TopCashback',time:'1 hr ago'},{username:'LeedsBargain',amount:'£175',offer:'Barclays',time:'1.5 hrs ago'},{username:'BristolHunter',amount:'Free Share',offer:'Robinhood UK',time:'2 hrs ago'},{username:'CardiffCash',amount:'£50',offer:'Octopus Energy',time:'2.5 hrs ago'}];
+    function changeTab(tabId, el) {
+        document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+        document.getElementById(tabId).classList.add('active');
+        document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('on'));
+        el.classList.add('on');
+        haptic(10);
+        window.scrollTo(0,0);
+    }
 
-let S={xp:+localStorage.getItem('mh_xp')||0,level:+localStorage.getItem('mh_lvl')||1,savings:+localStorage.getItem('mh_sav')||0,claimed:+localStorage.getItem('mh_clm')||0,streak:+localStorage.getItem('mh_str')||0,spins:+localStorage.getItem('mh_spins')||0,stackVisit:+localStorage.getItem('mh_stk')||0,shares:+localStorage.getItem('mh_shares')||0,lastVisit:localStorage.getItem('mh_lv')||'',spinsToday:+localStorage.getItem('mh_spday')||0,spinsDate:localStorage.getItem('mh_spdate')||'',weekClaims:+localStorage.getItem('mh_wclm')||0,weekStart:localStorage.getItem('mh_wstart')||'',savedAmounts:JSON.parse(localStorage.getItem('mh_amounts'))||{},earnedBadges:JSON.parse(localStorage.getItem('mh_badges'))||[],adminOffers:JSON.parse(localStorage.getItem('mh_admin_offers'))||[],scraped:JSON.parse(localStorage.getItem('mh_scraped'))||[],pendingPayouts:JSON.parse(localStorage.getItem('mh_pending'))||[],username:localStorage.getItem('mh_username')||'',feedEntries:JSON.parse(localStorage.getItem('mh_feed'))||[],offerStatus:JSON.parse(localStorage.getItem('mh_status'))||{},offerSteps:JSON.parse(localStorage.getItem('mh_steps'))||{}};
-let activeFilter='all',activeTab='offers',spinning=false,pendingOfferTemp=null;
+    function haptic(ms) { if (window.navigator.vibrate) window.navigator.vibrate(ms); }
 
-function save(){Object.entries({mh_xp:S.xp,mh_lvl:S.level,mh_sav:S.savings,mh_clm:S.claimed,mh_str:S.streak,mh_spins:S.spins,mh_stk:S.stackVisit,mh_shares:S.shares,mh_lv:S.lastVisit,mh_spday:S.spinsToday,mh_spdate:S.spinsDate,mh_wclm:S.weekClaims,mh_wstart:S.weekStart,mh_amounts:JSON.stringify(S.savedAmounts),mh_badges:JSON.stringify(S.earnedBadges),mh_admin_offers:JSON.stringify(S.adminOffers),mh_scraped:JSON.stringify(S.scraped),mh_pending:JSON.stringify(S.pendingPayouts),mh_username:S.username,mh_feed:JSON.stringify(S.feedEntries),mh_status:JSON.stringify(S.offerStatus),mh_steps:JSON.stringify(S.offerSteps)}).forEach(([k,v])=>localStorage.setItem(k,v));}
+    function openDetail(name, rate, source, tip) {
+        document.getElementById('detailTitle').innerText = name;
+        document.getElementById('detailRate').innerText = rate;
+        document.getElementById('detailSource').innerText = source;
+        document.getElementById('detailTip').innerText = tip;
+        document.getElementById('detailPanel').classList.add('active');
+        haptic(30);
+    }
 
-// ADMIN — hidden, accessible via URL hash or keyboard shortcut ADM
-function checkAdminAccess(){if(window.location.hash==='#admin'){showAdminPanel();}};
-let adminKeySeq=[];
-document.addEventListener('keydown',e=>{adminKeySeq.push(e.key.toLowerCase());adminKeySeq=adminKeySeq.slice(-3);if(adminKeySeq.join('')==='adm')showAdminPanel();});
-function showAdminPanel(){const pass=prompt('Admin password:');if(pass===ADMIN_PASS){document.getElementById('adminPanel').classList.toggle('show');renderAdminList();}else if(pass!==null)toast('❌ Wrong password');}
-function showAdmin(){showAdminPanel();}
+    function closeDetail() { document.getElementById('detailPanel').classList.remove('active'); }
 
-// USERNAME
-function saveUsername(){const v=document.getElementById('unInput').value.trim();if(!v||v.length<2){toast('Please enter at least 2 characters');return;}S.username=v;save();document.getElementById('unPopup').style.display='none';checkStreak();}
+    function openBox() {
+        const chest = document.getElementById('chest');
+        chest.classList.add('shake');
+        haptic([40, 60, 40]);
+        setTimeout(() => {
+            chest.classList.remove('shake');
+            chest.innerHTML = '🔓';
+            confetti({ particleCount: 150, spread: 70, origin: { y: 0.7 }, colors:['#00e676','#ffd740','#ffffff'] });
+            document.getElementById('boxText').innerHTML = `<div style="font-weight: 800; color: var(--g); font-size: 18px;">+100 XP CLAIMED!</div>`;
+            haptic(100);
+        }, 800);
+    }
 
-// TICKER
-function buildFeedItems(){const all=[...SEEDED_FEED,...S.feedEntries.map(e=>({...e,time:'Just now'}))];return all.map(e=>'<div class="tick-item"><div class="tick-dot"></div><span style="color:#fcd34d;font-weight:700">'+e.username+'</span><span class="tick-amt"> earned '+e.amount+'</span><span style="color:#6ee7b7"> from '+e.offer+'</span><span style="color:#4ade80;font-size:11px;margin-left:4px">'+e.time+'</span></div>').join('');}
-function initTicker(){const inner=document.getElementById('tickerInner');if(!inner)return;const items=buildFeedItems();inner.innerHTML=items+items;}
-function addToFeed(amount,offer){if(!S.username)return;S.feedEntries.unshift({username:S.username,amount,offer,time:'Just now'});if(S.feedEntries.length>50)S.feedEntries=S.feedEntries.slice(0,50);save();initTicker();}
-
-// STREAK
-function checkStreak(){const today=new Date().toDateString();if(S.lastVisit===today)return;const yesterday=new Date();yesterday.setDate(yesterday.getDate()-1);S.streak=S.lastVisit===yesterday.toDateString()?S.streak+1:1;S.lastVisit=today;const xp=S.streak>=7?25:S.streak>=3?15:5;S.xp+=xp;save();showDailyPopup(xp);}
-function showDailyPopup(xp){const o=document.getElementById('popupOverlay');document.getElementById('popupIcon').textContent=S.streak>=7?'🔥':S.streak>=3?'⚡':'👋';document.getElementById('popupTitle').textContent=S.streak>1?S.streak+' Day Streak!':'Welcome Back!';document.getElementById('popupSub').textContent=S.streak>=7?'You are on fire! 7+ day streak bonus!':S.streak>=3?'3+ day streak — keep it going!':'Open daily for bigger bonuses!';document.getElementById('popupXP').textContent='+'+xp+' XP';document.getElementById('streakDots').innerHTML=Array.from({length:7},(_,i)=>'<div class="sd '+(i<S.streak?'done':'')+'>'+(i<S.streak?'🔥':'○')+'</div>').join('');o.style.display='flex';}
-function closePopup(){document.getElementById('popupOverlay').style.display='none';updateUI();}
-
-// WEEKLY CHALLENGE
-function checkWeek(){const now=new Date(),ws=new Date(now);ws.setDate(now.getDate()-now.getDay());ws.setHours(0,0,0,0);const wss=ws.toDateString();if(S.weekStart!==wss){S.weekStart=wss;S.weekClaims=0;save();}const pct=Math.min(S.weekClaims/3*100,100);const b=document.getElementById('chBar');const p=document.getElementById('chProg');if(b)b.style.width=pct+'%';if(p)p.textContent=Math.min(S.weekClaims,3)+'/3 claimed this week';if(S.weekClaims>=3&&!localStorage.getItem('mh_ch_'+wss)){localStorage.setItem('mh_ch_'+wss,'1');addXP(50);toast('🎯 Weekly challenge complete! +50 XP!');}}
-
-// LEVEL
-function getLevel(xp){let c=LEVELS[0];for(const l of LEVELS){if(xp>=l.xp)c=l;else break;}return c;}
-function updateUI(){
-  const lvl=getLevel(S.xp);const prog=lvl.next>lvl.xp?((S.xp-lvl.xp)/(lvl.next-lvl.xp))*100:100;
-  document.getElementById('xpDisp').textContent=S.xp;document.getElementById('lvlDisp').textContent=lvl.l;document.getElementById('lvlName').textContent=lvl.name;document.getElementById('xpTxt').textContent=(S.xp-lvl.xp)+'/'+(lvl.next-lvl.xp)+' XP';document.getElementById('lvlBar').style.width=Math.min(prog,100)+'%';document.getElementById('totalSav').textContent='£'+S.savings.toFixed(2);document.getElementById('clmDisp').textContent=S.claimed;document.getElementById('strDisp').textContent=S.streak+'🔥';
-  const today=new Date().toDateString();if(S.spinsDate!==today){S.spinsToday=0;S.spinsDate=today;save();}
-  const maxSpins=lvl.l>=5?5:3;const left=Math.max(0,maxSpins-S.spinsToday);
-  if(document.getElementById('xpForSpin'))document.getElementById('xpForSpin').textContent=S.xp;
-  if(document.getElementById('spinsLeft'))document.getElementById('spinsLeft').textContent=left;
-  const ps=document.getElementById('progSaved');const pp=document.getElementById('progPending');const pc=document.getElementById('progClaimed');
-  if(ps)ps.textContent='£'+S.savings.toFixed(0);
-  if(pp){const pt=S.pendingPayouts.reduce((a,p)=>{const v=parseFloat(p.reward.replace(/[^0-9.]/g,''))||0;return a+v;},0);pp.textContent='£'+pt.toFixed(0);}
-  if(pc)pc.textContent=S.claimed;
-  renderBadgesHeader();checkBadges();checkWeek();renderPending();
-}
-function addXP(amt){const prev=getLevel(S.xp).l;S.xp+=amt;save();const now=getLevel(S.xp).l;if(now>prev){S.level=now;save();showLevelUp(getLevel(S.xp).name);}updateUI();}
-function showLevelUp(name){const el=document.createElement('div');el.className='lup';el.innerHTML='<span class="lup-e">🎉</span><div class="lup-t">Level Up!</div><div class="lup-s">You are now a '+name+'</div>';document.body.appendChild(el);setTimeout(()=>el.remove(),2600);}
-function toast(msg){const el=document.createElement('div');el.className='toast';el.textContent=msg;document.body.appendChild(el);setTimeout(()=>el.remove(),2400);}
-function checkBadges(){for(const b of BADGES){if(!S.earnedBadges.includes(b.id)&&b.check(S)){S.earnedBadges.push(b.id);save();toast('🏅 Badge: '+b.name+'!');}}}
-function renderBadgesHeader(){const row=document.getElementById('badgesRow');if(!row)return;row.innerHTML=BADGES.filter(b=>S.earnedBadges.includes(b.id)).slice(0,5).map(b=>'<div class="bc">'+b.icon+' '+b.name+'</div>').join('');}
-
-// OFFER STATUS
-function setStatus(id,status){S.offerStatus[id]=status;save();renderOffers();}
-
-// STEPS
-function toggleStep(offerId,stepIdx,checked){if(!S.offerSteps[offerId])S.offerSteps[offerId]=[];S.offerSteps[offerId][stepIdx]=checked;save();updateStepProgress(offerId);}
-function updateStepProgress(offerId){const offer=OFFERS.find(o=>o.id===offerId)||S.adminOffers.find(o=>o.id===offerId);if(!offer||!offer.steps)return;const steps=S.offerSteps[offerId]||[];const done=steps.filter(Boolean).length;const total=offer.steps.length;const bar=document.getElementById('spf_'+offerId);const txt=document.getElementById('spt_'+offerId);if(bar)bar.style.width=(total>0?done/total*100:0)+'%';if(txt)txt.textContent=done+'/'+total+' steps';if(done===total&&total>0&&!localStorage.getItem('mh_sc_'+offerId)){localStorage.setItem('mh_sc_'+offerId,'1');setStatus(offerId,'completed');addXP(20);toast('🎉 Offer complete! +20 XP!');}}
-
-// PENDING PAYOUTS
-let pendingOfferData=null;
-function showPendingPopup(offer){pendingOfferData=offer;const popup=document.getElementById('pendPopup');document.getElementById('pendPopupSub').textContent='How long until '+offer.name+' pays out?';document.getElementById('pendPopupDays').value=offer.expectedDays||30;popup.style.display='flex';}
-function confirmPending(){const days=parseInt(document.getElementById('pendPopupDays').value);if(!days||!pendingOfferData)return;const due=new Date();due.setDate(due.getDate()+days);S.pendingPayouts.push({id:Date.now(),name:pendingOfferData.name,reward:pendingOfferData.reward,dueDate:due.toISOString()});save();renderPending();document.getElementById('pendPopup').style.display='none';toast('💸 Added to pending payouts!');pendingOfferData=null;}
-function addPendingManual(){const sel=document.getElementById('pendingOffer');const days=parseInt(document.getElementById('pendingDays').value);if(!sel.value||!days)return;const offer=OFFERS.find(o=>o.id===sel.value)||S.adminOffers.find(o=>o.id===sel.value);if(!offer)return;const due=new Date();due.setDate(due.getDate()+days);S.pendingPayouts.push({id:Date.now(),name:offer.name,reward:offer.reward,dueDate:due.toISOString()});save();renderPending();toast('💸 Added to pending payouts!');document.getElementById('pendingDays').value='';}
-function removePending(id){S.pendingPayouts=S.pendingPayouts.filter(p=>p.id!==id);save();renderPending();}
-function renderPending(){const list=document.getElementById('pendingList');const totalEl=document.getElementById('pendingTotal');if(!list)return;if(!S.pendingPayouts.length){list.innerHTML='<div style="font-size:13px;color:var(--tl);text-align:center;padding:8px 0">Claim an offer below — you will be asked to add it here automatically</div>';if(totalEl)totalEl.textContent='£0';return;}let total=0;const now=new Date();list.innerHTML=S.pendingPayouts.map(p=>{const due=new Date(p.dueDate);const daysLeft=Math.ceil((due-now)/(1000*60*60*24));const cls=daysLeft<=3?'pc-soon':daysLeft<=7?'pc-mid':'pc-ok';const label=daysLeft<=0?'Due now!':daysLeft===1?'Tomorrow':daysLeft+' days';const amt=parseFloat(p.reward.replace(/[^0-9.]/g,''))||0;total+=amt;return'<div class="pending-row"><div class="pending-name">'+p.name+'</div><div class="pending-amt">'+p.reward+'</div><span class="pending-countdown '+cls+'">'+label+'</span><button class="pending-del" onclick="removePending('+p.id+')">✕</button></div>';}).join('');if(totalEl)totalEl.textContent='£'+total.toFixed(0);const sel=document.getElementById('pendingOffer');if(sel){sel.innerHTML='<option value="">Add manually...</option>'+OFFERS.filter(o=>o.reward!=='Coming Soon').map(o=>'<option value="'+o.id+'">'+o.name+' ('+o.reward+')</option>').join('')+S.adminOffers.map(o=>'<option value="'+o.id+'">'+o.name+' ('+o.reward+')</option>').join('');}}
-
-// CLAIM
-function claim(url,code,name,cat,isBankSwitch){
-  if(code){navigator.clipboard.writeText(code).catch(()=>{const ta=document.createElement('textarea');ta.value=code;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);});toast('✅ Code "'+code+'" copied! Opening '+name+'...');}
-  else{toast('🚀 Opening '+name+'...');}
-  S.claimed++;S.weekClaims++;save();addXP(code?5:3);
-  const offer=OFFERS.find(o=>o.name===name)||S.adminOffers.find(o=>o.name===name);
-  addToFeed(offer?.reward||'Bonus',name);
-  if(offer&&(isBankSwitch||offer.bankSwitch||cat==='bank')){setTimeout(()=>showPendingPopup(offer),400);}
-  if(offer)setStatus(offer.id,'pending');
-  setTimeout(()=>window.open(url,'_blank'),350);
-}
-
-function logSaving(id,val){const v=parseFloat(val);if(isNaN(v)||v<=0)return;const prev=S.savedAmounts[id]||0;S.savedAmounts[id]=v;S.savings+=v-prev;save();updateUI();toast('💰 £'+v.toFixed(2)+' saved logged!');const o=OFFERS.find(x=>x.id===id)||S.adminOffers.find(x=>x.id===id);if(o&&v-prev>0){addToFeed('£'+v.toFixed(0),o.name);addXP(Math.max(1,Math.ceil((v-prev)/10)));if(S.offerStatus[id]!=='completed')setStatus(id,'completed');}}
-
-function shareApp(){const text='💰 Money Hunters UK — 46+ UK referral deals, bank switches up to £1,000+, cashback stacking and daily 8am Telegram alerts!\n\nhttps://panzadeferr.github.io/MoneyHunterUk/\n\nCommunity: https://www.reddit.com/r/ReferralHunterUK/';if(navigator.share){navigator.share({title:'Money Hunters UK',text,url:'https://panzadeferr.github.io/MoneyHunterUk/'});}else{navigator.clipboard.writeText(text).then(()=>toast('🔗 App link copied! Share with friends'));}S.shares++;save();addXP(10);}
-
-// CARD BUILDER
-function buildCard(o){
-  if(o.expired)return'';
-  const saved=S.savedAmounts[o.id]||0;
-  const accent=ACCENTS[o.bt]||'#10b981';
-  const btnCls=o.bt==='ba2'?'btn-a':o.bt==='bp2'?'btn-p':o.bt==='bo2'?'btn-b':'btn-g';
-  const codeHtml=o.code?'<div class="cc">🏷️ '+o.code+'</div>':'';
-  const isPaused=o.reward==='Coming Soon';
-  const status=S.offerStatus[o.id]||'not-started';
-  const steps=o.steps&&o.steps.length>0?o.steps:null;
-  const stepsDone=(S.offerSteps[o.id]||[]).filter(Boolean).length;
-  const stepsTotal=steps?steps.length:0;
-  const statusRow='<div class="status-row"><button class="status-btn '+(status==='not-started'?'active-ns':'')+'" onclick="setStatus(\''+o.id+'\',\'not-started\')">Not Started</button><button class="status-btn '+(status==='pending'?'active-pend':'')+'" onclick="setStatus(\''+o.id+'\',\'pending\')">⏳ Pending</button><button class="status-btn '+(status==='completed'?'active-comp':'')+'" onclick="setStatus(\''+o.id+'\',\'completed\')">✅ Done</button></div>';
-  const stepsHtml=steps?'<div class="steps-wrap"><div class="steps-header"><span>Progress</span><span id="spt_'+o.id+'">'+stepsDone+'/'+stepsTotal+' steps</span></div><div class="sp-bg"><div class="sp-f" id="spf_'+o.id+'" style="width:'+(stepsTotal>0?stepsDone/stepsTotal*100:0)+'%"></div></div>'+steps.map((step,i)=>{const checked=(S.offerSteps[o.id]||[])[i]||false;return'<div class="si2"><input type="checkbox" id="step_'+o.id+'_'+i+'" '+(checked?'checked':'')+' onchange="toggleStep(\''+o.id+'\','+i+',this.checked)"><label for="step_'+o.id+'_'+i+'">'+step+'</label></div>';}).join('')+'</div>':'';
-  const scrapedNote=o.scraped?'<div style="font-size:11px;color:var(--tl);margin-bottom:5px">🕷️ Community deal · <a href="https://www.reddit.com/r/ReferralHunterUK/" target="_blank" style="color:var(--gd)">Join r/ReferralHunterUK</a></div>':'';
-  const verNote=o.verified&&!o.scraped?'<div class="vd">✓ Verified '+o.verified+'</div>':'';
-  const safeUrl=o.url.replace(/'/g,"\\'");const safeCode=(o.code||'').replace(/'/g,"\\'");const safeName=o.name.replace(/'/g,"\\'");
-  const cardClass='card'+(status==='completed'?' status-completed':status==='pending'?' status-pending':'');
-  return'<div class="'+cardClass+'" id="card_'+o.id+'" data-cat="'+o.cat+'"><div class="ca" style="background:'+accent+'"></div><div class="cb"><div class="ct"><div><div class="cn">'+o.name+(status==='completed'?' ✅':'')+'</div><span class="bx '+o.bt+'">'+o.badge+'</span>'+(o.adminAdded?' <span class="bx bp2">Admin</span>':'')+'</div><div class="cr">'+o.reward+'</div></div>'+verNote+scrapedNote+'<div class="cd">'+o.desc+'</div>'+codeHtml+statusRow+stepsHtml+(isPaused?'<button class="btn" style="background:var(--br);color:var(--tl);cursor:default">⏸️ Paused — Check Back Soon</button>':'<button class="btn '+btnCls+'" onclick="claim(\''+safeUrl+'\',\''+safeCode+'\',\''+safeName+'\',\''+o.cat+'\','+(!!(o.bankSwitch||o.expectedDays))+')">'+( o.code?'📋 Copy Code and Open →':'🚀 Claim Offer →')+'</button><div class="sv-row"><span class="sv-l">💰 Saved:</span><input class="sv-in" type="number" placeholder="£0" min="0" step="0.01" value="'+(saved>0?saved:'')+'" id="sv_'+o.id+'"><button class="sv-btn" onclick="logSaving(\''+o.id+'\',document.getElementById(\'sv_'+o.id+'\').value)">Log</button></div>')+'</div></div>';}
-
-function renderOffers(){const q=document.getElementById('srch').value.toLowerCase().trim();const grid=document.getElementById('offersGrid');const empty=document.getElementById('offersEmpty');const all=[...OFFERS,...S.adminOffers,...S.scraped].filter(o=>!o.expired);const filtered=all.filter(o=>(activeFilter==='all'||o.cat===activeFilter)&&(!q||o.name.toLowerCase().includes(q)||o.desc.toLowerCase().includes(q)||o.cat.toLowerCase().includes(q)));if(filtered.length===0){grid.innerHTML='';empty.style.display='block';}else{empty.style.display='none';grid.innerHTML=filtered.map(buildCard).join('');}}
-
-function renderSupermarket(){document.getElementById('superGrid').innerHTML=SUPERMARKET.map(o=>'<div class="sc" style="border-left-color:'+(o.code?'var(--a)':'var(--g)')+'"><div style="font-family:var(--fh);font-size:14px;margin-bottom:2px">🛒 '+o.name+'</div><div style="font-family:var(--fh);font-size:19px;color:var(--t);margin:2px 0">'+o.discount+'</div><div class="st">'+o.min+'</div>'+(o.warn?'<div class="vd">⚠️ Verify before checkout</div>':'')+(o.code?'<div class="cc">'+o.code+'</div>':'')+'<button class="btn '+(o.code?'btn-a':'btn-g')+'" onclick="claim(\''+o.url+'\',\''+(o.code||'')+'\',\''+o.name+'\',\'super\',false)">'+( o.code?'📋 Copy Code and Open →':'🛒 View Deals →')+'</button></div>').join('');}
-
-function renderStores(){document.getElementById('storesGrid').innerHTML=STORES.map(s=>'<div class="sc"><div class="sh2"><div class="sn">🛍️ '+s.name+'</div><span class="cp">💰 '+s.cb+' cashback</span></div><div class="st">'+s.tip+'</div><button class="btn btn-g" onclick="window.open(\'https://www.'+s.name.toLowerCase().replace(/[&\'\s]/g,'')+'.co.uk\',\'_blank\');addXP(2)">Shop '+s.name+' →</button></div>').join('');}
-
-function renderProgressTab(){const ug=document.getElementById('unlocksGrid');if(ug)ug.innerHTML=LEVELS.map(l=>'<div class="unlock-card"><div class="unlock-lvl" style="color:'+(S.xp>=l.xp?'var(--g)':'var(--tl)')+'">Lv'+l.l+'</div><div class="unlock-info"><div class="unlock-name">'+l.name+'</div><div class="unlock-desc">'+l.unlock+'</div></div><span class="'+(S.xp>=l.xp?'udone':'ulocked')+'">'+(S.xp>=l.xp?'✅ Unlocked':'🔒 Locked')+'</span></div>').join('');const bg=document.getElementById('badgesGrid');if(bg)bg.innerHTML=BADGES.map(b=>'<div class="ms-card '+(S.earnedBadges.includes(b.id)?'done':'locked')+'"><div class="ms-icon">'+b.icon+'</div><div class="ms-name">'+b.name+'</div><div class="ms-desc">'+b.desc+'</div></div>').join('');const mg=document.getElementById('milestonesGrid');if(mg)mg.innerHTML=MILESTONES.map(m=>'<div class="ms-card '+(S.savings>=m.amount?'done':'locked')+'"><div class="ms-icon">'+m.icon+'</div><div class="ms-name">'+m.name+'</div><div class="ms-desc">£'+m.amount+'</div></div>').join('');drawWheel(wheelRot);updateUI();}
-
-function renderLeaderboard(){const lb=document.getElementById('leaderboard');if(!lb)return;const others=[{name:'DealKing92',xp:1850,savings:487},{name:'SarahSaves',xp:1340,savings:312},{name:'BeermoneyPro',xp:1100,savings:298},{name:'CashbackQueen',xp:890,savings:241},{name:'ReferralHero',xp:650,savings:178},{name:'StackMaster',xp:420,savings:134},{name:'UKMoneyHunt',xp:280,savings:89},{name:'SavingsNinja',xp:190,savings:67},{name:'DealFinder',xp:120,savings:45}];const you={name:S.username||'You',xp:S.xp,savings:S.savings,isYou:true};const all=[...others,you].sort((a,b)=>b.xp-a.xp).slice(0,10);const medals=['🥇','🥈','🥉'];lb.innerHTML=all.map((p,i)=>'<div class="lb-row '+(p.isYou?'lb-you':'')+'"><div class="lb-rank">'+(medals[i]||'#'+(i+1))+'</div><div class="lb-name">'+p.name+(p.isYou?' (You)':'')+'</div><div class="lb-score">'+p.xp+' XP · £'+p.savings.toFixed(0)+'</div></div>').join('');}
-
-// SPIN WHEEL
-function drawWheel(rot){const canvas=document.getElementById('wheelCanvas');if(!canvas)return;const ctx=canvas.getContext('2d');const cx=120,cy=120,r=112;const arc=(2*Math.PI)/WHEEL.length;ctx.clearRect(0,0,240,240);WHEEL.forEach((p,i)=>{const start=rot+i*arc;ctx.beginPath();ctx.moveTo(cx,cy);ctx.arc(cx,cy,r,start,start+arc);ctx.fillStyle=p.color;ctx.fill();ctx.strokeStyle='#fff';ctx.lineWidth=2;ctx.stroke();ctx.save();ctx.translate(cx,cy);ctx.rotate(start+arc/2);ctx.textAlign='right';ctx.fillStyle='#fff';ctx.font='bold 11px DM Sans,sans-serif';ctx.fillText(p.label,r-6,4);ctx.restore();});ctx.beginPath();ctx.arc(cx,cy,15,0,2*Math.PI);ctx.fillStyle='#fff';ctx.fill();ctx.strokeStyle='#8b5cf6';ctx.lineWidth=3;ctx.stroke();ctx.beginPath();ctx.moveTo(cx+r+5,cy-7);ctx.lineTo(cx+r+5,cy+7);ctx.lineTo(cx+r-7,cy);ctx.fillStyle='#fcd34d';ctx.fill();}
-let wheelRot=0;
-function spinWheel(){if(spinning)return;const today=new Date().toDateString();if(S.spinsDate!==today){S.spinsToday=0;S.spinsDate=today;}const maxSpins=getLevel(S.xp).l>=5?5:3;if(S.spinsToday>=maxSpins){toast('No spins left today — come back tomorrow!');return;}if(S.xp<20){toast('Need 20 XP to spin! Claim some offers first.');return;}spinning=true;S.xp-=20;S.spins++;S.spinsToday++;save();document.getElementById('spinBtn').disabled=true;document.getElementById('wheelResult').textContent='';const prizeIdx=Math.floor(Math.random()*WHEEL.length);const arc=(2*Math.PI)/WHEEL.length;const target=-(prizeIdx*arc)+(Math.PI*10)+(Math.PI/2);const start=Date.now(),dur=4000,startRot=wheelRot;function animate(){const elapsed=Date.now()-start,t=Math.min(elapsed/dur,1);const ease=1-Math.pow(1-t,4);wheelRot=startRot+target*ease;drawWheel(wheelRot);if(t<1){requestAnimationFrame(animate);}else{const prize=WHEEL[prizeIdx];if(prize.xp>0){addXP(prize.xp);document.getElementById('wheelResult').textContent='🎉 You won '+prize.xp+' XP!';toast('🎰 +'+prize.xp+' XP!');}else{document.getElementById('wheelResult').textContent='😅 Try again tomorrow!';updateUI();}spinning=false;document.getElementById('spinBtn').disabled=false;if(document.getElementById('xpForSpin'))document.getElementById('xpForSpin').textContent=S.xp;}}requestAnimationFrame(animate);}
-
-// TABS & NAVIGATION
-function switchTab(tab,btn){activeTab=tab;document.querySelectorAll('.tb').forEach(b=>b.classList.remove('on'));btn.classList.add('on');['offers','stacking','supermarket','stores','directdebit','community','progress'].forEach(t=>{document.getElementById('tab-'+t).style.display=t===tab?'':'none';});const showSearch=tab==='offers';document.querySelector('.sw').style.display=showSearch?'':'none';document.querySelector('.filters').style.display=showSearch?'':'none';if(tab==='offers')renderOffers();if(tab==='progress')renderProgressTab();if(tab==='supermarket')renderSupermarket();if(tab==='stores')renderStores();if(tab==='community')renderLeaderboard();if(tab==='stacking'){S.stackVisit++;save();checkBadges();}}
-
-function scrollToTab(tab){document.getElementById('app-start').scrollIntoView({behavior:'smooth'});setTimeout(()=>{const btn=Array.from(document.querySelectorAll('.tb')).find(b=>b.getAttribute('onclick')&&b.getAttribute('onclick').includes("'"+tab+"'"));if(btn)btn.click();},400);}
-
-function scrollToOffers(filter){document.getElementById('app-start').scrollIntoView({behavior:'smooth'});setTimeout(()=>{const btn=Array.from(document.querySelectorAll('.tb')).find(b=>b.getAttribute('onclick')&&b.getAttribute('onclick').includes("'offers'"));if(btn)btn.click();setTimeout(()=>{const fp=Array.from(document.querySelectorAll('.fp')).find(b=>b.getAttribute('onclick')&&b.getAttribute('onclick').includes("'"+filter+"'"));if(fp)fp.click();},200);},400);}
-
-function scrollToOffer(id){scrollToTab('offers');setTimeout(()=>{const el=document.getElementById('card_'+id);if(el){el.scrollIntoView({behavior:'smooth',block:'center'});el.style.boxShadow='0 0 0 3px var(--a)';setTimeout(()=>el.style.boxShadow='',2000);}},600);}
-
-function setFilter(f,btn){activeFilter=f;document.querySelectorAll('.fp').forEach(b=>b.classList.remove('on'));btn.classList.add('on');renderOffers();}
-
-// ADMIN
-function adminAdd(){const name=document.getElementById('adm-name').value.trim();const reward=document.getElementById('adm-reward').value.trim();const url=document.getElementById('adm-url').value.trim();const code=document.getElementById('adm-code').value.trim();const cat=document.getElementById('adm-cat').value;const desc=document.getElementById('adm-desc').value.trim();const stepsRaw=document.getElementById('adm-steps').value.trim();if(!name||!reward||!url||!desc){toast('❌ Fill all fields');return;}if(!url.startsWith('http')){toast('❌ URL must start with https://');return;}const steps=stepsRaw?stepsRaw.split('\n').filter(s=>s.trim()):[];const o={id:'adm_'+Date.now(),name,reward,cat,badge:'✅ Admin Added',bt:'bg2',url,code,xp:10,desc,verified:new Date().toLocaleDateString('en-GB',{month:'short',year:'numeric'}),adminAdded:true,steps,bankSwitch:cat==='bank'};S.adminOffers.push(o);save();['adm-name','adm-reward','adm-url','adm-code','adm-desc','adm-steps'].forEach(id=>document.getElementById(id).value='');toast('✅ "'+name+'" added!');renderAdminList();if(activeTab==='offers')renderOffers();}
-function adminDelete(id){if(!confirm('Remove?'))return;S.adminOffers=S.adminOffers.filter(o=>o.id!==id);save();renderAdminList();renderOffers();toast('🗑️ Removed');}
-function adminExpire(id){const o=S.adminOffers.find(o=>o.id===id);if(o){o.expired=!o.expired;save();renderAdminList();renderOffers();}}
-function renderAdminList(){const el=document.getElementById('adminList');if(!el)return;if(!S.adminOffers.length){el.innerHTML='<div style="font-size:13px;color:var(--tl)">No admin offers yet.</div>';return;}el.innerHTML=S.adminOffers.map(o=>'<div class="adm-row2"><span>'+(o.expired?'<s>':'')+o.name+' — '+o.reward+(o.expired?'</s> ⚠️':'')+'</span><span><button class="adm-exp" onclick="adminExpire(\''+o.id+'\')">'+( o.expired?'Restore':'Expire')+'</button><button class="adm-del" onclick="adminDelete(\''+o.id+'\')">Delete</button></span></div>').join('');}
-
-// SCRAPER
-async function runScraper(){const btn=document.getElementById('scrBtn');const dot=document.getElementById('scrDot');const status=document.getElementById('scrStatus');btn.innerHTML='<div class="ld"></div> Fetching...';btn.disabled=true;dot.classList.add('sp');status.textContent='Checking r/beermoneyuk community highlights...';const offers=[];const headers={'User-Agent':'MoneyHuntersUK/1.0'};const priority=['megathread','community highlights','monthly','weekly deals','best of'];const keywords=['£','bonus','referral','switch','free share','cashback','sign up','signup','offer','reward','deal','refer','code'];const seenIds=new Set();for(const endpoint of['hot','new']){try{const r=await fetch('https://www.reddit.com/r/beermoneyuk/'+endpoint+'.json?limit=100&raw_json=1',{headers});if(!r.ok)continue;const d=await r.json();for(const p of d.data?.children||[]){const pd=p.data,tl=pd.title.toLowerCase();if(seenIds.has(pd.id))continue;if(keywords.some(kw=>tl.includes(kw))){seenIds.add(pd.id);const isPriority=priority.some(kw=>tl.includes(kw));const brand=detectBrand(pd.title)||'Community Deal';const m=pd.title.match(/£(\d+)/);offers.push({id:'sc_'+pd.id,name:brand,reward:m?'£'+m[1]:'See post',cat:'bank',badge:isPriority?'📌 Highlighted':'🕷️ Reddit',bt:'bs2',url:'https://reddit.com'+pd.permalink,code:'',xp:5,desc:pd.title.substring(0,110)+(pd.title.length>110?'...':''),verified:new Date().toLocaleDateString('en-GB',{month:'short',year:'numeric'}),scraped:true,score:pd.score||0,isPriority,steps:['Read the full Reddit post','Check eligibility and T&Cs','Follow the instructions in the post']});}}}catch(e){console.error(e);}}
-try{const mse=await fetch('https://api.rss2json.com/v1/api.json?rss_url=https://www.moneysavingexpert.com/rss/deals/',{headers});if(mse.ok){const md=await mse.json();for(const item of(md.items||[]).slice(0,5)){const tl=item.title.toLowerCase();if(keywords.some(kw=>tl.includes(kw))){const m=item.title.match(/£(\d+)/);offers.push({id:'mse_'+Date.now()+'_'+Math.random(),name:'MoneySavingExpert',reward:m?'£'+m[1]:'See article',cat:'bank',badge:'📰 MSE',bt:'bb2',url:item.link,code:'',xp:5,desc:item.title.substring(0,110),verified:new Date().toLocaleDateString('en-GB',{month:'short',year:'numeric'}),scraped:true,score:0,isPriority:false,steps:['Read the full MSE article','Check eligibility','Follow instructions on the MSE page']});}}}}catch(e){console.error('MSE:',e);}
-offers.sort((a,b)=>(b.isPriority?1:0)-(a.isPriority?1:0)||b.score-a.score);S.scraped=offers.slice(0,20);save();const now=new Date().toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'});status.textContent='✅ '+S.scraped.length+' community deals · Updated '+now;if(S.scraped.length>0)toast('🎉 '+S.scraped.length+' fresh deals found!');else toast('✅ All up to date');btn.innerHTML='🔄 Refresh Deals';btn.disabled=false;dot.classList.remove('sp');setTimeout(()=>status.textContent='Ready to fetch latest deals',5000);if(activeTab==='offers')renderOffers();}
-
-function detectBrand(text){const brands=['Monzo','Tide','Lloyds','NatWest','Halifax','Santander','Barclays','HSBC','First Direct','Revolut','Wise','Amex','Chase','Plum','Freetrade','Robinhood','Webull','Starling','Atom','Nationwide','Zopa','Zilch','WorldFirst','Trading 212','Lightyear','InvestEngine','Wealthyhood','IG','iFAST','Curve','Glint','Lebara','Swagbucks','Freecash','Airtime','Cheddar','Co-operative'];for(const b of brands)if(text.toLowerCase().includes(b.toLowerCase()))return b;return null;}
-
-// INIT
-if(!S.username){document.getElementById('unPopup').style.display='flex';}else{checkStreak();}
-checkAdminAccess();
-initTicker();
-updateUI();
-renderOffers();
-renderPending();
+    function copyPartnerEmail() {
+        const body = `Subject: Partnership Inquiry: Money Hunters App (Pre-Launch)\n\nHi,\n\nI’m Alberto, founder of Money Hunters. We are building a high-fidelity PWA for the UK market (moneyhunters.co.uk) and want to feature your API/Referral rates in our Comparison Engine.\n\nCould you point me toward the right person to discuss a partnership?\n\nBest regards,\nAlberto`;
+        navigator.clipboard.writeText(body).then(() => alert("📋 Outreach Email Copied!"));
+    }
 </script>
 </body>
 </html>
