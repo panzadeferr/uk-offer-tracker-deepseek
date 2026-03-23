@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Money Hunters UK | Deal Stacking App</title>
-<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%230a0a0f%22/><circle cx=%2250%22 cy=%2250%22 r=%2240%22 fill=%22none%22 stroke=%22%2300e676%22 stroke-width=%224%22/><text y=%22.9em%22 font-size=%2260%22 x=%2250%25%22 text-anchor=%22middle%22 font-family=%22serif%22 fill=%22%23ffd740%22 font-weight=%22bold%22>M</text></svg>">    
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%230a0a0f%22/><circle cx=%2250%22 cy=%2250%22 r=%2240%22 fill=%22none%22 stroke=%22%2300e676%22 stroke-width=%224%22/><text y=%22.9em%22 font-size=%2260%22 x=%2250%25%22 text-anchor=%22middle%22 font-family=%22serif%22 fill=%22%23ffd740%22 font-weight=%22bold%22>M</text></svg>">    
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Money Hunters">
+    <meta name="theme-color" content="#0a0a0f">
     
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
@@ -28,12 +29,11 @@
             margin: 0; padding-bottom: 90px; overflow-x: hidden; -webkit-tap-highlight-color: transparent;
         }
 
-        /* --- NAVIGATION --- */
         .view { display: none; padding: 16px; max-width: 600px; margin: 0 auto; animation: slideUp 0.4s cubic-bezier(0, 0, 0.2, 1); }
         .view.active { display: block; }
         @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-        .hdr { padding: 20px 16px; text-align: center; border-bottom: 1px solid var(--br); background: var(--bg); position: sticky; top: 0; z-index: 100; }
+        .hdr { padding: 20px 16px; text-align: center; border-bottom: 1px solid var(--br); background: var(--bg); position: sticky; top: 0; z-index: 100; cursor: pointer; }
         .brand { font-family: var(--fh); font-size: 24px; letter-spacing: -1px; text-transform: uppercase; }
         .brand span { color: var(--g); }
 
@@ -48,7 +48,6 @@
         .nav-icon { font-size: 22px; margin-bottom: 4px; }
         .nav-label { font-size: 10px; font-weight: 800; letter-spacing: 0.5px; }
 
-        /* --- MYSTERY BOX --- */
         .mystery-box { 
             background: linear-gradient(145deg, #1a1a2e, #0f0f1b); 
             border: 2px dashed var(--a); border-radius: var(--rad); 
@@ -58,12 +57,23 @@
         .shake { animation: shake 0.5s infinite; }
         @keyframes shake { 0%, 100% { transform: rotate(0); } 25% { transform: rotate(8deg); } 75% { transform: rotate(-8deg); } }
 
-        /* --- BATTLE TABLE --- */
-        .battle-card { background: var(--bg2); border: 1px solid var(--br); border-radius: var(--rad); overflow: hidden; }
-        .battle-row { 
-            display: flex; align-items: center; padding: 18px 16px; 
-            border-bottom: 1px solid var(--br); gap: 14px; cursor: pointer;
+        .offer-card {
+            background: var(--bg2); border: 1px solid var(--br); border-radius: var(--rad);
+            margin-bottom: 16px; overflow: hidden; transition: all 0.2s;
         }
+        .offer-card:active { transform: scale(0.99); background: var(--bg3); }
+        .card-header { display: flex; justify-content: space-between; align-items: center; padding: 16px; border-bottom: 1px solid var(--br); }
+        .card-name { font-family: var(--fh); font-size: 18px; font-weight: 700; }
+        .card-reward { font-family: var(--fh); font-size: 24px; color: var(--g); }
+        .card-body { padding: 16px; }
+        .card-desc { font-size: 13px; color: var(--tm); margin-bottom: 12px; line-height: 1.5; }
+        .card-code { background: var(--bg3); padding: 8px 12px; border-radius: 10px; font-family: monospace; font-size: 13px; margin-bottom: 12px; display: inline-block; }
+        .badge { font-size: 10px; padding: 4px 10px; border-radius: 20px; background: var(--gl); color: var(--g); margin-left: 8px; }
+        .claim-btn { width: 100%; background: var(--g); color: #000; border: none; padding: 14px; border-radius: 14px; font-weight: 800; font-size: 14px; cursor: pointer; transition: 0.1s; }
+        .claim-btn:active { transform: scale(0.97); }
+
+        .battle-card { background: var(--bg2); border: 1px solid var(--br); border-radius: var(--rad); overflow: hidden; margin-bottom: 20px; }
+        .battle-row { display: flex; align-items: center; padding: 18px 16px; border-bottom: 1px solid var(--br); gap: 14px; cursor: pointer; }
         .battle-row:active { background: var(--bg3); }
         .brand-icon { width: 42px; height: 42px; background: var(--bg3); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; }
         .brand-info { flex: 1; }
@@ -73,7 +83,9 @@
         .rate-val.boost { color: var(--a); animation: pulse 1.5s infinite; }
         @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
 
-        /* --- SLIDE-UP PANEL --- */
+        .tip-box { margin-top: 20px; background: rgba(68, 138, 255, 0.1); border-radius: var(--rads); padding: 16px; border: 1px solid rgba(68,138,255,0.2); }
+        .tip-title { font-weight: 800; color: var(--b); font-size: 13px; display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+
         .detail-panel {
             position: fixed; inset: 0; background: var(--bg); z-index: 2000;
             display: none; flex-direction: column; 
@@ -83,79 +95,110 @@
         @keyframes slideIn { from { transform: translateY(100%); } to { transform: translateY(0); } }
         .detail-hdr { padding: 20px; display: flex; align-items: center; border-bottom: 1px solid var(--br); }
         .close-btn { background: var(--bg3); border: none; color: white; width: 40px; height: 40px; border-radius: 50%; font-size: 20px; cursor: pointer; margin-right: 15px; }
-        .claim-btn { background: var(--g); color: #000; width: 100%; border: none; padding: 18px; border-radius: 14px; font-weight: 800; font-size: 16px; cursor: pointer; margin-top: 20px; }
-        .founder-btn { width: 100%; padding: 14px; border-radius: 12px; border: none; font-weight: 800; font-size: 13px; cursor: pointer; margin-top: 10px; }
+        .detail-claim-btn { background: var(--g); color: #000; width: 100%; border: none; padding: 18px; border-radius: 14px; font-weight: 800; font-size: 16px; cursor: pointer; margin-top: 20px; }
+
+        /* HIDDEN ADMIN PANEL (Only visible after secret tap) */
+        .admin-panel {
+            display: none;
+            margin-top: 20px;
+            background: #111;
+            border: 1px dashed var(--b);
+            border-radius: var(--rad);
+            padding: 20px;
+        }
+        .admin-panel.show { display: block; }
+        .founder-btn { width: 100%; padding: 14px; border-radius: 12px; border: none; font-weight: 800; font-size: 13px; cursor: pointer; margin-top: 10px; background: var(--b); color: white; }
+        .telegram-btn { background: #24A1DE; color: white; }
+        .admin-notice { font-size: 10px; color: var(--tl); text-align: center; margin-top: 12px; }
+        
+        /* Secret tap indicator (invisible) */
+        .tap-counter { display: none; }
     </style>
 </head>
 <body>
 
-<header class="hdr">
+<header class="hdr" id="secretTapArea">
     <div class="brand">MONEY<span>HUNTERS</span></div>
 </header>
 
+<!-- ========== HOME TAB (Offers + Mystery Box) ========== -->
 <main id="home" class="view active">
     <div class="mystery-box" id="dailyBox" onclick="openBox()">
         <span class="chest-icon" id="chest">🎁</span>
         <div id="boxText">
-            <div style="font-weight: 800; color: var(--a); font-size: 18px; font-family: var(--fh);">DAILY MYSTERY BOX</div>
-            <div style="font-size: 12px; color: var(--tm); margin-top: 4px;">Tap to claim your daily Hunter XP</div>
+            <div style="font-weight: 800; color: var(--a); font-size: 18px;">DAILY MYSTERY BOX</div>
+            <div style="font-size: 12px; color: var(--tm);">Tap to claim your daily Hunter XP</div>
         </div>
     </div>
-    <div style="font-family: var(--fh); margin-bottom: 12px; font-size: 18px;">Hunter Status</div>
-    <div style="background: var(--bg2); padding: 20px; border-radius: var(--rad); border: 1px solid var(--br);">
-        <div style="display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 10px;">
-            <span>Level 2 Stacker</span>
-            <span style="color: var(--g);">450 / 1000 XP</span>
-        </div>
-        <div style="height: 8px; background: var(--bg3); border-radius: 4px; overflow: hidden;">
-            <div style="width: 45%; height: 100%; background: var(--g);"></div>
-        </div>
-    </div>
+
+    <div style="font-family: var(--fh); margin-bottom: 12px; font-size: 18px;">🔥 Active Offers</div>
+    <div id="offersContainer"></div>
 </main>
 
+<!-- ========== BATTLE TAB (Cashback Comparison) ========== -->
 <main id="missions" class="view">
     <div style="font-family: var(--fh); font-size: 22px; margin-bottom: 15px;">Live Battle Table ⚔️</div>
-    <div class="battle-card">
-        <div class="battle-row" onclick="openDetail('ASDA', '4.5%', '🍓 JamDoughnut', 'STACKING TIP: Pay for your JamDoughnut gift card using your Chase Debit Card to earn an extra 1% cashback on top of the 4.5% shown here.')">
-            <div class="brand-icon">🛒</div>
-            <div class="brand-info">
-                <div class="brand-name">ASDA</div>
-                <div class="platform-tag">Via JamDoughnut</div>
-            </div>
-            <div class="rate-val boost">4.5%</div>
-        </div>
-        <div class="battle-row" onclick="openDetail('Morrisons', '4.0%', '🏢 Tillo', 'Great for large family shops. Vouchers are delivered instantly to your Hunter wallet.')">
-            <div class="brand-icon">🥦</div>
-            <div class="brand-info">
-                <div class="brand-name">Morrisons</div>
-                <div class="platform-tag">Via Tillo Infrastructure</div>
-            </div>
-            <div class="rate-val">4.0%</div>
-        </div>
-        <div class="battle-row" onclick="openDetail('Waitrose', '3.5%', '🥂 TopCashback', 'Check your TopCashback app for specialized brand boosts before buying.')">
-            <div class="brand-icon">🥂</div>
-            <div class="brand-info">
-                <div class="brand-name">Waitrose</div>
-                <div class="platform-tag">Via TopCashback</div>
-            </div>
-            <div class="rate-val">3.5%</div>
-        </div>
+    <div class="battle-card" id="battleTable"></div>
+    
+    <div class="tip-box">
+        <div class="tip-title"><span>💡</span> HUNTER TIP: STACKING STRATEGY</div>
+        <p style="font-size: 12px; color: var(--tm); margin-top: 6px; line-height: 1.5;">
+            💳 Pay for your gift cards using <strong>Chase Debit Card</strong> for an extra 1% cashback.<br>
+            🎁 Stack with <strong>JamDoughnut</strong> or <strong>EverUp</strong> for up to 8% total savings!
+        </p>
     </div>
 </main>
 
+<!-- ========== PROFILE TAB (with Hidden Admin) ========== -->
 <main id="progress" class="view">
     <div style="text-align: center; padding: 20px 0;">
-        <div style="font-size: 40px;">📊</div>
-        <div style="font-family: var(--fh); font-size: 24px;">Founder Dashboard</div>
+        <div style="font-size: 50px;">🏆</div>
+        <div style="font-family: var(--fh); font-size: 32px;" id="levelDisplay">Level 1</div>
+        <div style="color: var(--g); font-weight: 800; margin-top: 5px;" id="xpDisplay">0 XP</div>
+    </div>
+
+    <div style="background: var(--bg2); border-radius: var(--rad); border: 1px solid var(--br); padding: 5px; margin-bottom: 20px;">
+        <div style="display: flex; align-items: center; padding: 15px; border-bottom: 1px solid var(--br);">
+            <div style="font-size: 22px; margin-right: 15px;">🎁</div>
+            <div style="flex:1"><div style="font-weight: 700;">Daily Mystery Box</div><div style="font-size: 11px; color: var(--tl);">Unlocked & Active</div></div>
+            <div style="color: var(--g);">●</div>
+        </div>
+        <div style="display: flex; align-items: center; padding: 15px;">
+            <div style="font-size: 22px; margin-right: 15px;">🔒</div>
+            <div style="flex:1"><div style="font-weight: 700;">Level 5: Stacking Pro</div><div style="font-size: 11px; color: var(--tl);">Advanced combo guides</div></div>
+        </div>
+    </div>
+
+    <!-- HIDDEN ADMIN PANEL (only visible after secret tap) -->
+    <div id="adminPanel" class="admin-panel">
+        <div style="font-family: var(--fh); font-size: 12px; color: var(--b); margin-bottom: 10px;">🛡️ FOUNDER TOOLS</div>
+        <button class="founder-btn" onclick="copyPartnerEmail()">📧 COPY OUTREACH EMAIL</button>
+        <button class="founder-btn telegram-btn" onclick="window.open('https://t.me/MoneyHunterUk', '_blank')">📱 OPEN TELEGRAM BOT</button>
+        <div class="admin-notice">🔒 Admin Mode Active — Only visible to founder</div>
     </div>
     
-    <div style="padding: 20px; background: #111; border: 1px dashed var(--b); border-radius: var(--rad);">
-        <div style="font-family: var(--fh); font-size: 12px; color: var(--b); margin-bottom: 10px; letter-spacing: 1px;">🛡️ ADMIN TOOLS</div>
-        <button class="founder-btn" style="background: var(--b); color: white;" onclick="copyPartnerEmail()">COPY OUTREACH EMAIL</button>
-        <button class="founder-btn" style="background: #24A1DE; color: white;" onclick="window.open('https://t.me/MoneyHunterUk', '_blank')">OPEN TELEGRAM BOT</button>
+    <!-- Regular user view (no admin tools) -->
+    <div id="publicView" style="display: block;">
+        <div style="background: var(--bg2); border-radius: var(--rad); padding: 20px; text-align: center;">
+            <div style="color: var(--tl); font-size: 13px;">👋 Want early access to exclusive deals?</div>
+            <button class="founder-btn telegram-btn" style="margin-top: 12px;" onclick="window.open('https://t.me/MoneyHunterUk', '_blank')">📱 Join our Telegram</button>
+        </div>
     </div>
 </main>
 
+<nav class="bottom-nav">
+    <div class="nav-item on" onclick="changeTab('home', this)">
+        <span class="nav-icon">🏠</span><span class="nav-label">OFFERS</span>
+    </div>
+    <div class="nav-item" onclick="changeTab('missions', this)">
+        <span class="nav-icon">⚔️</span><span class="nav-label">BATTLE</span>
+    </div>
+    <div class="nav-item" onclick="changeTab('progress', this)">
+        <span class="nav-icon">👤</span><span class="nav-label">PROFILE</span>
+    </div>
+</nav>
+
+<!-- ========== SLIDE-UP DETAIL PANEL ========== -->
 <div id="detailPanel" class="detail-panel">
     <div class="detail-hdr">
         <button class="close-btn" onclick="closeDetail()">✕</button>
@@ -171,33 +214,139 @@
             <p id="detailTip" style="font-size: 14px; line-height: 1.6; color: var(--tm); margin: 0;"></p>
         </div>
         
-        <button class="claim-btn" onclick="window.open('https://t.me/MoneyHunterUk', '_blank')">GET REWARD NOW</button>
+        <button class="detail-claim-btn" onclick="window.open('https://t.me/MoneyHunterUk', '_blank')">🎁 GET REWARD NOW</button>
     </div>
 </div>
 
-<nav class="bottom-nav">
-    <div class="nav-item on" onclick="changeTab('home', this)">
-      <span class="nav-icon">🏠</span><span class="nav-label">HOME</span>
-    </div>
-    <div class="nav-item" onclick="changeTab('missions', this)">
-      <span class="nav-icon">⚔️</span><span class="nav-label">BATTLE</span>
-    </div>
-    <div class="nav-item" onclick="changeTab('progress', this)">
-      <span class="nav-icon">🛡️</span><span class="nav-label">ADMIN</span>
-    </div>
-</nav>
-
 <script>
-    function changeTab(tabId, el) {
-        document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
-        document.getElementById(tabId).classList.add('active');
-        document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('on'));
-        el.classList.add('on');
-        haptic(10);
-        window.scrollTo(0,0);
+    // ========== SECRET ADMIN ACCESS ==========
+    let tapCount = 0;
+    let tapTimeout;
+    
+    function showAdminPanel() {
+        document.getElementById('adminPanel').classList.add('show');
+        document.getElementById('publicView').style.display = 'none';
+        // Optional: Add a subtle haptic feedback
+        haptic(50);
+        // Optional: Show a quick confetti to confirm (makes it feel like an easter egg)
+        confetti({ particleCount: 50, spread: 45, origin: { y: 0.8 }, colors: ['#448aff', '#00e676'] });
+    }
+    
+    // Secret tap detection on logo
+    document.getElementById('secretTapArea').addEventListener('click', function() {
+        tapCount++;
+        
+        // Clear timeout
+        clearTimeout(tapTimeout);
+        
+        // Reset after 2 seconds of no taps
+        tapTimeout = setTimeout(() => {
+            tapCount = 0;
+        }, 2000);
+        
+        // 5 taps reveals admin panel
+        if (tapCount === 5) {
+            showAdminPanel();
+            tapCount = 0;
+        }
+    });
+    
+    // Also support double-tap + long press? No, keep simple — 5 taps on logo
+
+    // ========== OFFERS DATA ==========
+    const offers = [
+        { name: "Chase UK", reward: "£50", code: "J2SK9W", url: "https://chase.co.uk/raf", desc: "Deposit £1,000 + 2 Direct Debits → Get £50 free!", badge: "🔥 TOP PICK" },
+        { name: "Lloyds Bank", reward: "£250", code: "", url: "https://apply.lloydsbank.co.uk/sales-content/cwa/l/onboardpca/index-app.html?from=ob&webDirect=true&redesign=true&token=JpGVwskEUPxoFpO3Mg4RTAUZg6q6Emjz578QtNaABT8=&redesign=true#/refer-friend", desc: "Switch using CASS + pay in £2,000 → Get £250!", badge: "🏆 BEST VALUE" },
+        { name: "First Direct", reward: "£175", code: "", url: "https://www.firstdirect.com/banking/switch/", desc: "Switch using CASS + pay in £1,000 → Get £175!", badge: "⭐ POPULAR" },
+        { name: "NatWest", reward: "£200", code: "", url: "https://www.natwest.com/current-accounts/switch/", desc: "Switch + 2 direct debits → Get £200!", badge: "" },
+        { name: "Monzo", reward: "£5-£50", code: "https://join.monzo.com/r/", url: "https://join.monzo.com/r/", desc: "Spend £1 → Get £5-£50 free!", badge: "📱 APP" },
+        { name: "Revolut", reward: "£20", code: "", url: "https://revolut.com/referral/?referral-code=ludoviv2sq!MAR1-26-AR-H2&geo-redirect", desc: "Spend £1 → Get £20 free!", badge: "📱 APP" },
+        { name: "TopCashback", reward: "£10", code: "", url: "https://www.topcashback.co.uk/ref/Panzadeferr/?source_id=4", desc: "Join → Get £10 bonus + cashback!", badge: "💳 CASHBACK" },
+        { name: "Freetrade", reward: "Free Share", code: "", url: "https://magic.freetrade.io/join/alberto/6f308795", desc: "Deposit £1 → Free share £10-£100!", badge: "📈 INVEST" },
+        { name: "Plum", reward: "£75", code: "", url: "https://friends.withplum.com/r/RxK7c2fUNa", desc: "Refer 3 friends → Get £75!", badge: "⏳ ENDING SOON" },
+        { name: "Airtime", reward: "£2", code: "FRJKFXX3", url: "https://airtimerewards.app.link/6Waa7E1IF1b", desc: "Spend £5 in 7 days → Get £2!", badge: "🎁 GIFT CARD" },
+        { name: "Jam Doughnut", reward: "3-8%", code: "8TGF", url: "https://www.jamdoughnut.com/", desc: "Gift card cashback on 100+ retailers!", badge: "🎁 GIFT CARD" },
+        { name: "Tide", reward: "£75", code: "3834VA", url: "https://www.tide.co/", desc: "Business account → Get £75!", badge: "💼 BUSINESS" },
+        { name: "Octopus Energy", reward: "£50", code: "", url: "https://share.octopus.energy/ocean-quoll-258", desc: "Switch energy → Both get £50!", badge: "⚡ UTILITIES" },
+        { name: "Costa Coffee", reward: "Free Coffee", code: "", url: "https://www.costa.co.uk/costa-club", desc: "Join Costa Club → Free drink + cake!", badge: "☕ FREEBIE" },
+        { name: "TrainPal", reward: "£3 Off", code: "03ba089c$00", url: "https://t.trainpal.com/wUEPLNq", desc: "£3 off train tickets!", badge: "🚆 TRAVEL" },
+        { name: "Wise", reward: "Free Transfer", code: "", url: "https://wise.com/invite/ahpc/albertob1508", desc: "First transfer free + free card!", badge: "💸 TRANSFER" }
+    ];
+
+    const battleData = [
+        { name: "ASDA", rate: "4.5%", source: "JamDoughnut", icon: "🛒", tip: "Pay with Chase Debit Card for extra 1% cashback!", boost: true },
+        { name: "Morrisons", rate: "4.0%", source: "Tillo", icon: "🥦", tip: "Great for large family shops. Vouchers delivered instantly.", boost: false },
+        { name: "Sainsbury's", rate: "3.8%", source: "EverUp", icon: "🟠", tip: "Stack with Nectar points for even more savings!", boost: false },
+        { name: "Tesco", rate: "4.3%", source: "JamDoughnut", icon: "🛒", tip: "Use Clubcard + gift card for up to 8.5% off!", boost: true },
+        { name: "Waitrose", rate: "3.5%", source: "TopCashback", icon: "🥂", tip: "Check TopCashback for specialized brand boosts.", boost: false }
+    ];
+
+    // ========== GAMIFICATION ==========
+    let userXP = parseInt(localStorage.getItem('mh_xp')) || 0;
+    
+    function updateStats() {
+        let level = Math.floor(userXP / 100) + 1;
+        document.getElementById('levelDisplay').innerHTML = `Level ${level}`;
+        document.getElementById('xpDisplay').innerHTML = `${userXP} XP`;
     }
 
-    function haptic(ms) { if (window.navigator.vibrate) window.navigator.vibrate(ms); }
+    function addXP(amount) {
+        userXP += amount;
+        localStorage.setItem('mh_xp', userXP);
+        updateStats();
+    }
+
+    function claimOffer(url, code, name) {
+        if (code) {
+            navigator.clipboard.writeText(code);
+            alert(`✅ "${code}" copied! Opening ${name}...`);
+        }
+        addXP(5);
+        setTimeout(() => window.open(url, '_blank'), 300);
+    }
+
+    function renderOffers() {
+        const container = document.getElementById('offersContainer');
+        container.innerHTML = offers.map(offer => `
+            <div class="offer-card" onclick="claimOffer('${offer.url}', '${offer.code || ''}', '${offer.name}')">
+                <div class="card-header">
+                    <div class="card-name">${offer.name} ${offer.badge ? `<span class="badge">${offer.badge}</span>` : ''}</div>
+                    <div class="card-reward">${offer.reward}</div>
+                </div>
+                <div class="card-body">
+                    <div class="card-desc">${offer.desc}</div>
+                    ${offer.code ? `<div class="card-code">📋 Code: ${offer.code}</div>` : ''}
+                    <button class="claim-btn">🎁 CLAIM OFFER</button>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    function renderBattleTable() {
+        const container = document.getElementById('battleTable');
+        container.innerHTML = battleData.map(item => `
+            <div class="battle-row" onclick="openDetail('${item.name}', '${item.rate}', '${item.source}', '${item.tip}')">
+                <div class="brand-icon">${item.icon}</div>
+                <div class="brand-info">
+                    <div class="brand-name">${item.name}</div>
+                    <div class="platform-tag">Via ${item.source}</div>
+                </div>
+                <div class="rate-val ${item.boost ? 'boost' : ''}">${item.rate}</div>
+            </div>
+        `).join('');
+    }
+
+    function openBox() {
+        const chest = document.getElementById('chest');
+        chest.classList.add('shake');
+        setTimeout(() => {
+            chest.classList.remove('shake');
+            chest.innerHTML = '🔓';
+            confetti({ particleCount: 150, spread: 70, origin: { y: 0.7 }, colors: ['#00e676', '#ffd740', '#ffffff'] });
+            document.getElementById('boxText').innerHTML = `<div style="font-weight: 800; color: var(--g); font-size: 18px;">+100 XP CLAIMED!</div>`;
+            addXP(100);
+        }, 800);
+    }
 
     function openDetail(name, rate, source, tip) {
         document.getElementById('detailTitle').innerText = name;
@@ -205,28 +354,38 @@
         document.getElementById('detailSource').innerText = source;
         document.getElementById('detailTip').innerText = tip;
         document.getElementById('detailPanel').classList.add('active');
-        haptic(30);
     }
 
     function closeDetail() { document.getElementById('detailPanel').classList.remove('active'); }
 
-    function openBox() {
-        const chest = document.getElementById('chest');
-        chest.classList.add('shake');
-        haptic([40, 60, 40]);
-        setTimeout(() => {
-            chest.classList.remove('shake');
-            chest.innerHTML = '🔓';
-            confetti({ particleCount: 150, spread: 70, origin: { y: 0.7 }, colors:['#00e676','#ffd740','#ffffff'] });
-            document.getElementById('boxText').innerHTML = `<div style="font-weight: 800; color: var(--g); font-size: 18px;">+100 XP CLAIMED!</div>`;
-            haptic(100);
-        }, 800);
+    function haptic(ms) { if (window.navigator.vibrate) window.navigator.vibrate(ms); }
+    
+    function changeTab(tabId, el) {
+        document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+        document.getElementById(tabId).classList.add('active');
+        document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('on'));
+        el.classList.add('on');
+        haptic(10);
+        window.scrollTo(0, 0);
     }
 
     function copyPartnerEmail() {
-        const body = `Subject: Partnership Inquiry: Money Hunters App (Pre-Launch)\n\nHi,\n\nI’m Alberto, founder of Money Hunters. We are building a high-fidelity PWA for the UK market (moneyhunters.co.uk) and want to feature your API/Referral rates in our Comparison Engine.\n\nCould you point me toward the right person to discuss a partnership?\n\nBest regards,\nAlberto`;
+        const body = `Subject: Partnership Inquiry: Money Hunters App (Pre-Launch)\n\nHi,\n\nI'm Alberto, founder of Money Hunters (moneyhunters.co.uk). We are building a high-fidelity PWA for the UK market and want to feature your API/Referral rates in our Comparison Engine.\n\nCould you point me toward the right person to discuss a partnership?\n\nBest regards,\nAlberto`;
         navigator.clipboard.writeText(body).then(() => alert("📋 Outreach Email Copied!"));
     }
+
+    // Initialize
+    renderOffers();
+    renderBattleTable();
+    updateStats();
+    
+    // Make functions global
+    window.claimOffer = claimOffer;
+    window.openBox = openBox;
+    window.openDetail = openDetail;
+    window.closeDetail = closeDetail;
+    window.changeTab = changeTab;
+    window.copyPartnerEmail = copyPartnerEmail;
 </script>
 </body>
 </html>
