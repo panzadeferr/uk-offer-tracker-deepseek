@@ -1,44 +1,67 @@
 {
   "name": "Money Hunters UK",
   "short_name": "MoneyHunters",
-  "description": "46+ UK bank switch bonuses, referral deals and cashback stacking tracker",
-  "start_url": "/MoneyHunterUk/",
-  "scope": "/MoneyHunterUk/",
+  "description": "46+ UK bank switch bonuses, referral deals and cashback stacking tracker. Daily deals, progress tracking and stacking guides.",
+  "start_url": "/app.html",
+  "scope": "/",
   "display": "standalone",
-  "background_color": "#0a0a0f",
-  "theme_color": "#0a0a0f",
+  "background_color": "#0b0f14",
+  "theme_color": "#0b0f14",
   "orientation": "portrait-primary",
   "lang": "en-GB",
   "categories": ["finance", "utilities"],
   "icons": [
     {
-      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' fill='%230a0a0f' rx='80'/><circle cx='256' cy='256' r='200' fill='none' stroke='%2300e676' stroke-width='20'/><text y='.85em' font-size='280' x='50%' text-anchor='middle' font-family='serif' fill='%23ffd740' font-weight='bold'>M</text></svg>",
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
       "sizes": "512x512",
-      "type": "image/svg+xml",
-      "purpose": "any maskable"
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ],
   "shortcuts": [
     {
       "name": "View Offers",
       "short_name": "Offers",
-      "description": "See all live UK referral deals",
-      "url": "/MoneyHunterUk/#offers"
+      "description": "Browse all live UK referral deals",
+      "url": "/app.html?tab=offers",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
     },
     {
       "name": "Stacking Guides",
       "short_name": "Stack",
       "description": "Cashback stacking strategies",
-      "url": "/MoneyHunterUk/#stack"
+      "url": "/app.html?tab=stack",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
     },
     {
       "name": "My Progress",
       "short_name": "Progress",
-      "description": "Your XP, badges and savings",
-      "url": "/MoneyHunterUk/#progress"
+      "description": "XP, badges and savings tracker",
+      "url": "/app.html?tab=progress",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
     }
   ],
-  "screenshots": [],
+  "screenshots": [
+    {
+      "src": "/screenshot-mobile.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Money Hunters UK home screen"
+    }
+  ],
   "related_applications": [],
   "prefer_related_applications": false
 }
