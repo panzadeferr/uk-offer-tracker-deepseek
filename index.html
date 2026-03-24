@@ -1001,12 +1001,12 @@ async function handleSignup() {
   localStorage.setItem('mh_username', username);
 
   // Send to Brevo (add your API key + list ID here)
-  const BREVO_API_KEY = 'YOUR_BREVO_API_KEY';
-  const BREVO_LIST_ID = 3;
+  const BREVO_API_KEY = 'REMOVED_USE_RAILWAY_PROXY';
+  const BREVO_LIST_ID = 2;
 
   try {
     if (BREVO_API_KEY !== 'YOUR_BREVO_API_KEY') {
-      await fetch('https://api.brevo.com/v3/contacts', {
+      await fetch('https://referral-hunter-bot-production.up.railway.app/subscribe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'api-key': BREVO_API_KEY },
         body: JSON.stringify({
