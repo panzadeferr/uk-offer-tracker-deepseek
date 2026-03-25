@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,6 +43,8 @@
       --fh:"Syne",sans-serif;
       --fb:"DM Sans",sans-serif;
       --shadow:0 10px 22px rgba(0,0,0,.2);
+      --shadow-lg:0 18px 42px rgba(0,0,0,.28);
+      --surface-glow:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.008));
     }
 
     *{box-sizing:border-box}
@@ -61,6 +64,7 @@
       -webkit-overflow-scrolling:touch;
       padding-bottom:100px;
       min-height:100vh;
+      overscroll-behavior-y:none;
     }
 
     a{color:inherit;text-decoration:none}
@@ -74,6 +78,7 @@
       background:rgba(11,15,20,.92);
       backdrop-filter:blur(16px);
       border-bottom:1px solid var(--line);
+      box-shadow:0 10px 24px rgba(0,0,0,.14);
     }
 
     .topbar-inner,
@@ -155,6 +160,7 @@
       border-radius:12px;
       padding:7px 8px;
       min-width:0;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.03);
     }
 
     .stat-label{
@@ -186,7 +192,7 @@
     }
 
     .card{
-      background:linear-gradient(180deg, rgba(255,255,255,.018), rgba(255,255,255,.008));
+      background:var(--surface-glow);
       border:1px solid var(--line);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
@@ -244,7 +250,7 @@
     .plan-card{
       padding:10px;
       background:
-        linear-gradient(145deg, rgba(255,207,90,.08), rgba(31,232,135,.05)),
+        linear-gradient(145deg, rgba(255,207,90,.09), rgba(31,232,135,.05)),
         var(--card);
     }
 
@@ -270,6 +276,7 @@
       font-size:30px;
       line-height:1;
       color:var(--yellow);
+      text-shadow:0 0 18px rgba(255,207,90,.16);
     }
 
     .plan-copy{
@@ -312,6 +319,7 @@
       font-size:14px;
       font-weight:800;
       white-space:nowrap;
+      text-shadow:0 0 14px rgba(31,232,135,.18);
     }
 
     .task-sub{
@@ -388,14 +396,16 @@
     }
 
     .primary-btn{
-      background:var(--green);
+      background:linear-gradient(180deg, #38f59a 0%, #1fe887 100%);
       color:#07130d;
+      box-shadow:0 12px 24px rgba(31,232,135,.18);
     }
 
     .secondary-btn{
-      background:var(--bg3);
+      background:linear-gradient(180deg, rgba(29,37,48,.96), rgba(19,25,34,.96));
       color:var(--text);
       border:1px solid var(--line);
+      box-shadow:0 8px 18px rgba(0,0,0,.16);
     }
 
     .ghost-btn{
@@ -444,10 +454,13 @@
     .offer-card{
       position:relative;
       overflow:hidden;
-      background:var(--card);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.012)),
+        var(--card);
       border:1px solid var(--line);
       border-radius:13px;
       padding:9px;
+      box-shadow:0 12px 28px rgba(0,0,0,.18);
     }
 
     .offer-card::before{
@@ -492,6 +505,7 @@
       color:var(--yellow);
       white-space:nowrap;
       line-height:1;
+      text-shadow:0 0 18px rgba(255,207,90,.24);
     }
 
     .meta-row{
@@ -611,10 +625,11 @@
       min-width:68px;
       padding:10px 10px;
       border-radius:10px;
-      background:var(--blue);
+      background:linear-gradient(180deg, #74b4ff 0%, #63a7ff 100%);
       color:#06121d;
       font-weight:800;
       font-size:11px;
+      box-shadow:0 10px 20px rgba(99,167,255,.16);
     }
 
     .link-btn{
@@ -754,9 +769,13 @@
       font-size:17px;
       white-space:nowrap;
       line-height:1;
+      text-shadow:0 0 14px rgba(31,232,135,.18);
     }
 
-    .battle-rate.boost{color:var(--yellow)}
+    .battle-rate.boost{
+      color:var(--yellow);
+      text-shadow:0 0 16px rgba(255,207,90,.2);
+    }
 
     .stack-list{display:grid;gap:7px}
 
@@ -811,6 +830,7 @@
       color:var(--yellow);
       font-weight:800;
       font-size:13px;
+      text-shadow:0 0 12px rgba(255,207,90,.18);
     }
 
     .profile-grid{display:grid;gap:7px}
@@ -893,6 +913,7 @@
       border:1px solid var(--line);
       border-radius:11px;
       padding:8px;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.03);
     }
 
     .money-box-label{
@@ -961,6 +982,7 @@
       color:var(--yellow);
       font-weight:800;
       white-space:nowrap;
+      text-shadow:0 0 10px rgba(255,207,90,.14);
     }
 
     .community-grid{display:grid;gap:7px}
@@ -1022,6 +1044,10 @@
       border-radius:15px 15px 0 0;
       padding:11px;
       animation:drawerUp .16s ease;
+      max-height:min(82vh, 720px);
+      overflow-y:auto;
+      -webkit-overflow-scrolling:touch;
+      overscroll-behavior:contain;
     }
 
     @keyframes drawerUp{
@@ -1058,6 +1084,7 @@
       color:var(--yellow);
       line-height:1;
       margin-bottom:7px;
+      text-shadow:0 0 18px rgba(255,207,90,.22);
     }
 
     .drawer-tip{
@@ -1198,6 +1225,7 @@
       background:rgba(17,22,29,.96);
       backdrop-filter:blur(16px);
       border-top:1px solid var(--line);
+      box-shadow:0 -10px 30px rgba(0,0,0,.24);
     }
 
     .nav-btn{
@@ -1216,6 +1244,7 @@
       color:var(--green);
       background:var(--card);
       border-color:var(--line);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.03);
     }
 
     .nav-icon{font-size:20px;line-height:1}
@@ -1251,13 +1280,6 @@
       100%{opacity:0;transform:translateX(-50%) translateY(-8px)}
     }
 
-    @media (min-width:700px){
-      .offers-grid,
-      .community-grid,
-      .profile-grid{grid-template-columns:1fr 1fr}
-    }
-
-    /* ── SLIDE-UP OFFER PANEL (our addition) ── */
     .offer-panel{
       position:fixed;inset:0;z-index:80;display:none;flex-direction:column;
       background:var(--bg);padding-bottom:env(safe-area-inset-bottom);
@@ -1278,7 +1300,13 @@
       width:34px;height:34px;border-radius:999px;border:1px solid var(--line);
       background:var(--bg3);color:var(--muted2);font-size:12px;cursor:pointer;flex-shrink:0;
     }
-    .panel-body{flex:1;overflow-y:auto;padding:12px;-webkit-overflow-scrolling:touch}
+    .panel-body{
+      flex:1;
+      overflow-y:auto;
+      padding:12px;
+      -webkit-overflow-scrolling:touch;
+      overscroll-behavior:contain;
+    }
     .panel-body::-webkit-scrollbar{display:none}
     .panel-footer{
       padding:10px 12px;border-top:1px solid var(--line);flex-shrink:0;
@@ -1287,12 +1315,18 @@
     .panel-claim{
       width:100%;padding:14px;border:none;border-radius:12px;
       font-weight:800;font-size:14px;font-family:var(--fb);cursor:pointer;
-      background:var(--green);color:#06120c;transition:.15s;
+      background:linear-gradient(180deg, #38f59a 0%, #1fe887 100%);color:#06120c;transition:.15s;
+      box-shadow:0 14px 28px rgba(31,232,135,.18);
     }
     .panel-claim:active{transform:scale(.97)}
-    .panel-claim.amber{background:var(--yellow);color:#1a0f00}
+    .panel-claim.amber{
+      background:linear-gradient(180deg, #ffd874 0%, #ffcf5a 100%);
+      color:#1a0f00;
+      box-shadow:0 14px 28px rgba(255,207,90,.16);
+    }
     .panel-reward-big{
       font-family:var(--fh);font-size:28px;color:var(--yellow);margin-bottom:6px;line-height:1;
+      text-shadow:0 0 20px rgba(255,207,90,.24);
     }
     .panel-section{
       background:rgba(255,255,255,.025);border:1px solid var(--line);
@@ -1329,8 +1363,9 @@
     }
     .panel-code-val{font-family:monospace;font-size:16px;font-weight:800;color:var(--blue);flex:1}
     .panel-code-copy{
-      background:var(--blue);color:#06121d;border:none;border-radius:8px;
+      background:linear-gradient(180deg, #74b4ff 0%, #63a7ff 100%);color:#06121d;border:none;border-radius:8px;
       padding:6px 11px;font-size:11px;font-weight:800;cursor:pointer;font-family:var(--fb);
+      box-shadow:0 8px 18px rgba(99,167,255,.16);
     }
     .panel-save-row{display:flex;gap:6px}
     .panel-save-row input{
@@ -1339,13 +1374,13 @@
     }
     .panel-save-row input:focus{border-color:rgba(99,167,255,.5)}
     .panel-save-row button{
-      background:var(--green);color:#06120c;border:none;border-radius:9px;
+      background:linear-gradient(180deg, #38f59a 0%, #1fe887 100%);color:#06120c;border:none;border-radius:9px;
       padding:9px 14px;font-size:12px;font-weight:800;cursor:pointer;font-family:var(--fb);
+      box-shadow:0 10px 20px rgba(31,232,135,.14);
     }
     .step-progress-bar{height:4px;background:var(--bg3);border-radius:999px;overflow:hidden;margin-bottom:8px}
     .step-progress-fill{height:100%;background:linear-gradient(90deg,var(--green),var(--yellow));transition:width .3s}
 
-    /* ── EMAIL CAPTURE ── */
     .email-capture{
       background:linear-gradient(135deg,rgba(31,232,135,.08),rgba(99,167,255,.06));
       border:1px solid rgba(31,232,135,.2);
@@ -1375,15 +1410,16 @@
     .email-input:focus{border-color:rgba(31,232,135,.5)}
     .email-submit{
       width:100%;padding:11px;border:none;border-radius:11px;
-      background:var(--green);color:#06120c;font-weight:800;
+      background:linear-gradient(180deg, #38f59a 0%, #1fe887 100%);color:#06120c;font-weight:800;
       font-size:12px;cursor:pointer;font-family:var(--fb);transition:.15s;
+      box-shadow:0 12px 24px rgba(31,232,135,.18);
     }
     .email-submit:active{transform:scale(.97)}
     .email-done{
       text-align:center;padding:8px;color:var(--green);
       font-weight:800;font-size:12px;display:none;
     }
-    /* PWA INSTALL BANNER */
+
     .install-banner{
       display:none;
       align-items:center;gap:10px;
@@ -1399,16 +1435,16 @@
     .install-text strong{display:block;font-size:12px;font-weight:800;margin-bottom:1px}
     .install-text span{color:var(--muted);font-size:10px}
     .install-btn{
-      background:var(--yellow);color:#1a0f00;border:none;
+      background:linear-gradient(180deg, #ffd874 0%, #ffcf5a 100%);color:#1a0f00;border:none;
       border-radius:9px;padding:8px 12px;font-size:11px;
       font-weight:800;cursor:pointer;white-space:nowrap;font-family:var(--fb);
+      box-shadow:0 12px 22px rgba(255,207,90,.16);
     }
     .install-dismiss{
       background:none;border:none;color:var(--muted2);
       font-size:16px;cursor:pointer;flex-shrink:0;padding:2px;
     }
 
-    /* ── AUTH MODAL ── */
     .auth-modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;padding:16px;background:rgba(0,0,0,.75);backdrop-filter:blur(8px)}
     .auth-modal.show{display:flex}
     .auth-box{background:var(--bg2);border:1px solid var(--line-2);border-radius:18px;padding:24px;width:min(100%,380px);animation:panelUp .25s ease}
@@ -1423,16 +1459,904 @@
     .auth-input{width:100%;background:var(--bg3);border:1px solid var(--line);border-radius:10px;padding:11px 13px;font-size:13px;font-family:var(--fb);color:var(--text);outline:none;transition:.15s}
     .auth-input:focus{border-color:rgba(31,232,135,.5);box-shadow:0 0 0 3px rgba(31,232,135,.08)}
     .auth-input::placeholder{color:var(--muted2)}
-    .auth-submit{width:100%;padding:13px;border:none;border-radius:11px;background:var(--green);color:#06120c;font-size:13px;font-weight:800;cursor:pointer;font-family:var(--fb);transition:.15s;margin-top:4px}
+    .auth-submit{width:100%;padding:13px;border:none;border-radius:11px;background:linear-gradient(180deg, #38f59a 0%, #1fe887 100%);color:#06120c;font-size:13px;font-weight:800;cursor:pointer;font-family:var(--fb);transition:.15s;margin-top:4px;box-shadow:0 12px 24px rgba(31,232,135,.18)}
     .auth-submit:active{transform:scale(.97)}
     .auth-submit:disabled{opacity:.6;cursor:default}
     .auth-error{color:var(--red);font-size:11px;text-align:center;margin-top:8px;min-height:16px}
     .auth-skip{width:100%;padding:9px;border:1px solid var(--line);border-radius:11px;background:transparent;color:var(--muted2);font-size:11px;font-weight:600;cursor:pointer;font-family:var(--fb);margin-top:8px}
-    /* User badge in topbar */
     .user-badge{display:flex;align-items:center;gap:6px;background:var(--bg3);border:1px solid var(--line);border-radius:999px;padding:5px 10px;cursor:pointer;font-size:11px;font-weight:700;color:var(--text)}
     .user-badge-dot{width:7px;height:7px;border-radius:50%;background:var(--green)}
     .sync-indicator{font-size:9px;color:var(--muted2);text-align:center;padding:4px;display:none}
     .sync-indicator.show{display:block}
+
+    @media (max-width:640px){
+      body{
+        font-size:14px;
+        padding-bottom:84px;
+        background:
+          radial-gradient(circle at top right, rgba(99,167,255,.11), transparent 28%),
+          radial-gradient(circle at top left, rgba(31,232,135,.06), transparent 30%),
+          linear-gradient(180deg, #0b0f14 0%, #0d1218 100%);
+      }
+
+      .topbar{
+        background:rgba(11,15,20,.96);
+      }
+
+      .topbar-inner,
+      .app{
+        padding-left:10px;
+        padding-right:10px;
+      }
+
+      .topbar-inner{
+        padding-top:8px;
+        padding-bottom:8px;
+      }
+
+      .app{
+        padding-top:8px;
+        padding-bottom:18px;
+        min-height:calc(100vh - 54px);
+      }
+
+      .brand-row{
+        gap:6px;
+        margin-bottom:8px;
+      }
+
+      .brand{
+        font-size:16px;
+      }
+
+      .top-actions{
+        gap:5px;
+      }
+
+      .icon-btn,
+      .close-btn,
+      .panel-share{
+        width:34px;
+        height:34px;
+      }
+
+      .user-badge{
+        padding:5px 9px;
+        font-size:10px;
+        gap:5px;
+      }
+
+      .stats{
+        gap:6px;
+      }
+
+      .stat{
+        padding:8px 8px 7px;
+        border-radius:13px;
+      }
+
+      .stat-label{
+        font-size:9px;
+        margin-bottom:2px;
+      }
+
+      .stat-value{
+        font-size:14px;
+      }
+
+      .sync-indicator{
+        padding:4px 0 0;
+      }
+
+      .section{
+        margin-top:14px;
+      }
+
+      .section + .section{
+        margin-top:16px;
+      }
+
+      .section-head{
+        gap:6px;
+        margin-bottom:8px;
+        padding:0 1px;
+      }
+
+      .section-title{
+        font-size:15px;
+      }
+
+      .section-note{
+        font-size:10px;
+      }
+
+      .card{
+        border-radius:16px;
+        box-shadow:var(--shadow-lg);
+      }
+
+      .compact-hero,
+      .plan-card,
+      .daily-box,
+      .profile-card,
+      .earn-card,
+      .community-card,
+      .milestone-card,
+      .stack-card,
+      .popup-card,
+      .drawer-card{
+        padding:12px;
+      }
+
+      .compact-hero{
+        background:
+          linear-gradient(135deg, rgba(99,167,255,.16), rgba(31,232,135,.07)),
+          #111824;
+      }
+
+      .compact-hero h1{
+        font-size:20px;
+        margin-bottom:4px;
+      }
+
+      .compact-hero p{
+        font-size:12px;
+        line-height:1.42;
+      }
+
+      .plan-card{
+        background:
+          linear-gradient(145deg, rgba(255,207,90,.14), rgba(31,232,135,.06)),
+          #121821;
+      }
+
+      .plan-top{
+        gap:10px;
+        margin-bottom:8px;
+      }
+
+      .plan-kicker{
+        margin-bottom:3px;
+      }
+
+      .plan-amount{
+        font-size:32px;
+      }
+
+      .plan-copy{
+        max-width:118px;
+        font-size:10px;
+        line-height:1.35;
+      }
+
+      .tasks{
+        gap:7px;
+      }
+
+      .task-btn{
+        padding:11px 11px;
+        border-radius:13px;
+        background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      }
+
+      .task-top{
+        gap:8px;
+        margin-bottom:2px;
+      }
+
+      .task-title{
+        font-size:13px;
+      }
+
+      .task-reward{
+        font-size:15px;
+      }
+
+      .task-sub{
+        font-size:11px;
+      }
+
+      .daily-box{
+        background:
+          linear-gradient(145deg, rgba(255,207,90,.08), rgba(17,22,29,.92)),
+          #11161d;
+      }
+
+      .daily-head{
+        margin-bottom:6px;
+      }
+
+      .daily-title{
+        gap:6px;
+        font-size:12px;
+      }
+
+      .daily-copy{
+        margin-bottom:8px;
+        font-size:10px;
+      }
+
+      .streak-row{
+        gap:4px;
+        margin-bottom:9px;
+      }
+
+      .streak-dot{
+        height:6px;
+      }
+
+      .primary-btn,
+      .secondary-btn{
+        padding:14px 14px;
+        font-size:13px;
+        border-radius:13px;
+        min-height:46px;
+      }
+
+      .ghost-btn{
+        padding:10px 10px;
+        font-size:10px;
+        min-height:40px;
+      }
+
+      .toolbar{
+        gap:7px;
+        margin-bottom:10px;
+      }
+
+      .search,
+      .filter-select,
+      .save-input,
+      .money-input,
+      .inline-input,
+      .email-input,
+      .auth-input{
+        padding:12px 12px;
+        font-size:14px;
+        border-radius:12px;
+        min-height:46px;
+      }
+
+      .offers-grid,
+      .stack-list,
+      .profile-grid,
+      .community-grid{
+        gap:10px;
+      }
+
+      .offer-card{
+        padding:11px;
+        border-radius:16px;
+        box-shadow:0 16px 34px rgba(0,0,0,.22);
+      }
+
+      .offer-card::before{
+        height:3px;
+      }
+
+      .offer-top{
+        gap:8px;
+        margin-bottom:6px;
+      }
+
+      .offer-name{
+        font-size:15px;
+        line-height:1.1;
+      }
+
+      .reward{
+        font-size:22px;
+        letter-spacing:-.03em;
+      }
+
+      .meta-row{
+        gap:5px;
+        margin:5px 0 7px;
+      }
+
+      .pill{
+        padding:5px 8px;
+        font-size:10px;
+      }
+
+      .offer-mini-row{
+        gap:7px;
+        margin-bottom:6px;
+      }
+
+      .offer-mini-text,
+      .progress-top{
+        font-size:9px;
+      }
+
+      .progress-wrap,
+      .desc,
+      .code-box,
+      .status-row{
+        margin-bottom:7px;
+      }
+
+      .progress-top{
+        margin-bottom:4px;
+      }
+
+      .progress-bar{
+        height:7px;
+      }
+
+      .desc{
+        font-size:12px;
+        line-height:1.42;
+      }
+
+      .code-box{
+        padding:7px 9px;
+        font-size:12px;
+        border-radius:10px;
+      }
+
+      .status-row{
+        gap:5px;
+      }
+
+      .status-btn{
+        padding:10px 4px;
+        font-size:9px;
+        border-radius:10px;
+        min-height:40px;
+      }
+
+      .offer-actions{
+        gap:6px;
+      }
+
+      .expand-area{
+        margin-top:8px;
+        padding-top:8px;
+      }
+
+      .steps{
+        gap:6px;
+        margin-bottom:8px;
+      }
+
+      .step-row{
+        gap:8px;
+        padding:9px 10px;
+        border-radius:11px;
+      }
+
+      .step-row input{
+        width:15px;
+        height:15px;
+        flex-basis:15px;
+      }
+
+      .step-label{
+        font-size:12px;
+        line-height:1.36;
+      }
+
+      .action-row{
+        gap:6px;
+        grid-template-columns:minmax(0,1fr) auto;
+      }
+
+      .mini-btn{
+        min-width:72px;
+        padding:11px 11px;
+        font-size:10px;
+        border-radius:11px;
+        min-height:44px;
+      }
+
+      .link-btn{
+        font-size:10px;
+      }
+
+      .comparison{
+        border-radius:15px;
+      }
+
+      .battle-row{
+        grid-template-columns:34px 1fr auto;
+        gap:10px;
+        padding:11px 11px;
+      }
+
+      .battle-icon{
+        width:34px;
+        height:34px;
+        border-radius:11px;
+        font-size:16px;
+      }
+
+      .battle-name{
+        font-size:13px;
+      }
+
+      .battle-source{
+        font-size:10px;
+      }
+
+      .battle-rate{
+        font-size:17px;
+      }
+
+      .stack-card h3{
+        margin-bottom:7px;
+        font-size:12px;
+      }
+
+      .stack-step{
+        gap:7px;
+        margin-bottom:5px;
+      }
+
+      .stack-step span:first-child{
+        width:17px;
+        height:17px;
+        flex-basis:17px;
+        font-size:8px;
+      }
+
+      .stack-step span:last-child,
+      .community-card p,
+      .drawer-tip p{
+        font-size:12px;
+        line-height:1.42;
+      }
+
+      .stack-value{
+        margin-top:7px;
+        padding-top:7px;
+        font-size:12px;
+      }
+
+      .profile-center .emoji{
+        font-size:28px;
+        margin-bottom:4px;
+      }
+
+      .profile-level{
+        font-size:22px;
+      }
+
+      .profile-xp{
+        font-size:13px;
+        margin-bottom:7px;
+      }
+
+      .profile-progress-copy{
+        margin:5px 0 7px;
+      }
+
+      .list,
+      .pending-list,
+      .leaderboard{
+        gap:6px;
+      }
+
+      .list-item,
+      .pending-row,
+      .leaderboard-row{
+        padding:10px 10px;
+        gap:8px;
+        border-radius:12px;
+      }
+
+      .list-item strong,
+      .pending-row strong,
+      .leaderboard-row strong{
+        font-size:12px;
+      }
+
+      .list-item span,
+      .pending-row span,
+      .leaderboard-row span{
+        font-size:8px;
+      }
+
+      .money-grid{
+        gap:6px;
+        margin-bottom:8px;
+      }
+
+      .money-box{
+        padding:9px 8px;
+        border-radius:12px;
+      }
+
+      .money-box-label{
+        font-size:9px;
+        margin-bottom:4px;
+      }
+
+      .money-box-value{
+        font-size:18px;
+      }
+
+      .money-form{
+        gap:6px;
+        margin-top:5px;
+      }
+
+      .money-form-row{
+        gap:6px;
+        grid-template-columns:1fr 1fr auto;
+      }
+
+      .community-card h3{
+        font-size:14px;
+        margin-bottom:4px;
+      }
+
+      .footer-note{
+        margin-top:10px;
+        font-size:10px;
+      }
+
+      .empty{
+        padding:14px 10px;
+      }
+
+      .install-banner{
+        gap:9px;
+        padding:11px 11px;
+        margin-top:10px;
+        border-radius:16px;
+      }
+
+      .install-icon{
+        font-size:22px;
+      }
+
+      .install-text strong{
+        font-size:11px;
+      }
+
+      .install-text span{
+        font-size:9px;
+      }
+
+      .install-btn{
+        padding:10px 12px;
+        font-size:10px;
+        min-height:40px;
+      }
+
+      .email-capture{
+        padding:12px;
+        margin-top:10px;
+        border-radius:16px;
+      }
+
+      .email-capture h3{
+        font-size:12px;
+      }
+
+      .email-capture p{
+        margin-bottom:8px;
+        font-size:9px;
+      }
+
+      .email-submit{
+        padding:12px;
+        font-size:11px;
+        min-height:44px;
+      }
+
+      .drawer{
+        padding:8px;
+      }
+
+      .drawer-card{
+        padding:12px;
+        border-radius:18px 18px 0 0;
+        max-height:min(78vh, 680px);
+      }
+
+      .drawer-top{
+        margin-bottom:8px;
+      }
+
+      .drawer-title{
+        font-size:18px;
+      }
+
+      .drawer-rate{
+        font-size:24px;
+        margin-bottom:8px;
+      }
+
+      .drawer-tip,
+      .drawer-total{
+        margin-bottom:8px;
+      }
+
+      .drawer-tip,
+      .drawer-step{
+        padding:10px;
+        border-radius:12px;
+      }
+
+      .drawer-step{
+        font-size:10px;
+      }
+
+      .popup{
+        padding:12px;
+      }
+
+      .popup-card{
+        padding:12px;
+        border-radius:16px;
+      }
+
+      .popup-card h3{
+        font-size:14px;
+      }
+
+      .popup-card p{
+        font-size:10px;
+        margin-bottom:8px;
+      }
+
+      .popup-row{
+        gap:6px;
+        margin-bottom:8px;
+      }
+
+      .panel-hdr{
+        gap:8px;
+        padding:10px 10px;
+        box-shadow:0 8px 18px rgba(0,0,0,.12);
+      }
+
+      .panel-close{
+        width:36px;
+        height:36px;
+      }
+
+      .panel-title{
+        font-size:15px;
+      }
+
+      .panel-body{
+        padding:10px;
+      }
+
+      .panel-footer{
+        padding:9px 10px;
+        padding-bottom:calc(9px + env(safe-area-inset-bottom));
+      }
+
+      .panel-claim{
+        padding:14px;
+        font-size:13px;
+        border-radius:13px;
+        min-height:48px;
+      }
+
+      .panel-reward-big{
+        font-size:30px;
+        margin-bottom:6px;
+      }
+
+      .panel-section{
+        padding:10px 10px;
+        margin-bottom:8px;
+        border-radius:13px;
+      }
+
+      .panel-section-title{
+        margin-bottom:7px;
+        font-size:9px;
+      }
+
+      .panel-tip-row{
+        gap:6px;
+        margin-bottom:5px;
+        font-size:10px;
+      }
+
+      .panel-step-row{
+        gap:8px;
+        padding:8px 0;
+      }
+
+      .panel-step-check{
+        width:20px;
+        height:20px;
+        font-size:9px;
+      }
+
+      .panel-step-label{
+        font-size:10px;
+      }
+
+      .panel-status-row{
+        gap:5px;
+        margin-bottom:8px;
+      }
+
+      .panel-code{
+        gap:7px;
+        padding:9px 10px;
+        margin-bottom:8px;
+      }
+
+      .panel-code-val{
+        font-size:14px;
+      }
+
+      .panel-code-copy{
+        padding:8px 10px;
+        font-size:10px;
+        min-height:36px;
+      }
+
+      .panel-save-row{
+        gap:6px;
+      }
+
+      .panel-save-row input{
+        padding:10px 10px;
+        font-size:12px;
+        min-height:42px;
+      }
+
+      .panel-save-row button{
+        padding:10px 12px;
+        font-size:11px;
+        min-height:42px;
+      }
+
+      .step-progress-bar{
+        margin-bottom:8px;
+      }
+
+      .auth-modal{
+        padding:12px;
+        align-items:flex-end;
+      }
+
+      .auth-box{
+        width:100%;
+        max-width:380px;
+        padding:18px;
+        border-radius:18px 18px 12px 12px;
+        max-height:88vh;
+        overflow-y:auto;
+        -webkit-overflow-scrolling:touch;
+      }
+
+      .auth-logo{
+        font-size:16px;
+        margin-bottom:3px;
+      }
+
+      .auth-sub{
+        font-size:10px;
+        margin-bottom:14px;
+      }
+
+      .auth-tabs{
+        gap:5px;
+        margin-bottom:14px;
+        padding:3px;
+      }
+
+      .auth-tab{
+        padding:8px;
+        font-size:11px;
+        min-height:38px;
+      }
+
+      .auth-field{
+        margin-bottom:10px;
+      }
+
+      .auth-submit{
+        padding:12px;
+        font-size:12px;
+        min-height:46px;
+      }
+
+      .auth-skip{
+        padding:9px;
+        font-size:10px;
+        min-height:40px;
+      }
+
+      .bottom-nav{
+        gap:4px;
+        padding:5px 5px calc(5px + env(safe-area-inset-bottom));
+      }
+
+      .nav-btn{
+        padding:8px 3px 7px;
+        gap:3px;
+        border-radius:11px;
+        min-height:52px;
+      }
+
+      .nav-icon{
+        font-size:18px;
+      }
+
+      .nav-label{
+        font-size:9px;
+      }
+
+      .toast{
+        bottom:78px;
+        padding:10px 14px;
+        font-size:12px;
+        max-width:calc(100vw - 18px);
+      }
+    }
+
+    @media (max-width:380px){
+      .stats{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .plan-top{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .plan-copy{
+        max-width:none;
+        text-align:left;
+      }
+
+      .offer-top{
+        align-items:flex-start;
+      }
+
+      .reward{
+        font-size:20px;
+      }
+
+      .money-form-row{
+        grid-template-columns:1fr;
+      }
+
+      .popup-row{
+        grid-template-columns:1fr;
+      }
+
+      .pending-row,
+      .leaderboard-row{
+        align-items:flex-start;
+        flex-direction:column;
+      }
+
+      .pending-days{
+        align-self:flex-start;
+      }
+
+      .panel-save-row{
+        flex-direction:column;
+      }
+
+      .install-banner{
+        align-items:flex-start;
+        flex-wrap:wrap;
+      }
+
+      .install-text{
+        min-width:0;
+      }
+    }
+
+    @media (min-width:700px){
+      .offers-grid,
+      .community-grid,
+      .profile-grid{grid-template-columns:1fr 1fr}
+    }
   </style>
 </head>
 <body>
@@ -2123,7 +3047,6 @@
       localStorage.setItem("mh_offer_steps", JSON.stringify(state.offerSteps));
       localStorage.setItem("mh_pending_payouts", JSON.stringify(state.pendingPayouts));
       localStorage.setItem("mh_expanded_offers", JSON.stringify(state.expandedOffers));
-      // Sync to Supabase in background
       scheduleSyncToSupabase();
     }
 
@@ -2192,10 +3115,6 @@
       return Object.values(state.earningsMap).reduce((sum, item) => sum + Number(item.earned || 0), 0);
     }
 
-    /*
-      EARNINGS
-      Earnings are calculated from mh_earnings_map and shown in Profile and top stats.
-    */
     function getPendingTotal() {
       const manualPending = Object.values(state.earningsMap).reduce((sum, item) => sum + Number(item.pending || 0), 0);
       const payoutPending = Object.values(state.pendingPayouts).reduce((sum, item) => sum + Number(item.amount || 0), 0);
@@ -2210,10 +3129,6 @@
       return state.offerSteps[id] || [];
     }
 
-    /*
-      STEPS
-      Per-offer checklist state is handled in mh_offer_steps.
-    */
     function toggleStep(offerId, stepIndex, checked) {
       if (!state.offerSteps[offerId]) state.offerSteps[offerId] = [];
       state.offerSteps[offerId][stepIndex] = checked;
@@ -2246,10 +3161,6 @@
       renderAll();
     }
 
-    /*
-      PENDING PAYOUTS
-      Pending payouts are stored in mh_pending_payouts with createdAt and dueAt timestamps.
-    */
     function openPendingPopup(offer) {
       if (!offer.expectedDays || offer.expectedDays <= 0) return;
       pendingOfferId = offer.id;
@@ -2690,8 +3601,6 @@
       }
     }
 
-
-    // ── ENRICHED OFFER DATA (tips, warnings, full steps) ──
     const offerEnrichment = {
       "chase-uk": {
         tips:["Deposit can be split across multiple payments — doesn't need to be in one go","Keep the £1,000 in the account for 30 days before withdrawing","Chase 1% cashback on groceries/transport makes it great as your main card","Use Chase permanently while switching other banks for bonuses"],
@@ -2814,7 +3723,6 @@
       return offerEnrichment[offerId] || { tips:[], warnings:[], steps:[] };
     }
 
-    // ── SLIDE PANEL ──
     let activePanel = null;
 
     function openPanel(offer) {
@@ -2824,14 +3732,12 @@
       const status = state.offerStatus[offer.id] || "none";
       const stepsDone = (state.offerSteps[offer.id] || []).filter(Boolean).length;
       const stepsTotal = steps.length;
-      const isBank = offer.badge && offer.badge.includes("BANK") || offer.badge && offer.badge.includes("SWITCH") || (offer.expectedDays||0) > 14;
       const saved = state.savingsMap[offer.id] || 0;
 
       document.getElementById("panelTitle").textContent = offer.name;
 
       let html = "";
 
-      // Hero
       html += `<div class="panel-section" style="margin-bottom:9px">
         <div class="panel-reward-big">${offer.reward}</div>
         <span class="pill badge">${offer.badge || ""}</span>
@@ -2839,7 +3745,6 @@
         <p style="margin:9px 0 0;color:var(--muted);font-size:11px;line-height:1.45">${offer.desc}</p>
       </div>`;
 
-      // Code
       if (offer.code) {
         html += `<div class="panel-code">
           <div class="panel-code-val">${offer.code}</div>
@@ -2847,14 +3752,12 @@
         </div>`;
       }
 
-      // Status
       html += `<div class="panel-status-row">
         <button class="status-btn ${status==='none'?'active-none':''}" data-status-id="${offer.id}" data-status-value="none">Not started</button>
         <button class="status-btn ${status==='pending'?'active-pending':''}" data-status-id="${offer.id}" data-status-value="pending">⏳ Pending</button>
         <button class="status-btn ${status==='completed'?'active-completed':''}" data-status-id="${offer.id}" data-status-value="completed">✅ Done</button>
       </div>`;
 
-      // Tips
       if (enrich.tips && enrich.tips.length) {
         html += `<div class="panel-section panel-tips">
           <div class="panel-section-title">💡 Hunter Tips</div>
@@ -2862,7 +3765,6 @@
         </div>`;
       }
 
-      // Warnings
       if (enrich.warnings && enrich.warnings.length) {
         html += `<div class="panel-section panel-warnings">
           <div class="panel-section-title">⚠️ Watch Out</div>
@@ -2870,7 +3772,6 @@
         </div>`;
       }
 
-      // Steps
       if (steps.length) {
         const pct = stepsTotal > 0 ? Math.round(stepsDone / stepsTotal * 100) : 0;
         html += `<div class="panel-section">
@@ -2886,7 +3787,6 @@
         </div>`;
       }
 
-      // Save earnings
       html += `<div class="panel-section">
         <div class="panel-section-title">💰 Log Saving</div>
         <div class="panel-save-row">
@@ -2897,14 +3797,12 @@
 
       document.getElementById("panelBody").innerHTML = html;
 
-      // Footer claim button
       const footer = document.getElementById("panelFooter");
       if (offer.reward !== "Coming Soon") {
         const isAmber = offer.badge && (offer.badge.includes("BANK") || offer.badge.includes("SWITCH") || offer.badge.includes("INVEST") || offer.badge.includes("PREMIUM") || offer.badge.includes("VALUE"));
-        const btnText = offer.code ? `📋 Copy Code & Claim →` : `🚀 Claim Offer →`;
         footer.innerHTML = `<button class="panel-claim ${isAmber?'amber':''}" onclick="panelClaim()">Open Offer →</button>`;
       } else {
-        footer.innerHTML = `<button class="panel-claim" style="background:var(--bg3);color:var(--muted2);cursor:default">⏸️ Paused — Check Back Soon</button>`;
+        footer.innerHTML = `<button class="panel-claim" style="background:var(--bg3);color:var(--muted2);cursor:default;box-shadow:none">⏸️ Paused — Check Back Soon</button>`;
       }
 
       document.getElementById("offerPanel").classList.add("active");
@@ -2939,7 +3837,6 @@
       else if (done > 0 && (state.offerStatus[offerId] || "none") === "none") state.offerStatus[offerId] = "pending";
       saveState();
       vibrate(done ? [10,20,10] : 10);
-      // Update step UI in panel
       const check = document.querySelectorAll(".panel-step-check")[idx];
       const label = document.querySelectorAll(".panel-step-label")[idx];
       const isChecked = (state.offerSteps[offerId] || [])[idx];
@@ -2977,13 +3874,9 @@
       else navigator.clipboard?.writeText(text).then(() => toast("Link copied"));
     }
 
-    // Wire up panel events
     document.getElementById("panelClose").addEventListener("click", closePanel);
     document.getElementById("panelShare").addEventListener("click", sharePanelOffer);
 
-
-    // ── PWA: SERVICE WORKER ──
-    // Only register SW when on the actual domain (not preview/localhost)
     if ('serviceWorker' in navigator && 
         (location.hostname === 'moneyhunters.co.uk' || 
          location.hostname === 'www.moneyhunters.co.uk' ||
@@ -2993,13 +3886,11 @@
       });
     }
 
-    // ── PWA: INSTALL PROMPT ──
     let deferredPrompt = null;
 
     window.addEventListener('beforeinstallprompt', e => {
       e.preventDefault();
       deferredPrompt = e;
-      // Show install banner if not dismissed before
       if (!localStorage.getItem('mh_install_dismissed')) {
         document.getElementById('installBanner').classList.add('show');
       }
@@ -3007,7 +3898,6 @@
 
     document.getElementById('installBtn').addEventListener('click', async () => {
       if (!deferredPrompt) {
-        // iOS — show instructions
         toast("Tap Share → Add to Home Screen");
         return;
       }
@@ -3026,13 +3916,11 @@
       document.getElementById('installBanner').classList.remove('show');
     }
 
-    // Check if already installed (standalone mode)
     if (window.matchMedia('(display-mode: standalone)').matches ||
         window.navigator.standalone === true) {
       document.getElementById('installBanner').classList.remove('show');
     }
 
-    // iOS — show install hint after 30 seconds if not installed
     setTimeout(() => {
       const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
       const isStandalone = window.navigator.standalone;
@@ -3042,9 +3930,6 @@
       }
     }, 30000);
 
-    // ── EMAIL CAPTURE (Brevo) ──
-    // Replace BREVO_FORM_ID below with your actual Brevo form ID after setup
-    // For now, emails are collected locally and logged
     async function submitEmail() {
       const input = document.getElementById('emailInput');
       const email = input.value.trim();
@@ -3058,10 +3943,8 @@
       btn.disabled = true;
 
       try {
-        // Brevo API — replace with your list ID and API key
-        // For now stores locally and shows success
-        const BREVO_API_KEY = 'REMOVED_USE_RAILWAY_PROXY'; // Replace after Brevo setup
-        const BREVO_LIST_ID = 2; // Replace with your list ID
+        const BREVO_API_KEY = 'REMOVED_USE_RAILWAY_PROXY';
+        const BREVO_LIST_ID = 2;
 
         if (BREVO_API_KEY !== 'YOUR_BREVO_API_KEY') {
           await fetch('https://referral-hunter-bot-production.up.railway.app/subscribe', {
@@ -3079,7 +3962,6 @@
           });
         }
 
-        // Store locally regardless
         const emails = JSON.parse(localStorage.getItem('mh_emails') || '[]');
         if (!emails.includes(email)) { emails.push(email); }
         localStorage.setItem('mh_emails', JSON.stringify(emails));
@@ -3092,7 +3974,6 @@
         saveState();
         updateTopStats();
       } catch (err) {
-        // Store locally even if API fails
         const emails = JSON.parse(localStorage.getItem('mh_emails') || '[]');
         if (!emails.includes(email)) { emails.push(email); }
         localStorage.setItem('mh_emails', JSON.stringify(emails));
@@ -3102,13 +3983,10 @@
       }
     }
 
-    // Allow Enter key on email input
     document.getElementById('emailInput').addEventListener('keydown', e => {
       if (e.key === 'Enter') submitEmail();
     });
 
-
-    // ── SUPABASE AUTH & SYNC ──
     const SUPABASE_URL = 'https://wqcwevcdmiounmoqhqpg.supabase.co';
     const SUPABASE_KEY = 'sb_publishable_S98Xxe9umP419b54jHvOuw_bPEO0qiN';
     const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
@@ -3116,7 +3994,6 @@
     let currentUser = null;
     let syncTimeout = null;
 
-    // Show/hide auth modal
     function showAuthModal() {
       document.getElementById('authModal').classList.add('show');
     }
@@ -3212,12 +4089,10 @@
       if (el) { el.classList.add('show'); setTimeout(() => el.classList.remove('show'), 2000); }
     }
 
-    // Push local state to Supabase
     async function pushProgressToSupabase() {
       if (!currentUser) return;
       showSyncing();
       try {
-        // Upsert progress
         await db.from('progress').upsert({
           id: currentUser.id,
           xp: state.xp,
@@ -3235,7 +4110,6 @@
           updated_at: new Date().toISOString()
         });
 
-        // Upsert offer statuses
         const statusEntries = Object.entries(state.offerStatus);
         for (const [offerId, status] of statusEntries) {
           const steps = state.offerSteps[offerId] || [];
@@ -3250,7 +4124,6 @@
           }, { onConflict: 'user_id,offer_id' });
         }
 
-        // Upsert pending payouts
         const payouts = Object.values(state.pendingPayouts);
         for (const payout of payouts) {
           await db.from('pending_payouts').upsert({
@@ -3267,12 +4140,10 @@
       }
     }
 
-    // Pull Supabase data into local state
     async function pullProgressFromSupabase() {
       if (!currentUser) return;
       showSyncing();
       try {
-        // Get progress
         const { data: prog } = await db.from('progress').select('*').eq('id', currentUser.id).single();
         if (prog) {
           state.xp = prog.xp || 0;
@@ -3285,14 +4156,12 @@
           state.spinsDate = prog.spins_date || '';
         }
 
-        // Get profile for username
         const { data: profile } = await db.from('profiles').select('username').eq('id', currentUser.id).single();
         if (profile?.username) {
           localStorage.setItem('mh_username', profile.username);
           updateUserBadge(profile.username);
         }
 
-        // Get offer statuses
         const { data: statuses } = await db.from('offer_status').select('*').eq('user_id', currentUser.id);
         if (statuses) {
           statuses.forEach(s => {
@@ -3302,7 +4171,6 @@
           });
         }
 
-        // Get pending payouts
         const { data: payouts } = await db.from('pending_payouts').select('*').eq('user_id', currentUser.id);
         if (payouts) {
           payouts.forEach(p => {
@@ -3316,7 +4184,6 @@
           });
         }
 
-        // Save to localStorage and re-render
         saveState();
         updateTopStats();
         renderAll();
@@ -3325,14 +4192,12 @@
       }
     }
 
-    // Debounced sync on every saveState call
     function scheduleSyncToSupabase() {
       if (!currentUser) return;
       clearTimeout(syncTimeout);
       syncTimeout = setTimeout(() => pushProgressToSupabase(), 3000);
     }
 
-    // Check auth state on load
     async function initAuth() {
       const { data: { session } } = await db.auth.getSession();
       if (session?.user) {
@@ -3341,14 +4206,12 @@
         const username = localStorage.getItem('mh_username') || session.user.email?.split('@')[0];
         updateUserBadge(username);
       } else {
-        // Show auth modal after 3 seconds unless skipped before
         const skipped = localStorage.getItem('mh_auth_skipped');
         if (!skipped) {
           setTimeout(() => showAuthModal(), 3000);
         }
       }
 
-      // Listen for auth changes
       db.auth.onAuthStateChange((event, session) => {
         if (event === 'SIGNED_IN' && session?.user) {
           currentUser = session.user;
@@ -3456,3 +4319,4 @@
   </script>
 </body>
 </html>
+```
