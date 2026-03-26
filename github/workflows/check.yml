@@ -1,0 +1,101 @@
+name: Test Bot
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    name: Run Bot Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      # ── TEST 1: Python syntax check ──
+      - name: Python syntax check
+        run: |
+          echo "Checking bot.py syntax..."
+          python -m py_compile bot.py && echo "✅ bot.py syntax OK"
+
+      # ── TEST 2: Check no hardcoded secrets ──
+      - name: Check no hardcoded secrets
+        run: |
+          echo "Scanning for hardcoded secrets..."
+          # Check for hardcoded Telegram token pattern
+          if grep -E "[0-9]{8,10}:AA[a-zA-Z0-9_-]{33}" bot.py; then
+            echo "❌ HARDCODED TELEGRAM TOKEN found in bot.py!"
+            exit 1
+          fi
+          # Check for hardcoded Brevo keys
+          if grep "xkeysib-" bot.py; then
+            echo "❌ HARDCODED BREVO KEY found in bot.py!"
+            exit 1
+          fi
+          echo "✅ No hardcoded secrets found."
+
+      # ── TEST 3: Check environment variables are used correctly ──
+      - name: Check env var usage
+        run: |
+          echo "Checking environment variable usage..."
+          if grep -q 'os.environ.get("BOT_TOKEN")' bot.py; then
+            echo "✅ BOT_TOKEN read from environment"
+          else
+            echo "❌ BOT_TOKEN not reading from environment variable!"
+            exit 1
+          fi
+          if grep -q 'os.environ.get("BREVO_API_KEY")' bot.py; then
+            echo "✅ BREVO_API_KEY read from environment"
+          else
+            echo "❌ BREVO_API_KEY not reading from environment variable!"
+            exit 1
+          fi
+
+      # ── TEST 4: Check required endpoints exist ──
+      - name: Check Flask endpoints defined
+        run: |
+          echo "Checking Flask endpoints..."
+          if grep -q '"/health"' bot.py; then
+            echo "✅ /health endpoint found"
+          else
+            echo "❌ /health endpoint missing!"
+            exit 1
+          fi
+          if grep -q '"/subscribe"' bot.py; then
+            echo "✅ /subscribe endpoint found"
+          else
+            echo "❌ /subscribe endpoint missing!"
+            exit 1
+          fi
+
+      # ── TEST 5: Check requirements.txt is complete ──
+      - name: Check requirements.txt
+        run: |
+          echo "Checking requirements.txt..."
+          required=("requests" "schedule" "flask" "flask-cors")
+          missing=0
+          for pkg in "${required[@]}"; do
+            if grep -qi "^${pkg}" requirements.txt; then
+              echo "✅ $pkg found"
+            else
+              echo "❌ $pkg missing from requirements.txt!"
+              missing=1
+            fi
+          done
+          if [ $missing -eq 1 ]; then exit 1; fi
+
+      - name: ✅ All bot tests passed
+        run: |
+          echo "All checks passed."
+          echo "Railway will now autodeploy from this push."
