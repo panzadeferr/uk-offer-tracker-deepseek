@@ -3332,26 +3332,12 @@
       btn.disabled = true;
 
       try {
-        // Brevo API — replace with your list ID and API key
-        // For now stores locally and shows success
-        const BREVO_API_KEY = 'REMOVED_USE_RAILWAY_PROXY'; // Replace after Brevo setup
-        const BREVO_LIST_ID = 2; // Replace with your list ID
-
-        if (BREVO_API_KEY !== 'YOUR_BREVO_API_KEY') {
-          await fetch('https://referral-hunter-bot-production.up.railway.app/subscribe', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'api-key': BREVO_API_KEY
-            },
-            body: JSON.stringify({
-              email: email,
-              listIds: [BREVO_LIST_ID],
-              updateEnabled: true,
-              attributes: { SOURCE: 'Money Hunters App' }
-            })
-          });
-        }
+        // Send to Railway proxy which forwards to Brevo securely
+        await fetch('https://referral-hunter-bot-production.up.railway.app/subscribe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, source: 'Money Hunters App' })
+        });
 
         // Store locally regardless
         const emails = JSON.parse(localStorage.getItem('mh_emails') || '[]');
