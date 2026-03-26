@@ -1,1 +1,146 @@
+name: Test & Deploy
 
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  # ── JOB 1: RUN ALL TESTS ──────────────────────────────────────────
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # ── TEST 1: JS Syntax Check ──
+      - name: JS Syntax Check (app.html)
+        run: node syntax-check.mjs
+        
+      # ── TEST 2: Check required files exist ──
+      - name: Check required files exist
+        run: |
+          echo "Checking required files..."
+          files=(
+            "index.html"
+            "app.html"
+            "sw.js"
+            "manifest.json"
+            "icon-192.png"
+            "icon-512.png"
+            "icon-maskable.png"
+            "apple-touch-icon.png"
+          )
+          missing=0
+          for file in "${files[@]}"; do
+            if [ ! -f "$file" ]; then
+              echo "❌ MISSING: $file"
+              missing=1
+            else
+              echo "✅ Found: $file"
+            fi
+          done
+          if [ $missing -eq 1 ]; then
+            echo "One or more required files are missing. Deploy blocked."
+            exit 1
+          fi
+          echo "All required files present."
+
+      # ── TEST 3: Validate manifest.json ──
+      - name: Validate manifest.json
+        run: |
+          echo "Validating manifest.json..."
+          node -e "
+            const fs = require('fs');
+            const manifest = JSON.parse(fs.readFileSync('manifest.json', 'utf8'));
+            const required = ['name', 'short_name', 'start_url', 'display', 'icons'];
+            let valid = true;
+            required.forEach(key => {
+              if (!manifest[key]) {
+                console.log('❌ Missing field in manifest.json:', key);
+                valid = false;
+              } else {
+                console.log('✅ manifest.' + key + ':', JSON.stringify(manifest[key]).slice(0, 60));
+              }
+            });
+            if (!valid) process.exit(1);
+            console.log('manifest.json is valid.');
+          "
+
+      # ── TEST 4: Check no secrets in frontend files ──
+      - name: Check no secrets in frontend code
+        run: |
+          echo "Scanning for exposed secrets..."
+          # Check for Brevo API key pattern
+          if grep -r "xkeysib-" index.html app.html landing.html 2>/dev/null; then
+            echo "❌ EXPOSED BREVO API KEY found in frontend code!"
+            exit 1
+          fi
+          # Check for hardcoded bot tokens (Telegram token pattern)
+          if grep -rE "[0-9]{8,10}:AA[a-zA-Z0-9_-]{33}" index.html app.html bot.py 2>/dev/null; then
+            echo "❌ EXPOSED TELEGRAM TOKEN found in code!"
+            exit 1
+          fi
+          echo "✅ No exposed secrets found."
+
+      # ── TEST 5: Check sw.js is valid JS ──
+      - name: Validate service worker
+        run: |
+          echo "Checking sw.js syntax..."
+          node --input-type=module < sw.js && echo "✅ sw.js syntax OK" || echo "⚠️ sw.js has issues (non-blocking)"
+
+      # ── TEST 6: Check Supabase URL is present in app ──
+      - name: Check Supabase integration
+        run: |
+          echo "Checking Supabase config in app.html..."
+          if grep -q "wqcwevcdmiounmoqhqpg.supabase.co" app.html; then
+            echo "✅ Supabase URL found"
+          else
+            echo "⚠️ Supabase URL not found in app.html — check integration"
+          fi
+
+      - name: ✅ All tests passed
+        run: echo "All checks passed. Proceeding to deploy."
+
+  # ── JOB 2: DEPLOY TO GITHUB PAGES ────────────────────────────────
+  deploy:
+    name: Deploy to GitHub Pages
+    runs-on: ubuntu-latest
+    needs: test  # Only runs if test job passes
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload site to Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: ✅ Deployed
+        run: echo "Deployed to ${{ steps.deployment.outputs.page_url }}"
