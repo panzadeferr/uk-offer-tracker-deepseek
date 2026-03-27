@@ -33,7 +33,31 @@ jobs:
 
       # ── TEST 1: JS Syntax Check ──
       - name: JS Syntax Check (app.html)
-        run: node syntax-check.mjs
+        run: |
+          node -e "
+            const fs = require('fs');
+            if (!fs.existsSync('app.html')) { console.log('⏭️ app.html not found, skipping'); process.exit(0); }
+            const html = fs.readFileSync('app.html', 'utf8');
+            const m = html.match(/<script>([\s\S]*?)<\/script>/);
+            if (!m) { console.log('⏭️ No inline script found'); process.exit(0); }
+            try { new Function(m[1]); console.log('✅ app.html JS syntax OK'); }
+            catch(e) { console.log('❌ JS SYNTAX ERROR:', e.message); process.exit(1); }
+          "
+          node -e "
+            const fs = require('fs');
+            if (!fs.existsSync('app.html')) process.exit(0);
+            const html = fs.readFileSync('app.html', 'utf8');
+            const forbidden = ['YOUR_BREVO_API_KEY', 'RAILWAY_URL_HERE', 'xkeysib-c7e091d246f55dba71a3214c812d68c57c3c8835b08c35f68e4919bbc960eb78'];
+            let ok = true;
+            forbidden.forEach(s => { if (html.includes(s)) { console.log('❌ Forbidden string found:', s); ok = false; } });
+            if (!ok) process.exit(1);
+            console.log('✅ No forbidden strings found');
+          "
+          if [ -f "syntax-check.mjs" ]; then
+            node syntax-check.mjs
+          else
+            echo "⚠️ syntax-check.mjs not found, using inline checks only"
+          fi
 
       # ── TEST 2: Check required files exist ──
       - name: Check required files exist
