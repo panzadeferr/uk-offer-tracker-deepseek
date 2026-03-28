@@ -1,0 +1,113 @@
+<!-- OFFER SLIDE PANEL -->
+<div class="offer-panel" id="offerPanel">
+  <div class="panel-hdr">
+    <button class="panel-close" id="panelClose">✕</button>
+    <div class="panel-title" id="panelTitle">Offer</div>
+    <button class="panel-share" id="panelShare">↗</button>
+  </div>
+  <div class="panel-body" id="panelBody"></div>
+  <div class="panel-footer" id="panelFooter"></div>
+</div>
+
+<!-- AUTH MODAL -->
+<div class="auth-modal" id="authModal">
+  <div class="auth-box">
+    <div class="auth-logo">Money<span>Hunters</span></div>
+    <div class="auth-sub">Save your progress · sync across devices · never lose your XP</div>
+    <div class="auth-tabs">
+      <button class="auth-tab on" id="tabSignup" onclick="switchAuthTab('signup')">Create Account</button>
+      <button class="auth-tab" id="tabLogin" onclick="switchAuthTab('login')">Log In</button>
+    </div>
+    <!-- Signup fields -->
+    <div id="signupFields">
+      <div class="auth-field">
+        <label class="auth-label">Username</label>
+        <input class="auth-input" id="authUsername" type="text" placeholder="DealHunter92" maxlength="20">
+      </div>
+      <div class="auth-field">
+        <label class="auth-label">Email</label>
+        <input class="auth-input" id="authEmail" type="email" placeholder="you@example.com">
+      </div>
+      <div class="auth-field">
+        <label class="auth-label">Password</label>
+        <input class="auth-input" id="authPassword" type="password" placeholder="Min 6 characters">
+      </div>
+      <button class="auth-submit" id="authSubmitBtn" onclick="handleSignup()">Create Free Account →</button>
+    </div>
+    <!-- Login fields -->
+    <div id="loginFields" style="display:none">
+      <div class="auth-field">
+        <label class="auth-label">Email</label>
+        <input class="auth-input" id="loginEmail" type="email" placeholder="you@example.com">
+      </div>
+      <div class="auth-field">
+        <label class="auth-label">Password</label>
+        <input class="auth-input" id="loginPassword" type="password" placeholder="Your password">
+      </div>
+      <button class="auth-submit" id="loginSubmitBtn" onclick="handleLogin()">Log In →</button>
+      <button class="auth-forgot" onclick="switchAuthTab('reset')">Forgot password?</button>
+    </div>
+    <!-- Reset password fields -->
+    <div id="resetFields" style="display:none">
+      <div class="auth-field">
+        <label class="auth-label">Your email address</label>
+        <input class="auth-input" id="resetEmail" type="email" placeholder="you@example.com">
+      </div>
+      <button class="auth-submit" id="resetSubmitBtn" onclick="handlePasswordReset()">Send Reset Link →</button>
+      <button class="auth-forgot" onclick="switchAuthTab('login')">← Back to login</button>
+    </div>
+    <!-- New password fields (shown after clicking reset link) -->
+    <div id="newPasswordFields" style="display:none">
+      <div class="auth-field">
+        <label class="auth-label">New password</label>
+        <input class="auth-input" id="newPassword" type="password" placeholder="Min 6 characters">
+      </div>
+      <div class="auth-field">
+        <label class="auth-label">Confirm new password</label>
+        <input class="auth-input" id="confirmPassword" type="password" placeholder="Repeat password">
+      </div>
+      <button class="auth-submit" id="newPasswordBtn" onclick="handleNewPassword()">Set New Password →</button>
+    </div>
+    <div class="auth-error" id="authError"></div>
+    <button class="auth-skip" onclick="skipAuth()">Continue without account</button>
+  </div>
+</div>
+
+<div class="drawer" id="battleDrawer">
+  <div class="drawer-card">
+    <div class="drawer-top">
+      <div>
+        <h3 class="drawer-title" id="drawerTitle">Store</h3>
+        <div class="drawer-sub" id="drawerSource">Source</div>
+      </div>
+      <button class="close-btn" id="closeDrawer" aria-label="Close">✕</button>
+    </div>
+
+    <div class="drawer-rate" id="drawerRate">0%</div>
+
+    <div class="drawer-tip">
+      <strong>Hunter Tip</strong>
+      <p id="drawerTip">Use the best current rate and stack it with card-side rewards when possible.</p>
+    </div>
+
+    <div class="drawer-steps" id="drawerSteps"></div>
+    <div class="drawer-total" id="drawerTotal">Total stack: 0%</div>
+
+    <button class="primary-btn" id="drawerAction">Open Source</button>
+  </div>
+</div>
+
+<div class="popup" id="pendingPopup">
+  <div class="popup-card">
+    <h3>Add to Pending Payouts?</h3>
+    <p id="pendingPopupText">Track this reward and show it in your Profile until it pays out.</p>
+    <div class="popup-row">
+      <input class="inline-input" id="pendingDaysInput" type="number" min="1" step="1" value="30">
+      <span style="color:var(--muted);font-size:11px;font-weight:700">days</span>
+    </div>
+    <div class="popup-actions">
+      <button class="primary-btn" id="confirmPendingBtn">Add Pending Payout</button>
+      <button class="secondary-btn" id="skipPendingBtn">Skip</button>
+    </div>
+  </div>
+</div>

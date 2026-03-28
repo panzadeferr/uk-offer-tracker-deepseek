@@ -1,0 +1,96 @@
+<section id="view-progress" class="view">
+  <div class="profile-grid">
+    <section class="profile-card card">
+      <div class="profile-center">
+        <span class="emoji">🏆</span>
+        <h2 class="profile-level" id="profileLevel">Level 1</h2>
+        <div class="profile-xp" id="profileXp">0 XP</div>
+      </div>
+
+      <div class="progress-bar">
+        <div class="progress-fill" id="xpBar"></div>
+      </div>
+      <div class="profile-progress-copy" id="xpCopy">0 / 50 XP to next level</div>
+
+      <div class="list">
+        <div class="list-item">
+          <div>
+            <strong>Offers Opened</strong>
+            <span>Every time you launch an offer</span>
+          </div>
+          <div id="profileClaims">0</div>
+        </div>
+        <div class="list-item">
+          <div>
+            <strong>Completed Offers</strong>
+            <span>Marked done</span>
+          </div>
+          <div id="profileCompleted">0</div>
+        </div>
+        <div class="list-item">
+          <div>
+            <strong>Pending Offers</strong>
+            <span>Waiting for payout</span>
+          </div>
+          <div id="profilePendingCount">0</div>
+        </div>
+        <div class="list-item">
+          <div>
+            <strong>Daily Streak</strong>
+            <span>Days in a row</span>
+          </div>
+          <div id="profileStreak">0🔥</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="earn-card card">
+      <div class="section-head">
+        <h2 class="section-title">Money Tracker</h2>
+        <div class="section-note">Totals</div>
+      </div>
+
+      <div class="money-grid">
+        <div class="money-box">
+          <div class="money-box-label">Earned</div>
+          <div class="money-box-value green" id="earnedTotal">£0</div>
+        </div>
+        <div class="money-box">
+          <div class="money-box-label">Pending</div>
+          <div class="money-box-value yellow" id="pendingTotal">£0</div>
+        </div>
+        <div class="money-box">
+          <div class="money-box-label">Active</div>
+          <div class="money-box-value blue" id="activeTotal">0</div>
+        </div>
+      </div>
+
+      <div class="money-form">
+        <select class="filter-select" id="moneyOfferSelect">
+          <option value="">Select offer</option>
+        </select>
+        <div class="money-form-row">
+          <input class="money-input" id="earnedInput" type="number" min="0" step="0.01" placeholder="Earned £">
+          <input class="money-input" id="pendingInput" type="number" min="0" step="0.01" placeholder="Pending £">
+          <button class="mini-btn" id="saveMoneyBtn">Save</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="milestone-card card">
+      <div class="section-head">
+        <h2 class="section-title">Pending Payouts</h2>
+        <div class="section-note">Countdown</div>
+      </div>
+      <div class="pending-list" id="pendingList"></div>
+    </section>
+
+    <section class="milestone-card card">
+      <div class="section-head">
+        <h2 class="section-title">Milestones</h2>
+        <div class="section-note">Track</div>
+      </div>
+      <div class="list" id="milestoneList"></div>
+    </section>
+  </div>
+</section>

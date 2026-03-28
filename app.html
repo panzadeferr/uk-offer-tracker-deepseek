@@ -17,7 +17,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" crossorigin="anonymous">
   <style>
     :root{
       --bg:#0b0f14;
@@ -137,10 +137,13 @@
 
     /* Theme toggle button */
     .theme-toggle{
-      width:34px;height:34px;border-radius:999px;
+      width:44px;height:44px;border-radius:999px;
       background:var(--bg3);color:var(--text);
       border:1px solid var(--line);cursor:pointer;
       font-size:16px;transition:.15s;flex-shrink:0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .theme-toggle:active{transform:scale(.93)}
 
@@ -161,6 +164,23 @@
       -webkit-overflow-scrolling:touch;
       padding-bottom:100px;
       min-height:100vh;
+    }
+    
+    /* Font loading optimization */
+    @font-face {
+      font-family: 'Syne';
+      font-style: normal;
+      font-weight: 700 800;
+      font-display: swap;
+      src: local('Syne'), url(https://fonts.gstatic.com/s/syne/v22/8vIS7w4qzmVxsWxjBZRjr0FKM_04uQ6tTYhE.woff2) format('woff2');
+    }
+    
+    @font-face {
+      font-family: 'DM Sans';
+      font-style: normal;
+      font-weight: 400 700;
+      font-display: swap;
+      src: local('DM Sans'), url(https://fonts.gstatic.com/s/dmsans/v15/rP2Hp2ywxg089UriCZOIHQ.woff2) format('woff2');
     }
 
     a{color:inherit;text-decoration:none}
@@ -221,12 +241,15 @@
     }
 
     .icon-btn{
-      width:34px;
-      height:34px;
+      width:44px;
+      height:44px;
       border-radius:999px;
       background:var(--bg3);
       color:var(--text);
       border:1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .icon-btn:active,
@@ -239,6 +262,26 @@
     .link-btn:active,
     .ghost-btn:active{
       transform:scale(.985);
+      opacity:0.85;
+    }
+    
+    .offer-card:active,
+    .battle-row:active,
+    .list-item:active,
+    .pending-row:active,
+    .leaderboard-row:active,
+    .step-row:active,
+    .drawer-step:active {
+      background:var(--bg3);
+    }
+    
+    .offer-card-claim:active,
+    .panel-claim:active,
+    .email-submit:active,
+    .auth-submit:active,
+    .install-btn:active {
+      opacity:0.85;
+      transform:scale(.97);
     }
 
     .stats{
@@ -544,8 +587,8 @@
       overflow:hidden;
       background:var(--card);
       border:1px solid var(--line);
-      border-radius:14px;
-      padding:14px;
+      border-radius:12px;
+      padding:12px;
       cursor:pointer;
       transition:border-color .15s, transform .12s;
     }
@@ -836,10 +879,38 @@
     }
 
     .battle-row:active{background:var(--bg3)}
+    
+    .battle-row.featured {
+      position: relative;
+      border-left: 4px solid var(--yellow);
+      background: linear-gradient(90deg, rgba(255,207,90,.08), var(--card));
+    }
+    
+    .battle-row.featured .battle-icon {
+      background: var(--yellow-soft);
+    }
+    
+    .battle-row.featured .battle-name {
+      font-weight: 900;
+    }
+    
+    .battle-row.featured .battle-source {
+      color: var(--yellow);
+      font-weight: 700;
+    }
+    
+    body.light .battle-row.featured {
+      border-left: 4px solid var(--yellow);
+      background: linear-gradient(90deg, rgba(255,207,90,.08), #fff);
+    }
+    
+    body.light .battle-row.featured .battle-icon {
+      background: rgba(255,207,90,.15);
+    }
 
     .battle-icon{
-      width:34px;
-      height:34px;
+      width:44px;
+      height:44px;
       border-radius:10px;
       background:var(--bg3);
       display:flex;
@@ -1248,13 +1319,16 @@
     }
 
     .close-btn{
-      width:34px;
-      height:34px;
+      width:44px;
+      height:44px;
       border-radius:999px;
       border:1px solid var(--line);
       background:var(--bg3);
       color:var(--text);
       cursor:pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .popup{
@@ -1390,13 +1464,19 @@
       background:var(--bg2);
     }
     .panel-close{
-      width:36px;height:36px;border-radius:999px;border:1px solid var(--line);
+      width:44px;height:44px;border-radius:999px;border:1px solid var(--line);
       background:var(--bg3);color:var(--text);font-size:16px;cursor:pointer;flex-shrink:0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .panel-title{font-family:var(--fh);font-size:16px;flex:1;letter-spacing:-.03em}
     .panel-share{
-      width:34px;height:34px;border-radius:999px;border:1px solid var(--line);
+      width:44px;height:44px;border-radius:999px;border:1px solid var(--line);
       background:var(--bg3);color:var(--muted2);font-size:12px;cursor:pointer;flex-shrink:0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .panel-body{flex:1;overflow-y:auto;padding:12px;-webkit-overflow-scrolling:touch}
     .panel-body::-webkit-scrollbar{display:none}
@@ -1529,9 +1609,9 @@
     }
 
     /* ── AUTH MODAL ── */
-    .auth-modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;padding:16px;background:rgba(0,0,0,.75);backdrop-filter:blur(8px)}
+    .auth-modal{position:fixed;inset:0;z-index:200;display:none;align-items:flex-start;justify-content:center;padding:16px;background:rgba(0,0,0,.75);backdrop-filter:blur(8px);overflow-y:auto;-webkit-overflow-scrolling:touch}
     .auth-modal.show{display:flex}
-    .auth-box{background:var(--bg2);border:1px solid var(--line-2);border-radius:18px;padding:24px;width:min(100%,380px);animation:panelUp .25s ease}
+    .auth-box{background:var(--bg2);border:1px solid var(--line-2);border-radius:18px;padding:24px;width:min(100%,380px);animation:panelUp .25s ease;margin:auto 0;max-height:calc(100vh - 32px);overflow-y:auto}
     .auth-logo{font-family:var(--fh);font-size:18px;text-transform:uppercase;letter-spacing:-.03em;margin-bottom:4px;text-align:center}
     .auth-logo span{color:var(--green)}
     .auth-sub{color:var(--muted);font-size:11px;text-align:center;margin-bottom:20px;line-height:1.4}
@@ -2068,87 +2148,104 @@
 
     const views = ["home", "offers", "stack", "progress", "community"];
 
-    // Battle table data loaded from all_deals.json
-    let battleData = [
+    const battleData = [
       {
         name:"Tesco",
-        rate:"5.3%",
-        source:"EverUp Gift Card + Clubcard",
+        rate:"4.5%",
+        source:"Jam Doughnut",
         icon:"🧾",
-        tip:"Use EverUp Gift Card (4.9%) with Clubcard for maximum savings. Check all_deals.json for latest rates.",
-        url:"https://www.tesco.com/clubcard/prices/",
+        tip:"Use code 8TGF when signing up. Pay for your Jam Doughnut card with a cashback card for an extra 1% on top.",
+        url:"https://www.jamdoughnut.com/",
         boost:true,
-        steps:["Check current rate in all_deals.json","Use EverUp Gift Card for 4.9% cashback","Apply Clubcard prices at checkout","Pay with cashback card for extra rewards"],
-        total:"Potential total stack: about 5.3%+"
+        featured:true,
+        steps:["Sign up to Jam Doughnut with code 8TGF","Buy Tesco gift card at current rate","Pay with a cashback or Amex card for extra rewards","Use Clubcard pricing in store on top"],
+        total:"Potential total stack: about 5.5%+"
       },
       {
         name:"Sainsbury's",
-        rate:"4.4%",
-        source:"JamDoughnut + Nectar",
+        rate:"4.0%",
+        source:"Jam Doughnut",
         icon:"🟠",
-        tip:"Stack JamDoughnut (4.1%) with Nectar member prices for double savings.",
-        url:"https://www.sainsburys.co.uk/nectar-prices",
+        tip:"Stack with Nectar member prices for a powerful double saving on your weekly shop.",
+        url:"https://www.jamdoughnut.com/",
         boost:true,
-        steps:["Use JamDoughnut for 4.1% cashback","Apply Nectar member prices","Pay with cashback card for extra"],
-        total:"Potential total stack: about 4.4%+"
+        featured:true,
+        steps:["Buy Sainsbury's gift card via Jam Doughnut","Pay with cashback card for about 1% extra","Use Nectar prices or points in-store"],
+        total:"Potential total stack: about 5%+"
       },
       {
-        name:"Asda",
-        rate:"4.5%",
-        source:"Airtime Rewards + Asda Rewards",
+        name:"Waitrose",
+        rate:"3.8%",
+        source:"Jam Doughnut",
+        icon:"🥂",
+        tip:"Great for premium grocery spend. Check Jam Doughnut for boosted rates before buying.",
+        url:"https://www.jamdoughnut.com/",
+        boost:true,
+        featured:true,
+        steps:["Buy Waitrose gift card via Jam Doughnut","Pay with a cashback card","Use any loyalty offers in store"],
+        total:"Potential total stack: about 4.8%+"
+      },
+      {
+        name:"ASDA",
+        rate:"3.5%",
+        source:"Jam Doughnut",
         icon:"🛒",
-        tip:"Use Airtime Rewards (4%) with Asda Rewards for maximum value.",
-        url:"https://www.asda.com/deals",
-        boost:true,
-        steps:["Use Airtime Rewards for 4% cashback","Apply Asda Rewards discounts","Pay with cashback card for extra"],
-        total:"Potential total stack: about 4.5%+"
+        tip:"Simple stack for everyday grocery runs. Rates vary — always check before buying.",
+        url:"https://www.jamdoughnut.com/",
+        boost:false,
+        featured:true,
+        steps:["Buy ASDA gift card via Jam Doughnut","Pay with cashback card","Use any store-side discounts on top"],
+        total:"Potential total stack: about 4.5%"
       },
       {
-        name:"Iceland",
-        rate:"5.0%",
-        source:"TopCashback + Bonus Card",
-        icon:"🧊",
-        tip:"Stack TopCashback (3.5%) with Iceland Bonus Card for maximum savings.",
-        url:"https://www.iceland.co.uk/offers",
-        boost:true,
-        steps:["Use TopCashback for 3.5% cashback","Apply Iceland Bonus Card discounts","Pay with cashback card for extra"],
-        total:"Potential total stack: about 5.0%+"
+        name:"Morrisons",
+        rate:"3.5%",
+        source:"Jam Doughnut",
+        icon:"🥦",
+        tip:"Good option for family shops. Stack with More Card loyalty pricing.",
+        url:"https://www.jamdoughnut.com/",
+        boost:false,
+        featured:true,
+        steps:["Buy Morrisons gift card via Jam Doughnut","Use a cashback card when paying","Stack with More Card loyalty if available"],
+        total:"Potential total stack: about 4.5%"
+      },
+      {
+        name:"Boots",
+        rate:"3.0%",
+        source:"Jam Doughnut",
+        icon:"💄",
+        tip:"Good for routine spending. Stack with Boots Advantage Card points for extra value.",
+        url:"https://www.jamdoughnut.com/",
+        boost:false,
+        featured:true,
+        steps:["Buy Boots gift card via Jam Doughnut","Pay with cashback card if possible","Earn Boots Advantage Card points in-store"],
+        total:"Potential total stack: about 4.0%+"
+      },
+      {
+        name:"Uber Eats",
+        rate:"3.3%",
+        source:"Jam Doughnut",
+        icon:"🛵",
+        tip:"Buy Uber gift cards at a discount then use for Uber Eats or rides.",
+        url:"https://www.jamdoughnut.com/",
+        boost:false,
+        featured:true,
+        steps:["Buy Uber gift card via Jam Doughnut","Use for Uber Eats or Uber rides","Pay with cashback card for extra"],
+        total:"Potential total stack: about 4.3%"
+      },
+      {
+        name:"Amazon",
+        rate:"2.0%",
+        source:"Airtime Rewards",
+        icon:"📦",
+        tip:"Use code FRJKFXX3. Stack with TopCashback portal for purchases on top.",
+        url:"https://airtimerewards.app.link/6Waa7E1IF1b",
+        boost:false,
+        featured:false,
+        steps:["Sign up to Airtime Rewards with code FRJKFXX3","Buy Amazon gift card","Shop as normal — cashback applied to mobile bill"],
+        total:"Potential total stack: about 3%+"
       }
     ];
-
-    // Function to load battle data from all_deals.json
-    async function loadBattleData() {
-      try {
-        const response = await fetch('all_deals.json');
-        if (!response.ok) throw new Error('Failed to load battle data');
-        const data = await response.json();
-        
-        // Update battleData with actual rates from JSON
-        const updatedBattleData = battleData.map(item => {
-          const storeName = item.name;
-          const stackingRate = data.stacking_rates?.[storeName];
-          if (stackingRate) {
-            return {
-              ...item,
-              rate: `${stackingRate}%`,
-              total: `Potential total stack: about ${stackingRate}%+`
-            };
-          }
-          return item;
-        });
-        
-        // Update the battleData variable
-        battleData = updatedBattleData;
-        
-        // Re-render battle table if we're on the stack view
-        if (document.getElementById('view-stack').classList.contains('active')) {
-          renderBattle();
-        }
-      } catch (error) {
-        console.log('Failed to load battle data:', error.message);
-        // Keep using default battleData
-      }
-    }
 
     const stackGuides = [
       {
@@ -2210,14 +2307,6 @@
       pendingPayouts:JSON.parse(localStorage.getItem("mh_pending_payouts") || "{}"),
       expandedOffers:JSON.parse(localStorage.getItem("mh_expanded_offers") || "[]")
     };
-
-    // HTML escaping helper to prevent XSS
-    function esc(text) {
-      if (text == null) return '';
-      const div = document.createElement('div');
-      div.textContent = String(text);
-      return div.innerHTML;
-    }
 
     const ui = {
       statSaved:document.getElementById("statSaved"),
@@ -2306,7 +2395,7 @@
     }
 
     function formatMoney(value) {
-      return `£${Number(value || 0).toFixed(2)}`;
+      return `£${Number(value || 0).toFixed(0)}`;
     }
 
     function parseRewardValue(reward) {
@@ -2621,15 +2710,15 @@
         <article class="offer-card ${cardClass}" data-offer-id="${offer.id}">
           <div class="offer-card-top">
             <div style="min-width:0;flex:1">
-              <h3 class="offer-name" style="margin:0 0 3px">${esc(offer.name)}</h3>
+              <h3 class="offer-name" style="margin:0 0 3px">${offer.name}</h3>
             </div>
-            <div class="reward">${esc(offer.reward)}</div>
+            <div class="reward">${offer.reward}</div>
           </div>
 
           <div class="offer-card-meta">
-            <span class="offer-meta-badge">${esc(offer.badge)}</span>
+            <span class="offer-meta-badge">${offer.badge}</span>
             <span class="offer-meta-dot">·</span>
-            <span class="offer-meta-badge">${esc(offer.effort)}</span>
+            <span class="offer-meta-badge">${offer.effort}</span>
             <span class="offer-meta-dot">·</span>
             <span class="offer-meta-badge" style="color:${statusColor}">${statusLabel}</span>
           </div>
@@ -2753,7 +2842,7 @@
     function renderBattle() {
       ui.battleCount.textContent = `${battleData.length} entries`;
       ui.battleTable.innerHTML = battleData.map((item, index) => `
-        <div class="battle-row" data-battle-index="${index}">
+        <div class="battle-row ${item.featured ? 'featured' : ''}" data-battle-index="${index}">
           <div class="battle-icon">${item.icon}</div>
           <div>
             <div class="battle-name">${item.name}</div>
@@ -3298,6 +3387,47 @@
     // Wire up panel events
     document.getElementById("panelClose").addEventListener("click", closePanel);
     document.getElementById("panelShare").addEventListener("click", sharePanelOffer);
+    
+    // Add swipe-down gesture to close panel
+    const panel = document.getElementById("offerPanel");
+    let startY = 0;
+    let currentY = 0;
+    let isDragging = false;
+    
+    panel.addEventListener("touchstart", (e) => {
+      if (e.target.closest(".panel-body") || e.target.closest(".panel-footer")) return;
+      startY = e.touches[0].clientY;
+      currentY = startY;
+      isDragging = true;
+      panel.style.transition = "none";
+    }, { passive: true });
+    
+    panel.addEventListener("touchmove", (e) => {
+      if (!isDragging) return;
+      currentY = e.touches[0].clientY;
+      const diff = currentY - startY;
+      if (diff > 0) {
+        panel.style.transform = `translateY(${diff}px)`;
+      }
+    }, { passive: true });
+    
+    panel.addEventListener("touchend", () => {
+      if (!isDragging) return;
+      isDragging = false;
+      panel.style.transition = "transform 0.28s cubic-bezier(.4,0,.2,1)";
+      
+      const diff = currentY - startY;
+      if (diff > 100) {
+        closePanel();
+      } else {
+        panel.style.transform = "translateY(0)";
+      }
+    });
+    
+    // Also allow click on panel backdrop to close
+    panel.addEventListener("click", (e) => {
+      if (e.target === panel) closePanel();
+    });
 
 
     // ── PWA: SERVICE WORKER ──
@@ -3377,16 +3507,16 @@
 
       try {
         // Send to Railway proxy which forwards to Brevo securely
-        const response = await fetch('https://referral-hunter-bot-production.up.railway.app/subscribe', {
+        await fetch('https://referral-hunter-bot-production.up.railway.app/subscribe', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email, source: 'Money Hunters App' })
         });
 
-        // Check response status
-        if (!response.ok) {
-          throw new Error(`HTTP ${response.status}: ${response.statusText}`);
-        }
+        // Store locally regardless
+        const emails = JSON.parse(localStorage.getItem('mh_emails') || '[]');
+        if (!emails.includes(email)) { emails.push(email); }
+        localStorage.setItem('mh_emails', JSON.stringify(emails));
 
         document.getElementById('emailForm').style.display = 'none';
         document.getElementById('emailDone').style.display = 'block';
@@ -3396,14 +3526,13 @@
         saveState();
         updateTopStats();
       } catch (err) {
-        // Show success UI even if API fails (graceful degradation)
+        // Store locally even if API fails
+        const emails = JSON.parse(localStorage.getItem('mh_emails') || '[]');
+        if (!emails.includes(email)) { emails.push(email); }
+        localStorage.setItem('mh_emails', JSON.stringify(emails));
         document.getElementById('emailForm').style.display = 'none';
         document.getElementById('emailDone').style.display = 'block';
         toast("✅ You're signed up!");
-        // Still award XP for engagement
-        state.xp += 5;
-        saveState();
-        updateTopStats();
       }
     }
 
@@ -3521,7 +3650,7 @@
       if (el) { el.classList.add('show'); setTimeout(() => el.classList.remove('show'), 2000); }
     }
 
-    // Push local state to Supabase with batch operations
+    // Push local state to Supabase
     async function pushProgressToSupabase() {
       if (!currentUser) return;
       showSyncing();
@@ -3544,32 +3673,32 @@
           updated_at: new Date().toISOString()
         });
 
-        // Batch upsert offer statuses
+        // Upsert offer statuses
         const statusEntries = Object.entries(state.offerStatus);
-        if (statusEntries.length > 0) {
-          const statusBatch = statusEntries.map(([offerId, status]) => ({
+        for (const [offerId, status] of statusEntries) {
+          const steps = state.offerSteps[offerId] || [];
+          const savedAmount = Number(state.savingsMap[offerId] || 0);
+          await db.from('offer_status').upsert({
             user_id: currentUser.id,
             offer_id: offerId,
             status,
-            steps: state.offerSteps[offerId] || [],
-            saved_amount: Number(state.savingsMap[offerId] || 0),
+            steps,
+            saved_amount: savedAmount,
             updated_at: new Date().toISOString()
-          }));
-          await db.from('offer_status').upsert(statusBatch, { onConflict: 'user_id,offer_id' });
+          }, { onConflict: 'user_id,offer_id' });
         }
 
-        // Batch upsert pending payouts
+        // Upsert pending payouts
         const payouts = Object.values(state.pendingPayouts);
-        if (payouts.length > 0) {
-          const payoutBatch = payouts.map(payout => ({
+        for (const payout of payouts) {
+          await db.from('pending_payouts').upsert({
             user_id: currentUser.id,
             offer_id: payout.id,
             offer_name: payout.name,
             reward: payout.reward,
             amount: payout.amount || 0,
             due_at: new Date(payout.dueAt).toISOString()
-          }));
-          await db.from('pending_payouts').upsert(payoutBatch, { onConflict: 'user_id,offer_id' });
+          }, { onConflict: 'user_id,offer_id' });
         }
       } catch(e) {
         console.log('Sync error:', e.message);
@@ -3769,45 +3898,8 @@
       }
     }
 
-    // Targeted update functions for performance
-    function updateTopStatsOnly() {
-      ui.statSaved.textContent = formatMoney(getEarnedTotal());
-      ui.statPending.textContent = formatMoney(getPendingTotal());
-      ui.statXp.textContent = String(state.xp);
-      ui.statStreak.textContent = `${state.streak}🔥`;
-    }
-
-    function updateProfileOnly() {
-      const current = getLevel(state.xp);
-      const span = current.next - current.min;
-      const progress = span > 0 ? Math.min(100, ((state.xp - current.min) / span) * 100) : 100;
-
-      ui.profileLevel.textContent = `Level ${current.level}`;
-      ui.profileXp.textContent = `${state.xp} XP`;
-      ui.xpBar.style.width = `${progress}%`;
-      ui.xpCopy.textContent = `${state.xp - current.min} / ${current.next - current.min} XP to next level`;
-
-      ui.profileClaims.textContent = String(state.claimed);
-      ui.profileCompleted.textContent = String(getCompletedCount());
-      ui.profilePendingCount.textContent = String(getPendingCount());
-      ui.profileStreak.textContent = `${state.streak}🔥`;
-
-      ui.earnedTotal.textContent = formatMoney(getEarnedTotal());
-      ui.pendingTotal.textContent = formatMoney(getPendingTotal());
-      ui.activeTotal.textContent = String(getActiveOffersCount());
-
-      // Update money offer select
-      ui.moneyOfferSelect.innerHTML = `<option value="">Select offer</option>` + offers.map(offer => {
-        const money = state.earningsMap[offer.id] || {};
-        const suffix = money.earned || money.pending ? ` · ${formatMoney(money.earned || 0)} / ${formatMoney(money.pending || 0)}` : "";
-        return `<option value="${offer.id}">${offer.name}${suffix}</option>`;
-      }).join("");
-
-      renderPendingPayouts();
-    }
-
     function renderAll() {
-      updateTopStatsOnly();
+      updateTopStats();
       updateDailyBox();
       renderTodayPlan();
       renderBestOffers();
@@ -3815,7 +3907,7 @@
       renderOffers();
       renderBattle();
       renderStacks();
-      updateProfileOnly();
+      renderProfile();
       renderLeaderboard();
     }
 

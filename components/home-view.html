@@ -1,0 +1,60 @@
+<section id="view-home" class="view active">
+  <section class="compact-hero card">
+    <h1>Fast daily money moves</h1>
+    <p>Start with the plan, open the best offers, then track payouts as they move from pending to earned.</p>
+  </section>
+  <div class="install-banner" id="installBanner">
+    <div class="install-icon">📲</div>
+    <div class="install-text">
+      <strong>Add to Home Screen</strong>
+      <span>Open instantly, works offline</span>
+    </div>
+    <button class="install-btn" id="installBtn">Install</button>
+    <button class="install-dismiss" onclick="dismissInstall()">✕</button>
+  </div>
+
+  <section class="section">
+    <div class="section-head">
+      <h2 class="section-title">Today's Money Plan</h2>
+      <div class="section-note">Start here</div>
+    </div>
+    <div class="plan-card card">
+      <div class="plan-top">
+        <div>
+          <div class="plan-kicker">You can make today</div>
+          <div class="plan-amount" id="planAmount">£0</div>
+        </div>
+        <p class="plan-copy">Tap a task to jump to the right offer immediately.</p>
+      </div>
+      <div class="tasks" id="todayTasks"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="daily-box card">
+      <div class="daily-head">
+        <h2 class="daily-title"><span id="dailyEmoji">🎁</span> Daily Box</h2>
+        <div class="daily-status" id="dailyStatus">Ready</div>
+      </div>
+      <p class="daily-copy" id="dailyCopy">Claim your daily XP bonus and keep your streak moving.</p>
+      <div class="streak-row" id="streakRow"></div>
+      <button class="primary-btn" id="dailyBtn">Claim Daily XP</button>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <h2 class="section-title">Best Offers to Start</h2>
+      <div class="section-note">Highest value</div>
+    </div>
+    <div class="offers-grid" id="bestOffers"></div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <h2 class="section-title">All Offers</h2>
+      <div class="section-note">Quick view</div>
+    </div>
+    <div class="offers-grid" id="homeOffersPreview"></div>
+  </section>
+</section>

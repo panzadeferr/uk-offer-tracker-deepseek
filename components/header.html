@@ -1,0 +1,36 @@
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand-row">
+      <div class="brand" id="brandHome">Money<span>Hunters</span></div>
+      <div class="top-actions">
+        <div id="userBadge" class="user-badge" onclick="showAuthModal()" style="display:none">
+          <div class="user-badge-dot"></div>
+          <span id="userBadgeName">Account</span>
+        </div>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" onclick="toggleTheme()">🌙</button>
+        <button class="icon-btn" id="shareBtn" aria-label="Share app">🔗</button>
+        <a class="icon-btn" href="https://t.me/MoneyHunterUk" target="_blank" rel="noreferrer" aria-label="Open Telegram">📲</a>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-label">Earned</div>
+        <div class="stat-value green" id="statSaved">£0</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Pending</div>
+        <div class="stat-value yellow" id="statPending">£0</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">XP</div>
+        <div class="stat-value blue" id="statXp">0</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Streak</div>
+        <div class="stat-value yellow" id="statStreak">0🔥</div>
+      </div>
+    </div>
+    <div class="sync-indicator" id="syncIndicator">☁️ Syncing...</div>
+  </div>
+</header>
