@@ -217,7 +217,17 @@
    - **Added data validation**: `validate_deal()` function ensures all deals have required fields and valid URLs
    - **Smart deduplication**: Improved logic to avoid removing valid scraped deals
    - **Data quality tracking**: Scraper now reports validation success rate (56/56 deals passed validation)
-6. **Total Deal Count**: Scraper now returns 82 total deals (32 manual offers, 8 supermarket deals, 33 Reddit deals, 20 Google News deals, 3 HotUKDeals deals, and 42 unique scraped offers)
+6. **Intelligent Filtering System (DeepSeek Enhancement)**:
+   - **Multi-layer Google News Filter**: Three-tier filtering system:
+     - **Action Word Filter**: Must contain keywords: "switch", "referral", "cashback", "bonus", "free share", "sign up", "refer", "open account"
+     - **Noise Word Filter**: Excludes articles with: "opinion", "analysis", "podcast", "explainer", "what is", "how does", "history of", "review of", "results", "earnings", "profits", "shares fall", "shares rise", "stock", "market"
+     - **Minimum Reward Filter**: Only includes deals with rewards of £5 or more
+   - **Comprehensive Data Validation**: `validate_deal()` function checks required fields, price format, and URL validity
+   - **Store Name Cleaning**: `clean_store_name()` removes truncation markers and news source suffixes
+   - **Category Inference**: `infer_category()` auto-categorizes deals as bank_switch, investment, cashback, supermarket, utilities, travel, business, freebies, or other
+   - **Smart Deduplication**: Compares scraped deals against manual offers using fuzzy matching
+   - **Data Quality Reporting**: Tracks and reports validation success rate for transparency
+7. **Total Deal Count**: Scraper now returns 84 total deals (32 manual offers, 8 supermarket deals, 34 Reddit deals, 20 Google News deals, 3 HotUKDeals deals, and 44 unique scraped offers)
 
 ### Security & Bug Fixes (March 28, 2026)
 **CRITICAL ISSUES:**
