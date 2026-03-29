@@ -4,16 +4,18 @@
 **MoneyHunterUk** is a UK referral deal tracker application that helps users find and track bank switches, cashback offers, investment bonuses, and supermarket deals. The project aims to be the "sharpest referral deal tracker" in the UK market.
 
 ### Core Value Proposition
-- Track 46+ verified UK deals (bank switches, referrals, cashback)
+- Track 98+ verified UK deals (bank switches, referrals, cashback, Google News, HotUKDeals)
 - Supermarket deals with stacked prices (gift card + loyalty card stacking)
 - Telegram notifications for new deals
 - Free forever service
+- Dynamic landing page with real-time deal count from all_deals.json
 
 ### Key Statistics (from landing page)
 - £1,000+ potential from bank switches alone
-- 46+ verified live offers
+- 98+ verified live offers (dynamically loaded from all_deals.json)
 - Zero cost - free forever
 - Users already making money monthly
+- Live ticker showing real offers from scraped data
 
 ## Architecture & Components
 
@@ -192,6 +194,23 @@
 19. **CRIT-07: Skeleton loaders** - Fixed: Added skeleton loading states for offers grid and leaderboard
 20. **CRIT-08: iOS keyboard fix** - Fixed: Added handleIOSKeyboard() function to scroll inputs into view on iOS devices
 
+### New Features & Enhancements (March 29, 2026)
+1. **Google News Scraper**: Added Google News API integration to scrape 20 high-quality deals with strict filtering:
+   - Must contain £ symbol with a number
+   - Must contain action words (switch, referral, cashback, bonus, etc.)
+   - No noise words (opinion, analysis, podcast, etc.)
+   - Minimum reward of £5
+   - Limited to 10 results per query
+2. **HotUKDeals Scraper**: Added HotUKDeals scraping to find 2 additional deals
+3. **Dynamic Landing Page**: Updated index.html with:
+   - New hero headline: "Bank switches. Cashback. Free shares. All in one place."
+   - New subheadline: "The free UK app that tracks your deals, reminds you of payouts and tells you exactly what to do next."
+   - Dynamic deal count loading from all_deals.json (98+ deals)
+   - Live ticker showing real offers from scraped data
+   - Updated meta description and signup perks to 98+ verified offers
+4. **Utility Script**: Added show_scraped.py for debugging scraped data
+5. **Total Deal Count**: Scraper now returns 98 total deals (32 manual offers, 8 supermarket deals, 40 Reddit deals, 20 Google News deals, 2 HotUKDeals deals, and 58 unique scraped offers)
+
 ### Security & Bug Fixes (March 28, 2026)
 **CRITICAL ISSUES:**
 1. **CRIT-01: window.open() popup blocker** - Fixed: Changed `window.open()` to `window.location.href` in app.html to avoid browser popup blockers
@@ -266,7 +285,7 @@
 ## Project Structure
 ```
 MoneyHunterUk/
-├── index.html              # Landing page
+├── index.html              # Landing page with dynamic deal count
 ├── app.html               # Application dashboard (uses components)
 ├── components/            # Modular components
 │   ├── header.html        # Header with stats and theme toggle
@@ -278,12 +297,13 @@ MoneyHunterUk/
 │   ├── community-view.html # Community and leaderboard
 │   ├── modals.html        # Modals and drawers
 │   └── app.js             # Main application JavaScript
-├── scraper.py             # Data collection script
-├── all_deals.json         # Generated deal data
+├── scraper.py             # Data collection script with Google News & HotUKDeals scrapers
+├── all_deals.json         # Generated deal data (98+ offers)
 ├── memory_bank.md         # This file
 ├── manifest.json          # PWA manifest
 ├── sw.js                  # Service worker
 ├── requirements.txt       # Python dependencies
+├── show_scraped.py        # Utility script for debugging scraped data
 ├── .github/workflows/
 │   ├── deploy.yml         # Deployment pipeline
 │   └── scraper.yml        # Scheduled scraping
@@ -302,8 +322,10 @@ MoneyHunterUk/
 
 ## Last Updated
 - **Memory Bank Created**: March 27, 2026
-- **Project Last Commit**: Based on git hash 581ce3642fc3e5d79b66e8afc5fb310a1d6e8c02
-- **Data Freshness**: Scraper includes "updated March 2026" references
+- **Memory Bank Updated**: March 29, 2026
+- **Project Last Commit**: 6b29dd9 (feat: add show_scraped.py utility script for debugging scraped data)
+- **Data Freshness**: Scraper includes "updated March 2026" references with 98+ live offers
+- **Recent Updates**: Added Google News & HotUKDeals scrapers, dynamic landing page with real-time deal count
 
 ---
 
