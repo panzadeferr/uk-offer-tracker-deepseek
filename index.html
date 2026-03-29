@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Money Hunters UK — Make More. Track Everything.</title>
-<meta name="description" content="The UK's sharpest referral deal tracker. Bank switches, cashback stacks, invest bonuses. 46+ verified offers. Free forever.">
+<meta name="description" content="The UK's sharpest referral deal tracker. Bank switches, cashback stacks, invest bonuses. 98+ verified offers. Free forever.">
 <meta name="theme-color" content="#080b10">
 <link rel="icon" type="image/png" href="/icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -677,28 +677,39 @@ footer {
 <section class="hero">
   <div class="hero-kicker">
     <span class="hero-kicker-dot"></span>
-    46+ verified UK deals — updated March 2026
+    98+ UK deals tracked — updated today
   </div>
   <h1 class="hero-h1">
-    Make <span class="accent">more money.</span><br>
-    Track <span class="accent2">every penny.</span>
+    Bank switches. Cashback.<br>
+    Free shares. <span class="accent">All in one place.</span>
   </h1>
   <p class="hero-sub">
-    The UK's sharpest referral deal tracker. Bank switches, cashback stacks and invest bonuses — all in one free app. Never miss a payout again.
+    The free UK app that tracks your deals,<br>
+    reminds you of payouts and tells you<br>
+    exactly what to do next.
   </p>
 
-  <div class="hero-stats">
+  <div class="hero-stats" id="heroStats">
     <div class="hero-stat">
-      <div class="hero-stat-v"><span class="unit">£</span>1,000<span class="unit">+</span></div>
+      <div class="hero-stat-v green" id="dealCount">
+        98+
+      </div>
+      <div class="hero-stat-l">
+        Live deals tracked today
+      </div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-v">
+        <span class="unit">£</span>1,000
+        <span class="unit">+</span>
+      </div>
       <div class="hero-stat-l">From bank switches alone</div>
     </div>
     <div class="hero-stat">
-      <div class="hero-stat-v">46<span class="unit">+</span></div>
-      <div class="hero-stat-l">Verified live offers</div>
-    </div>
-    <div class="hero-stat">
-      <div class="hero-stat-v"><span class="unit">£</span>0</div>
-      <div class="hero-stat-l">Cost — free forever</div>
+      <div class="hero-stat-v">Free</div>
+      <div class="hero-stat-l">
+        Forever — no catches
+      </div>
     </div>
   </div>
 
@@ -861,7 +872,7 @@ footer {
   <p class="signup-sub">Free forever. No credit card. Your progress saved and synced across all devices.</p>
 
   <div class="signup-perks">
-    <div class="signup-perk"><span class="signup-perk-check">✓</span>46+ verified offers</div>
+    <div class="signup-perk"><span class="signup-perk-check">✓</span>98+ verified offers</div>
     <div class="signup-perk"><span class="signup-perk-check">✓</span>Progress sync</div>
     <div class="signup-perk"><span class="signup-perk-check">✓</span>Weekly deal alerts</div>
     <div class="signup-perk"><span class="signup-perk-check">✓</span>Stacking guides</div>
@@ -926,31 +937,57 @@ footer {
 
 <script>
 // ── TICKER ──
-const tickerData = [
-  { name:'LondonDeal92', amount:'£200', offer:'Lloyds Bank', time:'2m ago' },
-  { name:'NorthernSaver', amount:'£175', offer:'First Direct', time:'8m ago' },
-  { name:'CashbackKing', amount:'£50', offer:'Chase UK', time:'15m ago' },
-  { name:'DealHunterMel', amount:'Free Share', offer:'Freetrade', time:'22m ago' },
-  { name:'BirminghamSave', amount:'£150', offer:'NatWest', time:'31m ago' },
-  { name:'ManchesterMike', amount:'£200', offer:'Santander', time:'45m ago' },
-  { name:'ScottishSaver', amount:'£10', offer:'TopCashback', time:'1h ago' },
-  { name:'LeedsBargain', amount:'£175', offer:'Barclays', time:'1.5h ago' },
-  { name:'BristolHunter', amount:'Free Share', offer:'Robinhood UK', time:'2h ago' },
-];
-
-function initTicker() {
+async function initTicker() {
   const track = document.getElementById('tickerTrack');
-  const items = tickerData.map(d =>
-    `<div class="ticker-item">
-      <span style="color:var(--tl)">●</span>
-      <span class="ticker-name">${d.name}</span>
-      <span style="color:var(--tl)">earned</span>
-      <span class="ticker-amount">${d.amount}</span>
-      <span style="color:var(--tl)">from ${d.offer}</span>
-      <span style="color:var(--tl);font-size:10px">${d.time}</span>
-    </div>`
+  if (!track) return;
+  
+  // Default ticker items while loading
+  let items = [
+    { name:'Lloyds Bank', reward:'£250', type:'Bank Switch' },
+    { name:'Chase UK', reward:'£50', type:'Bank Switch' },
+    { name:'Freetrade', reward:'Free Share', type:'Invest' },
+    { name:'NatWest', reward:'£200', type:'Bank Switch' },
+    { name:'TopCashback', reward:'£10', type:'Cashback' },
+    { name:'Jam Doughnut', reward:'Up to 8%', type:'Gift Cards' },
+  ];
+  
+  // Try to load real offers from all_deals.json
+  try {
+    const res = await fetch(
+      '/all_deals.json?v=' + Date.now()
+    );
+    if (res.ok) {
+      const data = await res.json();
+      const manual = (data.deals || [])
+        .filter(d => !d.type || 
+           d.type === 'bank_switch' ||
+          d.type === 'referral' ||
+          d.type === 'invest' ||
+          d.type === 'cashback')
+        .filter(d => d.deal_price &&
+           d.deal_price !== 'Bonus' &&
+          d.deal_price !== 'Free')
+        .slice(0, 12);
+      if (manual.length > 3) {
+        items = manual.map(d => ({
+          name: d.store,
+          reward: d.deal_price,
+          type: d.type || 'Deal'
+        }));
+      }
+    }
+  } catch(e) {}
+  
+  const html = items.map(d =>
+    '<div class="ticker-item">' +
+    '<span style="color:var(--tl)">●</span>' +
+    '<span class="ticker-name">' + d.name + '</span>' +
+    '<span style="color:var(--tl)">→</span>' +
+    '<span class="ticker-amount">' + d.reward + '</span>' +
+    '<span class="ticker-sep">' + d.type + '</span>' +
+    '</div>'
   ).join('');
-  track.innerHTML = items + items;
+  track.innerHTML = html + html;
 }
 
 // ── REVIEWS ──
@@ -1062,6 +1099,40 @@ document.querySelectorAll('.feature-card, .how-step, .review-card').forEach(el =
 
 initTicker();
 initReviews();
+
+// Load real deal count from all_deals.json
+async function loadDealCount() {
+  try {
+    const res = await fetch(
+      '/all_deals.json?v=' + Date.now()
+    );
+    if (!res.ok) return;
+    const data = await res.json();
+    const total = data.total_deals || 0;
+    const updated = data.last_updated || '';
+    const countEl = document.getElementById('dealCount');
+    if (countEl && total > 0) {
+      countEl.textContent = total + '+';
+    }
+    // Update the kicker badge
+    const kicker = document.querySelector('.hero-kicker');
+    if (kicker && updated) {
+      const date = new Date(updated);
+      const hours = Math.floor(
+        (Date.now() - date.getTime()) / 3600000
+      );
+      const timeAgo = hours < 1 ? 'just now'
+        : hours < 24 ? hours + 'h ago'
+        : 'today';
+      kicker.innerHTML =
+        '<span class="hero-kicker-dot"></span>' +
+        total + ' UK deals tracked — updated ' + timeAgo;
+    }
+  } catch(e) {
+    console.log('Could not load deal count');
+  }
+}
+loadDealCount();
 </script>
 </body>
 </html>
