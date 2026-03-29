@@ -1,12 +1,12 @@
 {
-  "last_updated": "2026-03-29 08:22:18",
-  "total_deals": 98,
+  "last_updated": "2026-03-29 07:36:09",
+  "total_deals": 60,
   "manual_count": 32,
   "supermarket_count": 8,
-  "reddit_count": 40,
+  "reddit_count": 0,
   "news_count": 20,
   "hotukdeals_count": 2,
-  "unique_scraped_count": 58,
+  "unique_scraped_count": 20,
   "sources": [
     "Manual",
     "Supermarket",
@@ -36,7 +36,7 @@
       "stacked_price": 2.39,
       "best_payment_method": "Airtime Rewards (4%) + Asda Rewards",
       "stacking_rate": 4.5,
-      "last_updated": "2026-03-29 08:22:18"
+      "last_updated": "2026-03-29 07:36:09"
     },
     {
       "store": "Sainsbury's",
@@ -49,7 +49,7 @@
       "stacked_price": 3.35,
       "best_payment_method": "JamDoughnut (4.1%) + Nectar",
       "stacking_rate": 4.4,
-      "last_updated": "2026-03-29 08:22:18"
+      "last_updated": "2026-03-29 07:36:09"
     },
     {
       "store": "Tesco",
@@ -62,7 +62,7 @@
       "stacked_price": 6.63,
       "best_payment_method": "EverUp (4.9%) + Clubcard",
       "stacking_rate": 5.3,
-      "last_updated": "2026-03-29 08:22:18"
+      "last_updated": "2026-03-29 07:36:09"
     },
     {
       "store": "Iceland",
@@ -75,7 +75,7 @@
       "stacked_price": 7.6,
       "best_payment_method": "TopCashback (3.5%) + Bonus Card",
       "stacking_rate": 5.0,
-      "last_updated": "2026-03-29 08:22:18"
+      "last_updated": "2026-03-29 07:36:09"
     },
     {
       "store": "Iceland",
@@ -88,7 +88,7 @@
       "stacked_price": 9.5,
       "best_payment_method": "TopCashback (3.5%) + Bonus Card",
       "stacking_rate": 5.0,
-      "last_updated": "2026-03-29 08:22:18"
+      "last_updated": "2026-03-29 07:36:09"
     },
     {
       "store": "Sainsbury's",
@@ -101,7 +101,7 @@
       "stacked_price": 11.47,
       "best_payment_method": "JamDoughnut (4.1%) + Nectar",
       "stacking_rate": 4.4,
-      "last_updated": "2026-03-29 08:22:18"
+      "last_updated": "2026-03-29 07:36:09"
     },
     {
       "store": "Asda",
@@ -114,7 +114,7 @@
       "stacked_price": 14.32,
       "best_payment_method": "Airtime Rewards (4%) + Asda Rewards",
       "stacking_rate": 4.5,
-      "last_updated": "2026-03-29 08:22:18"
+      "last_updated": "2026-03-29 07:36:09"
     },
     {
       "store": "Tesco",
@@ -127,7 +127,7 @@
       "stacked_price": 18.94,
       "best_payment_method": "EverUp (4.9%) + Clubcard",
       "stacking_rate": 5.3,
-      "last_updated": "2026-03-29 08:22:18"
+      "last_updated": "2026-03-29 07:36:09"
     },
     {
       "store": "Lloyds Bank",
@@ -147,7 +147,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-03-29 08:22:18"
+      "last_updated": "2026-03-29 07:36:09"
     },
     {
       "store": "Chase UK",
@@ -167,7 +167,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-03-29 08:22:18"
+      "last_updated": "2026-03-29 07:36:09"
     },
     {
       "store": "Monzo",
@@ -187,7 +187,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-03-29 08:22:18"
+      "last_updated": "2026-03-29 07:36:09"
     },
     {
       "store": "Revolut",
@@ -207,7 +207,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-03-29 08:22:18"
+      "last_updated": "2026-03-29 07:36:09"
     },
     {
       "store": "First Direct",
@@ -227,7 +227,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-03-29 08:22:18"
+      "last_updated": "2026-03-29 07:36:09"
     },
     {
       "store": "Halifax",
@@ -247,7 +247,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-03-29 08:22:18"
+      "last_updated": "2026-03-29 07:36:09"
     },
     {
       "store": "NatWest",
@@ -267,7 +267,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-03-29 08:22:18"
+      "last_updated": "2026-03-29 07:36:09"
     },
     {
       "store": "Freetrade",
@@ -286,7 +286,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-03-29 08:22:18"
+      "last_updated": "2026-03-29 07:36:09"
     },
     {
       "store": "Robinhood",
@@ -305,7 +305,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-03-29 08:22:18"
+      "last_updated": "2026-03-29 07:36:09"
     },
     {
       "store": "Plum",
@@ -325,7 +325,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-03-29 08:22:18"
+      "last_updated": "2026-03-29 07:36:09"
     },
     {
       "store": "Webull",
@@ -345,7 +345,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-03-29 08:22:18"
+      "last_updated": "2026-03-29 07:36:09"
     },
     {
       "store": "Wealthify",
@@ -365,7 +365,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-03-29 08:22:18"
+      "last_updated": "2026-03-29 07:36:09"
     },
     {
       "store": "Moneybox",
@@ -384,7 +384,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-03-29 08:22:18"
+      "last_updated": "2026-03-29 07:36:09"
     },
     {
       "store": "TopCashback",
@@ -403,7 +403,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-03-29 08:22:18"
+      "last_updated": "2026-03-29 07:36:09"
     },
     {
       "store": "Quidco",
@@ -423,7 +423,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-03-29 08:22:18"
+      "last_updated": "2026-03-29 07:36:09"
     },
     {
       "store": "Rakuten",
@@ -443,7 +443,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-03-29 08:22:18"
+      "last_updated": "2026-03-29 07:36:09"
     },
     {
       "store": "Airtime",
@@ -463,7 +463,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-03-29 08:22:18"
+      "last_updated": "2026-03-29 07:36:09"
     },
     {
       "store": "Cheddar",
@@ -482,7 +482,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-03-29 08:22:18"
+      "last_updated": "2026-03-29 07:36:09"
     },
     {
       "store": "Jam Doughnut",
@@ -501,7 +501,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-03-29 08:22:18"
+      "last_updated": "2026-03-29 07:36:09"
     },
     {
       "store": "EverUp",
@@ -521,7 +521,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-03-29 08:22:18"
+      "last_updated": "2026-03-29 07:36:09"
     },
     {
       "store": "Tide",
@@ -541,7 +541,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-03-29 08:22:18"
+      "last_updated": "2026-03-29 07:36:09"
     },
     {
       "store": "WorldFirst",
@@ -561,7 +561,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-03-29 08:22:18"
+      "last_updated": "2026-03-29 07:36:09"
     },
     {
       "store": "Octopus Energy",
@@ -581,7 +581,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-03-29 08:22:18"
+      "last_updated": "2026-03-29 07:36:09"
     },
     {
       "store": "Lebara",
@@ -600,7 +600,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-03-29 08:22:18"
+      "last_updated": "2026-03-29 07:36:09"
     },
     {
       "store": "Costa",
@@ -619,7 +619,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-03-29 08:22:18"
+      "last_updated": "2026-03-29 07:36:09"
     },
     {
       "store": "Waitrose",
@@ -638,7 +638,7 @@
       "stacked_price": 0,
       "best_payment_method": "JamDoughnut (3.5%) + MyWaitrose",
       "stacking_rate": 3.5,
-      "last_updated": "2026-03-29 08:22:18"
+      "last_updated": "2026-03-29 07:36:09"
     },
     {
       "store": "Wise",
@@ -658,7 +658,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-03-29 08:22:18"
+      "last_updated": "2026-03-29 07:36:09"
     },
     {
       "store": "AMEX",
@@ -678,7 +678,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-03-29 08:22:18"
+      "last_updated": "2026-03-29 07:36:09"
     },
     {
       "store": "TrainPal",
@@ -698,7 +698,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-03-29 08:22:18"
+      "last_updated": "2026-03-29 07:36:09"
     },
     {
       "store": "Zilch",
@@ -717,7 +717,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-03-29 08:22:18"
+      "last_updated": "2026-03-29 07:36:09"
     },
     {
       "store": "Zopa (Biscuit)",
@@ -736,7 +736,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-03-29 08:22:18"
+      "last_updated": "2026-03-29 07:36:09"
     },
     {
       "store": "PensionBee",
@@ -755,843 +755,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-03-29 08:22:18"
-    },
-    {
-      "store": "The Beermoney MegaList (March 2026) - Th",
-      "item": "The Beermoney MegaList (March 2026) - The Big List of Free Money Offers",
-      "deal_price": "£10",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1rywry0/the_beermoney_megalist_march_2026_the_big_list_of/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "scraped_reddit",
-      "code": "",
-      "steps": [
-        "Read the Reddit post for full details",
-        "Follow the referral link",
-        "Complete the required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "r/beermoneyuk",
-      "reddit_score": 20,
-      "last_updated": "2026-03-29 08:22:18",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Reddit Bank Switch Offer Guide (March 20",
-      "item": "Reddit Bank Switch Offer Guide (March 2026) | £1450+ Available",
-      "deal_price": "£1450",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1rqsxuw/reddit_bank_switch_offer_guide_march_2026_1450/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "scraped_reddit",
-      "code": "link",
-      "steps": [
-        "Read the Reddit post for full details",
-        "Follow the referral link",
-        "Complete the required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "r/beermoneyuk",
-      "reddit_score": 73,
-      "last_updated": "2026-03-29 08:22:18",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Starling Bank | Easy £25 to Open a Curre",
-      "item": "Starling Bank | Easy £25 to Open a Current Account and Make a Payment (MegaThrea",
-      "deal_price": "£25",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1s62kqx/starling_bank_easy_25_to_open_a_current_account/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "scraped_reddit",
-      "code": "codes",
-      "steps": [
-        "Read the Reddit post for full details",
-        "Follow the referral link",
-        "Complete the required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "r/beermoneyuk",
-      "reddit_score": 14,
-      "last_updated": "2026-03-29 08:22:18",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Wise: Fee-Free £500 International Transf",
-      "item": "Wise: Fee-Free £500 International Transfer or Free Travel Card + £75 for Every 3",
-      "deal_price": "£500",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1s64xr4/wise_feefree_500_international_transfer_or_free/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "scraped_reddit",
-      "code": "link",
-      "steps": [
-        "Read the Reddit post for full details",
-        "Follow the referral link",
-        "Complete the required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "r/beermoneyuk",
-      "reddit_score": 11,
-      "last_updated": "2026-03-29 08:22:18",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Penfold | £25 bonus when you contribute ",
-      "item": "Penfold | £25 bonus when you contribute £25 towards your pension account!",
-      "deal_price": "£25",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1s66way/penfold_25_bonus_when_you_contribute_25_towards/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "scraped_reddit",
-      "code": "link",
-      "steps": [
-        "Read the Reddit post for full details",
-        "Follow the referral link",
-        "Complete the required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "r/beermoneyuk",
-      "reddit_score": 5,
-      "last_updated": "2026-03-29 08:22:18",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Zilch | Free £5 for signing up for this ",
-      "item": "Zilch | Free £5 for signing up for this cashback app | £5 per referral",
-      "deal_price": "£5",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1s5yinm/zilch_free_5_for_signing_up_for_this_cashback_app/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "scraped_reddit",
-      "code": "Zilch",
-      "steps": [
-        "Read the Reddit post for full details",
-        "Follow the referral link",
-        "Complete the required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "r/beermoneyuk",
-      "reddit_score": 14,
-      "last_updated": "2026-03-29 08:22:18",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Webull - Get a free ETF when you deposit",
-      "item": "Webull - Get a free ETF when you deposit £500+ for 60 days",
-      "deal_price": "£500",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1s614n8/webull_get_a_free_etf_when_you_deposit_500_for_60/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "scraped_reddit",
-      "code": "link",
-      "steps": [
-        "Read the Reddit post for full details",
-        "Follow the referral link",
-        "Complete the required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "r/beermoneyuk",
-      "reddit_score": 8,
-      "last_updated": "2026-03-29 08:22:18",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "EDF - Referral an low EV tariff from 1st",
-      "item": "EDF - Referral an low EV tariff from 1st April",
-      "deal_price": "£75",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1s63345/edf_referral_an_low_ev_tariff_from_1st_april/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "scraped_reddit",
-      "code": "",
-      "steps": [
-        "Read the Reddit post for full details",
-        "Follow the referral link",
-        "Complete the required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "r/beermoneyuk",
-      "reddit_score": 5,
-      "last_updated": "2026-03-29 08:22:18",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "TapTap Send - Free £5 For Making a £25 T",
-      "item": "TapTap Send - Free £5 For Making a £25 Transfer To Your Self",
-      "deal_price": "£5",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1s61ebh/taptap_send_free_5_for_making_a_25_transfer_to/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "scraped_reddit",
-      "code": "code",
-      "steps": [
-        "Read the Reddit post for full details",
-        "Follow the referral link",
-        "Complete the required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "r/beermoneyuk",
-      "reddit_score": 5,
-      "last_updated": "2026-03-29 08:22:18",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Monument Bank: Free £50 for Depositing £",
-      "item": "Monument Bank: Free £50 for Depositing £10k in an ISA or £25k in Savings - Ends ",
-      "deal_price": "£50",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1s5xdwf/monument_bank_free_50_for_depositing_10k_in_an/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "scraped_reddit",
-      "code": "link",
-      "steps": [
-        "Read the Reddit post for full details",
-        "Follow the referral link",
-        "Complete the required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "r/beermoneyuk",
-      "reddit_score": 7,
-      "last_updated": "2026-03-29 08:22:18",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "PayPal - FREE £10 Sign Up Bonus",
-      "item": "PayPal - FREE £10 Sign Up Bonus",
-      "deal_price": "£10",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1s5wlfs/paypal_free_10_sign_up_bonus/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "scraped_reddit",
-      "code": "link",
-      "steps": [
-        "Read the Reddit post for full details",
-        "Follow the referral link",
-        "Complete the required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "r/beermoneyuk",
-      "reddit_score": 7,
-      "last_updated": "2026-03-29 08:22:18",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Make money from AttaPoll",
-      "item": "Make money from AttaPoll",
-      "deal_price": "£195.21",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1s5u9ov/make_money_from_attapoll/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "scraped_reddit",
-      "code": "link",
-      "steps": [
-        "Read the Reddit post for full details",
-        "Follow the referral link",
-        "Complete the required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "r/beermoneyuk",
-      "reddit_score": 5,
-      "last_updated": "2026-03-29 08:22:18",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Quidco £20 refer a friend offer",
-      "item": "Quidco £20 refer a friend offer",
-      "deal_price": "£20",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1s5khc6/quidco_20_refer_a_friend_offer/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "scraped_reddit",
-      "code": "",
-      "steps": [
-        "Read the Reddit post for full details",
-        "Follow the referral link",
-        "Complete the required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "r/beermoneyuk",
-      "reddit_score": 21,
-      "last_updated": "2026-03-29 08:22:18",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Shuffle app - discount on eating out - M",
-      "item": "Shuffle app - discount on eating out - Manchester, Liverpool and Glasgow",
-      "deal_price": "£2.99",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1s5w4vq/shuffle_app_discount_on_eating_out_manchester/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "scraped_reddit",
-      "code": "below",
-      "steps": [
-        "Read the Reddit post for full details",
-        "Follow the referral link",
-        "Complete the required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "r/beermoneyuk",
-      "reddit_score": 3,
-      "last_updated": "2026-03-29 08:22:18",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "£5 Bonus on £15+ Spend at eBay (Qudico)",
-      "item": "£5 Bonus on £15+ Spend at eBay (Qudico)",
-      "deal_price": "£5",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1s5l4r0/5_bonus_on_15_spend_at_ebay_qudico/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "scraped_reddit",
-      "code": "",
-      "steps": [
-        "Read the Reddit post for full details",
-        "Follow the referral link",
-        "Complete the required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "r/beermoneyuk",
-      "reddit_score": 12,
-      "last_updated": "2026-03-29 08:22:18",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "EverUp free coins + instant cashback on ",
-      "item": "EverUp free coins + instant cashback on gift cards",
-      "deal_price": "£10",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1s58870/everup_free_coins_instant_cashback_on_gift_cards/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "scraped_reddit",
-      "code": "RABY3002040RWDL",
-      "steps": [
-        "Read the Reddit post for full details",
-        "Follow the referral link",
-        "Complete the required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "r/beermoneyuk",
-      "reddit_score": 10,
-      "last_updated": "2026-03-29 08:22:18",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Scraye/Ribbon Rewards | Boosted offer | ",
-      "item": "Scraye/Ribbon Rewards | Boosted offer | 1% cashback on rent and a £25 gift card ",
-      "deal_price": "£25",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1s5ak62/scrayeribbon_rewards_boosted_offer_1_cashback_on/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "scraped_reddit",
-      "code": "code",
-      "steps": [
-        "Read the Reddit post for full details",
-        "Follow the referral link",
-        "Complete the required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "r/beermoneyuk",
-      "reddit_score": 8,
-      "last_updated": "2026-03-29 08:22:18",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Five Surveys",
-      "item": "Five Surveys",
-      "deal_price": "£5",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1s5c3rk/five_surveys/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "scraped_reddit",
-      "code": "",
-      "steps": [
-        "Read the Reddit post for full details",
-        "Follow the referral link",
-        "Complete the required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "r/beermoneyuk",
-      "reddit_score": 5,
-      "last_updated": "2026-03-29 08:22:18",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Skrill | Earn £10 (~£8 profit) when you ",
-      "item": "Skrill | Earn £10 (~£8 profit) when you transfer £100!",
-      "deal_price": "£10",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1s5b940/skrill_earn_10_8_profit_when_you_transfer_100/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "scraped_reddit",
-      "code": "link",
-      "steps": [
-        "Read the Reddit post for full details",
-        "Follow the referral link",
-        "Complete the required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "r/beermoneyuk",
-      "reddit_score": 3,
-      "last_updated": "2026-03-29 08:22:18",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Get 1% cashback for 30 days with Curve, ",
-      "item": "Get 1% cashback for 30 days with Curve, plus additional cashback with selected r",
-      "deal_price": "£5.99",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1s5ankk/get_1_cashback_for_30_days_with_curve_plus/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "scraped_reddit",
-      "code": "link",
-      "steps": [
-        "Read the Reddit post for full details",
-        "Follow the referral link",
-        "Complete the required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "r/beermoneyuk",
-      "reddit_score": 3,
-      "last_updated": "2026-03-29 08:22:18",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Chase MegaThread - Give and Get Referral",
-      "item": "Chase MegaThread - Give and Get Referral Codes Here - £50 Sign Up Bonus",
-      "deal_price": "£50",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1s4xw4l/chase_megathread_give_and_get_referral_codes_here/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "scraped_reddit",
-      "code": "Codes",
-      "steps": [
-        "Read the Reddit post for full details",
-        "Follow the referral link",
-        "Complete the required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "r/beermoneyuk",
-      "reddit_score": 14,
-      "last_updated": "2026-03-29 08:22:18",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Cahoot Topcashback - confirmed to payabl",
-      "item": "Cahoot Topcashback - confirmed to payable time?",
-      "deal_price": "£25",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1s56eba/cahoot_topcashback_confirmed_to_payable_time/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "scraped_reddit",
-      "code": "",
-      "steps": [
-        "Read the Reddit post for full details",
-        "Follow the referral link",
-        "Complete the required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "r/beermoneyuk",
-      "reddit_score": 3,
-      "last_updated": "2026-03-29 08:22:18",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Free £75 - Capital On Tap Business Credi",
-      "item": "Free £75 - Capital On Tap Business Credit Card (LTD Companies Only)",
-      "deal_price": "£75",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1s58r8x/free_75_capital_on_tap_business_credit_card_ltd/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "scraped_reddit",
-      "code": "Link",
-      "steps": [
-        "Read the Reddit post for full details",
-        "Follow the referral link",
-        "Complete the required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "r/beermoneyuk",
-      "reddit_score": 3,
-      "last_updated": "2026-03-29 08:22:18",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "[Refreshed] Hilton Honors Plus Debit Car",
-      "item": "[Refreshed] Hilton Honors Plus Debit Card – up to 35,000 points (doubled welcome",
-      "deal_price": "£2",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1s58b8p/refreshed_hilton_honors_plus_debit_card_up_to/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "scraped_reddit",
-      "code": "bonus",
-      "steps": [
-        "Read the Reddit post for full details",
-        "Follow the referral link",
-        "Complete the required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "r/beermoneyuk",
-      "reddit_score": 3,
-      "last_updated": "2026-03-29 08:22:18",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "RunnyHoney - New way to scan receipts",
-      "item": "RunnyHoney - New way to scan receipts",
-      "deal_price": "£20",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1s5322t/runnyhoney_new_way_to_scan_receipts/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "scraped_reddit",
-      "code": "link",
-      "steps": [
-        "Read the Reddit post for full details",
-        "Follow the referral link",
-        "Complete the required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "r/beermoneyuk",
-      "reddit_score": 3,
-      "last_updated": "2026-03-29 08:22:18",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Pick my postcode - Free daily lottery an",
-      "item": "Pick my postcode - Free daily lottery and chance to win 10£/day",
-      "deal_price": "£200",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1s4z44o/pick_my_postcode_free_daily_lottery_and_chance_to/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "scraped_reddit",
-      "code": "link",
-      "steps": [
-        "Read the Reddit post for full details",
-        "Follow the referral link",
-        "Complete the required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "r/beermoneyuk",
-      "reddit_score": 6,
-      "last_updated": "2026-03-29 08:22:18",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Sprive mortgage overpayments | Cashback ",
-      "item": "Sprive mortgage overpayments | Cashback on giftcards",
-      "deal_price": "£5",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1s4xnpk/sprive_mortgage_overpayments_cashback_on_giftcards/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "scraped_reddit",
-      "code": "link",
-      "steps": [
-        "Read the Reddit post for full details",
-        "Follow the referral link",
-        "Complete the required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "r/beermoneyuk",
-      "reddit_score": 5,
-      "last_updated": "2026-03-29 08:22:18",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Clarification on combining Lloyds referr",
-      "item": "Clarification on combining Lloyds referral and switch offer",
-      "deal_price": "£250",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1s4vetv/clarification_on_combining_lloyds_referral_and/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "scraped_reddit",
-      "code": "link",
-      "steps": [
-        "Read the Reddit post for full details",
-        "Follow the referral link",
-        "Complete the required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "r/beermoneyuk",
-      "reddit_score": 3,
-      "last_updated": "2026-03-29 08:22:18",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "JamDoughnut - Free £3",
-      "item": "JamDoughnut - Free £3",
-      "deal_price": "£3",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1s4h2gm/jamdoughnut_free_3/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "scraped_reddit",
-      "code": "code",
-      "steps": [
-        "Read the Reddit post for full details",
-        "Follow the referral link",
-        "Complete the required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "r/beermoneyuk",
-      "reddit_score": 15,
-      "last_updated": "2026-03-29 08:22:18",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "£100 Amazon voucher for Santander accoun",
-      "item": "£100 Amazon voucher for Santander account offer",
-      "deal_price": "£100",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1s4x7r1/100_amazon_voucher_for_santander_account_offer/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "scraped_reddit",
-      "code": "",
-      "steps": [
-        "Read the Reddit post for full details",
-        "Follow the referral link",
-        "Complete the required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "r/beermoneyuk",
-      "reddit_score": 1,
-      "last_updated": "2026-03-29 08:22:18",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Free £3 for new sign ups and free £5 for",
-      "item": "Free £3 for new sign ups and free £5 for referring friends | Jam Dougnut",
-      "deal_price": "£3",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1rvj97q/free_3_for_new_sign_ups_and_free_5_for_referring/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "scraped_reddit",
-      "code": "code",
-      "steps": [
-        "Read the Reddit post for full details",
-        "Follow the referral link",
-        "Complete the required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "r/beermoneyuk",
-      "reddit_score": 8,
-      "last_updated": "2026-03-29 08:22:18",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "User Interviews - $10 bonus (approx £7.5",
-      "item": "User Interviews - $10 bonus (approx £7.50) + earn money for market research",
-      "deal_price": "£7.50",
-      "link": "https://www.reddit.com/r/MakeMoneyInUK/comments/1rup8kq/user_interviews_10_bonus_approx_750_earn_money/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "scraped_reddit",
-      "code": "link",
-      "steps": [
-        "Read the Reddit post for full details",
-        "Follow the referral link",
-        "Complete the required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "r/beermoneyuk",
-      "reddit_score": 6,
-      "last_updated": "2026-03-29 08:22:18",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "MSR app - earn approx. £10 a month shari",
-      "item": "MSR app - earn approx. £10 a month sharing your app data and social media usage",
-      "deal_price": "£10",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1rrnmym/msr_app_earn_approx_10_a_month_sharing_your_app/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "scraped_reddit",
-      "code": "link",
-      "steps": [
-        "Read the Reddit post for full details",
-        "Follow the referral link",
-        "Complete the required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "r/beermoneyuk",
-      "reddit_score": 5,
-      "last_updated": "2026-03-29 08:22:18",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Skrill - Free £10 for £100 money transfe",
-      "item": "Skrill - Free £10 for £100 money transfer",
-      "deal_price": "£10",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1rqrm4o/skrill_free_10_for_100_money_transfer/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "scraped_reddit",
-      "code": "link",
-      "steps": [
-        "Read the Reddit post for full details",
-        "Follow the referral link",
-        "Complete the required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "r/beermoneyuk",
-      "reddit_score": 5,
-      "last_updated": "2026-03-29 08:22:18",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Earnlab - $0.25 sign-up bonus + earn cas",
-      "item": "Earnlab - $0.25 sign-up bonus + earn cash playing games with one of the highest ",
-      "deal_price": "£70",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1rmc3u5/earnlab_025_signup_bonus_earn_cash_playing_games/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "scraped_reddit",
-      "code": "link",
-      "steps": [
-        "Read the Reddit post for full details",
-        "Follow the referral link",
-        "Complete the required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "r/beermoneyuk",
-      "reddit_score": 4,
-      "last_updated": "2026-03-29 08:22:18",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Skrill - Free £10 for £100 money transfe",
-      "item": "Skrill - Free £10 for £100 money transfer",
-      "deal_price": "£10",
-      "link": "https://www.reddit.com/r/MakeMoneyInUK/comments/1rkl202/skrill_free_10_for_100_money_transfer/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "scraped_reddit",
-      "code": "link",
-      "steps": [
-        "Read the Reddit post for full details",
-        "Follow the referral link",
-        "Complete the required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "r/beermoneyuk",
-      "reddit_score": 6,
-      "last_updated": "2026-03-29 08:22:18",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "User Interviews - $10 extra bonus (appro",
-      "item": "User Interviews - $10 extra bonus (approx £7.50) + high-paying market research s",
-      "deal_price": "£7.50",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1rjmin3/user_interviews_10_extra_bonus_approx_750/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "scraped_reddit",
-      "code": "link",
-      "steps": [
-        "Read the Reddit post for full details",
-        "Follow the referral link",
-        "Complete the required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "r/beermoneyuk",
-      "reddit_score": 4,
-      "last_updated": "2026-03-29 08:22:18",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Snoop | Free £5 Amazon voucher for insta",
-      "item": "Snoop | Free £5 Amazon voucher for installing this budgeting app | No spend need",
-      "deal_price": "£5",
-      "link": "https://www.reddit.com/r/makemoneyuk/comments/1s6nmy8/snoop_free_5_amazon_voucher_for_installing_this/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "scraped_reddit",
-      "code": "link",
-      "steps": [
-        "Read the Reddit post for full details",
-        "Follow the referral link",
-        "Complete the required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "r/beermoneyuk",
-      "reddit_score": 3,
-      "last_updated": "2026-03-29 08:22:18",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
+      "last_updated": "2026-03-29 07:36:09"
     },
     {
       "store": "Nationwide sending free £175 into bank a",
@@ -1609,7 +773,7 @@
       ],
       "timeFrame": "Check article",
       "source": "Google News",
-      "last_updated": "2026-03-29 08:22:18",
+      "last_updated": "2026-03-29 07:36:09",
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0
@@ -1630,7 +794,7 @@
       ],
       "timeFrame": "Check article",
       "source": "Google News",
-      "last_updated": "2026-03-29 08:22:18",
+      "last_updated": "2026-03-29 07:36:09",
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0
@@ -1651,7 +815,7 @@
       ],
       "timeFrame": "Check article",
       "source": "Google News",
-      "last_updated": "2026-03-29 08:22:18",
+      "last_updated": "2026-03-29 07:36:09",
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0
@@ -1672,7 +836,7 @@
       ],
       "timeFrame": "Check article",
       "source": "Google News",
-      "last_updated": "2026-03-29 08:22:18",
+      "last_updated": "2026-03-29 07:36:09",
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0
@@ -1693,14 +857,14 @@
       ],
       "timeFrame": "Check article",
       "source": "Google News",
-      "last_updated": "2026-03-29 08:22:18",
+      "last_updated": "2026-03-29 07:36:09",
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0
     },
     {
       "store": "Barclays Launches New Switching Deal Wor",
-      "item": "Barclays Launches New Switching Deal Worth Up to £900 - Moneyfacts",
+      "item": "Barclays Launches New Switching Deal Worth Up to £900 - moneyfactscompare.co.uk",
       "deal_price": "£900",
       "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNQ2lud3pYMGJJRU1oTl85WHBCM1ZxS2UzaUM1RWQ3eDQ2OWF2XzFNdFdtdVMwU0Y0a1FHNTJsalFBdlhHa3QzSkNjbFlSNWdvRjhaSGpESGdQUG40TTJJemVkN2RGVFlHWFgwSHBQUlhnUENKdjRvdjl4Z3NpRXJ5ODlFaGFSUWVhM2c?oc=5",
       "original_price": "£0",
@@ -1714,7 +878,7 @@
       ],
       "timeFrame": "Check article",
       "source": "Google News",
-      "last_updated": "2026-03-29 08:22:18",
+      "last_updated": "2026-03-29 07:36:09",
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0
@@ -1735,7 +899,7 @@
       ],
       "timeFrame": "Check article",
       "source": "Google News",
-      "last_updated": "2026-03-29 08:22:18",
+      "last_updated": "2026-03-29 07:36:09",
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0
@@ -1756,7 +920,7 @@
       ],
       "timeFrame": "Check article",
       "source": "Google News",
-      "last_updated": "2026-03-29 08:22:18",
+      "last_updated": "2026-03-29 07:36:09",
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0
@@ -1777,7 +941,7 @@
       ],
       "timeFrame": "Check article",
       "source": "Google News",
-      "last_updated": "2026-03-29 08:22:18",
+      "last_updated": "2026-03-29 07:36:09",
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0
@@ -1798,7 +962,7 @@
       ],
       "timeFrame": "Check article",
       "source": "Google News",
-      "last_updated": "2026-03-29 08:22:18",
+      "last_updated": "2026-03-29 07:36:09",
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0
@@ -1819,7 +983,7 @@
       ],
       "timeFrame": "Check article",
       "source": "Google News",
-      "last_updated": "2026-03-29 08:22:18",
+      "last_updated": "2026-03-29 07:36:09",
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0
@@ -1840,7 +1004,7 @@
       ],
       "timeFrame": "Check article",
       "source": "Google News",
-      "last_updated": "2026-03-29 08:22:18",
+      "last_updated": "2026-03-29 07:36:09",
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0
@@ -1861,7 +1025,7 @@
       ],
       "timeFrame": "Check article",
       "source": "Google News",
-      "last_updated": "2026-03-29 08:22:18",
+      "last_updated": "2026-03-29 07:36:09",
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0
@@ -1882,7 +1046,7 @@
       ],
       "timeFrame": "Check article",
       "source": "Google News",
-      "last_updated": "2026-03-29 08:22:18",
+      "last_updated": "2026-03-29 07:36:09",
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0
@@ -1903,14 +1067,14 @@
       ],
       "timeFrame": "Check article",
       "source": "Google News",
-      "last_updated": "2026-03-29 08:22:18",
+      "last_updated": "2026-03-29 07:36:09",
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0
     },
     {
       "store": "Get a £200 cash boost by switching your ",
-      "item": "Get a £200 cash boost by switching your current account to TSB - Moneyfacts",
+      "item": "Get a £200 cash boost by switching your current account to TSB - moneyfactscompa",
       "deal_price": "£200",
       "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPTkdfbjg4bVNURDlnZi1uSl9iaHo0RXljMllERHhxemZYZE01WlpTbF8ySHl5LXdha19QbkZNb2JkLUZoY19GeEozRGc5UzVMOEVBWnNGWUpBWF8yWS1Ba0hSeGJMREN0SnFxbjJzT1RYX2FfT3czTWZfVzBPY1QxUkRYZHBZWHRlOUJKcg?oc=5",
       "original_price": "£0",
@@ -1924,7 +1088,28 @@
       ],
       "timeFrame": "Check article",
       "source": "Google News",
-      "last_updated": "2026-03-29 08:22:18",
+      "last_updated": "2026-03-29 07:36:09",
+      "stacked_price": 0,
+      "best_payment_method": "N/A",
+      "stacking_rate": 0
+    },
+    {
+      "store": "Nationwide £100 Fairer Share bonus tips ",
+      "item": "Nationwide £100 Fairer Share bonus tips to claim a payment in 2026 - Times & Sta",
+      "deal_price": "£100",
+      "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQTnVtRFE3OGp0WXBqUHFjc2ZqTkVWRUdydk1PYlJSbVZzM3R3VXJjenlIOFlWQW96TEo2NEl0em9jaVNacGE0UVFYd0tZaDl5Z3ZINEt3VGN0OUNYY2ZDeGVfYlpaeWNXOXc3X05lVWZjX3NSbjkwUDhDeWZaUmpUN0RaSmZJeDBJVWRranMzZmxwRWFqZFRZVmJ0QmZUdlpoR3JCbEpSZmt5TS1zdDdyZldPc2QxZUk?oc=5",
+      "original_price": "£0",
+      "saving_percent": 100,
+      "type": "scraped_mse",
+      "code": "",
+      "steps": [
+        "Read the full article",
+        "Follow the deal link",
+        "Complete required steps"
+      ],
+      "timeFrame": "Check article",
+      "source": "Google News",
+      "last_updated": "2026-03-29 07:36:09",
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0
@@ -1945,28 +1130,7 @@
       ],
       "timeFrame": "Check article",
       "source": "Google News",
-      "last_updated": "2026-03-29 08:22:18",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Major UK bank announces £200 bonus payme",
-      "item": "Major UK bank announces £200 bonus payments for customers from Tuesday - Birming",
-      "deal_price": "£200",
-      "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOU2hfMWdQVGdUMzhTWWdmNWxkSXpjTV9sQmtYZ0d5R1piWWdrN05TbkhCUDJVZnU2SjJZM3RxM1BWMVhIQXJObHcyRFBsaUFGaFJIcTY0LUFTUEZaVUFfWVdaT05GSGQ5QWRfMXl5UEViZkVMVDRYak5ybWpRNlpYZ0t0TW82UVJwRV9xcEhxejFKRWvSAZgBQVVfeXFMT3Z1aTV5RlFqclltbTE4RExMODhkV3huckg2WHRzSGE2ZTBZazUwWEV1dkNuczU1ZFRQajNJR3lkRFBSWGlnd214OU5zSnpJelBjaHFTSzgzR3dmMWZKTU1QLUxVNTBNRWFJWk1Bd0dta05zUXRfNDNnMklrWGF4MjZuRGN4NVRLOXkxSTZCN2x1Q1dINDVzNms?oc=5",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "scraped_mse",
-      "code": "",
-      "steps": [
-        "Read the full article",
-        "Follow the deal link",
-        "Complete required steps"
-      ],
-      "timeFrame": "Check article",
-      "source": "Google News",
-      "last_updated": "2026-03-29 08:22:18",
+      "last_updated": "2026-03-29 07:36:09",
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0
@@ -1987,7 +1151,7 @@
       ],
       "timeFrame": "Check post",
       "source": "HotUKDeals",
-      "last_updated": "2026-03-29 08:22:18",
+      "last_updated": "2026-03-29 07:36:09",
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0
@@ -2008,7 +1172,7 @@
       ],
       "timeFrame": "Check post",
       "source": "HotUKDeals",
-      "last_updated": "2026-03-29 08:22:18",
+      "last_updated": "2026-03-29 07:36:09",
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0
