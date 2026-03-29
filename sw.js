@@ -84,15 +84,19 @@ self.addEventListener('fetch', e => {
 
 // Push notification handler
 self.addEventListener('push', e => {
-  if (!e.data) return;
-  const data = e.data.json();
-  self.registration.showNotification(data.title || 'Money Hunters UK', {
-    body: data.body || 'New deal available',
-    icon: '/icon-192.png',
-    badge: '/icon-192.png',
-    data: { url: data.url || '/' },
-    vibrate: [100, 50, 100]
-  });
+  try {
+    if (!e.data) return;
+    const data = e.data.json();
+    self.registration.showNotification(data.title || 'Money Hunters UK', {
+      body: data.body || 'New deal available',
+      icon: '/icon-192.png',
+      badge: '/icon-192.png',
+      data: { url: data.url || '/' },
+      vibrate: [100, 50, 100]
+    });
+  } catch (error) {
+    console.error('[SW] Push handler error:', error);
+  }
 });
 
 self.addEventListener('notificationclick', e => {

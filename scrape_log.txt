@@ -1,0 +1,7 @@
+Scrape run: 2026-03-28 23:56:27.038619
+Manual offers: 32
+Supermarket deals: 8
+Reddit deals: 42
+MSE deals: 0
+Unique scraped: 40
+Total written: 80

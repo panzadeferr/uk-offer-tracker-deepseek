@@ -7,7 +7,10 @@ Complete Money Hunters Scraper
 
 import json
 import os
+import re
 import time
+import requests
+import xml.etree.ElementTree as ET
 from datetime import datetime
 from typing import List, Dict
 
@@ -36,7 +39,7 @@ def send_to_telegram(deal: Dict) -> bool:
         payload = {"chat_id": TELEGRAM_CHAT_ID, "text": message, "parse_mode": "Markdown"}
         response = requests.post(url, json=payload, timeout=10)
         return response.status_code == 200
-    except:
+    except Exception:
         return False
 
 
@@ -94,7 +97,7 @@ def get_manual_offers() -> List[Dict]:
         # CASHBACK SITES
         {"store": "TopCashback", "item": "Cashback Site - £10 Bonus", "deal_price": "£10", "link": "https://www.topcashback.co.uk/ref/Panzadeferr/?source_id=4", "original_price": "£0", "saving_percent": 100, "type": "cashback", "code": "", "steps": ["Join TopCashback", "Shop through site"], "timeFrame": "Lifetime"},
         {"store": "Quidco", "item": "Cashback Site - £20 Bonus", "deal_price": "£20", "link": "https://quidco.onelink.me/nKzg/v2f3f7m0", "original_price": "£0", "saving_percent": 100, "type": "cashback", "code": "", "steps": ["Join Quidco", "Earn £5 cashback", "Get £20"], "timeFrame": "After earning £5"},
-        {"store": "Rakuten", "item": "Cashback Site - £25 Bonus", "deal_price": "£25", "link": "www.rakuten.co.uk/r/ALBERT24541?eeid=28187", "original_price": "£50", "saving_percent": 50, "type": "cashback", "code": "", "steps": ["Join Rakuten", "Spend £50 + VAT", "Get £25"], "timeFrame": "After first purchase"},
+        {"store": "Rakuten", "item": "Cashback Site - £25 Bonus", "deal_price": "£25", "link": "https://www.rakuten.co.uk/r/ALBERT24541?eeid=28187", "original_price": "£50", "saving_percent": 50, "type": "cashback", "code": "", "steps": ["Join Rakuten", "Spend £50 + VAT", "Get £25"], "timeFrame": "After first purchase"},
         
         # GIFT CARD APPS
         {"store": "Airtime", "item": "Gift Card Cashback - £2 Bonus", "deal_price": "£2", "link": "https://airtimerewards.app.link/6Waa7E1IF1b", "original_price": "£5", "saving_percent": 40, "type": "cashback", "code": "FRJKFXX3", "steps": ["Use code FRJKFXX3", "Spend £5 in 7 days", "Get £2"], "timeFrame": "7 days"},
@@ -125,9 +128,150 @@ def get_manual_offers() -> List[Dict]:
         
         # OTHER REFERRALS
         {"store": "Zilch", "item": "Sign Up → £5 Free", "deal_price": "£5", "link": "https://zilch.onelink.me/x8EV/zdehyy8s", "original_price": "£0", "saving_percent": 100, "type": "referral", "code": "", "steps": ["Sign up for Zilch", "Get £5 credit instantly"], "timeFrame": "Instant"},
-        {"store": "Zopa (Biscuit)", "item": "Open Account → £10 Free", "deal_price": "£10", "link": "www.zopa.com/mgma?referralCode=ed204ce1b3dd265fa533", "original_price": "£0", "saving_percent": 100, "type": "referral", "code": "", "steps": ["Open Biscuit account", "Get £10 instantly"], "timeFrame": "Instant"},
+        {"store": "Zopa (Biscuit)", "item": "Open Account → £10 Free", "deal_price": "£10", "link": "https://www.zopa.com/mgma?referralCode=ed204ce1b3dd265fa533", "original_price": "£0", "saving_percent": 100, "type": "referral", "code": "", "steps": ["Open Biscuit account", "Get £10 instantly"], "timeFrame": "Instant"},
         {"store": "PensionBee", "item": "Sign Up → £50 in Pension", "deal_price": "£50", "link": "https://www.pensionbee.com/", "original_price": "£0", "saving_percent": 100, "type": "pension", "code": "", "steps": ["Sign up for PensionBee", "Get £50 in your pension"], "timeFrame": "~1 month"}
     ]
+
+
+# ============================================
+# LIVE WEB SCRAPING FUNCTIONS
+# ============================================
+
+def scrape_reddit_beermoneyuk():
+    import re
+    deals = []
+    headers = {
+        "User-Agent": "MoneyHuntersUK/1.0 (contact: hello@moneyhunters.co.uk)"
+    }
+    seen_ids = set()
+    endpoints = [
+        "https://www.reddit.com/r/beermoneyuk/hot.json?limit=50",
+        "https://www.reddit.com/r/beermoneyuk/new.json?limit=50",
+        "https://www.reddit.com/r/beermoneyuk/search.json?q=referral+%C2%A3&sort=new&limit=25",
+        "https://www.reddit.com/r/beermoneyuk/search.json?q=bank+switch&sort=new&limit=25",
+    ]
+    for url in endpoints:
+        try:
+            r = requests.get(url, headers=headers, timeout=15)
+            if r.status_code != 200:
+                continue
+            posts = r.json()["data"]["children"]
+            for post in posts:
+                d = post["data"]
+                pid = d.get("id","")
+                if pid in seen_ids:
+                    continue
+                seen_ids.add(pid)
+                title = d.get("title","")
+                body = d.get("selftext","")
+                score = d.get("score", 0)
+                flair = d.get("link_flair_text","") or ""
+                # Lower threshold for new posts
+                min_score = 1 if "new.json" in url else 3
+                if score < min_score:
+                    continue
+                if "£" not in title and "£" not in body:
+                    continue
+                amounts = re.findall(
+                    r'£(\d+(?:\.\d{2})?)', title+" "+body)
+                reward = f"£{amounts[0]}" if amounts else "Bonus"
+                code_match = re.search(
+                    r'(?:code|referral)[:\s]+([A-Z0-9]{4,15})',
+                    title + " " + body, re.IGNORECASE)
+                code = code_match.group(1) if code_match else ""
+                permalink = "https://reddit.com" + d.get("permalink", "")
+                link = d.get("url", permalink)
+                deals.append({
+                    "store": title[:40],
+                    "item": title[:80],
+                    "deal_price": reward,
+                    "link": link if link.startswith("http") else permalink,
+                    "original_price": "£0",
+                    "saving_percent": 100,
+                    "type": "scraped_reddit",
+                    "code": code,
+                    "steps": ["Read the Reddit post for full details",
+                              "Follow the referral link",
+                              "Complete the required steps"],
+                    "timeFrame": "Varies",
+                    "source": "r/beermoneyuk",
+                    "reddit_score": score,
+                    "last_updated": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                })
+        except Exception as e:
+            print(f"Reddit endpoint {url} failed: {e}")
+            continue
+    print(f"Reddit: found {len(deals)} deals")
+    return deals
+
+def scrape_mse_rss():
+    """Scrape MoneySavingExpert RSS feed for deals"""
+    deals = []
+    keywords = ["switch", "bonus", "cashback", "referral",
+                "free", "reward", "sign up", "bank", "£"]
+    try:
+        # Try direct RSS with proper headers first
+        url = "https://www.moneysavingexpert.com/rss/deals/"
+        headers = {
+            "User-Agent": "MoneyHuntersUK/1.0 (contact: hello@moneyhunters.co.uk)",
+            "Accept": "application/rss+xml, application/xml, text/xml, */*"
+        }
+        r = requests.get(url, headers=headers, timeout=15)
+        print(f"MSE direct RSS status: {r.status_code}")
+        
+        if r.status_code == 200:
+            # Parse XML directly
+            import xml.etree.ElementTree as ET
+            root = ET.fromstring(r.content)
+            items = root.findall(".//item")
+        else:
+            # Fallback to feedburner URL which might be more accessible
+            print("Trying Feedburner fallback...")
+            url = "https://feeds.feedburner.com/MseDeals"
+            r = requests.get(url, headers=headers, timeout=15)
+            print(f"MSE Feedburner status: {r.status_code}")
+            if r.status_code != 200:
+                print("MSE RSS unavailable")
+                return []
+            root = ET.fromstring(r.content)
+            items = root.findall(".//item")
+        
+        for item in items:
+            title_elem = item.find("title")
+            link_elem = item.find("link")
+            desc_elem = item.find("description")
+            
+            title = title_elem.text if title_elem is not None else ""
+            link = link_elem.text if link_elem is not None else ""
+            desc = desc_elem.text if desc_elem is not None else ""
+            
+            combined = (title + " " + desc).lower()
+            if not any(kw in combined for kw in keywords):
+                continue
+            amounts = re.findall(
+                r'£(\d+(?:\.\d{2})?)', title + " " + desc)
+            reward = f"£{amounts[0]}" if amounts else "Deal"
+            deals.append({
+                "store": title[:40],
+                "item": title[:80],
+                "deal_price": reward,
+                "link": link,
+                "original_price": "£0",
+                "saving_percent": 100,
+                "type": "scraped_mse",
+                "code": "",
+                "steps": ["Read the full MSE article",
+                          "Follow the deal link"],
+                "timeFrame": "Check article",
+                "source": "MoneySavingExpert",
+                "last_updated": datetime.now().strftime(
+                    "%Y-%m-%d %H:%M:%S")
+            })
+        print(f"MSE: found {len(deals)} deals")
+        return deals
+    except Exception as e:
+        print(f"MSE scrape failed: {e}")
+        return []
 
 
 # ============================================
@@ -158,7 +302,6 @@ def calculate_stacked_price(deal: Dict) -> float:
     base_price = deal.get("base_price", 0)
     
     if base_price == 0 and "£" in str(deal.get("deal_price", "")):
-        import re
         match = re.search(r'£(\d+(?:\.\d{2})?)', str(deal["deal_price"]))
         if match:
             base_price = float(match.group(1))
@@ -194,7 +337,28 @@ def run_all_scrapers() -> Dict:
     all_deals.extend(supermarket_deals)
     print(f"   Found {len(supermarket_deals)} supermarket deals")
     
-    # Calculate stacked prices for supermarket deals
+    # Scrape Reddit r/beermoneyuk
+    print("\n📡 Scraping Reddit r/beermoneyuk...")
+    reddit_deals = scrape_reddit_beermoneyuk()
+    time.sleep(2)
+    
+    # Scrape MoneySavingExpert RSS
+    print("\n📡 Scraping MoneySavingExpert RSS...")
+    mse_deals = scrape_mse_rss()
+    
+    scraped = reddit_deals + mse_deals
+    
+    # Deduplicate against manual offers
+    manual_stores = {o["store"].lower()[:8] for o in manual_offers}
+    unique_scraped = [
+        d for d in scraped
+        if not any(d["store"].lower()[:8] in s 
+                   for s in manual_stores)
+    ]
+    
+    all_deals.extend(unique_scraped)
+    
+    # Calculate stacked prices for all deals
     for deal in all_deals:
         if deal["store"] in STACKING_RATES:
             stacked_price = calculate_stacked_price(deal)
@@ -215,6 +379,12 @@ def run_all_scrapers() -> Dict:
     output = {
         "last_updated": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         "total_deals": len(all_deals),
+        "manual_count": len(manual_offers),
+        "supermarket_count": len(supermarket_deals),
+        "reddit_count": len(reddit_deals),
+        "mse_count": len(mse_deals),
+        "unique_scraped_count": len(unique_scraped),
+        "sources": ["Manual", "Supermarket", "Reddit r/beermoneyuk", "MSE RSS"],
         "stacking_rates": STACKING_RATES,
         "deals": all_deals
     }
@@ -222,11 +392,28 @@ def run_all_scrapers() -> Dict:
     with open("all_deals.json", "w", encoding="utf-8") as f:
         json.dump(output, f, indent=2, ensure_ascii=False)
     
+    # Write scrape log
+    log = [
+        f"Scrape run: {datetime.now()}",
+        f"Manual offers: {len(manual_offers)}",
+        f"Supermarket deals: {len(supermarket_deals)}",
+        f"Reddit deals: {len(reddit_deals)}",
+        f"MSE deals: {len(mse_deals)}",
+        f"Unique scraped: {len(unique_scraped)}",
+        f"Total written: {len(all_deals)}",
+    ]
+    with open("scrape_log.txt", "w") as f:
+        f.write("\n".join(log))
+    
     print("-" * 40)
     print(f"✅ Total deals found: {len(all_deals)}")
     print(f"   - Manual offers: {len(manual_offers)}")
     print(f"   - Supermarket deals: {len(supermarket_deals)}")
+    print(f"   - Reddit deals: {len(reddit_deals)}")
+    print(f"   - MSE deals: {len(mse_deals)}")
+    print(f"   - Unique scraped: {len(unique_scraped)}")
     print(f"💾 Saved to all_deals.json")
+    print(f"📝 Log written to scrape_log.txt")
     
     return output
 

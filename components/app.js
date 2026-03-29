@@ -27,11 +27,13 @@ function initApp() {
 }
 
 // Load offers from all_deals.json
+// Note: The JSON file has "deals" key, not "offers" key
 async function loadOffers() {
   try {
     const response = await fetch('all_deals.json');
     const data = await response.json();
-    state.offers = data.offers || [];
+    // The JSON file has "deals" key, not "offers" key
+    state.offers = data.deals || [];
     console.log(`Loaded ${state.offers.length} offers`);
     renderAll();
   } catch (error) {

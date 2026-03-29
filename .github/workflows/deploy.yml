@@ -77,10 +77,32 @@ jobs:
       - name: Check no exposed secrets
         run: |
           echo "Scanning for exposed secrets..."
-          if grep -r "xkeysib-" index.html app.html 2>/dev/null; then
-            echo "❌ EXPOSED BREVO KEY found!"
-            exit 1
+          # Check for common secret patterns
+          SECRET_PATTERNS="xkeysib-|YOUR_BREVO_API_KEY|RAILWAY_URL_HERE|SUPABASE_KEY|SUPABASE_URL|TELEGRAM_BOT_TOKEN|TELEGRAM_CHAT_ID|API_KEY|SECRET_KEY|PASSWORD|TOKEN"
+          FILES_TO_CHECK="index.html app.html scraper.py components/app.js components/*.html"
+          
+          echo "Checking files: $FILES_TO_CHECK"
+          for file in $FILES_TO_CHECK; do
+            if [ -f "$file" ]; then
+              if grep -E "$SECRET_PATTERNS" "$file" 2>/dev/null; then
+                echo "❌ EXPOSED SECRET found in $file!"
+                exit 1
+              fi
+            fi
+          done
+          
+          # Also check for hardcoded API keys in scraper.py
+          if [ -f "scraper.py" ]; then
+            if grep -E "TELEGRAM_BOT_TOKEN\s*=\s*['\"].+['\"]" scraper.py 2>/dev/null; then
+              echo "❌ Hardcoded Telegram token found in scraper.py!"
+              exit 1
+            fi
+            if grep -E "TELEGRAM_CHAT_ID\s*=\s*['\"].+['\"]" scraper.py 2>/dev/null; then
+              echo "❌ Hardcoded Telegram chat ID found in scraper.py!"
+              exit 1
+            fi
           fi
+          
           echo "✅ No exposed secrets found."
 
       # ── TEST 4: Validate manifest.json ──

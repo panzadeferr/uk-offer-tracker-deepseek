@@ -30,7 +30,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install requests
+          pip install requests beautifulsoup4
       
       - name: Run scraper
         env:
@@ -53,8 +53,8 @@ jobs:
       - name: Commit and push if changes
         if: steps.git-check.outputs.has_changes == 'true'
         run: |
-          git config --global user.name 'GitHub Actions'
-          git config --global user.email 'actions@github.com'
-          git add all_deals.json
-          git commit -m "🤖 Auto-update: Scraper run $(date -u +'%Y-%m-%d %H:%M:%S')"
+          git config user.name "MoneyHunters Bot"
+          git config user.email "hello@moneyhunters.co.uk"
+          git add all_deals.json scrape_log.txt
+          git commit -m "Auto: scrape $(date +%Y-%m-%d-%H%M)"
           git push

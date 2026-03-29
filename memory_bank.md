@@ -182,6 +182,41 @@
 11. **CRIT-13: skeleton loaders** - Fixed: Added skeleton loading states for better UX
 12. **CRIT-15: Google Fonts display:swap** - Fixed: Added display=swap to Google Fonts for better performance
 
+### Critical Issues Fixed (March 28-29, 2026)
+13. **CRIT-07: formatMoney() toFixed(2)** - Fixed: Updated formatMoney() function to use toFixed(2) for proper decimal rounding
+14. **CRIT-05: inferCategory() + category fields on 47 offers** - Fixed: Added category fields to all 47 offers in app.html and enhanced inferCategory() function
+15. **CRIT-03: Jam Doughnut featured** - Fixed: Enhanced Jam Doughnut positioning as featured partner with proper styling and integration
+16. **CRIT-04: Scraper live scraping** - Fixed: Updated scraper.py to properly fetch and process live data
+17. **CRIT-05: Connect app to all_deals.json** - Fixed: Updated app.html to load offers from all_deals.json instead of hardcoded array
+18. **CRIT-06: Real leaderboard** - Fixed: Enhanced leaderboard to use real Supabase data with fallback to demo data
+19. **CRIT-07: Skeleton loaders** - Fixed: Added skeleton loading states for offers grid and leaderboard
+20. **CRIT-08: iOS keyboard fix** - Fixed: Added handleIOSKeyboard() function to scroll inputs into view on iOS devices
+
+### Security & Bug Fixes (March 28, 2026)
+**CRITICAL ISSUES:**
+1. **CRIT-01: window.open() popup blocker** - Fixed: Changed `window.open()` to `window.location.href` in app.html to avoid browser popup blockers
+2. **CRIT-02: Password reset broken — wrong token detection** - Fixed: Updated password reset logic to check for `?token=` instead of `?reset=` in app.html
+3. **CRIT-04: data.deals key fix** - Fixed: components/app.js now correctly accesses `data.deals` instead of `data.offers` from all_deals.json
+
+**HIGH PRIORITY ISSUES:**
+1. **HIGH-01: btnText dead variable in openPanel()** - Fixed: Removed unused `btnText` variable in app.html
+2. **HIGH-02: getPendingTotal() Math.max logic bug** - Fixed: Changed `Math.max(0, pending)` to `Math.max(0, pending || 0)` in app.html
+3. **HIGH-03: Missing https:// on Rakuten + Zopa URLs** - Fixed: Added https:// to Rakuten and Zopa URLs in scraper.py and all_deals.json
+4. **HIGH-04: Rename apple-touch-icon (1).png → apple-touch-icon.png** - Fixed: Renamed file and updated references in app.html and sw.js
+5. **HIGH-05: Handle ?tab= URL param for PWA shortcuts** - Fixed: Added URL parameter handling for PWA shortcuts in app.html
+6. **HIGH-06: Landing signup redirect flow** - Fixed: Added auto-redirect after signup with username parameter in index.html
+7. **HIGH-07: XP exploit via repeated save logging** - Fixed: Added debouncing to saveState() function in app.html
+
+**MEDIUM PRIORITY ISSUES:**
+1. **MED-01: Batch Supabase upserts** - Fixed: Implemented batch operations for Supabase upserts in app.html
+2. **MED-02: Add try/catch to SW push handler** - Fixed: Added try/catch block to push notification handler in sw.js
+3. **MED-03: Remove missing screenshot from manifest.json** - Fixed: Removed non-existent screenshot-mobile.png reference from manifest.json
+4. **MED-04: Remove misleading BREVO_API_KEY variable** - Fixed: Removed hardcoded API key variable from index.html
+5. **MED-05: import re inside function + bare except:** - Fixed: Moved `import re` to top level and added specific exception handling in scraper.py
+6. **MED-06: Improve secret scanning in deploy.yml** - Fixed: Enhanced secret scanning to check more files and patterns in GitHub Actions workflow
+
+### UX Improvements & Jam Doughnut Featured Positioning (March 28, 2026)
+
 ### UX Improvements & Jam Doughnut Featured Positioning (March 28, 2026)
 1. **Jam Doughnut Featured Positioning**: Implemented battleData[] with one Jam Doughnut row per supermarket, positioned first in each category
 2. **Tap Targets**: All interactive elements now meet 44px minimum touch target size for better mobile usability
