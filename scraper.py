@@ -723,9 +723,9 @@ def run_all_scrapers() -> Dict:
     reddit_deals = scrape_reddit_beermoneyuk()
     time.sleep(2)
     
-    # Scrape Google News as MSE replacement
-    print("\n📡 Scraping Google News for deals...")
-    news_deals = scrape_google_news_deals()
+    # Scrape Google News as MSE replacement - DISABLED for MegaList integration
+    print("\n📡 Google News scraping DISABLED (using MegaList instead)...")
+    news_deals = []  # Empty list instead of scraping
     
     # Scrape HotUKDeals
     print("\n📡 Scraping HotUKDeals...")
@@ -733,7 +733,6 @@ def run_all_scrapers() -> Dict:
     time.sleep(2)
     
     scraped = reddit_deals + news_deals + hotuk_deals
-    
     # Clean and validate scraped deals
     cleaned_scraped = []
     for deal in scraped:

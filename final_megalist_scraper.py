@@ -386,4 +386,30 @@ def run_complete_scraper():
         f"Supermarket deals preserved: {len(supermarket_deals)}",
         f"MegaList offers found: {len(megalist_offers)}",
         f"Total offers saved: {len(cleaned_deals)}",
-        f"Ghost offers removed: {len(all
+        f"Ghost offers removed: {len(all_deals) - len(cleaned_deals)}",
+        f"AI guides generated: {len(megalist_offers)}"
+    ]
+    
+    with open("scrape_log.txt", "w") as f:
+        f.write("\n".join(log))
+    
+    print("-" * 40)
+    print(f"✅ ENHANCED SCRAPER COMPLETE")
+    print(f"   - Manual offers: {len(manual_offers)}")
+    print(f"   - Supermarket deals: {len(supermarket_deals)}")
+    print(f"   - MegaList offers: {len(megalist_offers)}")
+    print(f"   - Ghost offers removed: {len(all_deals) - len(cleaned_deals)}")
+    print(f"   - Total saved: {len(cleaned_deals)}")
+    print(f"   - AI guides generated: {len(megalist_offers)}")
+    print(f"💾 Saved to all_deals.json")
+    print(f"📝 Log written to scrape_log.txt")
+    
+    return output
+
+
+# ============================================
+# RUN THE SCRAPER
+# ============================================
+
+if __name__ == "__main__":
+    run_complete_scraper()
