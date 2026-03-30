@@ -4197,6 +4197,7 @@
             return false;
           return t === 'scraped_reddit' ||
                  t === 'scraped_mse';
+                 t === 'scraped_megalist'; //
         });
         if (!scraped.length) return;
         const existingIds = new Set(offers.map(o => o.id));
@@ -4213,7 +4214,7 @@
             String(d.deal_price || '0')
               .replace(/[^0-9.]/g, '')
           ) || 0,
-          badge: '🔥 REDDIT FIND',
+          badge: t === 'scraped_megalist' ? '📋 MEGALIST' : '🔥 REDDIT FIND',
           effort: 'Check source for details',
           desc: (d.item || d.store || '').slice(0, 120),
           code: d.code || '',
