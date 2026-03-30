@@ -4179,26 +4179,53 @@
     ui.skipPendingBtn.addEventListener("click", closePendingPopup);
     document.addEventListener("keydown", e => { if (e.key === "Escape") { closePanel(); closeBattleDetail(); } });
 
-    async function loadOffersFromJSON() {
-      try {
-        const res = await fetch(
-          '/all_deals.json?v=' + Date.now()
-        );
-        if (!res.ok) throw new Error('fetch failed');
-        const data = await res.json();
-        if (!data.deals || !data.deals.length)
-          throw new Error('no deals');
-        const supermarkets = ['tesco','asda','sainsbury',
-          'iceland','morrisons','waitrose','aldi','lidl'];
-        const scraped = data.deals.filter(d => {
-          const s = (d.store || '').toLowerCase();
-          const t = (d.type || '').toLowerCase();
-          if (supermarkets.some(x => s.includes(x)))
-            return false;
-         return t === 'scraped_reddit' ||
-       t === 'scraped_mse' ||
-       t === 'scraped_megalist';
-        });
+  async function loadOffersFromJSON() {
+  try {
+    const res = await fetch('/all_deals.json?v=' + Date.now());
+    if (!res.ok) throw new Error('fetch failed');
+
+    const data = await res.json();
+    if (!data.deals || !data.deals.length) throw new Error('no deals');
+
+    // List of supermarkets to exclude
+    const supermarkets = ['tesco','asda','sainsbury','iceland','morrisons','waitrose','aldi','lidl'];
+
+    // Debug: log total deals in JSON
+    console.log("Total deals in JSON:", data.deals.length);
+
+    // Count deals by type
+    const typeCounts = data.deals.reduce((acc, d) => {
+      const t = (d.type || '').toLowerCase();
+      acc[t] = (acc[t] || 0) + 1;
+      return acc;
+    }, {});
+    console.log("Deals by type:", typeCounts);
+
+    // Filter non-supermarket and relevant scraped offers
+    const scraped = data.deals.filter(d => {
+      const s = (d.store || '').toLowerCase();
+      const t = (d.type || '').toLowerCase();
+
+      if (supermarkets.some(x => s.includes(x))) return false;
+
+      const keep = t === 'scraped_reddit' || t === 'scraped_mse' || t === 'scraped_megalist';
+      if (keep) console.log("Keeping offer:", d.name, "| Type:", t, "| Store:", s);
+      else console.log("Filtered out offer:", d.name, "| Type:", t, "| Store:", s);
+
+      return keep;
+    });
+
+    console.log("Total scraped offers kept:", scraped.length);
+
+    // Now render them as usual
+    renderOffers(scraped);
+
+  } catch (err) {
+    console.error("Error loading offers:", err);
+  }
+}
+  }
+}
         if (!scraped.length) return;
         const existingIds = new Set(offers.map(o => o.id));
         const mapped = scraped.map(d => ({
