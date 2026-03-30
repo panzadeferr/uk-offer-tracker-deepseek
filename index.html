@@ -959,13 +959,16 @@ async function initTicker() {
     if (res.ok) {
       const data = await res.json();
       const manual = (data.deals || [])
-        .filter(d => !d.type || 
-           d.type === 'bank_switch' ||
-          d.type === 'referral' ||
-          d.type === 'invest' ||
-          d.type === 'cashback')
+        .filter(d => !d.type ||
+          d.type === 'bank_switch'     ||
+          d.type === 'referral'        ||
+          d.type === 'invest'          ||
+          d.type === 'cashback'        ||
+          // FIX: MegaList deals have type='scraped_megalist'
+          // — they were invisible in the ticker before this fix
+          d.type === 'scraped_megalist')
         .filter(d => d.deal_price &&
-           d.deal_price !== 'Bonus' &&
+          d.deal_price !== 'Bonus' &&
           d.deal_price !== 'Free')
         .slice(0, 12);
       if (manual.length > 3) {

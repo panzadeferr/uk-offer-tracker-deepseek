@@ -681,21 +681,25 @@ def infer_category(deal: Dict) -> str:
 
 def validate_deal(deal: Dict) -> bool:
     """Validate deal has required fields and reasonable values"""
-    required_fields = ["store", "item", "deal_price", "link"]
+    required_fields = ["store", "item", "deal_price"]
     for field in required_fields:
         if field not in deal or not deal[field]:
             return False
-    
+
     # Validate deal price format
     deal_price = str(deal["deal_price"])
     if not re.search(r'£?\d+(?:\.\d{2})?', deal_price):
         return False
-    
-    # Validate link is a URL
-    link = str(deal["link"])
-    if not link.startswith(("http://", "https://")):
+
+    # FIX: MegaList deals often have empty link fields because
+    # the scraper couldn't extract a direct URL from the markdown
+    # table cell. Previously this dropped ALL such deals silently.
+    # Now we allow empty links (they render as '#' in the UI).
+    link = str(deal.get("link", ""))
+    if link and not link.startswith(("http://", "https://")):
+        # Non-empty but invalid URL — reject it
         return False
-    
+
     return True
 
 
