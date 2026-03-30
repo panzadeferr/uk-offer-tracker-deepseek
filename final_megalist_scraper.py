@@ -124,6 +124,59 @@ def parse_list_items(text: str) -> List[Dict]:
     
     return offers
 
+def is_valid_offer(offer: Dict) -> bool:
+    """
+    Validate that an offer is real and usable.
+    Returns True if offer should be kept, False if it should be filtered out.
+    """
+    # Must have a name
+    name = offer.get('store', '').strip()
+    if not name or len(name) > 80:
+        return False
+    
+    # Reject names that look like sentences (> 8 words = likely a paragraph)
+    if len(name.split()) > 8:
+        return False
+    
+    # Link is optional now - many valid offers use Reddit links
+    link = offer.get('link', '').strip()
+    # We still want SOME link validation, but not blocking Reddit
+    # Just ensure it's not completely empty
+    if not link:
+        return False
+    
+    # Must have a numeric reward in valid range (£5-£500)
+    deal_price = offer.get('deal_price', '')
+    try:
+        # Extract numeric value from deal_price
+        price_str = str(deal_price).replace('£', '').replace(',', '').strip()
+        # Handle ranges like "10-100"
+        if '-' in price_str:
+            price_str = price_str.split('-')[0]
+        
+        price = float(price_str)
+        if price < 5 or price > 500:
+            return False
+    except (ValueError, AttributeError):
+        return False
+    
+    # Filter out junk phrases in name/requirements (RELAXED)
+    junk_phrases = [
+        'you will get an email',
+        'on the face of it',
+        'this guide explains',
+        'ends 2025',  # outdated offers
+        'ends 2024',
+        'subscription fee applies',
+    ]
+    
+    check_text = f"{name} {offer.get('requirements', '')}".lower()
+    for phrase in junk_phrases:
+        if phrase in check_text:
+            return False
+    
+    return True
+
 def generate_ai_guide(offer_name: str, reward: str, requirements: str) -> str:
     """Generate natural 3-step guide."""
     req_lower = requirements.lower()
@@ -336,6 +389,28 @@ def run_complete_scraper():
     # 3. Scrape MegaList
     print("\n📡 SCRAPING MEGALIST")
     megalist_offers = scrape_megalist()
+    
+    # Filter invalid offers
+    print("\n🔍 FILTERING INVALID OFFERS")
+    valid_offers = [o for o in megalist_offers if is_valid_offer(o)]
+    print(f"   - Before filtering: {len(megalist_offers)} offers")
+    print(f"   - After filtering: {len(valid_offers)} offers")
+    print(f"   - Removed: {len(megalist_offers) - len(valid_offers)} invalid entries")
+    
+    # Deduplicate by name
+    print("\n🧹 DEDUPLICATING OFFERS")
+    seen = set()
+    unique_offers = []
+    for o in valid_offers:
+        name = o.get('store', '').lower().strip()
+        if name and name not in seen:
+            seen.add(name)
+            unique_offers.append(o)
+    
+    print(f"   - Removed {len(valid_offers) - len(unique_offers)} duplicates")
+    print(f"   - Final count: {len(unique_offers)} clean offers")
+    
+    megalist_offers = unique_offers
     
     # 4. Combine all offers
     all_deals = []

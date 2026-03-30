@@ -1,36 +1,714 @@
 {
-  "last_updated": "2026-03-30 19:07:05",
-  "total_deals": 43,
+  "last_updated": "2026-03-30 23:04:22",
+  "total_deals": 80,
   "manual_count": 32,
-  "supermarket_count": 8,
-  "reddit_count": 0,
-  "news_count": 0,
-  "hotukdeals_count": 3,
-  "unique_scraped_count": 3,
+  "supermarket_count": 9,
+  "megalist_count": 39,
+  "cleaned_count": 39,
   "sources": [
     "Manual",
     "Supermarket",
-    "Reddit r/beermoneyuk",
-    "Google News",
-    "HotUKDeals"
+    "MegaList"
   ],
-  "stacking_rates": {
-    "Tesco": 5.3,
-    "Sainsbury's": 4.4,
-    "Asda": 4.5,
-    "Iceland": 5.0,
-    "Morrisons": 4.0,
-    "Waitrose": 3.5,
-    "Aldi": 2.0,
-    "Lidl": 2.0
-  },
   "deals": [
+    {
+      "store": "Worldfirst",
+      "item": "Business - Up to 355 Reward",
+      "deal_price": "355",
+      "link": "https://s.worldfirst.com/2TuviC?default_source=WF-Ts00000OCun2&referral_id=WF-Ts00000OCun2&utm_campaign=COE_MGM_UK_2602&utm_date=app&lang=en_GB",
+      "original_price": "0",
+      "saving_percent": 100,
+      "type": "business",
+      "code": "",
+      "steps": [
+        "Open WorldFirst",
+        "Make qualifying transactions",
+        "Get up to 355"
+      ],
+      "timeFrame": "Varies",
+      "category": "business",
+      "stacked_price": 0,
+      "best_payment_method": "N/A",
+      "stacking_rate": 0,
+      "last_updated": "2026-03-30 23:04:22",
+      "id": "worldfirst-business-up-to-355-reward-355-5fb43582"
+    },
+    {
+      "store": "Lloyds Bank",
+      "item": "Open Account + Switch",
+      "deal_price": "250",
+      "link": "https://apply.lloydsbank.co.uk/sales-content/cwa/l/onboardpca/index-app.html?from=ob&webDirect=true&redesign=true&token=JpGVwskEUPxoFpO3Mg4RTAUZg6q6Emjz578QtNaABT8=&redesign=true#/refer-friend",
+      "original_price": "0",
+      "saving_percent": 100,
+      "type": "bank_switch",
+      "code": "",
+      "steps": [
+        "Open account",
+        "Switch using CASS",
+        "Get 250"
+      ],
+      "timeFrame": "30 days",
+      "category": "bank_switch",
+      "stacked_price": 0,
+      "best_payment_method": "N/A",
+      "stacking_rate": 0,
+      "last_updated": "2026-03-30 23:04:22",
+      "id": "lloyds-bank-open-account-switch-250-1da17f03"
+    },
+    {
+      "store": "Natwest",
+      "item": "Switch Account  200",
+      "deal_price": "200",
+      "link": "https://www.natwest.com/current-accounts/switch/",
+      "original_price": "0",
+      "saving_percent": 100,
+      "type": "bank_switch",
+      "code": "",
+      "steps": [
+        "Switch using CASS",
+        "2 direct debits",
+        "Get 200"
+      ],
+      "timeFrame": "30 days",
+      "category": "bank_switch",
+      "stacked_price": 0,
+      "best_payment_method": "N/A",
+      "stacking_rate": 0,
+      "last_updated": "2026-03-30 23:04:22",
+      "id": "natwest-switch-account-200-200-b5ed11b0"
+    },
+    {
+      "store": "First Direct",
+      "item": "Switch Account  175",
+      "deal_price": "175",
+      "link": "https://www.firstdirect.com/banking/switch/",
+      "original_price": "0",
+      "saving_percent": 100,
+      "type": "bank_switch",
+      "code": "",
+      "steps": [
+        "Switch using CASS",
+        "Pay in 1,000",
+        "Get 175"
+      ],
+      "timeFrame": "30 days",
+      "category": "bank_switch",
+      "stacked_price": 0,
+      "best_payment_method": "N/A",
+      "stacking_rate": 0,
+      "last_updated": "2026-03-30 23:04:22",
+      "id": "first-direct-switch-account-175-175-19e7938a"
+    },
+    {
+      "store": "Halifax",
+      "item": "Switch Account  150",
+      "deal_price": "150",
+      "link": "https://www.halifax.co.uk/currentaccounts/",
+      "original_price": "0",
+      "saving_percent": 100,
+      "type": "bank_switch",
+      "code": "",
+      "steps": [
+        "Switch using CASS",
+        "Pay in 1,500",
+        "Get 150"
+      ],
+      "timeFrame": "30 days",
+      "category": "bank_switch",
+      "stacked_price": 0,
+      "best_payment_method": "N/A",
+      "stacking_rate": 0,
+      "last_updated": "2026-03-30 23:04:22",
+      "id": "halifax-switch-account-150-150-1109a826"
+    },
+    {
+      "store": "Amex",
+      "item": "Spend 3,000  150+",
+      "deal_price": "150",
+      "link": "https://americanexpress.com/en-gb/referral/platinum-charge?ref=aLBERBf3Ob&XL=MNMNS",
+      "original_price": "0",
+      "saving_percent": 100,
+      "type": "credit",
+      "code": "",
+      "steps": [
+        "Apply for AMEX",
+        "Spend 3,000 in 3 months",
+        "Get 150"
+      ],
+      "timeFrame": "3 months",
+      "category": "other",
+      "stacked_price": 0,
+      "best_payment_method": "N/A",
+      "stacking_rate": 0,
+      "last_updated": "2026-03-30 23:04:22",
+      "id": "amex-spend-3-000-150-150-0d768522"
+    },
+    {
+      "store": "Plum",
+      "item": "Refer 3 Friends  75",
+      "deal_price": "75",
+      "link": "https://friends.withplum.com/r/RxK7c2fUNa",
+      "original_price": "0",
+      "saving_percent": 100,
+      "type": "invest",
+      "code": "",
+      "steps": [
+        "Join Plum",
+        "Refer 3 friends",
+        "Get 75"
+      ],
+      "timeFrame": "Expires April 7th",
+      "category": "investment",
+      "stacked_price": 0,
+      "best_payment_method": "N/A",
+      "stacking_rate": 0,
+      "last_updated": "2026-03-30 23:04:22",
+      "id": "plum-refer-3-friends-75-75-3ea9ba96"
+    },
+    {
+      "store": "Tide",
+      "item": "Business Account - 75 Free",
+      "deal_price": "75",
+      "link": "https://www.tide.co/",
+      "original_price": "0",
+      "saving_percent": 100,
+      "type": "business",
+      "code": "3834VA",
+      "steps": [
+        "Sign up for Tide",
+        "Use code 3834VA",
+        "Make first transaction"
+      ],
+      "timeFrame": "After first transaction",
+      "category": "business",
+      "stacked_price": 0,
+      "best_payment_method": "N/A",
+      "stacking_rate": 0,
+      "last_updated": "2026-03-30 23:04:22",
+      "id": "tide-business-account-75-free-75-db118fce"
+    },
+    {
+      "store": "Chase Uk",
+      "item": "Deposit 1,000  50",
+      "deal_price": "50",
+      "link": "https://chase.co.uk/raf",
+      "original_price": "0",
+      "saving_percent": 100,
+      "type": "bank_switch",
+      "code": "J2SK9W",
+      "steps": [
+        "Copy code J2SK9W",
+        "Open account",
+        "Deposit 1,000 in 30 days"
+      ],
+      "timeFrame": "30 days",
+      "category": "bank_switch",
+      "stacked_price": 0,
+      "best_payment_method": "N/A",
+      "stacking_rate": 0,
+      "last_updated": "2026-03-30 23:04:22",
+      "id": "chase-uk-deposit-1-000-50-50-4b0a5458"
+    },
+    {
+      "store": "Webull",
+      "item": "Deposit 500  50 Credit",
+      "deal_price": "50",
+      "link": "https://www.webull-uk.com/s/zEUukbJam8GjmUx6yq",
+      "original_price": "500",
+      "saving_percent": 10,
+      "type": "invest",
+      "code": "",
+      "steps": [
+        "Deposit 500",
+        "Keep 60 days",
+        "Get 50"
+      ],
+      "timeFrame": "60 days",
+      "category": "investment",
+      "stacked_price": 0,
+      "best_payment_method": "N/A",
+      "stacking_rate": 0,
+      "last_updated": "2026-03-30 23:04:22",
+      "id": "webull-deposit-500-50-credit-50-be81aa32"
+    },
+    {
+      "store": "Wealthify",
+      "item": "Invest 1,000  50 Bonus",
+      "deal_price": "50",
+      "link": "https://invest.wealthify.com/refer/81122944",
+      "original_price": "1,000",
+      "saving_percent": 5,
+      "type": "invest",
+      "code": "",
+      "steps": [
+        "Invest 1,000",
+        "Hold 6 months",
+        "Get 50"
+      ],
+      "timeFrame": "6 months",
+      "category": "investment",
+      "stacked_price": 0,
+      "best_payment_method": "N/A",
+      "stacking_rate": 0,
+      "last_updated": "2026-03-30 23:04:22",
+      "id": "wealthify-invest-1-000-50-bonus-50-5585e90e"
+    },
+    {
+      "store": "Octopus Energy",
+      "item": "Switch Energy - 50 Credit",
+      "deal_price": "50",
+      "link": "https://share.octopus.energy/ocean-quoll-258",
+      "original_price": "0",
+      "saving_percent": 100,
+      "type": "utilities",
+      "code": "",
+      "steps": [
+        "Switch to Octopus",
+        "Use referral link",
+        "Both get 50"
+      ],
+      "timeFrame": "After switch",
+      "category": "utilities",
+      "stacked_price": 0,
+      "best_payment_method": "N/A",
+      "stacking_rate": 0,
+      "last_updated": "2026-03-30 23:04:22",
+      "id": "octopus-energy-switch-energy-50-credit-50-0a772c91"
+    },
+    {
+      "store": "Pensionbee",
+      "item": "Sign Up  50 in Pension",
+      "deal_price": "50",
+      "link": "https://www.pensionbee.com/",
+      "original_price": "0",
+      "saving_percent": 100,
+      "type": "pension",
+      "code": "",
+      "steps": [
+        "Sign up for PensionBee",
+        "Get 50 in your pension"
+      ],
+      "timeFrame": "~1 month",
+      "category": "investment",
+      "stacked_price": 0,
+      "best_payment_method": "N/A",
+      "stacking_rate": 0,
+      "last_updated": "2026-03-30 23:04:22",
+      "id": "pensionbee-sign-up-50-in-pension-50-d6a28878"
+    },
+    {
+      "store": "Rakuten",
+      "item": "Cashback Site - 25 Bonus",
+      "deal_price": "25",
+      "link": "https://www.rakuten.co.uk/r/ALBERT24541?eeid=28187",
+      "original_price": "50",
+      "saving_percent": 50,
+      "type": "cashback",
+      "code": "",
+      "steps": [
+        "Join Rakuten",
+        "Spend 50 + VAT",
+        "Get 25"
+      ],
+      "timeFrame": "After first purchase",
+      "category": "cashback",
+      "stacked_price": 0,
+      "best_payment_method": "N/A",
+      "stacking_rate": 0,
+      "last_updated": "2026-03-30 23:04:22",
+      "id": "rakuten-cashback-site-25-bonus-25-8cbc5511"
+    },
+    {
+      "store": "Revolut",
+      "item": "Spend 1  Get 20",
+      "deal_price": "20",
+      "link": "https://revolut.com/referral/?referral-code=ludoviv2sq!MAR1-26-AR-H2&geo-redirect",
+      "original_price": "1",
+      "saving_percent": 95,
+      "type": "referral",
+      "code": "",
+      "steps": [
+        "Sign up",
+        "Spend 1",
+        "Get 20"
+      ],
+      "timeFrame": "~1 month",
+      "category": "bank_switch",
+      "stacked_price": 0,
+      "best_payment_method": "N/A",
+      "stacking_rate": 0,
+      "last_updated": "2026-03-30 23:04:22",
+      "id": "revolut-spend-1-get-20-20-8401274e"
+    },
+    {
+      "store": "Quidco",
+      "item": "Cashback Site - 20 Bonus",
+      "deal_price": "20",
+      "link": "https://quidco.onelink.me/nKzg/v2f3f7m0",
+      "original_price": "0",
+      "saving_percent": 100,
+      "type": "cashback",
+      "code": "",
+      "steps": [
+        "Join Quidco",
+        "Earn 5 cashback",
+        "Get 20"
+      ],
+      "timeFrame": "After earning 5",
+      "category": "cashback",
+      "stacked_price": 0,
+      "best_payment_method": "N/A",
+      "stacking_rate": 0,
+      "last_updated": "2026-03-30 23:04:22",
+      "id": "quidco-cashback-site-20-bonus-20-d8fa4610"
+    },
+    {
+      "store": "Freetrade",
+      "item": "Deposit 1  Free Share (10-100)",
+      "deal_price": "10-100",
+      "link": "https://magic.freetrade.io/join/alberto/6f308795",
+      "original_price": "1",
+      "saving_percent": 90,
+      "type": "invest",
+      "code": "",
+      "steps": [
+        "Deposit 1",
+        "Get free share"
+      ],
+      "timeFrame": "Few days",
+      "category": "investment",
+      "stacked_price": 0,
+      "best_payment_method": "N/A",
+      "stacking_rate": 0,
+      "last_updated": "2026-03-30 23:04:22",
+      "id": "freetrade-deposit-1-free-share-10-100-10-100-1d0b3720"
+    },
+    {
+      "store": "Robinhood",
+      "item": "Deposit 1  Free Share",
+      "deal_price": "10-140",
+      "link": "https://join.robinhood.com/albertb-d5dfe0",
+      "original_price": "1",
+      "saving_percent": 90,
+      "type": "invest",
+      "code": "",
+      "steps": [
+        "Deposit 1",
+        "Get free share"
+      ],
+      "timeFrame": "Few days",
+      "category": "investment",
+      "stacked_price": 0,
+      "best_payment_method": "N/A",
+      "stacking_rate": 0,
+      "last_updated": "2026-03-30 23:04:22",
+      "id": "robinhood-deposit-1-free-share-10-140-c3f42cae"
+    },
+    {
+      "store": "Topcashback",
+      "item": "Cashback Site - 10 Bonus",
+      "deal_price": "10",
+      "link": "https://www.topcashback.co.uk/ref/Panzadeferr/?source_id=4",
+      "original_price": "0",
+      "saving_percent": 100,
+      "type": "cashback",
+      "code": "",
+      "steps": [
+        "Join TopCashback",
+        "Shop through site"
+      ],
+      "timeFrame": "Lifetime",
+      "category": "cashback",
+      "stacked_price": 0,
+      "best_payment_method": "N/A",
+      "stacking_rate": 0,
+      "last_updated": "2026-03-30 23:04:22",
+      "id": "topcashback-cashback-site-10-bonus-10-2dff3d6d"
+    },
+    {
+      "store": "Zopa (biscuit)",
+      "item": "Open Account  10 Free",
+      "deal_price": "10",
+      "link": "https://www.zopa.com/mgma?referralCode=ed204ce1b3dd265fa533",
+      "original_price": "0",
+      "saving_percent": 100,
+      "type": "referral",
+      "code": "",
+      "steps": [
+        "Open Biscuit account",
+        "Get 10 instantly"
+      ],
+      "timeFrame": "Instant",
+      "category": "freebies",
+      "stacked_price": 0,
+      "best_payment_method": "N/A",
+      "stacking_rate": 0,
+      "last_updated": "2026-03-30 23:04:22",
+      "id": "zopa-biscuit-open-account-10-free-10-df4820b8"
+    },
+    {
+      "store": "Monzo",
+      "item": "Spend 1  Get 5-50",
+      "deal_price": "5-50",
+      "link": "https://join.monzo.com/r/",
+      "original_price": "1",
+      "saving_percent": 90,
+      "type": "referral",
+      "code": "",
+      "steps": [
+        "Sign up",
+        "Spend 1",
+        "Get bonus"
+      ],
+      "timeFrame": "Immediate",
+      "category": "bank_switch",
+      "stacked_price": 0,
+      "best_payment_method": "N/A",
+      "stacking_rate": 0,
+      "last_updated": "2026-03-30 23:04:22",
+      "id": "monzo-spend-1-get-5-50-5-50-55b4160a"
+    },
+    {
+      "store": "Zilch",
+      "item": "Sign Up  5 Free",
+      "deal_price": "5",
+      "link": "https://zilch.onelink.me/x8EV/zdehyy8s",
+      "original_price": "0",
+      "saving_percent": 100,
+      "type": "referral",
+      "code": "",
+      "steps": [
+        "Sign up for Zilch",
+        "Get 5 credit instantly"
+      ],
+      "timeFrame": "Instant",
+      "category": "investment",
+      "stacked_price": 0,
+      "best_payment_method": "N/A",
+      "stacking_rate": 0,
+      "last_updated": "2026-03-30 23:04:22",
+      "id": "zilch-sign-up-5-free-5-78d54d1c"
+    },
+    {
+      "store": "Cheddar",
+      "item": "Gift Card Cashback - 3 Bonus",
+      "deal_price": "3",
+      "link": "https://get.cheddar.me/app/FVESBGB",
+      "original_price": "0",
+      "saving_percent": 100,
+      "type": "cashback",
+      "code": "FVESBGB",
+      "steps": [
+        "Use code FVESBGB",
+        "Earn cashback at retailers"
+      ],
+      "timeFrame": "Ongoing",
+      "category": "cashback",
+      "stacked_price": 0,
+      "best_payment_method": "N/A",
+      "stacking_rate": 0,
+      "last_updated": "2026-03-30 23:04:22",
+      "id": "cheddar-gift-card-cashback-3-bonus-3-145cd1c0"
+    },
+    {
+      "store": "Jam Doughnut",
+      "item": "Gift Card Cashback - 3 Bonus",
+      "deal_price": "3",
+      "link": "https://www.jamdoughnut.com/",
+      "original_price": "0",
+      "saving_percent": 100,
+      "type": "cashback",
+      "code": "8TGF",
+      "steps": [
+        "Use code 8TGF",
+        "Buy gift cards with cashback"
+      ],
+      "timeFrame": "Immediate",
+      "category": "cashback",
+      "stacked_price": 0,
+      "best_payment_method": "N/A",
+      "stacking_rate": 0,
+      "last_updated": "2026-03-30 23:04:22",
+      "id": "jam-doughnut-gift-card-cashback-3-bonus-3-9132e8fb"
+    },
+    {
+      "store": "Trainpal",
+      "item": "3 Off Train Tickets",
+      "deal_price": "3",
+      "link": "https://t.trainpal.com/wUEPLNq",
+      "original_price": "0",
+      "saving_percent": 100,
+      "type": "travel",
+      "code": "03ba089c$00",
+      "steps": [
+        "Download TrainPal",
+        "Use code 03ba089c$00",
+        "Save on train tickets"
+      ],
+      "timeFrame": "Use within 7 days",
+      "category": "travel",
+      "stacked_price": 0,
+      "best_payment_method": "N/A",
+      "stacking_rate": 0,
+      "last_updated": "2026-03-30 23:04:22",
+      "id": "trainpal-3-off-train-tickets-3-6e0fc821"
+    },
+    {
+      "store": "Airtime",
+      "item": "Gift Card Cashback - 2 Bonus",
+      "deal_price": "2",
+      "link": "https://airtimerewards.app.link/6Waa7E1IF1b",
+      "original_price": "5",
+      "saving_percent": 40,
+      "type": "cashback",
+      "code": "FRJKFXX3",
+      "steps": [
+        "Use code FRJKFXX3",
+        "Spend 5 in 7 days",
+        "Get 2"
+      ],
+      "timeFrame": "7 days",
+      "category": "cashback",
+      "stacked_price": 0,
+      "best_payment_method": "N/A",
+      "stacking_rate": 0,
+      "last_updated": "2026-03-30 23:04:22",
+      "id": "airtime-gift-card-cashback-2-bonus-2-9287300b"
+    },
+    {
+      "store": "Everup",
+      "item": "Gift Card Cashback",
+      "deal_price": "2",
+      "link": "https://everup.onelink.me/9lgD/3d22pmln",
+      "original_price": "0",
+      "saving_percent": 100,
+      "type": "cashback",
+      "code": "",
+      "steps": [
+        "Join EverUp",
+        "Link cards",
+        "Earn cashback"
+      ],
+      "timeFrame": "Ongoing",
+      "category": "cashback",
+      "stacked_price": 0,
+      "best_payment_method": "N/A",
+      "stacking_rate": 0,
+      "last_updated": "2026-03-30 23:04:22",
+      "id": "everup-gift-card-cashback-2-a7a1f77c"
+    },
+    {
+      "store": "Moneybox",
+      "item": "Save & Invest - Great for DDs",
+      "deal_price": "Bonus",
+      "link": "https://go.onelink.me/5M0L?pid=share&c=EN8YW8",
+      "original_price": "0",
+      "saving_percent": 0,
+      "type": "invest",
+      "code": "",
+      "steps": [
+        "Download Moneybox",
+        "Perfect for direct debits"
+      ],
+      "timeFrame": "Ongoing",
+      "category": "investment",
+      "stacked_price": 0,
+      "best_payment_method": "N/A",
+      "stacking_rate": 0,
+      "last_updated": "2026-03-30 23:04:22",
+      "id": "moneybox-save-invest-great-for-dds-bonus-037c576e"
+    },
+    {
+      "store": "Lebara",
+      "item": "Mobile SIM - Referral Bonus",
+      "deal_price": "Discount",
+      "link": "https://aklam.io/hgY3HOvR",
+      "original_price": "0",
+      "saving_percent": 20,
+      "type": "utilities",
+      "code": "",
+      "steps": [
+        "Sign up for Lebara",
+        "Get great SIM deals"
+      ],
+      "timeFrame": "Immediate",
+      "category": "utilities",
+      "stacked_price": 0,
+      "best_payment_method": "N/A",
+      "stacking_rate": 0,
+      "last_updated": "2026-03-30 23:04:22",
+      "id": "lebara-mobile-sim-referral-bonus-discount-caaa3b6b"
+    },
+    {
+      "store": "Costa",
+      "item": "Free Cake + Coffee",
+      "deal_price": "Free",
+      "link": "https://www.costa.co.uk/",
+      "original_price": "5",
+      "saving_percent": 100,
+      "type": "freebies",
+      "code": "",
+      "steps": [
+        "Sign up for Costa Club",
+        "Get free cake & half drink"
+      ],
+      "timeFrame": "Immediate",
+      "category": "freebies",
+      "stacked_price": 0,
+      "best_payment_method": "N/A",
+      "stacking_rate": 0,
+      "last_updated": "2026-03-30 23:04:22",
+      "id": "costa-free-cake-coffee-free-c389ba04"
+    },
+    {
+      "store": "Waitrose",
+      "item": "Free Coffee Daily",
+      "deal_price": "Free",
+      "link": "https://www.waitrose.com/",
+      "original_price": "3",
+      "saving_percent": 100,
+      "type": "freebies",
+      "code": "",
+      "steps": [
+        "Get Waitrose card",
+        "Free tea/coffee daily"
+      ],
+      "timeFrame": "Daily",
+      "category": "supermarket",
+      "stacked_price": 0,
+      "best_payment_method": "JamDoughnut (3.5%) + MyWaitrose",
+      "stacking_rate": 3.5,
+      "last_updated": "2026-03-30 23:04:22",
+      "id": "waitrose-free-coffee-daily-free-8d4235e5"
+    },
+    {
+      "store": "Wise",
+      "item": "Free Transfer + Card",
+      "deal_price": "Free",
+      "link": "https://wise.com/invite/ahpc/albertob1508",
+      "original_price": "5",
+      "saving_percent": 100,
+      "type": "transfer",
+      "code": "",
+      "steps": [
+        "Sign up for Wise",
+        "First transfer free",
+        "Get free card"
+      ],
+      "timeFrame": "Immediate",
+      "category": "freebies",
+      "stacked_price": 0,
+      "best_payment_method": "N/A",
+      "stacking_rate": 0,
+      "last_updated": "2026-03-30 23:04:22",
+      "id": "wise-free-transfer-card-free-3ed028cc"
+    },
     {
       "store": "Asda",
       "item": "Fresh Fruit & Vegetables",
-      "deal_price": "£2.50",
+      "deal_price": "2.50",
       "link": "https://groceries.asda.com/deals/fresh-food",
-      "original_price": "£3.50",
+      "original_price": "3.50",
       "saving_percent": 29,
       "base_price": 2.5,
       "category": "supermarket",
@@ -38,14 +716,15 @@
       "stacked_price": 2.39,
       "best_payment_method": "Airtime Rewards (4%) + Asda Rewards",
       "stacking_rate": 4.5,
-      "last_updated": "2026-03-30 19:07:05"
+      "last_updated": "2026-03-30 23:04:22",
+      "id": "asda-fresh-fruit-vegetables-2-50-ef5c0da7"
     },
     {
       "store": "Sainsbury's",
       "item": "Meal Deal - Lunch",
-      "deal_price": "£3.50",
+      "deal_price": "3.50",
       "link": "https://www.sainsburys.co.uk/meal-deal",
-      "original_price": "£5.00",
+      "original_price": "5.00",
       "saving_percent": 30,
       "base_price": 3.5,
       "category": "supermarket",
@@ -53,14 +732,15 @@
       "stacked_price": 3.35,
       "best_payment_method": "JamDoughnut (4.1%) + Nectar",
       "stacking_rate": 4.4,
-      "last_updated": "2026-03-30 19:07:05"
+      "last_updated": "2026-03-30 23:04:22",
+      "id": "sainsbury-s-meal-deal-lunch-3-50-ecaf6316"
     },
     {
       "store": "Tesco",
       "item": "Fresh Meat & Fish",
-      "deal_price": "£7.00",
+      "deal_price": "7.00",
       "link": "https://www.tesco.com/groceries/en-GB/shop/fresh-food/all",
-      "original_price": "£10.00",
+      "original_price": "10.00",
       "saving_percent": 30,
       "base_price": 7,
       "category": "supermarket",
@@ -68,14 +748,15 @@
       "stacked_price": 6.63,
       "best_payment_method": "EverUp (4.9%) + Clubcard",
       "stacking_rate": 5.3,
-      "last_updated": "2026-03-30 19:07:05"
+      "last_updated": "2026-03-30 23:04:22",
+      "id": "tesco-fresh-meat-fish-7-00-f2fed041"
     },
     {
       "store": "Iceland",
       "item": "Family Favourites Bundle",
-      "deal_price": "£8.00",
+      "deal_price": "8.00",
       "link": "https://www.iceland.co.uk/family-meals",
-      "original_price": "£12.00",
+      "original_price": "12.00",
       "saving_percent": 33,
       "base_price": 8,
       "category": "supermarket",
@@ -83,14 +764,15 @@
       "stacked_price": 7.6,
       "best_payment_method": "TopCashback (3.5%) + Bonus Card",
       "stacking_rate": 5.0,
-      "last_updated": "2026-03-30 19:07:05"
+      "last_updated": "2026-03-30 23:04:22",
+      "id": "iceland-family-favourites-bundle-8-00-d82246cd"
     },
     {
       "store": "Iceland",
-      "item": "3 for £10 - Selected Frozen",
-      "deal_price": "£10.00",
+      "item": "3 for 10 - Selected Frozen",
+      "deal_price": "10.00",
       "link": "https://www.iceland.co.uk/offers",
-      "original_price": "£15.00",
+      "original_price": "15.00",
       "saving_percent": 33,
       "base_price": 10,
       "category": "supermarket",
@@ -98,7 +780,8 @@
       "stacked_price": 9.5,
       "best_payment_method": "TopCashback (3.5%) + Bonus Card",
       "stacking_rate": 5.0,
-      "last_updated": "2026-03-30 19:07:05"
+      "last_updated": "2026-03-30 23:04:22",
+      "id": "iceland-3-for-10-selected-frozen-10-00-9f978288"
     },
     {
       "store": "Sainsbury's",
@@ -113,7 +796,8 @@
       "stacked_price": 11.47,
       "best_payment_method": "JamDoughnut (4.1%) + Nectar",
       "stacking_rate": 4.4,
-      "last_updated": "2026-03-30 19:07:05"
+      "last_updated": "2026-03-30 23:04:22",
+      "id": "sainsbury-s-nectar-prices-members-only-exclusive-prices-9c8a74a8"
     },
     {
       "store": "Asda",
@@ -128,7 +812,8 @@
       "stacked_price": 14.32,
       "best_payment_method": "Airtime Rewards (4%) + Asda Rewards",
       "stacking_rate": 4.5,
-      "last_updated": "2026-03-30 19:07:05"
+      "last_updated": "2026-03-30 23:04:22",
+      "id": "asda-payday-deals-selected-items-up-to-40-off-49c6d1f5"
     },
     {
       "store": "Tesco",
@@ -143,733 +828,608 @@
       "stacked_price": 18.94,
       "best_payment_method": "EverUp (4.9%) + Clubcard",
       "stacking_rate": 5.3,
-      "last_updated": "2026-03-30 19:07:05"
+      "last_updated": "2026-03-30 23:04:22",
+      "id": "tesco-clubcard-prices-selected-items-up-to-50-off-50a9a434"
     },
     {
-      "store": "Worldfirst",
-      "item": "Business - Up to £355 Reward",
-      "deal_price": "£355",
-      "link": "https://s.worldfirst.com/2TuviC?default_source=WF-Ts00000OCun2&referral_id=WF-Ts00000OCun2&utm_campaign=COE_MGM_UK_2602&utm_date=app&lang=en_GB",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "business",
-      "code": "",
+      "store": "**Tesco Bank**  | Get",
+      "item": "**Tesco Bank**  | Get",
+      "deal_price": "£25.0",
+      "link": "https://www.topcashback.co.uk/ref/scrimprbonus",
+      "requirements": "**Tesco Bank**  | Get £25 | Open an account | Where: [Topcashback](https://www.topcashback.co.uk/ref/scrimprbonus)",
+      "type": "scraped_megalist",
+      "source": "MegaList",
+      "last_updated": "2026-03-30 23:04:22",
+      "step_by_step_guide": "1. **Open account** - Create an account using the provided link\n2. **Complete the required steps** - Follow the specific requirements to qualify\n3. **Receive your reward** - The bonus will be paid once all conditions are met",
       "steps": [
-        "Open WorldFirst",
-        "Make qualifying transactions",
-        "Get up to £355"
+        "Follow the step-by-step guide below"
       ],
-      "timeFrame": "Varies",
-      "category": "business",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-03-30 19:07:05"
+      "category": "supermarket"
     },
     {
-      "store": "Lloyds Bank",
-      "item": "Open Account + Switch",
-      "deal_price": "£250",
-      "link": "https://apply.lloydsbank.co.uk/sales-content/cwa/l/onboardpca/index-app.html?from=ob&webDirect=true&redesign=true&token=JpGVwskEUPxoFpO3Mg4RTAUZg6q6Emjz578QtNaABT8=&redesign=true#/refer-friend",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "bank_switch",
-      "code": "",
+      "store": "Rubify is a new rewards app looking for ",
+      "item": "Rubify is a new rewards app looking for UK beta testers. They'll pay people",
+      "deal_price": "£10.0",
+      "link": "https://www.reddit.com/r/GetPaidToPlay/s/3UJLArSgpa",
+      "requirements": "Rubify is a new rewards app looking for UK beta testers. They'll pay people £10 to try it out and provide feedback. [Details here](https://www.reddit.com/r/GetPaidToPlay/s/3UJLArSgpa)",
+      "type": "scraped_megalist",
+      "source": "MegaList",
+      "last_updated": "2026-03-30 23:04:22",
+      "step_by_step_guide": "1. **Sign up** - Create an account using the provided link\n2. **Complete the required steps** - Follow the specific requirements to qualify\n3. **Receive your reward** - The bonus will be paid once all conditions are met",
       "steps": [
-        "Open account",
-        "Switch using CASS",
-        "Get £250"
+        "Follow the step-by-step guide below"
       ],
-      "timeFrame": "30 days",
-      "category": "bank_switch",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-03-30 19:07:05"
-    },
-    {
-      "store": "Natwest",
-      "item": "Switch Account → £200",
-      "deal_price": "£200",
-      "link": "https://www.natwest.com/current-accounts/switch/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "bank_switch",
-      "code": "",
-      "steps": [
-        "Switch using CASS",
-        "2 direct debits",
-        "Get £200"
-      ],
-      "timeFrame": "30 days",
-      "category": "bank_switch",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-03-30 19:07:05"
-    },
-    {
-      "store": "First Direct",
-      "item": "Switch Account → £175",
-      "deal_price": "£175",
-      "link": "https://www.firstdirect.com/banking/switch/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "bank_switch",
-      "code": "",
-      "steps": [
-        "Switch using CASS",
-        "Pay in £1,000",
-        "Get £175"
-      ],
-      "timeFrame": "30 days",
-      "category": "bank_switch",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-03-30 19:07:05"
-    },
-    {
-      "store": "Halifax",
-      "item": "Switch Account → £150",
-      "deal_price": "£150",
-      "link": "https://www.halifax.co.uk/currentaccounts/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "bank_switch",
-      "code": "",
-      "steps": [
-        "Switch using CASS",
-        "Pay in £1,500",
-        "Get £150"
-      ],
-      "timeFrame": "30 days",
-      "category": "bank_switch",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-03-30 19:07:05"
-    },
-    {
-      "store": "Amex",
-      "item": "Spend £3,000 → £150+",
-      "deal_price": "£150",
-      "link": "https://americanexpress.com/en-gb/referral/platinum-charge?ref=aLBERBf3Ob&XL=MNMNS",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "credit",
-      "code": "",
-      "steps": [
-        "Apply for AMEX",
-        "Spend £3,000 in 3 months",
-        "Get £150"
-      ],
-      "timeFrame": "3 months",
-      "category": "other",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-03-30 19:07:05"
-    },
-    {
-      "store": "Plum",
-      "item": "Refer 3 Friends → £75",
-      "deal_price": "£75",
-      "link": "https://friends.withplum.com/r/RxK7c2fUNa",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "invest",
-      "code": "",
-      "steps": [
-        "Join Plum",
-        "Refer 3 friends",
-        "Get £75"
-      ],
-      "timeFrame": "Expires April 7th",
-      "category": "investment",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-03-30 19:07:05"
-    },
-    {
-      "store": "Tide",
-      "item": "Business Account - £75 Free",
-      "deal_price": "£75",
-      "link": "https://www.tide.co/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "business",
-      "code": "3834VA",
-      "steps": [
-        "Sign up for Tide",
-        "Use code 3834VA",
-        "Make first transaction"
-      ],
-      "timeFrame": "After first transaction",
-      "category": "business",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-03-30 19:07:05"
-    },
-    {
-      "store": "Nintendo Switch 2 Mario Kart + Donkey Ko",
-      "item": "Nintendo Switch 2 Mario Kart + Donkey kong, Nintendo joy-cons £64.99, £60 PSN et",
-      "deal_price": "£64.99",
-      "link": "https://www.hotukdeals.com/deals/30-off-60-spend-credit-to-account-eg-nintendo-switch-2-mario-kart-donkey-kong-399-joy-cons-3299-60-psn-credit-for-30-etc-at-very-4854076",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "scraped_hotukdeals",
-      "code": "",
-      "steps": [
-        "Check the HotUKDeals post",
-        "Follow the deal link",
-        "Complete required steps"
-      ],
-      "timeFrame": "Check post",
-      "source": "HotUKDeals",
-      "last_updated": "2026-03-30 19:07:05",
-      "category": "other",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Chase Uk",
-      "item": "Deposit £1,000 → £50",
-      "deal_price": "£50",
-      "link": "https://chase.co.uk/raf",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "bank_switch",
-      "code": "J2SK9W",
-      "steps": [
-        "Copy code J2SK9W",
-        "Open account",
-        "Deposit £1,000 in 30 days"
-      ],
-      "timeFrame": "30 days",
-      "category": "bank_switch",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-03-30 19:07:05"
-    },
-    {
-      "store": "Webull",
-      "item": "Deposit £500 → £50 Credit",
-      "deal_price": "£50",
-      "link": "https://www.webull-uk.com/s/zEUukbJam8GjmUx6yq",
-      "original_price": "£500",
-      "saving_percent": 10,
-      "type": "invest",
-      "code": "",
-      "steps": [
-        "Deposit £500",
-        "Keep 60 days",
-        "Get £50"
-      ],
-      "timeFrame": "60 days",
-      "category": "investment",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-03-30 19:07:05"
-    },
-    {
-      "store": "Wealthify",
-      "item": "Invest £1,000 → £50 Bonus",
-      "deal_price": "£50",
-      "link": "https://invest.wealthify.com/refer/81122944",
-      "original_price": "£1,000",
-      "saving_percent": 5,
-      "type": "invest",
-      "code": "",
-      "steps": [
-        "Invest £1,000",
-        "Hold 6 months",
-        "Get £50"
-      ],
-      "timeFrame": "6 months",
-      "category": "investment",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-03-30 19:07:05"
-    },
-    {
-      "store": "Octopus Energy",
-      "item": "Switch Energy - £50 Credit",
-      "deal_price": "£50",
-      "link": "https://share.octopus.energy/ocean-quoll-258",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "utilities",
-      "code": "",
-      "steps": [
-        "Switch to Octopus",
-        "Use referral link",
-        "Both get £50"
-      ],
-      "timeFrame": "After switch",
-      "category": "utilities",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-03-30 19:07:05"
-    },
-    {
-      "store": "Pensionbee",
-      "item": "Sign Up → £50 in Pension",
-      "deal_price": "£50",
-      "link": "https://www.pensionbee.com/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "pension",
-      "code": "",
-      "steps": [
-        "Sign up for PensionBee",
-        "Get £50 in your pension"
-      ],
-      "timeFrame": "~1 month",
-      "category": "investment",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-03-30 19:07:05"
-    },
-    {
-      "store": "Rakuten",
-      "item": "Cashback Site - £25 Bonus",
-      "deal_price": "£25",
-      "link": "https://www.rakuten.co.uk/r/ALBERT24541?eeid=28187",
-      "original_price": "£50",
-      "saving_percent": 50,
-      "type": "cashback",
-      "code": "",
-      "steps": [
-        "Join Rakuten",
-        "Spend £50 + VAT",
-        "Get £25"
-      ],
-      "timeFrame": "After first purchase",
-      "category": "cashback",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-03-30 19:07:05"
-    },
-    {
-      "store": "£25 Referral Bonus + £20 For Your Friend",
-      "item": "£25 Referral Bonus + £20 For Your Friend (When They Reach £5 Cashback)",
-      "deal_price": "£25",
-      "link": "https://www.hotukdeals.com/deals/ps25-for-you-ps20-for-your-friend-4835297",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "scraped_hotukdeals",
-      "code": "",
-      "steps": [
-        "Check the HotUKDeals post",
-        "Follow the deal link",
-        "Complete required steps"
-      ],
-      "timeFrame": "Check post",
-      "source": "HotUKDeals",
-      "last_updated": "2026-03-30 19:07:05",
-      "category": "cashback",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Revolut",
-      "item": "Spend £1 → Get £20",
-      "deal_price": "£20",
-      "link": "https://revolut.com/referral/?referral-code=ludoviv2sq!MAR1-26-AR-H2&geo-redirect",
-      "original_price": "£1",
-      "saving_percent": 95,
-      "type": "referral",
-      "code": "",
-      "steps": [
-        "Sign up",
-        "Spend £1",
-        "Get £20"
-      ],
-      "timeFrame": "~1 month",
-      "category": "bank_switch",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-03-30 19:07:05"
-    },
-    {
-      "store": "Quidco",
-      "item": "Cashback Site - £20 Bonus",
-      "deal_price": "£20",
-      "link": "https://quidco.onelink.me/nKzg/v2f3f7m0",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "cashback",
-      "code": "",
-      "steps": [
-        "Join Quidco",
-        "Earn £5 cashback",
-        "Get £20"
-      ],
-      "timeFrame": "After earning £5",
-      "category": "cashback",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-03-30 19:07:05"
-    },
-    {
-      "store": "Freetrade",
-      "item": "Deposit £1 → Free Share (£10-£100)",
-      "deal_price": "£10-£100",
-      "link": "https://magic.freetrade.io/join/alberto/6f308795",
-      "original_price": "£1",
-      "saving_percent": 90,
-      "type": "invest",
-      "code": "",
-      "steps": [
-        "Deposit £1",
-        "Get free share"
-      ],
-      "timeFrame": "Few days",
-      "category": "investment",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-03-30 19:07:05"
-    },
-    {
-      "store": "Robinhood",
-      "item": "Deposit £1 → Free Share",
-      "deal_price": "£10-£140",
-      "link": "https://join.robinhood.com/albertb-d5dfe0",
-      "original_price": "£1",
-      "saving_percent": 90,
-      "type": "invest",
-      "code": "",
-      "steps": [
-        "Deposit £1",
-        "Get free share"
-      ],
-      "timeFrame": "Few days",
-      "category": "investment",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-03-30 19:07:05"
-    },
-    {
-      "store": "Topcashback",
-      "item": "Cashback Site - £10 Bonus",
-      "deal_price": "£10",
-      "link": "https://www.topcashback.co.uk/ref/Panzadeferr/?source_id=4",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "cashback",
-      "code": "",
-      "steps": [
-        "Join TopCashback",
-        "Shop through site"
-      ],
-      "timeFrame": "Lifetime",
-      "category": "cashback",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-03-30 19:07:05"
-    },
-    {
-      "store": "Zopa (biscuit)",
-      "item": "Open Account → £10 Free",
-      "deal_price": "£10",
-      "link": "https://www.zopa.com/mgma?referralCode=ed204ce1b3dd265fa533",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "referral",
-      "code": "",
-      "steps": [
-        "Open Biscuit account",
-        "Get £10 instantly"
-      ],
-      "timeFrame": "Instant",
-      "category": "freebies",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-03-30 19:07:05"
-    },
-    {
-      "store": "Monzo",
-      "item": "Spend £1 → Get £5-£50",
-      "deal_price": "£5-£50",
-      "link": "https://join.monzo.com/r/",
-      "original_price": "£1",
-      "saving_percent": 90,
-      "type": "referral",
-      "code": "",
-      "steps": [
-        "Sign up",
-        "Spend £1",
-        "Get bonus"
-      ],
-      "timeFrame": "Immediate",
-      "category": "bank_switch",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-03-30 19:07:05"
+      "category": "other"
     },
     {
       "store": "Zilch",
-      "item": "Sign Up → £5 Free",
-      "deal_price": "£5",
-      "link": "https://zilch.onelink.me/x8EV/zdehyy8s",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "referral",
-      "code": "",
+      "item": "Zilch",
+      "deal_price": "£10.0",
+      "link": "https://www.reddit.com/r/beermoneyuk/comments/wgbeck/zilch_fast_and_free_10_to_spend_no_deposit/",
+      "requirements": "Zilch - [Free £10 from Zilch mini-megathread](https://www.reddit.com/r/beermoneyuk/comments/wgbeck/zilch_fast_and_free_10_to_spend_no_deposit/)",
+      "type": "scraped_megalist",
+      "source": "MegaList",
+      "last_updated": "2026-03-30 23:04:22",
+      "step_by_step_guide": "1. **Deposit funds** - Create an account using the provided link\n2. **Complete the required steps** - Follow the specific requirements to qualify\n3. **Receive your reward** - The bonus will be paid once all conditions are met",
       "steps": [
-        "Sign up for Zilch",
-        "Get £5 credit instantly"
+        "Follow the step-by-step guide below"
       ],
-      "timeFrame": "Instant",
-      "category": "investment",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-03-30 19:07:05"
+      "category": "other"
     },
     {
-      "store": "Nintendo Switch Lite Console - Turquoise",
-      "item": "Nintendo Switch Lite Console - Turquoise (+Earn £4 Back In Reward Points)",
-      "deal_price": "£4",
-      "link": "https://www.hotukdeals.com/deals/nintendo-switch-lite-console-turquoise-earn-ps4-back-in-reward-points-4849380",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "scraped_hotukdeals",
-      "code": "",
+      "store": "**Link:** 🌐 [Outplayed link with free tr",
+      "item": "**Link:** 🌐 [Outplayed link with free trial (earn ~",
+      "deal_price": "£40.0",
+      "link": "https://outplayed.com/idevaffiliate//idevaffiliate.php?id=10331",
+      "requirements": "**Link:** 🌐 [Outplayed link with free trial (earn ~£40)](https://outplayed.com/idevaffiliate//idevaffiliate.php?id=10331)  &amp;#10;",
+      "type": "scraped_megalist",
+      "source": "MegaList",
+      "last_updated": "2026-03-30 23:04:22",
+      "step_by_step_guide": "1. **Sign up** - Create an account using the provided link\n2. **Complete the required steps** - Follow the specific requirements to qualify\n3. **Receive your reward** - The bonus will be paid once all conditions are met",
       "steps": [
-        "Check the HotUKDeals post",
-        "Follow the deal link",
-        "Complete required steps"
+        "Follow the step-by-step guide below"
       ],
-      "timeFrame": "Check post",
-      "source": "HotUKDeals",
-      "last_updated": "2026-03-30 19:07:05",
-      "category": "other",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
+      "category": "other"
     },
     {
-      "store": "Cheddar",
-      "item": "Gift Card Cashback - £3 Bonus",
-      "deal_price": "£3",
-      "link": "https://get.cheddar.me/app/FVESBGB",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "cashback",
-      "code": "FVESBGB",
+      "store": "Revolut ([direct offer](https://www.revo",
+      "item": "Revolut ([direct offer](https://www.revolut.com/revolut",
+      "deal_price": "£20.0",
+      "link": "https://www.revolut.com/revolut-sziget-cash-reward/",
+      "requirements": "Revolut ([direct offer](https://www.revolut.com/revolut-sziget-cash-reward/)) - get £20 for spending £1",
+      "type": "scraped_megalist",
+      "source": "MegaList",
+      "last_updated": "2026-03-30 23:04:22",
+      "step_by_step_guide": "1. **Sign up** - Create an account using the provided link\n2. **Complete the required steps** - Follow the specific requirements to qualify\n3. **Receive your reward** - The bonus will be paid once all conditions are met",
       "steps": [
-        "Use code FVESBGB",
-        "Earn cashback at retailers"
+        "Follow the step-by-step guide below"
       ],
-      "timeFrame": "Ongoing",
-      "category": "cashback",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-03-30 19:07:05"
+      "category": "bank_switch"
     },
     {
-      "store": "Jam Doughnut",
-      "item": "Gift Card Cashback - £3 Bonus",
-      "deal_price": "£3",
-      "link": "https://www.jamdoughnut.com/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "cashback",
-      "code": "8TGF",
+      "store": "Plum ([cashback offer on Topcashback](ht",
+      "item": "Plum ([cashback offer on Topcashback](https://www.topcashback.co.uk/ref/scrimprb",
+      "deal_price": "£12.0",
+      "link": "https://www.topcashback.co.uk/ref/scrimprbonus",
+      "requirements": "Plum ([cashback offer on Topcashback](https://www.topcashback.co.uk/ref/scrimprbonus)) - get a free £12 for linking your account)",
+      "type": "scraped_megalist",
+      "source": "MegaList",
+      "last_updated": "2026-03-30 23:04:22",
+      "step_by_step_guide": "1. **Sign up** - Create an account using the provided link\n2. **Complete the required steps** - Follow the specific requirements to qualify\n3. **Receive your reward** - The bonus will be paid once all conditions are met",
       "steps": [
-        "Use code 8TGF",
-        "Buy gift cards with cashback"
+        "Follow the step-by-step guide below"
       ],
-      "timeFrame": "Immediate",
-      "category": "cashback",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-03-30 19:07:05"
+      "category": "investment"
     },
     {
-      "store": "Trainpal",
-      "item": "£3 Off Train Tickets",
-      "deal_price": "£3",
-      "link": "https://t.trainpal.com/wUEPLNq",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "travel",
-      "code": "03ba089c$00",
+      "store": "Airwallex ([cashback offer on Gemsloot](",
+      "item": "Airwallex ([cashback offer on Gemsloot](https://gemsloot.com/?aff=beermoney))",
+      "deal_price": "£89.0",
+      "link": "https://gemsloot.com/?aff=beermoney",
+      "requirements": "Airwallex ([cashback offer on Gemsloot](https://gemsloot.com/?aff=beermoney)) - get £89 to sign up and make your first transaction (multicurrency business account).",
+      "type": "scraped_megalist",
+      "source": "MegaList",
+      "last_updated": "2026-03-30 23:04:22",
+      "step_by_step_guide": "1. **Sign up** - Create an account using the provided link\n2. **Complete the required steps** - Follow the specific requirements to qualify\n3. **Receive your reward** - The bonus will be paid once all conditions are met",
       "steps": [
-        "Download TrainPal",
-        "Use code 03ba089c$00",
-        "Save on train tickets"
+        "Follow the step-by-step guide below"
       ],
-      "timeFrame": "Use within 7 days",
-      "category": "travel",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-03-30 19:07:05"
+      "category": "cashback"
     },
     {
-      "store": "Airtime",
-      "item": "Gift Card Cashback - £2 Bonus",
-      "deal_price": "£2",
-      "link": "https://airtimerewards.app.link/6Waa7E1IF1b",
-      "original_price": "£5",
-      "saving_percent": 40,
-      "type": "cashback",
-      "code": "FRJKFXX3",
+      "store": "Chip ([direct offer](https://www.getchip",
+      "item": "Chip ([direct offer](https://www.getchip.uk/promo",
+      "deal_price": "£30.0",
+      "link": "https://www.getchip.uk/promo-terms/get30",
+      "requirements": "Chip ([direct offer](https://www.getchip.uk/promo-terms/get30)) - get £30 when you invest £100. **ENDS 26/02/2026**",
+      "type": "scraped_megalist",
+      "source": "MegaList",
+      "last_updated": "2026-03-30 23:04:22",
+      "step_by_step_guide": "1. **Invest** - Create an account using the provided link\n2. **Complete the required steps** - Follow the specific requirements to qualify\n3. **Receive your reward** - The bonus will be paid once all conditions are met",
       "steps": [
-        "Use code FRJKFXX3",
-        "Spend £5 in 7 days",
-        "Get £2"
+        "Follow the step-by-step guide below"
       ],
-      "timeFrame": "7 days",
-      "category": "cashback",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-03-30 19:07:05"
+      "category": "other"
     },
     {
-      "store": "Everup",
-      "item": "Gift Card Cashback",
-      "deal_price": "£2",
-      "link": "https://everup.onelink.me/9lgD/3d22pmln",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "cashback",
-      "code": "",
+      "store": "PensionBee ([NutsAboutMoney offer](https",
+      "item": "PensionBee ([NutsAboutMoney offer](https://www.nutsaboutmoney.com/reviews/pensio",
+      "deal_price": "£50.0",
+      "link": "https://www.nutsaboutmoney.com/reviews/pensionbee",
+      "requirements": "PensionBee ([NutsAboutMoney offer](https://www.nutsaboutmoney.com/reviews/pensionbee)) get a free £50 in your pension pot) - states end date of 2025, but users report that it works in 2026 still",
+      "type": "scraped_megalist",
+      "source": "MegaList",
+      "last_updated": "2026-03-30 23:04:22",
+      "step_by_step_guide": "1. **Sign up** - Create an account using the provided link\n2. **Complete the required steps** - Follow the specific requirements to qualify\n3. **Receive your reward** - The bonus will be paid once all conditions are met",
       "steps": [
-        "Join EverUp",
-        "Link cards",
-        "Earn cashback"
+        "Follow the step-by-step guide below"
       ],
-      "timeFrame": "Ongoing",
-      "category": "cashback",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-03-30 19:07:05"
+      "category": "other"
     },
     {
-      "store": "Moneybox",
-      "item": "Save & Invest - Great for DDs",
-      "deal_price": "Bonus",
-      "link": "https://go.onelink.me/5M0L?pid=share&c=EN8YW8",
-      "original_price": "£0",
-      "saving_percent": 0,
-      "type": "invest",
-      "code": "",
+      "store": "**First Direct** | Get",
+      "item": "**First Direct** | Get",
+      "deal_price": "£45.0",
+      "link": "https://www.topcashback.co.uk/ref/scrimprbonus",
+      "requirements": "**First Direct** | Get £45 | Additional switch bonus | Where: [Topcashback](https://www.topcashback.co.uk/ref/scrimprbonus)",
+      "type": "scraped_megalist",
+      "source": "MegaList",
+      "last_updated": "2026-03-30 23:04:22",
+      "step_by_step_guide": "1. **Switch account** - Create an account using the provided link\n2. **Complete the Current Account Switch Service (CASS)** - Follow the specific requirements to qualify\n3. **Receive your reward** - The bonus will be paid once all conditions are met",
       "steps": [
-        "Download Moneybox",
-        "Perfect for direct debits"
+        "Follow the step-by-step guide below"
       ],
-      "timeFrame": "Ongoing",
-      "category": "investment",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-03-30 19:07:05"
+      "category": "other"
     },
     {
-      "store": "Lebara",
-      "item": "Mobile SIM - Referral Bonus",
-      "deal_price": "Discount",
-      "link": "https://aklam.io/hgY3HOvR",
-      "original_price": "£0",
-      "saving_percent": 20,
-      "type": "utilities",
-      "code": "",
+      "store": "**TSB Spend &amp; Save** | Get",
+      "item": "**TSB Spend &amp; Save** | Get",
+      "deal_price": "£20.0",
+      "link": "https://www.topcashback.co.uk/ref/scrimprbonus",
+      "requirements": "**TSB Spend &amp; Save** | Get £20 | Open account | Where: [Topcashback](https://www.topcashback.co.uk/ref/scrimprbonus)",
+      "type": "scraped_megalist",
+      "source": "MegaList",
+      "last_updated": "2026-03-30 23:04:22",
+      "step_by_step_guide": "1. **Open account** - Create an account using the provided link\n2. **Complete the required steps** - Follow the specific requirements to qualify\n3. **Receive your reward** - The bonus will be paid once all conditions are met",
       "steps": [
-        "Sign up for Lebara",
-        "Get great SIM deals"
+        "Follow the step-by-step guide below"
       ],
-      "timeFrame": "Immediate",
-      "category": "utilities",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-03-30 19:07:05"
+      "category": "other"
     },
     {
-      "store": "Costa",
-      "item": "Free Cake + Coffee",
-      "deal_price": "Free",
-      "link": "https://www.costa.co.uk/",
-      "original_price": "£5",
-      "saving_percent": 100,
-      "type": "freebies",
-      "code": "",
+      "store": "**Revolut**  | Get",
+      "item": "**Revolut**  | Get",
+      "deal_price": "£20.0",
+      "link": "https://www.revolut.com/revolut-sziget-cash-reward/",
+      "requirements": "**Revolut**  | Get £20 | Open account, spend £1 | Where: Revolut [https://www.revolut.com/revolut-sziget-cash-reward/](https://www.revolut.com/revolut-sziget-cash-reward/)",
+      "type": "scraped_megalist",
+      "source": "MegaList",
+      "last_updated": "2026-03-30 23:04:22",
+      "step_by_step_guide": "1. **Open account** - Create an account using the provided link\n2. **Spend £1** - Follow the specific requirements to qualify\n3. **Receive your reward** - The bonus will be paid once all conditions are met",
       "steps": [
-        "Sign up for Costa Club",
-        "Get free cake & half drink"
+        "Follow the step-by-step guide below"
       ],
-      "timeFrame": "Immediate",
-      "category": "freebies",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-03-30 19:07:05"
+      "category": "bank_switch"
     },
     {
-      "store": "Waitrose",
-      "item": "Free Coffee Daily",
-      "deal_price": "Free",
-      "link": "https://www.waitrose.com/",
-      "original_price": "£3",
-      "saving_percent": 100,
-      "type": "freebies",
-      "code": "",
+      "store": "**Santander** | Get up to",
+      "item": "**Santander** | Get up to",
+      "deal_price": "£20.0",
+      "link": "https://www.topcashback.co.uk/ref/scrimprbonus",
+      "requirements": "**Santander** | Get up to £20 | Open a Everyday/Edge/Student account | Where: [Topcashback](https://www.topcashback.co.uk/ref/scrimprbonus)",
+      "type": "scraped_megalist",
+      "source": "MegaList",
+      "last_updated": "2026-03-30 23:04:22",
+      "step_by_step_guide": "1. **Open account** - Create an account using the provided link\n2. **Complete the required steps** - Follow the specific requirements to qualify\n3. **Receive your reward** - The bonus will be paid once all conditions are met",
       "steps": [
-        "Get Waitrose card",
-        "Free tea/coffee daily"
+        "Follow the step-by-step guide below"
       ],
-      "timeFrame": "Daily",
-      "category": "supermarket",
-      "stacked_price": 0,
-      "best_payment_method": "JamDoughnut (3.5%) + MyWaitrose",
-      "stacking_rate": 3.5,
-      "last_updated": "2026-03-30 19:07:05"
+      "category": "other"
     },
     {
-      "store": "Wise",
-      "item": "Free Transfer + Card",
-      "deal_price": "Free",
-      "link": "https://wise.com/invite/ahpc/albertob1508",
-      "original_price": "£5",
-      "saving_percent": 100,
-      "type": "transfer",
-      "code": "",
+      "store": "**Santander savings &amp; cash ISAs** | ",
+      "item": "**Santander savings &amp; cash ISAs** | Get",
+      "deal_price": "£15.0",
+      "link": "https://www.topcashback.co.uk/ref/scrimprbonus",
+      "requirements": "**Santander savings &amp; cash ISAs** | Get £15| Various accounts | Where: [Topcashback](https://www.topcashback.co.uk/ref/scrimprbonus)",
+      "type": "scraped_megalist",
+      "source": "MegaList",
+      "last_updated": "2026-03-30 23:04:22",
+      "step_by_step_guide": "1. **Sign up** - Create an account using the provided link\n2. **Complete the required steps** - Follow the specific requirements to qualify\n3. **Receive your reward** - The bonus will be paid once all conditions are met",
       "steps": [
-        "Sign up for Wise",
-        "First transfer free",
-        "Get free card"
+        "Follow the step-by-step guide below"
       ],
-      "timeFrame": "Immediate",
-      "category": "freebies",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-03-30 19:07:05"
+      "category": "other"
+    },
+    {
+      "store": "**BeanStalk JISA**  | Get",
+      "item": "**BeanStalk JISA**  | Get",
+      "deal_price": "£17.5",
+      "link": "https://www.topcashback.co.uk/ref/scrimprbonus",
+      "requirements": "**BeanStalk JISA**  | Get £17.50 | Invest £10 | Where: [Topcashback](https://www.topcashback.co.uk/ref/scrimprbonus)",
+      "type": "scraped_megalist",
+      "source": "MegaList",
+      "last_updated": "2026-03-30 23:04:22",
+      "step_by_step_guide": "1. **Invest** - Create an account using the provided link\n2. **Complete the required steps** - Follow the specific requirements to qualify\n3. **Receive your reward** - The bonus will be paid once all conditions are met",
+      "steps": [
+        "Follow the step-by-step guide below"
+      ],
+      "category": "other"
+    },
+    {
+      "store": "**Charles Stanley** | Get",
+      "item": "**Charles Stanley** | Get",
+      "deal_price": "£150.0",
+      "link": "https://www.topcashback.co.uk/ref/scrimprbonus",
+      "requirements": "**Charles Stanley** | Get £150 | Open an ISA or GIA account, invest £500 (invest in a fund to avoid fees)| Where: [Topcashback](https://www.topcashback.co.uk/ref/scrimprbonus)",
+      "type": "scraped_megalist",
+      "source": "MegaList",
+      "last_updated": "2026-03-30 23:04:22",
+      "step_by_step_guide": "1. **Open account** - Create an account using the provided link\n2. **Complete the required steps** - Follow the specific requirements to qualify\n3. **Receive your reward** - The bonus will be paid once all conditions are met",
+      "steps": [
+        "Follow the step-by-step guide below"
+      ],
+      "category": "other"
+    },
+    {
+      "store": "**Chip** | Get",
+      "item": "**Chip** | Get",
+      "deal_price": "£30.0",
+      "link": "https://www.getchip.uk/promo-terms/get30",
+      "requirements": "**Chip** | Get £30 | Open an ISA, invest £100 | Where: [Chip](https://www.getchip.uk/promo-terms/get30)",
+      "type": "scraped_megalist",
+      "source": "MegaList",
+      "last_updated": "2026-03-30 23:04:22",
+      "step_by_step_guide": "1. **Open account** - Create an account using the provided link\n2. **Complete the required steps** - Follow the specific requirements to qualify\n3. **Receive your reward** - The bonus will be paid once all conditions are met",
+      "steps": [
+        "Follow the step-by-step guide below"
+      ],
+      "category": "other"
+    },
+    {
+      "store": "**IG Invest** | 5% cash back (up to",
+      "item": "**IG Invest** | 5% cash back (up to",
+      "deal_price": "£200.0",
+      "link": "https://scrimpr.co.uk/offers/ig-deposit-match-offer/",
+      "requirements": "**IG Invest** | 5% cash back (up to £200) for investing, or 1% cashback (up to £3k) for transferring | | Where: [Scrimpr](https://scrimpr.co.uk/offers/ig-deposit-match-offer/)",
+      "type": "scraped_megalist",
+      "source": "MegaList",
+      "last_updated": "2026-03-30 23:04:22",
+      "step_by_step_guide": "1. **Deposit funds** - Create an account using the provided link\n2. **Complete the required steps** - Follow the specific requirements to qualify\n3. **Receive your reward** - The bonus will be paid once all conditions are met",
+      "steps": [
+        "Follow the step-by-step guide below"
+      ],
+      "category": "investment"
+    },
+    {
+      "store": "**Fidelity**  | Get",
+      "item": "**Fidelity**  | Get",
+      "deal_price": "£200.0",
+      "link": "https://www.topcashback.co.uk/ref/scrimprbonus",
+      "requirements": "**Fidelity**  | Get £200 | ISA Invest £5k | Where: [Topcashback](https://www.topcashback.co.uk/ref/scrimprbonus)",
+      "type": "scraped_megalist",
+      "source": "MegaList",
+      "last_updated": "2026-03-30 23:04:22",
+      "step_by_step_guide": "1. **Invest** - Create an account using the provided link\n2. **Complete the required steps** - Follow the specific requirements to qualify\n3. **Receive your reward** - The bonus will be paid once all conditions are met",
+      "steps": [
+        "Follow the step-by-step guide below"
+      ],
+      "category": "other"
+    },
+    {
+      "store": "**J.P. Morgan (was Nutmeg)** | Get",
+      "item": "**J.P. Morgan (was Nutmeg)** | Get",
+      "deal_price": "£75.0",
+      "link": "https://www.topcashback.co.uk/ref/scrimprbonus",
+      "requirements": "**J.P. Morgan (was Nutmeg)** | Get £75 or £100 | Open an ISA or GIA (£500 deposit requirement w/ £100/m direct debit) on Top cashback. £100 offer available via Chase app | Where: [Topcashback](https://www.topcashback.co.uk/ref/scrimprbonus)",
+      "type": "scraped_megalist",
+      "source": "MegaList",
+      "last_updated": "2026-03-30 23:04:22",
+      "step_by_step_guide": "1. **Open account** - Create an account using the provided link\n2. **Complete the required steps** - Follow the specific requirements to qualify\n3. **Receive your reward** - The bonus will be paid once all conditions are met",
+      "steps": [
+        "Follow the step-by-step guide below"
+      ],
+      "category": "other"
+    },
+    {
+      "store": "Prosper ([direct offer](https://www.pros",
+      "item": "Prosper ([direct offer](https://www.prosper.co.uk/cashback",
+      "deal_price": "£100.0",
+      "link": "https://www.prosper.co.uk/cashback-offer",
+      "requirements": "Prosper ([direct offer](https://www.prosper.co.uk/cashback-offer), get £100 for £10k investing)",
+      "type": "scraped_megalist",
+      "source": "MegaList",
+      "last_updated": "2026-03-30 23:04:22",
+      "step_by_step_guide": "1. **Invest** - Create an account using the provided link\n2. **Complete the required steps** - Follow the specific requirements to qualify\n3. **Receive your reward** - The bonus will be paid once all conditions are met",
+      "steps": [
+        "Follow the step-by-step guide below"
+      ],
+      "category": "other"
+    },
+    {
+      "store": "**Quilter (was Wombat/NuWealth)** | Get",
+      "item": "**Quilter (was Wombat/NuWealth)** | Get",
+      "deal_price": "£100.0",
+      "link": "https://www.topcashback.co.uk/ref/scrimprbonus",
+      "requirements": "**Quilter (was Wombat/NuWealth)** | Get £100 | Invesst £500 in ISA| Where: [Topcashback](https://www.topcashback.co.uk/ref/scrimprbonus)",
+      "type": "scraped_megalist",
+      "source": "MegaList",
+      "last_updated": "2026-03-30 23:04:22",
+      "step_by_step_guide": "1. **Sign up** - Create an account using the provided link\n2. **Complete the required steps** - Follow the specific requirements to qualify\n3. **Receive your reward** - The bonus will be paid once all conditions are met",
+      "steps": [
+        "Follow the step-by-step guide below"
+      ],
+      "category": "other"
+    },
+    {
+      "store": "**Santander Stocks &amp; Shares ISA** | ",
+      "item": "**Santander Stocks &amp; Shares ISA** | Get",
+      "deal_price": "£50.0",
+      "link": "https://www.topcashback.co.uk/ref/scrimprbonus",
+      "requirements": "**Santander Stocks &amp; Shares ISA** | Get £50 | Invest £100 | Where: [Topcashback](https://www.topcashback.co.uk/ref/scrimprbonus)",
+      "type": "scraped_megalist",
+      "source": "MegaList",
+      "last_updated": "2026-03-30 23:04:22",
+      "step_by_step_guide": "1. **Invest** - Create an account using the provided link\n2. **Complete the required steps** - Follow the specific requirements to qualify\n3. **Receive your reward** - The bonus will be paid once all conditions are met",
+      "steps": [
+        "Follow the step-by-step guide below"
+      ],
+      "category": "investment"
+    },
+    {
+      "store": "**Scottish Friendly**  | Get",
+      "item": "**Scottish Friendly**  | Get",
+      "deal_price": "£310.0",
+      "link": "https://www.topcashback.co.uk/ref/scrimprbonus",
+      "requirements": "**Scottish Friendly**  | Get £310 | ISA Invest £100/month (~6-12 months) | Where: [Topcashback](https://www.topcashback.co.uk/ref/scrimprbonus)",
+      "type": "scraped_megalist",
+      "source": "MegaList",
+      "last_updated": "2026-03-30 23:04:22",
+      "step_by_step_guide": "1. **Invest** - Create an account using the provided link\n2. **Complete the required steps** - Follow the specific requirements to qualify\n3. **Receive your reward** - The bonus will be paid once all conditions are met",
+      "steps": [
+        "Follow the step-by-step guide below"
+      ],
+      "category": "other"
+    },
+    {
+      "store": "**Shepherds Friendly**  | Get",
+      "item": "**Shepherds Friendly**  | Get",
+      "deal_price": "£300.0",
+      "link": "https://www.topcashback.co.uk/ref/scrimprbonus",
+      "requirements": "**Shepherds Friendly**  | Get £300 | ISA Invest £100/month  (~6-12 months)  | Where: [Topcashback](https://www.topcashback.co.uk/ref/scrimprbonus)",
+      "type": "scraped_megalist",
+      "source": "MegaList",
+      "last_updated": "2026-03-30 23:04:22",
+      "step_by_step_guide": "1. **Invest** - Create an account using the provided link\n2. **Complete the required steps** - Follow the specific requirements to qualify\n3. **Receive your reward** - The bonus will be paid once all conditions are met",
+      "steps": [
+        "Follow the step-by-step guide below"
+      ],
+      "category": "other"
+    },
+    {
+      "store": "Airwallex | Get",
+      "item": "Airwallex | Get",
+      "deal_price": "£89.0",
+      "link": "https://gemsloot.com/?aff=beermoney",
+      "requirements": "Airwallex | Get £89 | Sign up and make your first transaction (multicurrency business account) | Where: [Gemsloot](https://gemsloot.com/?aff=beermoney)",
+      "type": "scraped_megalist",
+      "source": "MegaList",
+      "last_updated": "2026-03-30 23:04:22",
+      "step_by_step_guide": "1. **Sign up** - Create an account using the provided link\n2. **Complete the required steps** - Follow the specific requirements to qualify\n3. **Receive your reward** - The bonus will be paid once all conditions are met",
+      "steps": [
+        "Follow the step-by-step guide below"
+      ],
+      "category": "other"
+    },
+    {
+      "store": "**Cahoot Sunny Day Saver (Santander)** |",
+      "item": "**Cahoot Sunny Day Saver (Santander)** | Get",
+      "deal_price": "£15.0",
+      "link": "https://www.topcashback.co.uk/ref/scrimprbonus",
+      "requirements": "**Cahoot Sunny Day Saver (Santander)** | Get £15 | Open savings account, deposit £1| Where: [Topcashback](https://www.topcashback.co.uk/ref/scrimprbonus)",
+      "type": "scraped_megalist",
+      "source": "MegaList",
+      "last_updated": "2026-03-30 23:04:22",
+      "step_by_step_guide": "1. **Open account** - Create an account using the provided link\n2. **Deposit £1** - Follow the specific requirements to qualify\n3. **Receive your reward** - The bonus will be paid once all conditions are met",
+      "steps": [
+        "Follow the step-by-step guide below"
+      ],
+      "category": "other"
+    },
+    {
+      "store": "**Cahoot Simple Saver (Santander)** | Ge",
+      "item": "**Cahoot Simple Saver (Santander)** | Get",
+      "deal_price": "£15.0",
+      "link": "https://www.topcashback.co.uk/ref/scrimprbonus",
+      "requirements": "**Cahoot Simple Saver (Santander)** | Get £15 | Open savings account, deposit £1| Where: [Topcashback](https://www.topcashback.co.uk/ref/scrimprbonus)",
+      "type": "scraped_megalist",
+      "source": "MegaList",
+      "last_updated": "2026-03-30 23:04:22",
+      "step_by_step_guide": "1. **Open account** - Create an account using the provided link\n2. **Deposit £1** - Follow the specific requirements to qualify\n3. **Receive your reward** - The bonus will be paid once all conditions are met",
+      "steps": [
+        "Follow the step-by-step guide below"
+      ],
+      "category": "other"
+    },
+    {
+      "store": "**Currensea** | Get",
+      "item": "**Currensea** | Get",
+      "deal_price": "£15.0",
+      "link": "https://www.currensea.com/partner/p-hill",
+      "requirements": "**Currensea** | Get £15 | Make 5 foreign currency transactions | Where: [Direct (Currensea promotion)](https://www.currensea.com/partner/p-hill)",
+      "type": "scraped_megalist",
+      "source": "MegaList",
+      "last_updated": "2026-03-30 23:04:22",
+      "step_by_step_guide": "1. **Sign up** - Create an account using the provided link\n2. **Complete the required steps** - Follow the specific requirements to qualify\n3. **Receive your reward** - The bonus will be paid once all conditions are met",
+      "steps": [
+        "Follow the step-by-step guide below"
+      ],
+      "category": "other"
+    },
+    {
+      "store": "**GoHenry** | Get",
+      "item": "**GoHenry** | Get",
+      "deal_price": "£15.0",
+      "link": "https://www.gohenry.com/uk/aff-mse/?promotion= AFFUKMSE15",
+      "requirements": "**GoHenry** | Get £15 | Deposit £10 | Where: [Direct (MSE promotion)](https://www.gohenry.com/uk/aff-mse/?promotion= AFFUKMSE15)",
+      "type": "scraped_megalist",
+      "source": "MegaList",
+      "last_updated": "2026-03-30 23:04:22",
+      "step_by_step_guide": "1. **Deposit funds** - Create an account using the provided link\n2. **Deposit £10** - Follow the specific requirements to qualify\n3. **Receive your reward** - The bonus will be paid once all conditions are met",
+      "steps": [
+        "Follow the step-by-step guide below"
+      ],
+      "category": "other"
+    },
+    {
+      "store": "**PensionBee** | Get",
+      "item": "**PensionBee** | Get",
+      "deal_price": "£50.0",
+      "link": "https://www.nutsaboutmoney.com/reviews/pensionbee",
+      "requirements": "**PensionBee** | Get £50 | Open a PensionBee pension (free!) | Where: [NutsAboutMoney](https://www.nutsaboutmoney.com/reviews/pensionbee) (note that terms say it ended in 2025, but its still advertised, and people report it works in 2026",
+      "type": "scraped_megalist",
+      "source": "MegaList",
+      "last_updated": "2026-03-30 23:04:22",
+      "step_by_step_guide": "1. **Open account** - Create an account using the provided link\n2. **Complete the required steps** - Follow the specific requirements to qualify\n3. **Receive your reward** - The bonus will be paid once all conditions are met",
+      "steps": [
+        "Follow the step-by-step guide below"
+      ],
+      "category": "other"
+    },
+    {
+      "store": "**Plum** | Get",
+      "item": "**Plum** | Get",
+      "deal_price": "£12.0",
+      "link": "https://www.topcashback.co.uk/ref/scrimprbonus",
+      "requirements": "**Plum** | Get £12 | Sign up, connect current account | Where: [Topcashback](https://www.topcashback.co.uk/ref/scrimprbonus)",
+      "type": "scraped_megalist",
+      "source": "MegaList",
+      "last_updated": "2026-03-30 23:04:22",
+      "step_by_step_guide": "1. **Sign up** - Create an account using the provided link\n2. **Complete the required steps** - Follow the specific requirements to qualify\n3. **Receive your reward** - The bonus will be paid once all conditions are met",
+      "steps": [
+        "Follow the step-by-step guide below"
+      ],
+      "category": "investment"
+    },
+    {
+      "store": "**Post Office Travel Money Card** | Get",
+      "item": "**Post Office Travel Money Card** | Get",
+      "deal_price": "£10.0",
+      "link": "https://www.topcashback.co.uk/ref/scrimprbonus",
+      "requirements": "**Post Office Travel Money Card** | Get £10 | Order a travel money card | Where: [Topcashback](https://www.topcashback.co.uk/ref/scrimprbonus)",
+      "type": "scraped_megalist",
+      "source": "MegaList",
+      "last_updated": "2026-03-30 23:04:22",
+      "step_by_step_guide": "1. **Sign up** - Create an account using the provided link\n2. **Complete the required steps** - Follow the specific requirements to qualify\n3. **Receive your reward** - The bonus will be paid once all conditions are met",
+      "steps": [
+        "Follow the step-by-step guide below"
+      ],
+      "category": "other"
+    },
+    {
+      "store": "**Crypto.com** | Get",
+      "item": "**Crypto.com** | Get",
+      "deal_price": "£13.0",
+      "link": "https://earnlab.com/r/beermoneyuk",
+      "requirements": "**Crypto.com** | Get £13 | Buy $5+ crypto | Where: Adgem on [Earnlab](https://earnlab.com/r/beermoneyuk)",
+      "type": "scraped_megalist",
+      "source": "MegaList",
+      "last_updated": "2026-03-30 23:04:22",
+      "step_by_step_guide": "1. **Sign up** - Create an account using the provided link\n2. **Complete the required steps** - Follow the specific requirements to qualify\n3. **Receive your reward** - The bonus will be paid once all conditions are met",
+      "steps": [
+        "Follow the step-by-step guide below"
+      ],
+      "category": "other"
+    },
+    {
+      "store": "**Wirex** | Get",
+      "item": "**Wirex** | Get",
+      "deal_price": "£32.0",
+      "link": "https://cashinstyle.com/?ref=beermoney",
+      "requirements": "**Wirex** | Get £32 | Deposit $15 | Where: PrimeEarn on [CashInStyle](https://cashinstyle.com/?ref=beermoney)",
+      "type": "scraped_megalist",
+      "source": "MegaList",
+      "last_updated": "2026-03-30 23:04:22",
+      "step_by_step_guide": "1. **Deposit funds** - Create an account using the provided link\n2. **Complete the required steps** - Follow the specific requirements to qualify\n3. **Receive your reward** - The bonus will be paid once all conditions are met",
+      "steps": [
+        "Follow the step-by-step guide below"
+      ],
+      "category": "other"
+    },
+    {
+      "store": "**Barclaycard** | Get",
+      "item": "**Barclaycard** | Get",
+      "deal_price": "£15.0",
+      "link": "https://quidco.com/raf/297635/",
+      "requirements": "**Barclaycard** | Get £15 | Open an account | Where: [Quidco](https://quidco.com/raf/297635/)",
+      "type": "scraped_megalist",
+      "source": "MegaList",
+      "last_updated": "2026-03-30 23:04:22",
+      "step_by_step_guide": "1. **Open account** - Create an account using the provided link\n2. **Complete the required steps** - Follow the specific requirements to qualify\n3. **Receive your reward** - The bonus will be paid once all conditions are met",
+      "steps": [
+        "Follow the step-by-step guide below"
+      ],
+      "category": "other"
+    },
+    {
+      "store": "**HSBC** | Get",
+      "item": "**HSBC** | Get",
+      "deal_price": "£35.0",
+      "link": "https://www.topcashback.co.uk/ref/scrimprbonus",
+      "requirements": "**HSBC** | Get £35 | Open an account | Where: [Topcashback](https://www.topcashback.co.uk/ref/scrimprbonus)",
+      "type": "scraped_megalist",
+      "source": "MegaList",
+      "last_updated": "2026-03-30 23:04:22",
+      "step_by_step_guide": "1. **Open account** - Create an account using the provided link\n2. **Complete the required steps** - Follow the specific requirements to qualify\n3. **Receive your reward** - The bonus will be paid once all conditions are met",
+      "steps": [
+        "Follow the step-by-step guide below"
+      ],
+      "category": "other"
+    },
+    {
+      "store": "**M&amp;S Bank**  | Get",
+      "item": "**M&amp;S Bank**  | Get",
+      "deal_price": "£35.0",
+      "link": "https://www.topcashback.co.uk/ref/scrimprbonus",
+      "requirements": "**M&amp;S Bank**  | Get £35 | Open an account | Where: [Topcashback](https://www.topcashback.co.uk/ref/scrimprbonus)",
+      "type": "scraped_megalist",
+      "source": "MegaList",
+      "last_updated": "2026-03-30 23:04:22",
+      "step_by_step_guide": "1. **Open account** - Create an account using the provided link\n2. **Complete the required steps** - Follow the specific requirements to qualify\n3. **Receive your reward** - The bonus will be paid once all conditions are met",
+      "steps": [
+        "Follow the step-by-step guide below"
+      ],
+      "category": "bank_switch"
+    },
+    {
+      "store": "**MBNA**  | Get",
+      "item": "**MBNA**  | Get",
+      "deal_price": "£28.0",
+      "link": "https://quidco.com/raf/297635/",
+      "requirements": "**MBNA**  | Get £28 | Open an account | Where: [Quidco](https://quidco.com/raf/297635/)",
+      "type": "scraped_megalist",
+      "source": "MegaList",
+      "last_updated": "2026-03-30 23:04:22",
+      "step_by_step_guide": "1. **Open account** - Create an account using the provided link\n2. **Complete the required steps** - Follow the specific requirements to qualify\n3. **Receive your reward** - The bonus will be paid once all conditions are met",
+      "steps": [
+        "Follow the step-by-step guide below"
+      ],
+      "category": "other"
+    },
+    {
+      "store": "**Tesco Bank**  | Get",
+      "item": "**Tesco Bank**  | Get",
+      "deal_price": "£25.0",
+      "link": "https://www.topcashback.co.uk/ref/scrimprbonus",
+      "requirements": "**Tesco Bank**  | Get £25 | Open an account | Where: [Topcashback](https://www.topcashback.co.uk/ref/scrimprbonus)",
+      "type": "scraped_megalist",
+      "source": "MegaList",
+      "last_updated": "2026-03-30 23:04:22",
+      "step_by_step_guide": "1. **Open account** - Create an account using the provided link\n2. **Complete the required steps** - Follow the specific requirements to qualify\n3. **Receive your reward** - The bonus will be paid once all conditions are met",
+      "steps": [
+        "Follow the step-by-step guide below"
+      ],
+      "category": "supermarket"
     }
   ]
 }

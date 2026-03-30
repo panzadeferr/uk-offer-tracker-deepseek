@@ -1,10 +1,7 @@
-Scrape run: 2026-03-30 19:07:05.074401
-Manual offers: 32
-Supermarket deals: 8
-Reddit deals: 0
-Google News deals: 0
-HotUKDeals deals: 3
-Cleaned scraped: 3
-Unique scraped: 3
-Total written: 43
-Data quality: 3/3 deals passed validation
+Enhanced scraper run: 2026-03-30 23:04:22.954444
+Manual offers preserved: 32
+Supermarket deals preserved: 9
+MegaList offers found: 39
+Total offers saved: 80
+Ghost offers removed: 0
+AI guides generated: 39
