@@ -1,10 +1,10 @@
-Scrape run: 2026-03-30 02:56:45.178060
+Scrape run: 2026-03-30 07:51:32.069762
 Manual offers: 32
 Supermarket deals: 8
 Reddit deals: 0
 Google News deals: 20
 HotUKDeals deals: 3
 Cleaned scraped: 23
-Unique scraped: 21
-Total written: 61
+Unique scraped: 20
+Total written: 60
 Data quality: 23/23 deals passed validation
