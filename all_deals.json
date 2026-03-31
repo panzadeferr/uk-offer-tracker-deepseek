@@ -1,14 +1,14 @@
 {
-  "last_updated": "2026-04-01 00:09:44",
-  "total_deals": 94,
+  "last_updated": "2026-03-31 23:11:40",
+  "total_deals": 58,
   "manual_count": 32,
   "supermarket_count": 8,
-  "reddit_count": 102,
+  "reddit_count": 0,
   "news_count": 0,
   "hotukdeals_count": 3,
-  "megalist_count": 33,
+  "megalist_count": 0,
   "scrimpr_count": 35,
-  "unique_scraped_count": 54,
+  "unique_scraped_count": 18,
   "sources": [
     "Manual",
     "Supermarket",
@@ -42,7 +42,7 @@
       "stacked_price": 2.39,
       "best_payment_method": "Airtime Rewards (4%) + Asda Rewards",
       "stacking_rate": 4.5,
-      "last_updated": "2026-04-01 00:09:44"
+      "last_updated": "2026-03-31 23:11:40"
     },
     {
       "store": "Sainsbury's",
@@ -57,7 +57,7 @@
       "stacked_price": 3.35,
       "best_payment_method": "JamDoughnut (4.1%) + Nectar",
       "stacking_rate": 4.4,
-      "last_updated": "2026-04-01 00:09:44"
+      "last_updated": "2026-03-31 23:11:40"
     },
     {
       "store": "Tesco",
@@ -72,7 +72,7 @@
       "stacked_price": 6.63,
       "best_payment_method": "EverUp (4.9%) + Clubcard",
       "stacking_rate": 5.3,
-      "last_updated": "2026-04-01 00:09:44"
+      "last_updated": "2026-03-31 23:11:40"
     },
     {
       "store": "Iceland",
@@ -87,7 +87,7 @@
       "stacked_price": 7.6,
       "best_payment_method": "TopCashback (3.5%) + Bonus Card",
       "stacking_rate": 5.0,
-      "last_updated": "2026-04-01 00:09:44"
+      "last_updated": "2026-03-31 23:11:40"
     },
     {
       "store": "Iceland",
@@ -102,7 +102,7 @@
       "stacked_price": 9.5,
       "best_payment_method": "TopCashback (3.5%) + Bonus Card",
       "stacking_rate": 5.0,
-      "last_updated": "2026-04-01 00:09:44"
+      "last_updated": "2026-03-31 23:11:40"
     },
     {
       "store": "Sainsbury's",
@@ -117,7 +117,7 @@
       "stacked_price": 11.47,
       "best_payment_method": "JamDoughnut (4.1%) + Nectar",
       "stacking_rate": 4.4,
-      "last_updated": "2026-04-01 00:09:44"
+      "last_updated": "2026-03-31 23:11:40"
     },
     {
       "store": "Asda",
@@ -132,7 +132,7 @@
       "stacked_price": 14.32,
       "best_payment_method": "Airtime Rewards (4%) + Asda Rewards",
       "stacking_rate": 4.5,
-      "last_updated": "2026-04-01 00:09:44"
+      "last_updated": "2026-03-31 23:11:40"
     },
     {
       "store": "Tesco",
@@ -147,51 +147,7 @@
       "stacked_price": 18.94,
       "best_payment_method": "EverUp (4.9%) + Clubcard",
       "stacking_rate": 5.3,
-      "last_updated": "2026-04-01 00:09:44"
-    },
-    {
-      "store": "Deposit , Get",
-      "item": "* Deposit £500, get up to £100 (~6 weeks)",
-      "deal_price": "£500",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1rywry0/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "megalist",
-      "category": "freebie",
-      "code": "",
-      "steps": [
-        "Check the BeermoneyUK megalist",
-        "Follow the offer link",
-        "Complete required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "BeermoneyUK Megalist",
-      "last_updated": "2026-04-01 00:09:44",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Invest , Get",
-      "item": "* Invest £500, get a £30 voucher (1 month)",
-      "deal_price": "£500",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1rywry0/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "megalist",
-      "category": "invest",
-      "code": "",
-      "steps": [
-        "Check the BeermoneyUK megalist",
-        "Follow the offer link",
-        "Complete required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "BeermoneyUK Megalist",
-      "last_updated": "2026-04-01 00:09:44",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
+      "last_updated": "2026-03-31 23:11:40"
     },
     {
       "store": "Branded Surveys",
@@ -210,7 +166,7 @@
       ],
       "timeFrame": "Check page",
       "source": "Scrimpr",
-      "last_updated": "2026-04-01 00:09:44",
+      "last_updated": "2026-03-31 23:11:40",
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0
@@ -234,7 +190,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 00:09:44"
+      "last_updated": "2026-03-31 23:11:40"
     },
     {
       "store": "Lloyds Bank",
@@ -255,7 +211,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 00:09:44"
+      "last_updated": "2026-03-31 23:11:40"
     },
     {
       "store": "Natwest",
@@ -276,7 +232,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 00:09:44"
+      "last_updated": "2026-03-31 23:11:40"
     },
     {
       "store": "First Direct",
@@ -297,7 +253,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 00:09:44"
+      "last_updated": "2026-03-31 23:11:40"
     },
     {
       "store": "Halifax",
@@ -318,7 +274,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 00:09:44"
+      "last_updated": "2026-03-31 23:11:40"
     },
     {
       "store": "Amex",
@@ -339,74 +295,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 00:09:44"
-    },
-    {
-      "store": "Has Anyone \"double-dipped\" Both Rbs And",
-      "item": "Has anyone \"double-dipped\" both RBS and NatWest switching offers? (£150 each)",
-      "deal_price": "£150",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1s8suyw/has_anyone_doubledipped_both_rbs_and_natwest/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "scraped_reddit",
-      "code": "",
-      "steps": [
-        "Read the Reddit post for full details",
-        "Follow the referral link",
-        "Complete the required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "r/beermoneyuk",
-      "reddit_score": 6,
-      "last_updated": "2026-04-01 00:09:44",
-      "category": "bank_switch",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Up To",
-      "item": "* Up to £150 back for £3k spend (3 months)",
-      "deal_price": "£150",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1rywry0/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "megalist",
-      "category": "freebie",
-      "code": "",
-      "steps": [
-        "Check the BeermoneyUK megalist",
-        "Follow the offer link",
-        "Complete required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "BeermoneyUK Megalist",
-      "last_updated": "2026-04-01 00:09:44",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Send , Pay",
-      "item": "* Send £100, pay only £90 (~1 week)",
-      "deal_price": "£100",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1rywry0/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "megalist",
-      "category": "freebie",
-      "code": "",
-      "steps": [
-        "Check the BeermoneyUK megalist",
-        "Follow the offer link",
-        "Complete required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "BeermoneyUK Megalist",
-      "last_updated": "2026-04-01 00:09:44",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
+      "last_updated": "2026-03-31 23:11:40"
     },
     {
       "store": "Plum",
@@ -427,7 +316,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 00:09:44"
+      "last_updated": "2026-03-31 23:11:40"
     },
     {
       "store": "Tide",
@@ -448,29 +337,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 00:09:44"
-    },
-    {
-      "store": "Ltd Companies Only",
-      "item": "* Ltd companies only — make any spend, get £75 (~1 week)",
-      "deal_price": "£75",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1rywry0/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "megalist",
-      "category": "freebie",
-      "code": "",
-      "steps": [
-        "Check the BeermoneyUK megalist",
-        "Follow the offer link",
-        "Complete required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "BeermoneyUK Megalist",
-      "last_updated": "2026-04-01 00:09:44",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
+      "last_updated": "2026-03-31 23:11:40"
     },
     {
       "store": "Chase Uk",
@@ -491,7 +358,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 00:09:44"
+      "last_updated": "2026-03-31 23:11:40"
     },
     {
       "store": "Webull",
@@ -512,7 +379,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 00:09:44"
+      "last_updated": "2026-03-31 23:11:40"
     },
     {
       "store": "Wealthify",
@@ -533,7 +400,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 00:09:44"
+      "last_updated": "2026-03-31 23:11:40"
     },
     {
       "store": "Octopus Energy",
@@ -554,7 +421,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 00:09:44"
+      "last_updated": "2026-03-31 23:11:40"
     },
     {
       "store": "Pensionbee",
@@ -574,295 +441,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 00:09:44"
-    },
-    {
-      "store": "Keep 3 Accounts Open",
-      "item": "**Keep 3 accounts open** for [YouGov Connections](https://www.reddit.com/r/beerm",
-      "deal_price": "£50.00",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1kxkpun/yougov_get_paid_13month_for_sharing_your_viewing/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "scraped_reddit",
-      "code": "",
-      "steps": [
-        "Read the Reddit post for full details",
-        "Follow the referral link",
-        "Complete the required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "r/beermoneyuk",
-      "reddit_score": 0,
-      "last_updated": "2026-04-01 00:09:44",
-      "category": "business",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Custard - A Reliable, Straightforward Gp",
-      "item": "Custard - A reliable, straightforward GPT with plenty of offers (£50+ for ~1hr e",
-      "deal_price": "£50",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1s7nh0y/custard_a_reliable_straightforward_gpt_with/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "scraped_reddit",
-      "code": "here",
-      "steps": [
-        "Read the Reddit post for full details",
-        "Follow the referral link",
-        "Complete the required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "r/beermoneyuk",
-      "reddit_score": 6,
-      "last_updated": "2026-04-01 00:09:44",
-      "category": "investment",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Get To",
-      "item": "* Get £50 to sign up, +£200 if you switch, +£250 for referring your friends",
-      "deal_price": "£50",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1rywry0/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "megalist",
-      "category": "bank",
-      "code": "",
-      "steps": [
-        "Check the BeermoneyUK megalist",
-        "Follow the offer link",
-        "Complete required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "BeermoneyUK Megalist",
-      "last_updated": "2026-04-01 00:09:44",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Open A Current",
-      "item": "* Open a current account, get £50 cash free (~1 month)",
-      "deal_price": "£50",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1rywry0/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "megalist",
-      "category": "bank",
-      "code": "",
-      "steps": [
-        "Check the BeermoneyUK megalist",
-        "Follow the offer link",
-        "Complete required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "BeermoneyUK Megalist",
-      "last_updated": "2026-04-01 00:09:44",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Make A Card",
-      "item": "* Make a card payment, get £50 free (~1 week)",
-      "deal_price": "£50",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1rywry0/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "megalist",
-      "category": "gift",
-      "code": "",
-      "steps": [
-        "Check the BeermoneyUK megalist",
-        "Follow the offer link",
-        "Complete required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "BeermoneyUK Megalist",
-      "last_updated": "2026-04-01 00:09:44",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Get Cheaper Gas/electricity",
-      "item": "Get cheaper gas/electricity at Octopus Energy, plus a £50 bill credit.",
-      "deal_price": "£50",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1rywry0/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "megalist",
-      "category": "freebie",
-      "code": "",
-      "steps": [
-        "Check the BeermoneyUK megalist",
-        "Follow the offer link",
-        "Complete required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "BeermoneyUK Megalist",
-      "last_updated": "2026-04-01 00:09:44",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Credit When",
-      "item": "* £50 credit when you switch — cheaper than most suppliers",
-      "deal_price": "£50",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1rywry0/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "megalist",
-      "category": "bank",
-      "code": "",
-      "steps": [
-        "Check the BeermoneyUK megalist",
-        "Follow the offer link",
-        "Complete required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "BeermoneyUK Megalist",
-      "last_updated": "2026-04-01 00:09:44",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Bonus When",
-      "item": "* £50 bonus when you switch — no exit fee on standard variable",
-      "deal_price": "£50",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1rywry0/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "megalist",
-      "category": "bank",
-      "code": "",
-      "steps": [
-        "Check the BeermoneyUK megalist",
-        "Follow the offer link",
-        "Complete required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "BeermoneyUK Megalist",
-      "last_updated": "2026-04-01 00:09:44",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Gift Card",
-      "item": "* £50 gift card when you switch — no exit fee on standard variable",
-      "deal_price": "£50",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1rywry0/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "megalist",
-      "category": "bank",
-      "code": "",
-      "steps": [
-        "Check the BeermoneyUK megalist",
-        "Follow the offer link",
-        "Complete required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "BeermoneyUK Megalist",
-      "last_updated": "2026-04-01 00:09:44",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "For Switching",
-      "item": "* £50 for switching",
-      "deal_price": "£50",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1rywry0/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "megalist",
-      "category": "bank",
-      "code": "",
-      "steps": [
-        "Check the BeermoneyUK megalist",
-        "Follow the offer link",
-        "Complete required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "BeermoneyUK Megalist",
-      "last_updated": "2026-04-01 00:09:44",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Bonus",
-      "item": "* £50 bonus",
-      "deal_price": "£50",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1rywry0/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "megalist",
-      "category": "freebie",
-      "code": "",
-      "steps": [
-        "Check the BeermoneyUK megalist",
-        "Follow the offer link",
-        "Complete required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "BeermoneyUK Megalist",
-      "last_updated": "2026-04-01 00:09:44",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Amazon Voucher",
-      "item": "* £50 Amazon voucher",
-      "deal_price": "£50",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1rywry0/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "megalist",
-      "category": "freebie",
-      "code": "",
-      "steps": [
-        "Check the BeermoneyUK megalist",
-        "Follow the offer link",
-        "Complete required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "BeermoneyUK Megalist",
-      "last_updated": "2026-04-01 00:09:44",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Credit",
-      "item": "* £50 credit",
-      "deal_price": "£50",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1rywry0/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "megalist",
-      "category": "freebie",
-      "code": "",
-      "steps": [
-        "Check the BeermoneyUK megalist",
-        "Follow the offer link",
-        "Complete required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "BeermoneyUK Megalist",
-      "last_updated": "2026-04-01 00:09:44",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
+      "last_updated": "2026-03-31 23:11:40"
     },
     {
       "store": "Befibre",
@@ -881,7 +460,7 @@
       ],
       "timeFrame": "Check page",
       "source": "Scrimpr",
-      "last_updated": "2026-04-01 00:09:44",
+      "last_updated": "2026-03-31 23:11:40",
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0
@@ -903,7 +482,7 @@
       ],
       "timeFrame": "Check page",
       "source": "Scrimpr",
-      "last_updated": "2026-04-01 00:09:44",
+      "last_updated": "2026-03-31 23:11:40",
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0
@@ -925,51 +504,7 @@
       ],
       "timeFrame": "Check page",
       "source": "Scrimpr",
-      "last_updated": "2026-04-01 00:09:44",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Bonus —",
-      "item": "* £40 bonus — TCB can offer significantly more",
-      "deal_price": "£40",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1rywry0/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "megalist",
-      "category": "freebie",
-      "code": "",
-      "steps": [
-        "Check the BeermoneyUK megalist",
-        "Follow the offer link",
-        "Complete required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "BeermoneyUK Megalist",
-      "last_updated": "2026-04-01 00:09:44",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "For Signing",
-      "item": "* £30-£100 for signing up",
-      "deal_price": "£30",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1rywry0/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "megalist",
-      "category": "freebie",
-      "code": "",
-      "steps": [
-        "Check the BeermoneyUK megalist",
-        "Follow the offer link",
-        "Complete required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "BeermoneyUK Megalist",
-      "last_updated": "2026-04-01 00:09:44",
+      "last_updated": "2026-03-31 23:11:40",
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0
@@ -991,7 +526,7 @@
       ],
       "timeFrame": "Check page",
       "source": "Scrimpr",
-      "last_updated": "2026-04-01 00:09:44",
+      "last_updated": "2026-03-31 23:11:40",
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0
@@ -1015,29 +550,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 00:09:44"
-    },
-    {
-      "store": "Save , Get",
-      "item": "* Save £25, get £10 (Christmas)",
-      "deal_price": "£25",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1rywry0/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "megalist",
-      "category": "freebie",
-      "code": "",
-      "steps": [
-        "Check the BeermoneyUK megalist",
-        "Follow the offer link",
-        "Complete required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "BeermoneyUK Megalist",
-      "last_updated": "2026-04-01 00:09:44",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
+      "last_updated": "2026-03-31 23:11:40"
     },
     {
       "store": "Expedia",
@@ -1056,7 +569,7 @@
       ],
       "timeFrame": "Check page",
       "source": "Scrimpr",
-      "last_updated": "2026-04-01 00:09:44",
+      "last_updated": "2026-03-31 23:11:40",
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0
@@ -1078,7 +591,7 @@
       ],
       "timeFrame": "Check page",
       "source": "Scrimpr",
-      "last_updated": "2026-04-01 00:09:44",
+      "last_updated": "2026-03-31 23:11:40",
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0
@@ -1100,7 +613,7 @@
       ],
       "timeFrame": "Check page",
       "source": "Scrimpr",
-      "last_updated": "2026-04-01 00:09:44",
+      "last_updated": "2026-03-31 23:11:40",
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0
@@ -1122,7 +635,7 @@
       ],
       "timeFrame": "Check page",
       "source": "Scrimpr",
-      "last_updated": "2026-04-01 00:09:44",
+      "last_updated": "2026-03-31 23:11:40",
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0
@@ -1146,7 +659,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 00:09:44"
+      "last_updated": "2026-03-31 23:11:40"
     },
     {
       "store": "Quidco",
@@ -1167,51 +680,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 00:09:44"
-    },
-    {
-      "store": "Get When",
-      "item": "* Get £20 when you earn £5",
-      "deal_price": "£20",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1rywry0/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "megalist",
-      "category": "freebie",
-      "code": "",
-      "steps": [
-        "Check the BeermoneyUK megalist",
-        "Follow the offer link",
-        "Complete required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "BeermoneyUK Megalist",
-      "last_updated": "2026-04-01 00:09:44",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Free Vape Credit",
-      "item": "* Free vape credit — sometimes a £20 Amazon voucher too",
-      "deal_price": "£20",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1rywry0/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "megalist",
-      "category": "freebie",
-      "code": "",
-      "steps": [
-        "Check the BeermoneyUK megalist",
-        "Follow the offer link",
-        "Complete required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "BeermoneyUK Megalist",
-      "last_updated": "2026-04-01 00:09:44",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
+      "last_updated": "2026-03-31 23:11:40"
     },
     {
       "store": "Yougov",
@@ -1230,7 +699,7 @@
       ],
       "timeFrame": "Check page",
       "source": "Scrimpr",
-      "last_updated": "2026-04-01 00:09:44",
+      "last_updated": "2026-03-31 23:11:40",
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0
@@ -1253,7 +722,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 00:09:44"
+      "last_updated": "2026-03-31 23:11:40"
     },
     {
       "store": "Robinhood",
@@ -1273,7 +742,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 00:09:44"
+      "last_updated": "2026-03-31 23:11:40"
     },
     {
       "store": "Topcashback",
@@ -1293,7 +762,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 00:09:44"
+      "last_updated": "2026-03-31 23:11:40"
     },
     {
       "store": "Zopa (biscuit)",
@@ -1313,184 +782,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 00:09:44"
-    },
-    {
-      "store": "Rubify Is A New Rewards",
-      "item": "Rubify is a new rewards app looking for UK beta testers. They'll pay people £10 ",
-      "deal_price": "£10.00",
-      "link": "https://www.reddit.com/r/GetPaidToPlay/s/3UJLArSgpa",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "scraped_reddit",
-      "code": "",
-      "steps": [
-        "Read the Reddit post for full details",
-        "Follow the referral link",
-        "Complete the required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "r/beermoneyuk",
-      "reddit_score": 0,
-      "last_updated": "2026-04-01 00:09:44",
-      "category": "other",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Get For",
-      "item": "* Get £10-£50 for opening a bank account.",
-      "deal_price": "£10",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1rywry0/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "megalist",
-      "category": "bank",
-      "code": "",
-      "steps": [
-        "Check the BeermoneyUK megalist",
-        "Follow the offer link",
-        "Complete required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "BeermoneyUK Megalist",
-      "last_updated": "2026-04-01 00:09:44",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Get Just",
-      "item": "* Get £10 just for opening their current account.",
-      "deal_price": "£10",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1rywry0/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "megalist",
-      "category": "bank",
-      "code": "",
-      "steps": [
-        "Check the BeermoneyUK megalist",
-        "Follow the offer link",
-        "Complete required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "BeermoneyUK Megalist",
-      "last_updated": "2026-04-01 00:09:44",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Save K, Get",
-      "item": "* Save £10k, get £50 free (~1 week)",
-      "deal_price": "£10",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1rywry0/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "megalist",
-      "category": "freebie",
-      "code": "",
-      "steps": [
-        "Check the BeermoneyUK megalist",
-        "Follow the offer link",
-        "Complete required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "BeermoneyUK Megalist",
-      "last_updated": "2026-04-01 00:09:44",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Free With",
-      "item": "* Free £10 with their credit builder card (~1 week)",
-      "deal_price": "£10",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1rywry0/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "megalist",
-      "category": "gift",
-      "code": "",
-      "steps": [
-        "Check the BeermoneyUK megalist",
-        "Follow the offer link",
-        "Complete required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "BeermoneyUK Megalist",
-      "last_updated": "2026-04-01 00:09:44",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Invest K, Get",
-      "item": "* Invest £10k, get a £100 Amazon gift card (1 month)",
-      "deal_price": "£10",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1rywry0/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "megalist",
-      "category": "invest",
-      "code": "",
-      "steps": [
-        "Check the BeermoneyUK megalist",
-        "Follow the offer link",
-        "Complete required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "BeermoneyUK Megalist",
-      "last_updated": "2026-04-01 00:09:44",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Off First",
-      "item": "* £10 off first purchase + ~£50 in points — ~1% cashback on everything",
-      "deal_price": "£10",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1rywry0/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "megalist",
-      "category": "cashback",
-      "code": "",
-      "steps": [
-        "Check the BeermoneyUK megalist",
-        "Follow the offer link",
-        "Complete required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "BeermoneyUK Megalist",
-      "last_updated": "2026-04-01 00:09:44",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Send , Get",
-      "item": "* Send £10, get £5 back (~1 week)",
-      "deal_price": "£10",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1rywry0/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "megalist",
-      "category": "freebie",
-      "code": "",
-      "steps": [
-        "Check the BeermoneyUK megalist",
-        "Follow the offer link",
-        "Complete required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "BeermoneyUK Megalist",
-      "last_updated": "2026-04-01 00:09:44",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
+      "last_updated": "2026-03-31 23:11:40"
     },
     {
       "store": "Earnlab",
@@ -1509,7 +801,7 @@
       ],
       "timeFrame": "Check page",
       "source": "Scrimpr",
-      "last_updated": "2026-04-01 00:09:44",
+      "last_updated": "2026-03-31 23:11:40",
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0
@@ -1531,7 +823,7 @@
       ],
       "timeFrame": "Check page",
       "source": "Scrimpr",
-      "last_updated": "2026-04-01 00:09:44",
+      "last_updated": "2026-03-31 23:11:40",
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0
@@ -1553,7 +845,7 @@
       ],
       "timeFrame": "Check page",
       "source": "Scrimpr",
-      "last_updated": "2026-04-01 00:09:44",
+      "last_updated": "2026-03-31 23:11:40",
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0
@@ -1575,7 +867,7 @@
       ],
       "timeFrame": "Check page",
       "source": "Scrimpr",
-      "last_updated": "2026-04-01 00:09:44",
+      "last_updated": "2026-03-31 23:11:40",
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0
@@ -1597,7 +889,7 @@
       ],
       "timeFrame": "Check page",
       "source": "Scrimpr",
-      "last_updated": "2026-04-01 00:09:44",
+      "last_updated": "2026-03-31 23:11:40",
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0
@@ -1619,7 +911,7 @@
       ],
       "timeFrame": "Check page",
       "source": "Scrimpr",
-      "last_updated": "2026-04-01 00:09:44",
+      "last_updated": "2026-03-31 23:11:40",
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0
@@ -1641,7 +933,7 @@
       ],
       "timeFrame": "Check page",
       "source": "Scrimpr",
-      "last_updated": "2026-04-01 00:09:44",
+      "last_updated": "2026-03-31 23:11:40",
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0
@@ -1665,7 +957,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 00:09:44"
+      "last_updated": "2026-03-31 23:11:40"
     },
     {
       "store": "Zilch",
@@ -1685,95 +977,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 00:09:44"
-    },
-    {
-      "store": "Sign Up, Get",
-      "item": "* Sign up, get £5 Amazon voucher free (1 month)",
-      "deal_price": "£5",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1rywry0/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "megalist",
-      "category": "freebie",
-      "code": "",
-      "steps": [
-        "Check the BeermoneyUK megalist",
-        "Follow the offer link",
-        "Complete required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "BeermoneyUK Megalist",
-      "last_updated": "2026-04-01 00:09:44",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Sign Up",
-      "item": "* £5 sign up bonus (~1 week).",
-      "deal_price": "£5",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1rywry0/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "megalist",
-      "category": "freebie",
-      "code": "",
-      "steps": [
-        "Check the BeermoneyUK megalist",
-        "Follow the offer link",
-        "Complete required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "BeermoneyUK Megalist",
-      "last_updated": "2026-04-01 00:09:44",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Cashback Online &amp",
-      "item": "* Cashback online &amp; ~£5 bonus",
-      "deal_price": "£5",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1rywry0/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "megalist",
-      "category": "cashback",
-      "code": "",
-      "steps": [
-        "Check the BeermoneyUK megalist",
-        "Follow the offer link",
-        "Complete required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "BeermoneyUK Megalist",
-      "last_updated": "2026-04-01 00:09:44",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Credit On",
-      "item": "* £5 credit on sign-up",
-      "deal_price": "£5",
-      "link": "https://www.reddit.com/r/beermoneyuk/comments/1rywry0/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "megalist",
-      "category": "freebie",
-      "code": "",
-      "steps": [
-        "Check the BeermoneyUK megalist",
-        "Follow the offer link",
-        "Complete required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "BeermoneyUK Megalist",
-      "last_updated": "2026-04-01 00:09:44",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
+      "last_updated": "2026-03-31 23:11:40"
     },
     {
       "store": "Sprive",
@@ -1792,7 +996,7 @@
       ],
       "timeFrame": "Check page",
       "source": "Scrimpr",
-      "last_updated": "2026-04-01 00:09:44",
+      "last_updated": "2026-03-31 23:11:40",
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0
@@ -1815,7 +1019,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 00:09:44"
+      "last_updated": "2026-03-31 23:11:40"
     },
     {
       "store": "Jam Doughnut",
@@ -1835,7 +1039,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 00:09:44"
+      "last_updated": "2026-03-31 23:11:40"
     },
     {
       "store": "Trainpal",
@@ -1856,7 +1060,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 00:09:44"
+      "last_updated": "2026-03-31 23:11:40"
     },
     {
       "store": "Airtime",
@@ -1877,7 +1081,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 00:09:44"
+      "last_updated": "2026-03-31 23:11:40"
     },
     {
       "store": "Everup",
@@ -1898,7 +1102,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 00:09:44"
+      "last_updated": "2026-03-31 23:11:40"
     },
     {
       "store": "Moneybox",
@@ -1918,7 +1122,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 00:09:44"
+      "last_updated": "2026-03-31 23:11:40"
     },
     {
       "store": "Lebara",
@@ -1938,7 +1142,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 00:09:44"
+      "last_updated": "2026-03-31 23:11:40"
     },
     {
       "store": "Costa",
@@ -1958,7 +1162,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 00:09:44"
+      "last_updated": "2026-03-31 23:11:40"
     },
     {
       "store": "Waitrose",
@@ -1978,7 +1182,7 @@
       "stacked_price": 0,
       "best_payment_method": "JamDoughnut (3.5%) + MyWaitrose",
       "stacking_rate": 3.5,
-      "last_updated": "2026-04-01 00:09:44"
+      "last_updated": "2026-03-31 23:11:40"
     },
     {
       "store": "Wise",
@@ -1999,7 +1203,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 00:09:44"
+      "last_updated": "2026-03-31 23:11:40"
     }
   ]
 }
