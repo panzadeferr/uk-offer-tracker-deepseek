@@ -720,74 +720,86 @@ def scrape_scrimpr():
             print(f"Scrimpr blocked: {r.status_code}")
             return []
         soup = BeautifulSoup(r.content, 'html.parser')
-        # Find offer cards/sections
-        # Scrimpr uses article or div elements
-        offer_elements = (
-            soup.find_all('article') or
-            soup.find_all('div', 
-                class_=lambda x: x and 
-                'offer' in x.lower()) or
-            soup.find_all('div', 
-                class_=lambda x: x and 
-                'card' in x.lower())
-        )
-        print(f"Scrimpr elements found: "
-              f"{len(offer_elements)}")
-        for el in offer_elements[:30]:
-            text = el.get_text(separator=' ', 
-                               strip=True)
-            if '£' not in text:
+        
+        # Find offer cards - Scrimpr uses div with class "so-card"
+        offer_cards = soup.find_all('div', class_='so-card')
+        print(f"Scrimpr cards found: {len(offer_cards)}")
+        
+        for card in offer_cards[:50]:  # Limit to 50 cards
+            # Get offer name from data-name attribute or h3
+            offer_name = card.get('data-name', '')
+            if not offer_name:
+                name_elem = card.find('h3', class_='so-card-platform-name')
+                if name_elem:
+                    offer_name = name_elem.get_text(strip=True)
+            
+            # Get reward value from data-value attribute
+            reward_value = card.get('data-value', '')
+            if not reward_value:
+                # Try to extract from reward grid
+                reward_elem = card.find(class_=lambda x: x and 'reward' in str(x).lower())
+                if reward_elem:
+                    reward_text = reward_elem.get_text(strip=True)
+                    amounts = re.findall(r'£(\d+(?:\.\d{2})?)', reward_text)
+                    if amounts:
+                        reward_value = amounts[0]
+            
+            # Skip if no name or reward
+            if not offer_name or not reward_value:
                 continue
-            # Extract reward
-            amounts = re.findall(
-                r'£(\d+(?:\.\d{2})?)', text)
-            if not amounts:
-                continue
-            amount = float(amounts[0])
-            if amount < 5 or amount > 1000:
-                continue
-            # Get title/store name
-            title_el = el.find(
-                ['h2','h3','h4','strong','a'])
-            if not title_el:
-                continue
-            store = title_el.get_text(strip=True)
-            store = store[:40]
-            if len(store) < 2:
-                continue
+            
+            # Get category from data-category attribute
+            category = card.get('data-category', '').lower()
+            if not category:
+                category_tag = card.find(class_='so-card-type-tag')
+                if category_tag:
+                    category = category_tag.get_text(strip=True).lower()
+            
             # Get link
-            link_el = el.find('a', href=True)
-            link = (link_el['href'] 
-                   if link_el else url)
+            link_elem = card.find('a', href=True)
+            link = link_elem['href'] if link_elem else url
             if link.startswith('/'):
                 link = 'https://scrimpr.co.uk' + link
-            # Get description
-            desc = text[:120]
-            # Category
-            text_lower = text.lower()
-            if any(w in text_lower for w in [
-                'bank','switch','current account'
-            ]):
-                category = 'bank'
-            elif any(w in text_lower for w in [
-                'invest','share','stock','isa'
-            ]):
-                category = 'invest'
-            elif any(w in text_lower for w in [
-                'cashback'
-            ]):
-                category = 'cashback'
+            
+            # Get description from card text
+            card_text = card.get_text(separator=' ', strip=True)
+            description = card_text[:150] if len(card_text) > 150 else card_text
+            
+            # Map Scrimpr categories to our categories
+            if 'bank' in category or 'switch' in category:
+                deal_type = 'bank_switch'
+            elif 'invest' in category:
+                deal_type = 'invest'
+            elif 'cashback' in category:
+                deal_type = 'cashback'
+            elif 'supermarket' in category or 'food' in category:
+                deal_type = 'supermarket'
+            elif 'utility' in category or 'energy' in category:
+                deal_type = 'utilities'
+            elif 'travel' in category:
+                deal_type = 'travel'
+            elif 'business' in category:
+                deal_type = 'business'
             else:
-                category = 'freebie'
+                deal_type = 'other'
+            
+            # Create deal object
+            try:
+                reward_float = float(reward_value)
+                if reward_float < 5 or reward_float > 1000:
+                    continue
+            except ValueError:
+                continue
+            
             deals.append({
-                "store": store,
-                "item": desc,
-                "deal_price": f"£{amounts[0]}",
+                "store": offer_name[:40],
+                "item": description[:80],
+                "deal_price": f"£{reward_value}",
                 "link": link,
                 "original_price": "£0",
                 "saving_percent": 100,
                 "type": "scrimpr",
-                "category": category,
+                "category": deal_type,
                 "code": "",
                 "steps": [
                     "Read the full offer on Scrimpr",
@@ -799,14 +811,16 @@ def scrape_scrimpr():
                 "last_updated": datetime.now()
                     .strftime("%Y-%m-%d %H:%M:%S")
             })
+        
         # Deduplicate
         seen = set()
         unique = []
         for d in deals:
-            key = d["store"].lower()[:8]
+            key = d["store"].lower()[:10] + d["deal_price"]
             if key not in seen:
                 seen.add(key)
                 unique.append(d)
+        
         print(f"Scrimpr: found {len(unique)} deals")
         return unique
     except Exception as e:
