@@ -699,6 +699,8 @@ def scrape_megalist():
         'amex','american express','wise','octopus',
         'trainpal','lebara','avios','curve','zilch',
         'freecash','swagbucks','gemsloot',
+        'bank of scotland','capital on tap',
+        'mettle','barclays business','park christmas',
     }
     
     def is_manual_offer(name):
@@ -757,9 +759,16 @@ def scrape_megalist():
                     if float(a) <= 500]
             if not valid:
                 continue
-            reward = max(valid)
+            # Use LAST amount mentioned - usually the reward
+            # not the deposit amount
+            reward = valid[-1]
+            # But if last amount is less than £5 
+            # use the largest that is <= £200
             if reward < 5:
-                continue
+                affordable = [a for a in valid if a <= 200]
+                if not affordable:
+                    continue
+                reward = max(affordable)
             
             # Skip if reddit search link 
             # (no direct offer URL)
