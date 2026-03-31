@@ -584,54 +584,90 @@ def scrape_megalist():
     import re
     deals = []
     headers = {
-        "User-Agent": "MoneyHuntersUK/1.0 (contact: hello@moneyhunters.co.uk)"
+        "User-Agent": "MoneyHuntersUK/1.0 "
+                      "(contact: hello@moneyhunters.co.uk)"
     }
+    megalist_url = (
+        "https://www.reddit.com/r/beermoneyuk/comments/"
+        "1rywry0/the_beermoney_megalist_march_2026_"
+        "the_big_list_of/.json"
+    )
     try:
-        url = ("https://www.reddit.com/r/beermoneyuk"
-               "/comments/1rywry0/.json")
-        r = requests.get(url, headers=headers, timeout=15)
+        r = requests.get(
+            megalist_url, headers=headers, timeout=15)
         print(f"Megalist status: {r.status_code}")
         if r.status_code != 200:
-            print("Megalist blocked")
             return []
         data = r.json()
-        # Get post body
         post = data[0]["data"]["children"][0]["data"]
         body = post.get("selftext", "")
-        # Parse lines looking for offers
         lines = body.split("\n")
         for line in lines:
             line = line.strip()
-            if not line:
+            if not line or len(line) > 200:
                 continue
-            # Must have £ amount
             if "£" not in line:
                 continue
-            # Extract amount
             amounts = re.findall(
                 r'£(\d+(?:\.\d{2})?)', line)
             if not amounts:
                 continue
             amount = float(amounts[0])
-            # Filter realistic amounts
-            if amount < 5 or amount > 500:
+            if amount < 5 or amount > 1000:
                 continue
-            # Skip long sentences (not offer names)
+            # Skip explanatory sentences
             words = line.split()
-            if len(words) > 10:
+            if len(words) > 15:
                 continue
-            # Extract store name (first 3 words)
-            store = " ".join(words[:3])
+            # Clean store name from markdown
+            clean = re.sub(
+                r'\[|\]|\*\*|\*|#{1,3}|'
+                r'[-•>]|\(http\S+\)', 
+                '', line
+            ).strip()
+            store_words = clean.split()
+            store = " ".join(store_words[:3])
             store = re.sub(
-                r'[•\-\*\[\]£\d]', '', store).strip()
-            if len(store) < 3:
+                r'£\d+|[\(\)]', '', store).strip()
+            if len(store) < 2:
                 continue
             # Extract URL
             url_match = re.search(
-                r'https?://[^\s\)]+', line)
-            offer_url = (url_match.group(0)
-                         if url_match else
-                        "https://www.reddit.com/r/beermoneyuk")
+                r'https?://[^\s\)\]]+', line)
+            offer_url = (
+                url_match.group(0) if url_match
+                else "https://www.reddit.com/r/"
+                     "beermoneyuk/comments/1rywry0/"
+            )
+            # Clean URL
+            offer_url = offer_url.rstrip('.,)')
+            # Category detection
+            line_lower = line.lower()
+            if any(w in line_lower for w in [
+                'bank','switch','cass',
+                'current account','halifax',
+                'lloyds','natwest','barclays',
+                'santander','hsbc','first direct'
+            ]):
+                category = 'bank'
+            elif any(w in line_lower for w in [
+                'invest','share','stock','isa',
+                'pension','freetrade','robinhood',
+                'trading','webull','wealthify'
+            ]):
+                category = 'invest'
+            elif any(w in line_lower for w in [
+                'cashback','topcashback','quidco',
+                'rakuten'
+            ]):
+                category = 'cashback'
+            elif any(w in line_lower for w in [
+                'gift','card','supermarket',
+                'jam','airtime','cheddar'
+            ]):
+                category = 'gift'
+            else:
+                category = 'freebie'
             deals.append({
                 "store": store[:40],
                 "item": line[:80],
@@ -640,10 +676,11 @@ def scrape_megalist():
                 "original_price": "£0",
                 "saving_percent": 100,
                 "type": "megalist",
+                "category": category,
                 "code": "",
                 "steps": [
                     "Check the BeermoneyUK megalist",
-                    "Follow the referral link",
+                    "Follow the offer link",
                     "Complete required steps"
                 ],
                 "timeFrame": "Varies",
@@ -651,10 +688,129 @@ def scrape_megalist():
                 "last_updated": datetime.now()
                     .strftime("%Y-%m-%d %H:%M:%S")
             })
-        print(f"Megalist: found {len(deals)} deals")
-        return deals
+        # Deduplicate
+        seen = set()
+        unique = []
+        for d in deals:
+            key = d["store"].lower()[:8]
+            if key not in seen:
+                seen.add(key)
+                unique.append(d)
+        print(f"Megalist: found {len(unique)} deals")
+        return unique
     except Exception as e:
         print(f"Megalist failed: {e}")
+        return []
+
+
+def scrape_scrimpr():
+    from bs4 import BeautifulSoup
+    import re
+    deals = []
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0;"
+                      " Win64; x64) AppleWebKit/537.36"
+    }
+    url = "https://scrimpr.co.uk/free-money-offers-uk/"
+    try:
+        r = requests.get(
+            url, headers=headers, timeout=15)
+        print(f"Scrimpr status: {r.status_code}")
+        if r.status_code != 200:
+            print(f"Scrimpr blocked: {r.status_code}")
+            return []
+        soup = BeautifulSoup(r.content, 'html.parser')
+        # Find offer cards/sections
+        # Scrimpr uses article or div elements
+        offer_elements = (
+            soup.find_all('article') or
+            soup.find_all('div', 
+                class_=lambda x: x and 
+                'offer' in x.lower()) or
+            soup.find_all('div', 
+                class_=lambda x: x and 
+                'card' in x.lower())
+        )
+        print(f"Scrimpr elements found: "
+              f"{len(offer_elements)}")
+        for el in offer_elements[:30]:
+            text = el.get_text(separator=' ', 
+                               strip=True)
+            if '£' not in text:
+                continue
+            # Extract reward
+            amounts = re.findall(
+                r'£(\d+(?:\.\d{2})?)', text)
+            if not amounts:
+                continue
+            amount = float(amounts[0])
+            if amount < 5 or amount > 1000:
+                continue
+            # Get title/store name
+            title_el = el.find(
+                ['h2','h3','h4','strong','a'])
+            if not title_el:
+                continue
+            store = title_el.get_text(strip=True)
+            store = store[:40]
+            if len(store) < 2:
+                continue
+            # Get link
+            link_el = el.find('a', href=True)
+            link = (link_el['href'] 
+                   if link_el else url)
+            if link.startswith('/'):
+                link = 'https://scrimpr.co.uk' + link
+            # Get description
+            desc = text[:120]
+            # Category
+            text_lower = text.lower()
+            if any(w in text_lower for w in [
+                'bank','switch','current account'
+            ]):
+                category = 'bank'
+            elif any(w in text_lower for w in [
+                'invest','share','stock','isa'
+            ]):
+                category = 'invest'
+            elif any(w in text_lower for w in [
+                'cashback'
+            ]):
+                category = 'cashback'
+            else:
+                category = 'freebie'
+            deals.append({
+                "store": store,
+                "item": desc,
+                "deal_price": f"£{amounts[0]}",
+                "link": link,
+                "original_price": "£0",
+                "saving_percent": 100,
+                "type": "scrimpr",
+                "category": category,
+                "code": "",
+                "steps": [
+                    "Read the full offer on Scrimpr",
+                    "Follow the referral link",
+                    "Complete required steps"
+                ],
+                "timeFrame": "Check page",
+                "source": "Scrimpr",
+                "last_updated": datetime.now()
+                    .strftime("%Y-%m-%d %H:%M:%S")
+            })
+        # Deduplicate
+        seen = set()
+        unique = []
+        for d in deals:
+            key = d["store"].lower()[:8]
+            if key not in seen:
+                seen.add(key)
+                unique.append(d)
+        print(f"Scrimpr: found {len(unique)} deals")
+        return unique
+    except Exception as e:
+        print(f"Scrimpr failed: {e}")
         return []
 
 
@@ -814,7 +970,11 @@ def run_all_scrapers() -> Dict:
     megalist_deals = scrape_megalist()
     time.sleep(2)
     
-    scraped = reddit_deals + news_deals + hotuk_deals + megalist_deals
+    print("\n📡 Scraping Scrimpr...")
+    scrimpr_deals = scrape_scrimpr()
+    time.sleep(2)
+    
+    scraped = reddit_deals + news_deals + hotuk_deals + megalist_deals + scrimpr_deals
     # Clean and validate scraped deals
     cleaned_scraped = []
     for deal in scraped:
@@ -905,8 +1065,9 @@ def run_all_scrapers() -> Dict:
         "news_count": len(news_deals),
         "hotukdeals_count": len(hotuk_deals),
         "megalist_count": len(megalist_deals),
+        "scrimpr_count": len(scrimpr_deals),
         "unique_scraped_count": len(unique_scraped),
-        "sources": ["Manual", "Supermarket", "Reddit r/beermoneyuk", "Google News", "HotUKDeals", "BeermoneyUK Megalist"],
+        "sources": ["Manual", "Supermarket", "Reddit r/beermoneyuk", "Google News", "HotUKDeals", "BeermoneyUK Megalist", "Scrimpr"],
         "stacking_rates": STACKING_RATES,
         "deals": all_deals
     }
@@ -923,6 +1084,7 @@ def run_all_scrapers() -> Dict:
         f"Google News deals: {len(news_deals)}",
         f"HotUKDeals deals: {len(hotuk_deals)}",
         f"Megalist deals: {len(megalist_deals)}",
+        f"Scrimpr deals: {len(scrimpr_deals)}",
         f"Cleaned scraped: {len(cleaned_scraped)}",
         f"Unique scraped: {len(unique_scraped)}",
         f"Total written: {len(all_deals)}",
