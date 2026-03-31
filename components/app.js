@@ -19,27 +19,117 @@ let state = {
 // Initialize the app
 function initApp() {
   console.log('Money Hunters UK initializing...');
-  loadOffers();
+  (async () => {
+    await loadOffersFromJSON();
+    renderAll();
+    initAuth();
+    checkPasswordResetToken();
+  })();
   loadProgress();
   setupEventListeners();
   updateUI();
-  initAuth();
 }
 
-// Load offers from all_deals.json
-// Note: The JSON file has "deals" key, not "offers" key
-async function loadOffers() {
+// Load and filter scraped offers from all_deals.json
+async function loadOffersFromJSON() {
   try {
-    const response = await fetch('all_deals.json');
-    const data = await response.json();
-    // The JSON file has "deals" key, not "offers" key
-    state.offers = data.deals || [];
-    console.log(`Loaded ${state.offers.length} offers`);
-    renderAll();
-  } catch (error) {
-    console.error('Failed to load offers:', error);
-    // Fallback to empty array
-    state.offers = [];
+    const res = await fetch(
+      '/all_deals.json?v=' + Date.now()
+    );
+    if (!res.ok) throw new Error('fetch failed');
+    const data = await res.json();
+    if (!data.deals || !data.deals.length)
+      throw new Error('no deals');
+    
+    const supermarkets = ['tesco','asda',
+      'sainsbury','iceland','morrisons',
+      'waitrose','aldi','lidl'];
+    
+    const scraped = data.deals.filter(d => {
+      const s = (d.store||'').toLowerCase();
+      const t = (d.type||'').toLowerCase();
+      
+      if (supermarkets.some(x => s.includes(x)))
+        return false;
+      
+      return t==='scraped_reddit' ||
+             t==='scraped_hotukdeals' ||
+             t==='scraped_news' ||
+             t==='megalist' ||
+             t==='scrimpr' ||
+             t==='bank_switch' ||
+             t==='invest' ||
+             t==='cashback' ||
+             t==='referral' ||
+             t==='business' ||
+             t==='utilities' ||
+             t==='pension' ||
+             t==='credit';
+    });
+    
+    if (!scraped.length) return;
+    
+    const existingIds = new Set(state.offers.map(o => o.id));
+    
+    const mapped = scraped.map(d => {
+      const type = (d.type || '').toLowerCase();
+      let badge;
+      
+      if (type === 'megalist') {
+        badge = '🔥 BEERMONEY FIND';
+      } else if (type === 'scrimpr') {
+        badge = '💰 SCRIMPR DEAL';
+      } else if (type === 'scraped_reddit') {
+        badge = '🔥 REDDIT FIND';
+      } else if (type === 'scraped_hotukdeals') {
+        badge = '🏷️ HOTUKDEALS';
+      } else {
+        badge = '📋 DEAL';
+      }
+      
+      return {
+        id: (d.store||'offer')
+              .toLowerCase()
+              .replace(/\s+/g,'-')
+              .replace(/[^a-z0-9-]/g,'')
+              .slice(0,40)+'-scraped',
+        name: (d.store||'New Offer').slice(0,40),
+        category: d.category||'freebie',
+        reward: d.deal_price||'Bonus',
+        amount: parseFloat(
+          String(d.deal_price||'0')
+            .replace(/[^0-9.]/g,'')
+        )||0,
+        badge: badge,
+        effort: 'Check source for details',
+        desc: (d.item||d.store||'').slice(0,120),
+        code: d.code||'',
+        url: d.link||'#',
+        steps: d.steps||[
+          'Read the full offer details',
+          'Follow the link to claim',
+          'Complete required steps'
+        ],
+        expectedDays: 30,
+        tips: ['Always verify current terms'],
+        warnings: ['Details may change'],
+        detailedSteps: d.steps||[]
+      };
+    });
+    
+    const newOffers = mapped.filter(
+      o => !existingIds.has(o.id)
+    );
+    
+    if (newOffers.length) {
+      state.offers.push(...newOffers);
+      console.log(
+        'Loaded '+newOffers.length+
+        ' fresh offers from all_deals.json'
+      );
+    }
+  } catch(e) {
+    console.log('Hardcoded offers only:',e.message);
   }
 }
 
@@ -271,6 +361,17 @@ function pullProgressFromSupabase() {
 function initAuth() {
   console.log('Initializing auth');
   // Implementation for auth initialization
+}
+
+// Check password reset token from URL
+function checkPasswordResetToken() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const token = urlParams.get('token');
+  if (token) {
+    console.log('Password reset token detected:', token);
+    // In a real implementation, you would validate the token
+    // and show the password reset form
+  }
 }
 
 // Show toast notification

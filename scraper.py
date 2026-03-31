@@ -580,6 +580,84 @@ def scrape_hotukdeals():
     return unique
 
 
+def scrape_megalist():
+    import re
+    deals = []
+    headers = {
+        "User-Agent": "MoneyHuntersUK/1.0 (contact: hello@moneyhunters.co.uk)"
+    }
+    try:
+        url = ("https://www.reddit.com/r/beermoneyuk"
+               "/comments/1rywry0/.json")
+        r = requests.get(url, headers=headers, timeout=15)
+        print(f"Megalist status: {r.status_code}")
+        if r.status_code != 200:
+            print("Megalist blocked")
+            return []
+        data = r.json()
+        # Get post body
+        post = data[0]["data"]["children"][0]["data"]
+        body = post.get("selftext", "")
+        # Parse lines looking for offers
+        lines = body.split("\n")
+        for line in lines:
+            line = line.strip()
+            if not line:
+                continue
+            # Must have £ amount
+            if "£" not in line:
+                continue
+            # Extract amount
+            amounts = re.findall(
+                r'£(\d+(?:\.\d{2})?)', line)
+            if not amounts:
+                continue
+            amount = float(amounts[0])
+            # Filter realistic amounts
+            if amount < 5 or amount > 500:
+                continue
+            # Skip long sentences (not offer names)
+            words = line.split()
+            if len(words) > 10:
+                continue
+            # Extract store name (first 3 words)
+            store = " ".join(words[:3])
+            store = re.sub(
+                r'[•\-\*\[\]£\d]', '', store).strip()
+            if len(store) < 3:
+                continue
+            # Extract URL
+            url_match = re.search(
+                r'https?://[^\s\)]+', line)
+            offer_url = (url_match.group(0)
+                         if url_match else
+                        "https://www.reddit.com/r/beermoneyuk")
+            deals.append({
+                "store": store[:40],
+                "item": line[:80],
+                "deal_price": f"£{amounts[0]}",
+                "link": offer_url,
+                "original_price": "£0",
+                "saving_percent": 100,
+                "type": "megalist",
+                "code": "",
+                "steps": [
+                    "Check the BeermoneyUK megalist",
+                    "Follow the referral link",
+                    "Complete required steps"
+                ],
+                "timeFrame": "Varies",
+                "source": "BeermoneyUK Megalist",
+                "last_updated": datetime.now()
+                    .strftime("%Y-%m-%d %H:%M:%S")
+            })
+        print(f"Megalist: found {len(deals)} deals")
+        return deals
+    except Exception as e:
+        print(f"Megalist failed: {e}")
+        return []
+
+
 # ============================================
 # SUPERMARKET DEALS
 # ============================================
@@ -732,7 +810,11 @@ def run_all_scrapers() -> Dict:
     hotuk_deals = scrape_hotukdeals()
     time.sleep(2)
     
-    scraped = reddit_deals + news_deals + hotuk_deals
+    print("\n📡 Scraping BeermoneyUK Megalist...")
+    megalist_deals = scrape_megalist()
+    time.sleep(2)
+    
+    scraped = reddit_deals + news_deals + hotuk_deals + megalist_deals
     # Clean and validate scraped deals
     cleaned_scraped = []
     for deal in scraped:
@@ -822,8 +904,9 @@ def run_all_scrapers() -> Dict:
         "reddit_count": len(reddit_deals),
         "news_count": len(news_deals),
         "hotukdeals_count": len(hotuk_deals),
+        "megalist_count": len(megalist_deals),
         "unique_scraped_count": len(unique_scraped),
-        "sources": ["Manual", "Supermarket", "Reddit r/beermoneyuk", "Google News", "HotUKDeals"],
+        "sources": ["Manual", "Supermarket", "Reddit r/beermoneyuk", "Google News", "HotUKDeals", "BeermoneyUK Megalist"],
         "stacking_rates": STACKING_RATES,
         "deals": all_deals
     }

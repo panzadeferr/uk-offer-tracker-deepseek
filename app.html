@@ -19,321 +19,115 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" crossorigin="anonymous">
   <style>
-    :root{
-      --bg:#0b0f14;
-      --bg2:#11161d;
-      --bg3:#171d25;
-      --bg4:#202833;
-      --card:#121821;
-      --line:rgba(255,255,255,.07);
-      --line-2:rgba(255,255,255,.1);
-      --text:#f6f8fb;
-      --muted:#a8b4c1;
-      --muted2:#6f8091;
-      --green:#1fe887;
-      --green-soft:rgba(31,232,135,.12);
-      --yellow:#ffcf5a;
-      --yellow-soft:rgba(255,207,90,.12);
-      --blue:#63a7ff;
-      --blue-soft:rgba(99,167,255,.12);
-      --red:#ff6b6b;
-      --radius:14px;
-      --radius-sm:10px;
-      --fh:"Syne",sans-serif;
-      --fb:"DM Sans",sans-serif;
-      --shadow:0 10px 22px rgba(0,0,0,.2);
-      --topbar-bg:rgba(11,15,20,.92);
+    /* Basic CSS for the app - full CSS should be in components */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #0b0f14;
+      color: #f6f8fb;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
     }
-
-
-    /*  LIGHT MODE  */
-    body.light{
-      --bg:#f0f4f8;
-      --bg2:#ffffff;
-      --bg3:#e8ecf0;
-      --bg4:#dde2e8;
-      --card:#ffffff;
-      --line:rgba(0,0,0,.09);
-      --line-2:rgba(0,0,0,.14);
-      --text:#0d1117;
-      --muted:#374151;
-      --muted2:#6b7280;
-      --green:#059652;
-      --green-soft:rgba(5,150,82,.1);
-      --yellow:#b45309;
-      --yellow-soft:rgba(180,83,9,.1);
-      --blue:#1d56b0;
-      --blue-soft:rgba(29,86,176,.1);
-      --red:#dc2626;
-      --shadow:0 2px 16px rgba(0,0,0,.1);
-      --topbar-bg:rgba(240,244,248,.96);
+    .app-container {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 0 10px;
     }
-    body.light{ background:#f0f4f8; }
-
-    /* Light mode element overrides */
-    body.light .topbar{border-bottom:1px solid rgba(0,0,0,.1)}
-    body.light .card{background:#fff;border-color:rgba(0,0,0,.08);box-shadow:0 1px 8px rgba(0,0,0,.06)}
-    body.light .offer-card{background:#fff;border-color:rgba(0,0,0,.09)}
-    body.light .offer-card.completed{background:rgba(5,150,82,.05);border-color:rgba(5,150,82,.2)}
-    body.light .offer-card.pending{background:rgba(180,83,9,.05);border-color:rgba(180,83,9,.2)}
-    body.light .stat{background:#fff;border-color:rgba(0,0,0,.08)}
-    body.light .battle-row{background:#fff}
-    body.light .battle-row:active{background:#f5f7fa}
-    body.light .battle-name{color:var(--text)}
-    body.light .stack-card{background:#fff}
-    body.light .step-row{background:rgba(0,0,0,.03)}
-    body.light .task-btn{background:rgba(0,0,0,.04);border-color:rgba(0,0,0,.09);color:var(--text)}
-    body.light .secondary-btn{background:var(--bg3);color:var(--text);border-color:rgba(0,0,0,.12)}
-    body.light .ghost-btn{color:var(--muted);border-color:rgba(0,0,0,.12)}
-    body.light .search,body.light .filter-select,body.light .money-input,body.light .save-input,body.light .inline-input{background:#fff;border-color:rgba(0,0,0,.12);color:var(--text)}
-    body.light .drawer-card{background:#fff;border-color:rgba(0,0,0,.1)}
-    body.light .popup-card{background:#fff}
-    body.light .auth-box{background:#fff;border-color:rgba(0,0,0,.1)}
-    body.light .auth-input{background:#f5f7fa;border-color:rgba(0,0,0,.12);color:var(--text)}
-    body.light .auth-tabs{background:var(--bg3)}
-    body.light .auth-tab{color:var(--muted2)}
-    body.light .auth-tab.on{background:#fff;color:var(--text)}
-    body.light .daily-box{border-color:rgba(180,83,9,.3);background:rgba(255,207,90,.04)}
-    body.light .email-capture{border-color:rgba(5,150,82,.2);background:rgba(5,150,82,.04)}
-    body.light .email-input{background:#fff;border-color:rgba(0,0,0,.12);color:var(--text)}
-    body.light .money-box{background:#f5f7fa;border-color:rgba(0,0,0,.08)}
-    body.light .pending-row,body.light .leaderboard-row{background:rgba(0,0,0,.03)}
-    body.light .list-item{background:rgba(0,0,0,.03);border-color:rgba(0,0,0,.07)}
-    body.light .nav-btn{color:var(--muted2)}
-    body.light .nav-btn.active{color:var(--green);background:#fff;border-color:rgba(0,0,0,.08)}
-    body.light .bottom-nav{background:rgba(240,244,248,.97);border-top:1px solid rgba(0,0,0,.1)}
-    body.light .icon-btn{background:var(--bg3);border-color:rgba(0,0,0,.1);color:var(--text)}
-    body.light .progress-bar{background:var(--bg3)}
-    body.light .streak-dot{background:var(--bg3)}
-    body.light .panel-section{background:rgba(0,0,0,.03)}
-    body.light .offer-panel{background:var(--bg)}
-    body.light .panel-hdr{background:var(--bg2);border-color:rgba(0,0,0,.1)}
-    body.light .panel-footer{background:var(--bg2);border-color:rgba(0,0,0,.1)}
-    body.light .drawer-tip{background:var(--bg3)}
-    body.light .code-box{background:rgba(29,86,176,.08);color:var(--blue)}
-    body.light .empty{border-color:rgba(0,0,0,.1);background:rgba(0,0,0,.02);color:var(--muted)}
-    body.light .toast{background:var(--green);color:#fff}
-    body.light .user-badge{background:var(--bg3);border-color:rgba(0,0,0,.1)}
-    body.light .leaderboard-row.you{border-color:rgba(5,150,82,.2);background:rgba(5,150,82,.05)}
-    body.light .compact-hero{background:linear-gradient(135deg,rgba(29,86,176,.08),rgba(5,150,82,.05)),#fff}
-    body.light .plan-card{background:linear-gradient(145deg,rgba(180,83,9,.06),rgba(5,150,82,.04)),#fff}
-    body.light .community-card{background:#fff}
-    body.light .profile-card,body.light .earn-card,body.light .milestone-card{background:#fff}
-    body.light .section-title{color:var(--text)}
-    body.light .offer-name{color:var(--text)}
-    body.light .reward{color:var(--yellow)}
-    body.light .plan-amount{color:var(--yellow)}
-    body.light .brand{color:var(--text)}
-    body.light .brand span{color:var(--green)}
-    body.light .offer-card-claim{color:#fff}
-    body.light .offer-card-claim.pending-btn{background:rgba(180,83,9,.1);color:var(--yellow);border-color:rgba(180,83,9,.3)}
-    body.light .offer-card-claim.done-btn{background:rgba(5,150,82,.1);color:var(--green);border-color:rgba(5,150,82,.2)}
-    body.light .comparison{background:rgba(0,0,0,.08)}
-    body.light .drawer-step{background:rgba(0,0,0,.03)}
-    body.light .panel-step-check{background:var(--bg3);border-color:rgba(0,0,0,.15)}
-    body.light .panel-save-row input{background:#fff;border-color:rgba(0,0,0,.12);color:var(--text)}
-    body.light .offer-meta-badge{color:var(--muted2)}
-    body.light input::placeholder,body.light textarea::placeholder{color:var(--muted2)}
-
-    /* Theme toggle button */
-    .theme-toggle{
-      width:44px;height:44px;border-radius:999px;
-      background:var(--bg3);color:var(--text);
-      border:1px solid var(--line);cursor:pointer;
-      font-size:16px;transition:.15s;flex-shrink:0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .loading {
+      text-align: center;
+      padding: 40px;
+      font-size: 18px;
+      color: #a8b4c1;
     }
-    .theme-toggle:active{transform:scale(.93)}
-
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family:var(--fb);
-      font-size:15px;
-      background:
-        radial-gradient(circle at top right, rgba(99,167,255,.08), transparent 24%),
-        radial-gradient(circle at top left, rgba(31,232,135,.05), transparent 26%),
-        var(--bg);
-      color:var(--text);
-      -webkit-font-smoothing:antialiased;
-      overflow-x:hidden;
-      overflow-y:auto;
-      -webkit-overflow-scrolling:touch;
-      padding-bottom:100px;
-      min-height:100vh;
-    }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header Component -->
+    <div id="header-container"></div>
     
-    /* Font loading optimization */
-    @font-face {
-      font-family: 'Syne';
-      font-style: normal;
-      font-weight: 700 800;
-      font-display: swap;
-      src: local('Syne'), url(https://fonts.gstatic.com/s/syne/v22/8vIS7w4qzmVxsWxjBZRjr0FKM_04uQ6tTYhE.woff2) format('woff2');
-    }
+    <!-- Main Content Area -->
+    <main>
+      <!-- Home View -->
+      <div id="home-view-container" class="view active"></div>
+      
+      <!-- Offers View -->
+      <div id="offers-view-container" class="view"></div>
+      
+      <!-- Stack View -->
+      <div id="stack-view-container" class="view"></div>
+      
+      <!-- Progress View -->
+      <div id="progress-view-container" class="view"></div>
+      
+      <!-- Community View -->
+      <div id="community-view-container" class="view"></div>
+    </main>
     
-    @font-face {
-      font-family: 'DM Sans';
-      font-style: normal;
-      font-weight: 400 700;
-      font-display: swap;
-      src: local('DM Sans'), url(https://fonts.gstatic.com/s/dmsans/v15/rP2Hp2ywxg089UriCZOIHQ.woff2) format('woff2');
-    }
-
-    a{color:inherit;text-decoration:none}
-    button,input,select{font:inherit}
-    button{font-family:var(--fb)}
-
-    .topbar{
-      z-index:50;
-      background:var(--topbar-bg);
-      backdrop-filter:blur(16px);
-      border-bottom:1px solid var(--line);
-    }
-
-    .topbar-inner,
-    .app{
-      width:min(100%, 920px);
-      margin:0 auto;
-      padding-left:10px;
-      padding-right:10px;
-    }
-
-    .topbar-inner{padding-top:9px;padding-bottom:9px}
-    .app{padding-top:8px;padding-bottom:24px;min-height:calc(100vh - 60px)}
-
-    .brand-row{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:8px;
-      margin-bottom:8px;
-    }
-
-    .brand{
-      font-family:var(--fh);
-      font-size:18px;
-      line-height:1;
-      letter-spacing:-.04em;
-      text-transform:uppercase;
-      cursor:pointer;
-    }
-
-    .brand span{color:var(--green)}
-
-    .top-actions{display:flex;gap:6px}
-
-    .icon-btn,
-    .nav-btn,
-    .primary-btn,
-    .secondary-btn,
-    .mini-btn,
-    .status-btn,
-    .task-btn,
-    .link-btn,
-    .ghost-btn{
-      border:0;
-      cursor:pointer;
-      transition:.16s ease;
-    }
-
-    .icon-btn{
-      width:44px;
-      height:44px;
-      border-radius:999px;
-      background:var(--bg3);
-      color:var(--text);
-      border:1px solid var(--line);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .icon-btn:active,
-    .nav-btn:active,
-    .primary-btn:active,
-    .secondary-btn:active,
-    .mini-btn:active,
-    .status-btn:active,
-    .task-btn:active,
-    .link-btn:active,
-    .ghost-btn:active{
-      transform:scale(.985);
-      opacity:0.85;
-    }
+    <!-- Footer Navigation -->
+    <div id="footer-container"></div>
     
-    .offer-card:active,
-    .battle-row:active,
-    .list-item:active,
-    .pending-row:active,
-    .leaderboard-row:active,
-    .step-row:active,
-    .drawer-step:active {
-      background:var(--bg3);
-    }
+    <!-- Modals -->
+    <div id="modals-container"></div>
     
-    .offer-card-claim:active,
-    .panel-claim:active,
-    .email-submit:active,
-    .auth-submit:active,
-    .install-btn:active {
-      opacity:0.85;
-      transform:scale(.97);
+    <!-- Offer Panel -->
+    <div id="offer-panel" class="offer-panel">
+      <div class="panel-hdr">
+        <button class="panel-close" onclick="closePanel()">✕</button>
+        <h3 id="panelTitle">Offer Details</h3>
+      </div>
+      <div class="panel-body" id="panelBody"></div>
+      <div class="panel-footer">
+        <button class="primary-btn panel-claim" onclick="claimOffer()">Mark as Claimed</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Load Components -->
+  <script>
+    // Load components
+    async function loadComponent(id, url) {
+      try {
+        const response = await fetch(url);
+        const html = await response.text();
+        document.getElementById(id).innerHTML = html;
+      } catch (error) {
+        console.error(`Failed to load component ${url}:`, error);
+      }
     }
 
-    .stats{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:6px;
+    // Load all components
+    async function loadComponents() {
+      await loadComponent('header-container', '/components/header.html');
+      await loadComponent('home-view-container', '/components/home-view.html');
+      await loadComponent('offers-view-container', '/components/offers-view.html');
+      await loadComponent('stack-view-container', '/components/stack-view.html');
+      await loadComponent('progress-view-container', '/components/progress-view.html');
+      await loadComponent('community-view-container', '/components/community-view.html');
+      await loadComponent('footer-container', '/components/footer.html');
+      await loadComponent('modals-container', '/components/modals.html');
+      
+      // Load main app JavaScript
+      const script = document.createElement('script');
+      script.src = '/components/app.js';
+      document.body.appendChild(script);
     }
 
-    .stat{
-      background:var(--card);
-      border:1px solid var(--line);
-      border-radius:12px;
-      padding:7px 8px;
-      min-width:0;
+    // Initialize when DOM is loaded
+    document.addEventListener('DOMContentLoaded', () => {
+      loadComponents();
+    });
+
+    // Basic panel functions
+    function closePanel() {
+      document.getElementById('offer-panel').classList.remove('open');
     }
 
-    .stat-label{
-      font-size:10px;
-      text-transform:uppercase;
-      letter-spacing:.08em;
-      color:var(--muted2);
-      font-weight:700;
-      margin-bottom:2px;
+    function claimOffer() {
+      alert('Offer marked as claimed!');
+      closePanel();
     }
-
-    .stat-value{
-      font-size:15px;
-      font-weight:800;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-    }
-
-    .green{color:var(--green)}
-    .yellow{color:var(--yellow)}
-    .blue{color:var(--blue)}
-
-    .view{display:none}
-    .view.active{display:block;animation:fadeUp .18s ease;min-height:50vh}
-    @keyframes fadeUp{
-      from{opacity:0;transform:translateY(4px)}
-      to{opacity:1;transform:translateY(0)}
-    }
-
-    .card{
-      background:linear-gradient(180deg, rgba(255,255,255,.018), rgba(255,255,255,.008));
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-    }
-
-    .section{margin-top:9px}
-
-    .section-head{
-      display:
+  </script>
+</body>
+</html>
