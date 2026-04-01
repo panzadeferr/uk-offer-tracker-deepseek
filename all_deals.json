@@ -1,22 +1,18 @@
 {
-  "last_updated": "2026-04-01 18:03:50",
-  "total_deals": 123,
-  "manual_count": 92,
+  "last_updated": "2026-04-01 23:57:37",
+  "total_deals": 56,
+  "manual_count": 32,
   "supermarket_count": 4,
   "reddit_count": 0,
-  "news_count": 0,
+  "news_count": 20,
   "hotukdeals_count": 3,
-  "megalist_count": 38,
-  "scrimpr_count": 35,
-  "unique_scraped_count": 27,
+  "unique_scraped_count": 20,
   "sources": [
     "Manual",
     "Supermarket",
     "Reddit r/beermoneyuk",
     "Google News",
-    "HotUKDeals",
-    "BeermoneyUK Megalist",
-    "Scrimpr"
+    "HotUKDeals"
   ],
   "stacking_rates": {
     "Tesco": 5.3,
@@ -42,7 +38,7 @@
       "stacked_price": 2.39,
       "best_payment_method": "Airtime Rewards (4%) + Asda Rewards",
       "stacking_rate": 4.5,
-      "last_updated": "2026-04-01 18:03:50"
+      "last_updated": "2026-04-01 23:57:37"
     },
     {
       "store": "Sainsbury's",
@@ -57,7 +53,7 @@
       "stacked_price": 3.35,
       "best_payment_method": "JamDoughnut (4.1%) + Nectar",
       "stacking_rate": 4.4,
-      "last_updated": "2026-04-01 18:03:50"
+      "last_updated": "2026-04-01 23:57:37"
     },
     {
       "store": "Tesco",
@@ -72,7 +68,7 @@
       "stacked_price": 6.63,
       "best_payment_method": "EverUp (4.9%) + Clubcard",
       "stacking_rate": 5.3,
-      "last_updated": "2026-04-01 18:03:50"
+      "last_updated": "2026-04-01 23:57:37"
     },
     {
       "store": "Iceland",
@@ -87,53 +83,117 @@
       "stacked_price": 9.5,
       "best_payment_method": "TopCashback (3.5%) + Bonus Card",
       "stacking_rate": 5.0,
-      "last_updated": "2026-04-01 18:03:50"
+      "last_updated": "2026-04-01 23:57:37"
     },
     {
-      "store": "Branded Surveys",
-      "item": "41 Branded Surveys Surveys Your Reward 500 Points welcome bonus Claim Offer → Mo",
-      "deal_price": "£500",
-      "link": "https://scrimpr.co.uk/offers/branded-surveys/",
+      "store": "Barclays Launches New Switching Deal Wor",
+      "item": "Barclays Launches New Switching Deal Worth Up to £900 - Moneyfacts",
+      "deal_price": "£900",
+      "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNQ2lud3pYMGJJRU1oTl85WHBCM1ZxS2UzaUM1RWQ3eDQ2OWF2XzFNdFdtdVMwU0Y0a1FHNTJsalFBdlhHa3QzSkNjbFlSNWdvRjhaSGpESGdQUG40TTJJemVkN2RGVFlHWFgwSHBQUlhnUENKdjRvdjl4Z3NpRXJ5ODlFaGFSUWVhM2c?oc=5",
       "original_price": "£0",
       "saving_percent": 100,
-      "type": "scrimpr",
-      "category": "other",
+      "type": "scraped_mse",
       "code": "",
       "steps": [
-        "Read the full offer on Scrimpr",
-        "Follow the referral link",
+        "Read the full article",
+        "Follow the deal link",
         "Complete required steps"
       ],
-      "timeFrame": "Check page",
-      "source": "Scrimpr",
-      "last_updated": "2026-04-01 18:03:50",
+      "timeFrame": "Check article",
+      "source": "Google News",
+      "last_updated": "2026-04-01 23:57:37",
+      "category": "bank_switch",
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0
     },
     {
-      "store": "Barclays Premier",
-      "item": "Premier Switch — £400 Cash",
-      "deal_price": "£400",
-      "link": "https://www.barclays.co.uk/current-accounts/",
+      "store": "Earn Up To £750 Free Cash In New Year Ba",
+      "item": "Earn up to £750 free cash in new year bank account switching deals - Daily Recor",
+      "deal_price": "£750",
+      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNTXNZZkxZY1NFcDhuLXFudER6eVNqUjBLQVdqQWpRYWtzXzdvdWZoUXdwR3ByUXRnR0xYRVBtWWNkQTduZ2s4WEpZZDdxOHhaakJqbjNkY01VQnBxaktuenFob2EyU1h6d0lSdUtsSWF0RHA5WENVRXRzS0dQUkRsYmRKY2NxNVdvVTlJatIBkgFBVV95cUxNRXlKQ2dPVWFZLWRWd3RXUGJQZHRSM245UVdTc2F6RmtWeWlUZG9TNHh0LWw5dDlOZ0dLUlhUR3dTR1I2TXhqZE5idV9xN0IzOFlaemQzaEdzS2dHeC1vblpPc3hWam1IWkFzRHMySmhQakhHX05pVkFWbHFFMzg5TEhqTUdlai1kekhKUXdjSjVhUQ?oc=5",
       "original_price": "£0",
       "saving_percent": 100,
-      "type": "bank_switch",
-      "category": "bank",
+      "type": "scraped_mse",
       "code": "",
-      "expires": "2026-04-30",
       "steps": [
-        "Open Barclays Premier account",
-        "Start CASS switch",
-        "Pay in £4,000",
-        "Wait for payout ~30 days"
+        "Read the full article",
+        "Follow the deal link",
+        "Complete required steps"
       ],
-      "badge": "🏦 BANK SWITCH",
-      "effort": "15 min · large deposit needed",
+      "timeFrame": "Check article",
+      "source": "Google News",
+      "last_updated": "2026-04-01 23:57:37",
+      "category": "bank_switch",
       "stacked_price": 0,
       "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
+      "stacking_rate": 0
+    },
+    {
+      "store": "American Express Announces New £600 Bonu",
+      "item": "American Express announces new £600 bonus points offer - Daily Express",
+      "deal_price": "£600",
+      "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQb2tzTlp3NEpROEcwSGpPOTVVRWxvRW1lemVDV3llUlZQaHI1ZkVWZDhWZEc3QVJCb3JBT2hfd1k3dWVoXzZBZ2dJNG1pUzk5czlkNENqZTN1bzlsWlJPckdwYnNvUS1vUzUzRThCOHZYc0dBTDRsY2NqNFdmaE9iRXRmRHN5RWFjUzlvX3JPMVVPNzRBcFlOak1ONnlVOTdNcnlF0gGoAUFVX3lxTFBEYjFlOHg0SVNLdDlKQmQzcGJMWFJBbWNoN2FwWS02dG5TbktXeE5Pbm5QQ1RQci15c2kxdWVSN1MwRThEV2c0OXRuMHNaVWxSNmdYd1c1endVbEM3d0JlamgzaUtFanAzR2pQS2c0dnJsaDk3cnhyMXlMa19YVHhiMmkySzJWNHloWVRvSkt5bEptMm9MMFBILWk2RHV0UGtPX1ptaW5tRw?oc=5",
+      "original_price": "£0",
+      "saving_percent": 100,
+      "type": "scraped_mse",
+      "code": "",
+      "steps": [
+        "Read the full article",
+        "Follow the deal link",
+        "Complete required steps"
+      ],
+      "timeFrame": "Check article",
+      "source": "Google News",
+      "last_updated": "2026-04-01 23:57:37",
+      "category": "other",
+      "stacked_price": 0,
+      "best_payment_method": "N/A",
+      "stacking_rate": 0
+    },
+    {
+      "store": "Nationwide Customers Should Put £500 Int",
+      "item": "Nationwide customers should put £500 into one of these accounts NOW to qualify f",
+      "deal_price": "£500",
+      "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxOeFJMc1RWNFJqOG41RjE0YmhaWGFhTUkwTjlKY1NKTHV2WmlnVUE0bkV5OVJZUTY5UnVIUzFTa3kxYzFuTnR5WjZLY2pobXo5NmpJQnl4NnJVN3dtYXIzZ2FNOGlVSTN5QWZycWpaNERoTGJpc18yeDRkTW9jNGtHR0Z0ams3UC0tSjJ4N1lvd0F6SjJNZHVrOTUzaGQxbkZGWEdCdWI4QmpsZlAwM2JWaFdmaHJCbUlJNWRxZjhVS0ltTnk2RFVfVEMzaC1JVW8?oc=5",
+      "original_price": "£0",
+      "saving_percent": 100,
+      "type": "scraped_mse",
+      "code": "",
+      "steps": [
+        "Read the full article",
+        "Follow the deal link",
+        "Complete required steps"
+      ],
+      "timeFrame": "Check article",
+      "source": "Google News",
+      "last_updated": "2026-04-01 23:57:37",
+      "category": "bank_switch",
+      "stacked_price": 0,
+      "best_payment_method": "N/A",
+      "stacking_rate": 0
+    },
+    {
+      "store": "Hsbc Offers Savers Up To £500 Cashback",
+      "item": "HSBC Offers Savers up to £500 Cashback on Selected ISAs - Moneyfacts",
+      "deal_price": "£500",
+      "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOdFplTVpJMlE4Tzd6c1BnWXpsVzlfRjF5Sl9SSTRwcndkbGNaQVh2VWd3SXJVNm9Nb1g1SmdNdXlISjlRN00yZDZUeVZVNHl6bXJUdVg3Y29KV1NVR1gzenZ3R3d4SUZLZDNBQmg0U3oxYlRwZEd0ZVJRLVBzWlZxTFpmMng?oc=5",
+      "original_price": "£0",
+      "saving_percent": 100,
+      "type": "scraped_mse",
+      "code": "",
+      "steps": [
+        "Read the full article",
+        "Follow the deal link",
+        "Complete required steps"
+      ],
+      "timeFrame": "Check article",
+      "source": "Google News",
+      "last_updated": "2026-04-01 23:57:37",
+      "category": "cashback",
+      "stacked_price": 0,
+      "best_payment_method": "N/A",
+      "stacking_rate": 0
     },
     {
       "store": "Worldfirst",
@@ -154,7 +214,51 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
+      "last_updated": "2026-04-01 23:57:37"
+    },
+    {
+      "store": "Nationwide Alert As Customers Could Clai",
+      "item": "Nationwide alert as customers could claim free £275 bonus in 2026 - Daily Expres",
+      "deal_price": "£275",
+      "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOODhrOWJyR1FhcVB5bjJkdlRpTTlzdGRRcUxSMXVLWG5CemJ5Y2hBcjdzME81M2ZoSHBvdHFFTVM2TjVfUlFHRFJkQkp3RlBtRmlOVFMxcU0tQURyTzlmT2FSX1hhOVNPdVBKRjFUWDlKa3FqN1pMTElEeXMxRjRwYkp5Z3dyaEVXQnpsNlZvaHpLOUxnSGJEYWNJVWZZU0Vlak9scUxuV3PSAa4BQVVfeXFMUEJGRGI3VjJnLXlBWDNQaTdWdUlUdXFkSWsyNnFtVmpLbjZ6eWZyQUFIa0dfQXBtRjZ6MGx1NFo2YUZxVnZNQTlTbWVPdi1sODEwNjREYWx4QVdUM2l3VzVkX2NvaTJuSmRPaFVtX05pWmZIVHJaWndPVFhNVk9RLVBRbWdPbUZic0k1NThfeGV6MUpaSVBNYkdWN01wV2hkZF9kNFhhMDF3TUZhd3Bn?oc=5",
+      "original_price": "£0",
+      "saving_percent": 100,
+      "type": "scraped_mse",
+      "code": "",
+      "steps": [
+        "Read the full article",
+        "Follow the deal link",
+        "Complete required steps"
+      ],
+      "timeFrame": "Check article",
+      "source": "Google News",
+      "last_updated": "2026-04-01 23:57:37",
+      "category": "bank_switch",
+      "stacked_price": 0,
+      "best_payment_method": "N/A",
+      "stacking_rate": 0
+    },
+    {
+      "store": "How All Savers Could Get Up To £275 From",
+      "item": "How all savers could get up to £275 from Nationwide’s bonus this year - The Inde",
+      "deal_price": "£275",
+      "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPd1BKZ3YzeEg2ZWZxU0lYM1lEMFZzRlVTNHpwVjFzQXN1WURzVzlsWmhzdk5OcW9kNk9UbWNFMjFLeHE2OE9VMmY0OTc2MGtXVFNvbldEdEtaUTRaNmw3NEtuWk9hQlAyNGM5YVc0dm44cGJYZGVvQzNSX1cxaFRvWjZRRTBza3ZTTTBCNExyeVJrekRDXzhocTYtcmdzbUZXbXZr?oc=5",
+      "original_price": "£0",
+      "saving_percent": 100,
+      "type": "scraped_mse",
+      "code": "",
+      "steps": [
+        "Read the full article",
+        "Follow the deal link",
+        "Complete required steps"
+      ],
+      "timeFrame": "Check article",
+      "source": "Google News",
+      "last_updated": "2026-04-01 23:57:37",
+      "category": "bank_switch",
+      "stacked_price": 0,
+      "best_payment_method": "N/A",
+      "stacking_rate": 0
     },
     {
       "store": "Lloyds Bank",
@@ -175,32 +279,29 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
+      "last_updated": "2026-04-01 23:57:37"
     },
     {
-      "store": "Santander Edge",
-      "item": "Switch Account — £220 Cash",
-      "deal_price": "£220",
-      "link": "https://www.santander.co.uk/personal/current-accounts",
+      "store": "Best Current Accounts: Get Up To £225 To",
+      "item": "Best current accounts: Get up to £225 to switch, 1% cashback & more with top ban",
+      "deal_price": "£225",
+      "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE00ZDZoUmEybnJDSmlpMUJpWW9PQ3NXbzRJWktVcjlDb096RTkyUmd6aTg5eV9ZYjFoWnlJM1ZGRjVWSi1JdlhSTW5xdmZiLWQwNTlPM3Q3UnhyNndEekVmVmRaQ2NSQ0NQSkdxYzZLT3FaYWhNLTBtLQ?oc=5",
       "original_price": "£0",
       "saving_percent": 100,
-      "type": "bank_switch",
-      "category": "bank",
+      "type": "scraped_mse",
       "code": "",
-      "expires": "2026-12-31",
       "steps": [
-        "Open Santander Edge account",
-        "Start CASS switch",
-        "Add 2 direct debits",
-        "Pay in £1,500",
-        "Wait for payout ~30 days"
+        "Read the full article",
+        "Follow the deal link",
+        "Complete required steps"
       ],
-      "badge": "🏦 BANK SWITCH",
-      "effort": "12 min · CASS switch",
+      "timeFrame": "Check article",
+      "source": "Google News",
+      "last_updated": "2026-04-01 23:57:37",
+      "category": "cashback",
       "stacked_price": 0,
       "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
+      "stacking_rate": 0
     },
     {
       "store": "Natwest",
@@ -221,31 +322,73 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
+      "last_updated": "2026-04-01 23:57:37"
     },
     {
-      "store": "Barclays",
-      "item": "Switch Account — £200 Cash",
+      "store": "Santander Uk: Expert Martin Lewis Shares",
+      "item": "Santander UK: expert Martin Lewis shares how to get £200 free money and saving p",
       "deal_price": "£200",
-      "link": "https://www.barclays.co.uk/current-accounts/",
+      "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPc1Z5aW84NC1BS0hvNXhTbUl6UkRkaHpCaUlReHFRTTFEWmhjUmcyZFdZQ2k0OHVqQktEeUpDNDRBdFIxR215SHhiZ3hwemFkMjBORzNZOW1wNVRhRnRuYjR5QWNQaUJSSkNvRlhFX283VWFSUDJKUE5VUUdXVjc3VGhNUm1XRndYSGRJZ05KN01zbWU0U2JhTTFDSl9ET29URHY1NWppckxhUXdITzhuQ0dpd3FGQQ?oc=5",
       "original_price": "£0",
       "saving_percent": 100,
-      "type": "bank_switch",
-      "category": "bank",
+      "type": "scraped_mse",
       "code": "",
-      "expires": "2026-05-28",
       "steps": [
-        "Open Barclays Blue Rewards account",
-        "Start CASS switch",
-        "Meet eligibility requirements",
-        "Wait for payout ~30 days"
+        "Read the full article",
+        "Follow the deal link",
+        "Complete required steps"
       ],
-      "badge": "🏦 BANK SWITCH",
-      "effort": "12 min · CASS switch",
+      "timeFrame": "Check article",
+      "source": "Google News",
+      "last_updated": "2026-04-01 23:57:37",
+      "category": "bank_switch",
       "stacked_price": 0,
       "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
+      "stacking_rate": 0
+    },
+    {
+      "store": "Tsb Launches £200 Current Account Switch",
+      "item": "TSB launches £200 current account switching deal as competition between banks ra",
+      "deal_price": "£200",
+      "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQVERjMVcyRTBLME5meThqYUUybTMzZTNpOF9lVU43Y091ellXOF8ydmtFXzBpcEkyamFaYnhVNmU0al9jM2duajEwSWc5My1PVndYVkd6NVlRX3BNNXhMNDlGQWtrek8wOUFyRmVJbDktUWozaC1hbkJlY3RHa21lemhON0hQdHc2TEtERzhETHdTa0NMWnlCdVFPWFlEdTJTTWx4VUZNRUt2UWx2WTQ5UGpVT0xVMHdENlE4dGNoZ1NCd3RjVVNDQ3lfSEdIUURRTjN1UklB0gHbAUFVX3lxTE5UWG5wWjR5SmNqbzdZX2RfM2F3TzdjZ1Bka0VjQk9MQUtURXpMaWJOYkg5U01yNjdTY2V6NVhHNGtVWmtuTll3UGJ6S2tjQmEzY0dJXzV3RDhSbU9nVy1XcVRvTW5ZelQ5ZmgtalRJSEZtWGZpbHBfT0p2Z0N4MHhaZVBfU2FQbDZkangxUWtXVTdSSkxHTFVQU0pqNHlVSDhzTFA3NlVIR3Ewd3YwTG5oRUVCdml3YUNsMFBhSVQyYmtrNFgzRFBhbmxNejluOGZFTjMtX0xNbmZtSQ?oc=5",
+      "original_price": "£0",
+      "saving_percent": 100,
+      "type": "scraped_mse",
+      "code": "",
+      "steps": [
+        "Read the full article",
+        "Follow the deal link",
+        "Complete required steps"
+      ],
+      "timeFrame": "Check article",
+      "source": "Google News",
+      "last_updated": "2026-04-01 23:57:37",
+      "category": "bank_switch",
+      "stacked_price": 0,
+      "best_payment_method": "N/A",
+      "stacking_rate": 0
+    },
+    {
+      "store": "Ig Is Giving New Investors Up To £200 Of",
+      "item": "IG is giving new investors up to £200 of free shares: Is it worth signing up? - ",
+      "deal_price": "£200",
+      "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPYlJCb3E5elp1TXdFUl9JWnNZbkpyNFB0cnJtQ3BpTV9FT0RTY2NTb0N4bW5JVHNUakZDNlFBMVdwQmNCWVJObDhfdHVRUHh1X2hkVVFrWkRhNjJwTTZZbW9tSTV1TEdOMUJqZ1d3XzBsVXNJMS1LVkZGM2g4cWNId2pVaExiSFlKX1ZXVFdIaHZGOWU4b0NJWkdKWVBId1g2ZTYyQlhXTU1ZQVIwMU4w0gG0AUFVX3lxTE1kUGd6TmlFelBsQlNEQ0FwY0g4eloxcjJHXzhiUFU3dEtfMzN2bFZoemVFUWxlU0xKUEN0YmxzaGZwOWdldE9uTlg1UTBRQlhFeWlsTEJhYVVfYXpESnVPTFJubkN6TXkybV9mM1d6SVdRSmRpaWJjWEphV1Vmd21uMWhmUWRYV2F1empoblNwMThBMW51T2Q4MmNBMUdFd2FOWGpvaXU5NWw5eE1vcENrZ3BKNw?oc=5",
+      "original_price": "£0",
+      "saving_percent": 100,
+      "type": "scraped_mse",
+      "code": "",
+      "steps": [
+        "Read the full article",
+        "Follow the deal link",
+        "Complete required steps"
+      ],
+      "timeFrame": "Check article",
+      "source": "Google News",
+      "last_updated": "2026-04-01 23:57:37",
+      "category": "investment",
+      "stacked_price": 0,
+      "best_payment_method": "N/A",
+      "stacking_rate": 0
     },
     {
       "store": "First Direct",
@@ -266,55 +409,29 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
+      "last_updated": "2026-04-01 23:57:37"
     },
     {
-      "store": "First Direct",
-      "item": "Switch Account — £175 Cash",
+      "store": "Nationwide Sending Free £175 Into Bank",
+      "item": "Nationwide sending free £175 into bank accounts with two-word reference - Birmin",
       "deal_price": "£175",
-      "link": "https://www.firstdirect.com/banking/switch/",
+      "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPMmFMc1lkWEVVSjNkRGIzSV9MdVRXV0xtODh0ajJoZG9XVDZpenFoQW41cTN4MzRLTXA2YTR1Z0xZMFVKZFJ2UXMta2xlSmx2ZnlQYzgxSHNqTlJ2U3lMSnlZWGFoYk9iVm5kRzZzdFdLVTlPQzgzMnpOZEtCa0RXdGs2TGJLWXJlVjRCRXJudVZpbi11VkhtbnZn0gGfAUFVX3lxTFBCai1acEh6aFN0bkM3bEZOcV9rc1ROUUZPRFRJZ1VVblBicHA2T1JuN3h2d0YzWW9ZbEkxbEd4d3BnUHRlU3VaMkhnaWhOb3RmdldrQ1hVSWotVDZ1ajJnX1ZQeEdGQk0xMnRvVWFza2M0bi1EVE95SExrSzN3cDdYRFZGTUpOVUxqMklHMFVaWXEtUnNLMlA5SlFmUkJfZw?oc=5",
       "original_price": "£0",
       "saving_percent": 100,
-      "type": "bank_switch",
-      "category": "bank",
+      "type": "scraped_mse",
       "code": "",
-      "expires": "2026-12-31",
       "steps": [
-        "Open First Direct account",
-        "Start CASS switch",
-        "Pay in £1,000 within 30 days",
-        "Wait for payout ~30 days"
+        "Read the full article",
+        "Follow the deal link",
+        "Complete required steps"
       ],
-      "badge": "🏦 BANK SWITCH",
-      "effort": "12 min · CASS switch",
+      "timeFrame": "Check article",
+      "source": "Google News",
+      "last_updated": "2026-04-01 23:57:37",
+      "category": "bank_switch",
       "stacked_price": 0,
       "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
-    },
-    {
-      "store": "Co-operative Bank",
-      "item": "Switch Account — £175 Cash",
-      "deal_price": "£175",
-      "link": "https://www.co-operativebank.co.uk/current-accounts",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "bank_switch",
-      "category": "bank",
-      "code": "",
-      "expires": "2026-02-27",
-      "steps": [
-        "Open Co-op Bank account",
-        "Start CASS switch",
-        "Add 2 direct debits",
-        "Wait for payout ~30 days"
-      ],
-      "badge": "🏦 BANK SWITCH",
-      "effort": "12 min · CASS switch",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
+      "stacking_rate": 0
     },
     {
       "store": "Halifax",
@@ -335,7 +452,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
+      "last_updated": "2026-04-01 23:57:37"
     },
     {
       "store": "Amex",
@@ -356,375 +473,92 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
+      "last_updated": "2026-04-01 23:57:37"
     },
     {
-      "store": "Natwest",
-      "item": "Switch Account — £150 Cash",
+      "store": "Co-operative Bank Launches £150 Switchin",
+      "item": "Co-operative Bank launches £150 switching deal: is it worth going for? - which.c",
       "deal_price": "£150",
-      "link": "https://www.natwest.com/current-accounts/switch/",
+      "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQZDJBeVp1MFZGS1RoODF2ZzBKdzZGZXo1TUo3VVF3QnI4WVNiSjNwX0lTdnhXaFU3LUl3c2c0dk90ekxCNVNlTk9fdHZZZXFMM28zdUJMUC1RV1kxNWZqcVF0bnRYZnR1N0pvWVYwRzFpOTVIVnNxNElld3ZTZS0xRXc4OHJrUU5KTWxJV0dMeFFLRFFZQjA0emFMOC1YS1cyUDFGbFAzQUxQemhvZjRNMDBNR0pUaWkz?oc=5",
       "original_price": "£0",
       "saving_percent": 100,
-      "type": "bank_switch",
-      "category": "bank",
-      "code": "",
-      "expires": "2026-05-28",
-      "steps": [
-        "Open NatWest account",
-        "Start CASS switch",
-        "Pay in £1,250",
-        "Wait for payout ~30 days"
-      ],
-      "badge": "🏦 BANK SWITCH",
-      "effort": "12 min · CASS switch",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
-    },
-    {
-      "store": "Rbs",
-      "item": "Switch Account — £150 Cash",
-      "deal_price": "£150",
-      "link": "https://www.rbs.co.uk/current-accounts.html",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "bank_switch",
-      "category": "bank",
-      "code": "",
-      "expires": "2026-05-28",
-      "steps": [
-        "Open RBS account",
-        "Start CASS switch",
-        "Pay in £1,250",
-        "Wait for payout ~30 days"
-      ],
-      "badge": "🏦 BANK SWITCH",
-      "effort": "12 min · CASS switch",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
-    },
-    {
-      "store": "Ulster Bank",
-      "item": "Switch Account — £150 Cash",
-      "deal_price": "£150",
-      "link": "https://digital.ulsterbank.co.uk/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "bank_switch",
-      "category": "bank",
-      "code": "",
-      "expires": "2026-05-28",
-      "steps": [
-        "Open Ulster Bank account",
-        "Start CASS switch",
-        "Pay in £1,250",
-        "Wait for payout ~30 days"
-      ],
-      "badge": "🏦 BANK SWITCH",
-      "effort": "12 min · CASS switch",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
-    },
-    {
-      "store": "Hsbc",
-      "item": "Global Money Account — £100",
-      "deal_price": "£100",
-      "link": "https://www.hsbc.co.uk/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "bank_switch",
-      "category": "bank",
-      "code": "",
-      "expires": "2026-12-31",
-      "steps": [
-        "Check eligibility in HSBC app",
-        "Open Global Money account",
-        "Complete required steps",
-        "Wait for payout"
-      ],
-      "badge": "🏦 BANK BONUS",
-      "effort": "8 min · eligibility check needed",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
-    },
-    {
-      "store": "Trading212",
-      "item": "Deposit £1 — Free Share up to £100",
-      "deal_price": "£100",
-      "link": "https://www.trading212.com/",
-      "original_price": "£1",
-      "saving_percent": 99,
-      "type": "invest",
-      "category": "invest",
-      "code": "",
-      "expires": "2026-12-31",
-      "steps": [
-        "Open Trading212 account",
-        "Deposit £1",
-        "Receive random free share worth up to £100"
-      ],
-      "badge": "📈 INVEST",
-      "effort": "5 min · £1 deposit",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
-    },
-    {
-      "store": "Lightyear",
-      "item": "Deposit £50 — Free Shares",
-      "deal_price": "£100",
-      "link": "https://lightyear.com/",
-      "original_price": "£50",
-      "saving_percent": 50,
-      "type": "invest",
-      "category": "invest",
-      "code": "",
-      "expires": "2026-12-31",
-      "steps": [
-        "Open Lightyear account",
-        "Deposit £50",
-        "Receive 10 free shares instantly"
-      ],
-      "badge": "📈 INVEST",
-      "effort": "5 min · £50 deposit",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
-    },
-    {
-      "store": "Xtb",
-      "item": "Deposit — Free Share up to £100",
-      "deal_price": "£100",
-      "link": "https://www.xtb.com/uk",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "invest",
-      "category": "invest",
-      "code": "",
-      "expires": "2026-12-31",
-      "steps": [
-        "Open XTB account",
-        "Make a deposit",
-        "Receive free share worth up to £100"
-      ],
-      "badge": "📈 INVEST",
-      "effort": "7 min · deposit required",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
-    },
-    {
-      "store": "Chip",
-      "item": "Tiered Savings — £100 Bonus",
-      "deal_price": "£100",
-      "link": "https://getchip.uk/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "invest",
-      "category": "invest",
-      "code": "",
-      "expires": "2026-12-31",
-      "steps": [
-        "Open Chip account via referral",
-        "Make qualifying savings deposits",
-        "Receive tiered bonus up to £100"
-      ],
-      "badge": "📈 INVEST",
-      "effort": "5 min · savings deposit",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
-    },
-    {
-      "store": "Raisin Uk",
-      "item": "Save £10k — £100 Bonus",
-      "deal_price": "£100",
-      "link": "https://www.raisin.co.uk/",
-      "original_price": "£10000",
-      "saving_percent": 1,
-      "type": "invest",
-      "category": "invest",
-      "code": "",
-      "expires": "2026-12-31",
-      "steps": [
-        "Open Raisin account",
-        "Deposit £10,000 into a savings bond",
-        "Hold for 12 months",
-        "Receive £100 bonus"
-      ],
-      "badge": "📈 SAVINGS BONUS",
-      "effort": "10 min · £10k needed",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
-    },
-    {
-      "store": "Circa5000",
-      "item": "Ethical Investing — up to £100",
-      "deal_price": "£100",
-      "link": "https://circa5000.com/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "invest",
-      "category": "invest",
-      "code": "",
-      "expires": "2026-12-31",
-      "steps": [
-        "Open Circa5000 account",
-        "Make qualifying investment",
-        "Receive £15-£100 bonus"
-      ],
-      "badge": "📈 ETHICAL INVEST",
-      "effort": "7 min · investment needed",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
-    },
-    {
-      "store": "Sky",
-      "item": "Broadband/TV — £100 Voucher",
-      "deal_price": "£100",
-      "link": "https://www.sky.com/shop/referral",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "utilities",
-      "category": "utilities",
-      "code": "",
-      "expires": "2026-12-31",
-      "steps": [
-        "Sign up to Sky via referral",
-        "Choose broadband or TV package",
-        "Receive £100 voucher after activation"
-      ],
-      "badge": "📺 BROADBAND",
-      "effort": "10 min · contract signup",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
-    },
-    {
-      "store": "Community Fibre",
-      "item": "Broadband — up to £100 Voucher",
-      "deal_price": "£100",
-      "link": "https://www.communityfibre.co.uk/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "utilities",
-      "category": "utilities",
-      "code": "",
-      "expires": "2026-12-31",
-      "steps": [
-        "Check availability in your area",
-        "Sign up via referral",
-        "Receive £50-£100 Amazon voucher"
-      ],
-      "badge": "📺 BROADBAND",
-      "effort": "10 min · contract signup",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
-    },
-    {
-      "store": "Youfibre",
-      "item": "Broadband — up to £100 Voucher",
-      "deal_price": "£100",
-      "link": "https://www.youfibre.com/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "utilities",
-      "category": "utilities",
-      "code": "",
-      "expires": "2026-12-31",
-      "steps": [
-        "Check YouFibre availability",
-        "Sign up via referral",
-        "Receive £25-£100 voucher"
-      ],
-      "badge": "📺 BROADBAND",
-      "effort": "10 min · contract signup",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
-    },
-    {
-      "store": "Vitality",
-      "item": "New Insurance — £100 Voucher",
-      "deal_price": "£100",
-      "link": "https://www.vitality.co.uk/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "referral",
-      "category": "business",
-      "code": "",
-      "expires": "2026-12-31",
-      "steps": [
-        "Get Vitality insurance quote",
-        "Take out new policy via referral",
-        "Receive £100 voucher after activation"
-      ],
-      "badge": "💼 INSURANCE",
-      "effort": "15 min · insurance policy",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
-    },
-    {
-      "store": "Tembo",
-      "item": "Deposit £500, get up to £100 (~6 weeks)",
-      "deal_price": "£100",
-      "link": "https://www.reddit.com/r/beermoneyuk/search?q=title%3A%22tembo%22&amp;sort=new",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "megalist",
-      "category": "freebie",
+      "type": "scraped_mse",
       "code": "",
       "steps": [
-        "Check the BeermoneyUK megalist",
-        "Follow the offer link",
+        "Read the full article",
+        "Follow the deal link",
         "Complete required steps"
       ],
-      "timeFrame": "Varies",
-      "source": "BeermoneyUK Megalist",
-      "last_updated": "2026-04-01 18:03:50",
+      "timeFrame": "Check article",
+      "source": "Google News",
+      "last_updated": "2026-04-01 23:57:37",
+      "category": "bank_switch",
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0
     },
     {
-      "store": "Skrill",
-      "item": "Send £100, pay only £90 (~1 week)",
-      "deal_price": "£90",
-      "link": "https://www.reddit.com/r/beermoneyuk/search?q=title%3A%22skrill%22&amp;sort=new",
+      "store": "Nationwide £100 Bonus Returns – Here’s",
+      "item": "Nationwide £100 bonus returns – here’s how to get it - which.co.uk",
+      "deal_price": "£100",
+      "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQWS0zakJhZWt1WEdJYmNmQkhVay1HNXYzSnNjRGl3bWtuY21Yd3BNcUdzQnBuUHNkX0Mwb3BibnMwRUVvZ3ctczU1U1czLWNTUTU1TDc3YURHY0xFQXFoV1UxS1FiYWd6RHBRVHA4cW1yNThLOVJqTFJRQmFET256YmFDV3lOME54Z0lDM0UwTDVIY1RtQkdIdmp0UEFkc1k?oc=5",
       "original_price": "£0",
       "saving_percent": 100,
-      "type": "megalist",
-      "category": "freebie",
+      "type": "scraped_mse",
       "code": "",
       "steps": [
-        "Check the BeermoneyUK megalist",
-        "Follow the offer link",
+        "Read the full article",
+        "Follow the deal link",
         "Complete required steps"
       ],
-      "timeFrame": "Varies",
-      "source": "BeermoneyUK Megalist",
-      "last_updated": "2026-04-01 18:03:50",
+      "timeFrame": "Check article",
+      "source": "Google News",
+      "last_updated": "2026-04-01 23:57:37",
+      "category": "bank_switch",
+      "stacked_price": 0,
+      "best_payment_method": "N/A",
+      "stacking_rate": 0
+    },
+    {
+      "store": "Nationwide Will Start Paying The £100 Fa",
+      "item": "Nationwide will start paying the £100 Fairer Share bonus next week – do you qual",
+      "deal_price": "£100",
+      "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNTU1aUm1kU0kxNUtzV0I4SjZIa3JsTm1Xc2drZ2pyS1RsVEcyUHFqZDg1Z3NxbTNqZkpkMldfRFAxZWxJcHJVUWllUXM5aVFUMkU4Y1FhaGFSZi1ETjlnUnM4ZkxUTjBpRE1TOVRBOEltaE9mRjNOR0YwbExJYWlHLVpfaUx4MFg5eWc?oc=5",
+      "original_price": "£0",
+      "saving_percent": 100,
+      "type": "scraped_mse",
+      "code": "",
+      "steps": [
+        "Read the full article",
+        "Follow the deal link",
+        "Complete required steps"
+      ],
+      "timeFrame": "Check article",
+      "source": "Google News",
+      "last_updated": "2026-04-01 23:57:37",
+      "category": "bank_switch",
+      "stacked_price": 0,
+      "best_payment_method": "N/A",
+      "stacking_rate": 0
+    },
+    {
+      "store": "Martin Lewis Warns Of 'last Chance' To",
+      "item": "Martin Lewis warns of 'last chance' to get Nationwide free £100 bonus for 2026 -",
+      "deal_price": "£100",
+      "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOTGxxa1dsZmVHMWlSMkNqQjhvdTNvWS11b2cyVG9MTWFIRDlTMGtMNEx2MEdEMzh0SG1fLUd2c1RwOHV1TXpCdUh3MW4tREhXYjJndlZpclhSMU1SRTVEQl9sVG93NS1XVVlHYVRLQi01cmhEcmdpSHlhNVd4WlJFVnJ4eW1wdnV3SC1oOS16Yi1SdUJhQTNmcFk0UEk0QXFRZWF0b09KQjI3TV9KOWt4WTZ30gG3AUFVX3lxTE9tTmFPUWM3aDVDbkRxSy16U21pWTBpZDdOZl9IeFJNMWU3LThjdjBsLUNvN1JzVF9idlVXWlYwdXRsZVJ4NWVVQUZDcVotS251eWdGa3BXVUdEUnZ6bEJzZTRCQ0l6YkVpbXZ0TWZza2Mxd2sycXZKN3ljZERVUlNGTTdTSjhrVGxjaWxxOHNaX3JtYllfTFJCX3NPTnpIbFZZWVVnN0VtWjN1ckJhczZ6ZE8ySkIxTQ?oc=5",
+      "original_price": "£0",
+      "saving_percent": 100,
+      "type": "scraped_mse",
+      "code": "",
+      "steps": [
+        "Read the full article",
+        "Follow the deal link",
+        "Complete required steps"
+      ],
+      "timeFrame": "Check article",
+      "source": "Google News",
+      "last_updated": "2026-04-01 23:57:37",
+      "category": "bank_switch",
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0
@@ -748,7 +582,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
+      "last_updated": "2026-04-01 23:57:37"
     },
     {
       "store": "Tide",
@@ -769,7 +603,29 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
+      "last_updated": "2026-04-01 23:57:37"
+    },
+    {
+      "store": "Nintendo Switch 2 Mario Kart + Donkey Ko",
+      "item": "Nintendo Switch 2 Mario Kart + Donkey kong, Nintendo joy-cons £64.99, £60 PSN et",
+      "deal_price": "£64.99",
+      "link": "https://www.hotukdeals.com/deals/30-off-60-spend-credit-to-account-eg-nintendo-switch-2-mario-kart-donkey-kong-399-joy-cons-3299-60-psn-credit-for-30-etc-at-very-4854076",
+      "original_price": "£0",
+      "saving_percent": 100,
+      "type": "scraped_hotukdeals",
+      "code": "",
+      "steps": [
+        "Check the HotUKDeals post",
+        "Follow the deal link",
+        "Complete required steps"
+      ],
+      "timeFrame": "Check post",
+      "source": "HotUKDeals",
+      "last_updated": "2026-04-01 23:57:37",
+      "category": "other",
+      "stacked_price": 0,
+      "best_payment_method": "N/A",
+      "stacking_rate": 0
     },
     {
       "store": "Chase Uk",
@@ -790,7 +646,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
+      "last_updated": "2026-04-01 23:57:37"
     },
     {
       "store": "Webull",
@@ -811,7 +667,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
+      "last_updated": "2026-04-01 23:57:37"
     },
     {
       "store": "Wealthify",
@@ -832,7 +688,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
+      "last_updated": "2026-04-01 23:57:37"
     },
     {
       "store": "Octopus Energy",
@@ -853,7 +709,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
+      "last_updated": "2026-04-01 23:57:37"
     },
     {
       "store": "Pensionbee",
@@ -873,525 +729,26 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
+      "last_updated": "2026-04-01 23:57:37"
     },
     {
-      "store": "Metro Bank",
-      "item": "Refer a Friend — £50 Cash",
+      "store": "Lloyds Explains 30-day Rule Over £50 Bon",
+      "item": "Lloyds explains 30-day rule over £50 bonus payments for customers - Daily Expres",
       "deal_price": "£50",
-      "link": "https://www.metrobankonline.co.uk/",
+      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNY0lHSThJU2gtSE5VXy1fekhSM1lWcW8tZW5peHlSNjhOR25xckFGTjV3RWEtSEFwQVZxOFBDWmtiWGZnLWh0UmV4dVktN3R6M2tQSHRyQW5zWDNFWTl3UGRQRlc5TW9kUURmNDlVS2YxeUZkbFc0ZWJlMVE4X3RzYWZmVUtDV2ZyRVhIZNIBkgFBVV95cUxObWdkTmhERUkxdkV2TFFTME0zcU9RM1BDTGw3UTJIVE1ETHZfeWo1QmZpODd4Z2p1VEEtb2pvcTd5ZEI2OXN0bXdoTnJsdkhoek5mc0JiM3FYcldMNUFQSk1BS29QYllBSVRyY3ZKMU9PbG1Fczg0Q0ZydGtmTG90NnVhQU1ES0pmbmItR3pIcVZCUQ?oc=5",
       "original_price": "£0",
       "saving_percent": 100,
-      "type": "referral",
-      "category": "bank",
-      "code": "",
-      "expires": "2026-12-31",
-      "steps": [
-        "Open Metro Bank account",
-        "Use referral link",
-        "Complete account setup",
-        "Wait for payout"
-      ],
-      "badge": "🏦 BANK REFERRAL",
-      "effort": "5 min · sign up",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
-    },
-    {
-      "store": "Investengine",
-      "item": "Invest £100 — £10-£50 Bonus",
-      "deal_price": "£50",
-      "link": "https://investengine.com/",
-      "original_price": "£100",
-      "saving_percent": 50,
-      "type": "invest",
-      "category": "invest",
-      "code": "",
-      "expires": "2026-12-31",
-      "steps": [
-        "Open InvestEngine account",
-        "Invest £100",
-        "Hold for 1 year",
-        "Receive £10-£50 bonus"
-      ],
-      "badge": "📈 INVEST",
-      "effort": "7 min · £100 investment",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
-    },
-    {
-      "store": "Pensionbee",
-      "item": "Sign Up — £50 in Pension",
-      "deal_price": "£50",
-      "link": "https://www.pensionbee.com/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "pension",
-      "category": "invest",
-      "code": "",
-      "expires": "2026-12-31",
-      "steps": [
-        "Sign up to PensionBee",
-        "Transfer or open pension",
-        "Receive £50 in your pension"
-      ],
-      "badge": "🏦 PENSION",
-      "effort": "8 min · pension transfer",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
-    },
-    {
-      "store": "Nutmeg",
-      "item": "Refer a Friend — 6 months free",
-      "deal_price": "£50",
-      "link": "https://www.nutmeg.com/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "invest",
-      "category": "invest",
-      "code": "",
-      "expires": "2026-12-31",
-      "steps": [
-        "Open Nutmeg account via referral",
-        "Start investing",
-        "Get 6 months no management fees"
-      ],
-      "badge": "📈 INVEST",
-      "effort": "7 min · investment needed",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
-    },
-    {
-      "store": "Edf Energy",
-      "item": "Switch Energy — £50 Bill Credit",
-      "deal_price": "£50",
-      "link": "https://www.edfenergy.com/for-homes",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "utilities",
-      "category": "utilities",
-      "code": "",
-      "expires": "2026-12-31",
-      "steps": [
-        "Get EDF quote online",
-        "Switch via referral link",
-        "Both get £50 bill credit after switch"
-      ],
-      "badge": "⚡ UTILITIES",
-      "effort": "5 min · energy switch",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
-    },
-    {
-      "store": "Eon Next",
-      "item": "Switch Energy — £50 Voucher",
-      "deal_price": "£50",
-      "link": "https://www.eonnext.com/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "utilities",
-      "category": "utilities",
-      "code": "",
-      "expires": "2026-12-31",
-      "steps": [
-        "Get Eon Next quote",
-        "Switch via referral link",
-        "Receive £50 voucher after switch"
-      ],
-      "badge": "⚡ UTILITIES",
-      "effort": "5 min · energy switch",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
-    },
-    {
-      "store": "Good Energy",
-      "item": "Switch to Renewable — £50 Credit",
-      "deal_price": "£50",
-      "link": "https://www.goodenergy.co.uk/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "utilities",
-      "category": "utilities",
-      "code": "",
-      "expires": "2026-12-31",
-      "steps": [
-        "Get Good Energy quote",
-        "Switch via referral",
-        "Receive £50 credit"
-      ],
-      "badge": "⚡ GREEN ENERGY",
-      "effort": "5 min · energy switch",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
-    },
-    {
-      "store": "So Energy",
-      "item": "Switch Energy — £50 Credit",
-      "deal_price": "£50",
-      "link": "https://so.energy/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "utilities",
-      "category": "utilities",
-      "code": "",
-      "expires": "2026-12-31",
-      "steps": [
-        "Get So Energy quote",
-        "Switch via referral",
-        "Both get £50 credit"
-      ],
-      "badge": "⚡ UTILITIES",
-      "effort": "5 min · energy switch",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
-    },
-    {
-      "store": "Virgin Media",
-      "item": "Broadband — £50 Cash",
-      "deal_price": "£50",
-      "link": "https://www.virginmedia.com/broadband",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "utilities",
-      "category": "utilities",
-      "code": "",
-      "expires": "2026-12-31",
-      "steps": [
-        "Sign up to Virgin Media via referral",
-        "Choose broadband package",
-        "Receive £50 cash after activation"
-      ],
-      "badge": "📺 BROADBAND",
-      "effort": "10 min · contract signup",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
-    },
-    {
-      "store": "Talktalk",
-      "item": "Broadband — £50 Amazon Voucher",
-      "deal_price": "£50",
-      "link": "https://www.talktalk.co.uk/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "utilities",
-      "category": "utilities",
-      "code": "",
-      "expires": "2026-12-31",
-      "steps": [
-        "Sign up to TalkTalk via referral",
-        "Choose broadband package",
-        "Receive £50 Amazon voucher"
-      ],
-      "badge": "📺 BROADBAND",
-      "effort": "10 min · contract signup",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
-    },
-    {
-      "store": "Hyperoptic",
-      "item": "Broadband — £50 Voucher",
-      "deal_price": "£50",
-      "link": "https://www.hyperoptic.com/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "utilities",
-      "category": "utilities",
-      "code": "",
-      "expires": "2026-12-31",
-      "steps": [
-        "Check Hyperoptic availability",
-        "Sign up via referral",
-        "Both get £50 voucher"
-      ],
-      "badge": "📺 BROADBAND",
-      "effort": "10 min · contract signup",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
-    },
-    {
-      "store": "Monument Bank",
-      "item": "Save £10k, get £50 free (~1 week)",
-      "deal_price": "£50",
-      "link": "https://www.reddit.com/r/beermoneyuk/search?q=title%3A%22monument%22&amp;sort=new",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "megalist",
-      "category": "bank",
+      "type": "scraped_mse",
       "code": "",
       "steps": [
-        "Check the BeermoneyUK megalist",
-        "Follow the offer link",
+        "Read the full article",
+        "Follow the deal link",
         "Complete required steps"
       ],
-      "timeFrame": "Varies",
-      "source": "BeermoneyUK Megalist",
-      "last_updated": "2026-04-01 18:03:50",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Yonder",
-      "item": "£10 off first purchase + ~£50 in points — ~1% cashback on everything",
-      "deal_price": "£50",
-      "link": "https://www.reddit.com/r/beermoneyuk/search?q=title%3A%22yonder%22&amp;sort=new",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "megalist",
-      "category": "cashback",
-      "code": "",
-      "steps": [
-        "Check the BeermoneyUK megalist",
-        "Follow the offer link",
-        "Complete required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "BeermoneyUK Megalist",
-      "last_updated": "2026-04-01 18:03:50",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "British Gas",
-      "item": "£50 bonus when you switch — no exit fee on standard variable",
-      "deal_price": "£50",
-      "link": "https://www.reddit.com/r/beermoneyuk/search/?q=title%3A%22british%20gas%22&amp;restrict_sr=1",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "megalist",
-      "category": "bank",
-      "code": "",
-      "steps": [
-        "Check the BeermoneyUK megalist",
-        "Follow the offer link",
-        "Complete required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "BeermoneyUK Megalist",
-      "last_updated": "2026-04-01 18:03:50",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Scottish Power",
-      "item": "£50 gift card when you switch — no exit fee on standard variable",
-      "deal_price": "£50",
-      "link": "https://www.reddit.com/r/beermoneyuk/search/?q=title%3A%22scottish%20power%22&amp;restrict_sr=1",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "megalist",
-      "category": "bank",
-      "code": "",
-      "steps": [
-        "Check the BeermoneyUK megalist",
-        "Follow the offer link",
-        "Complete required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "BeermoneyUK Megalist",
-      "last_updated": "2026-04-01 18:03:50",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Befibre",
-      "item": "£50 bonus",
-      "deal_price": "£50",
-      "link": "https://www.reddit.com/r/beermoneyuk/search?q=title%3A%22befibre%22&amp;sort=new",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "megalist",
-      "category": "utilities",
-      "code": "",
-      "steps": [
-        "Check the BeermoneyUK megalist",
-        "Follow the offer link",
-        "Complete required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "BeermoneyUK Megalist",
-      "last_updated": "2026-04-01 18:03:50",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Brsk",
-      "item": "£50 Amazon voucher",
-      "deal_price": "£50",
-      "link": "https://www.reddit.com/r/beermoneyuk/search?q=title%3A%22brsk%22&amp;sort=new",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "megalist",
-      "category": "cashback",
-      "code": "",
-      "steps": [
-        "Check the BeermoneyUK megalist",
-        "Follow the offer link",
-        "Complete required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "BeermoneyUK Megalist",
-      "last_updated": "2026-04-01 18:03:50",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Cuckoo Broadband",
-      "item": "£50 credit",
-      "deal_price": "£50",
-      "link": "https://www.reddit.com/r/beermoneyuk/search?q=title%3A%22cuckoo%22&amp;sort=new",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "megalist",
-      "category": "utilities",
-      "code": "",
-      "steps": [
-        "Check the BeermoneyUK megalist",
-        "Follow the offer link",
-        "Complete required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "BeermoneyUK Megalist",
-      "last_updated": "2026-04-01 18:03:50",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Three Mobile",
-      "item": "New Contract — £40 Cash",
-      "deal_price": "£40",
-      "link": "https://www.three.co.uk/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "referral",
-      "category": "mobile",
-      "code": "",
-      "expires": "2026-12-31",
-      "steps": [
-        "Sign up to Three via referral",
-        "Take out new contract",
-        "Receive £40 cash bonus"
-      ],
-      "badge": "📱 MOBILE",
-      "effort": "5 min · contract signup",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
-    },
-    {
-      "store": "Airbnb",
-      "item": "£30 off First Stay",
-      "deal_price": "£30",
-      "link": "https://www.airbnb.co.uk/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "referral",
-      "category": "travel",
-      "code": "",
-      "expires": "2026-12-31",
-      "steps": [
-        "Sign up to Airbnb via referral",
-        "Book your first stay",
-        "£30 discount applied at checkout"
-      ],
-      "badge": "✈️ TRAVEL",
-      "effort": "2 min · book a stay",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
-    },
-    {
-      "store": "Oaknorth Bank",
-      "item": "Save £1k, get £30 free (~60-90 days)",
-      "deal_price": "£30",
-      "link": "https://www.reddit.com/r/beermoneyuk/search?q=title%3A%22oaknorth%22&amp;sort=new",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "megalist",
-      "category": "bank",
-      "code": "",
-      "steps": [
-        "Check the BeermoneyUK megalist",
-        "Follow the offer link",
-        "Complete required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "BeermoneyUK Megalist",
-      "last_updated": "2026-04-01 18:03:50",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Dodl",
-      "item": "Invest £500, get a £30 voucher (1 month)",
-      "deal_price": "£30",
-      "link": "https://www.reddit.com/r/beermoneyuk/search?q=title%3A%22dodl%22&amp;sort=new",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "megalist",
-      "category": "invest",
-      "code": "",
-      "steps": [
-        "Check the BeermoneyUK megalist",
-        "Follow the offer link",
-        "Complete required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "BeermoneyUK Megalist",
-      "last_updated": "2026-04-01 18:03:50",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Mubi",
-      "item": "31 Mubi Entertainment Your Reward £30 free trial Claim Offer → More details Veri",
-      "deal_price": "£30",
-      "link": "https://scrimpr.co.uk/offers/mubi/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "scrimpr",
-      "category": "other",
-      "code": "",
-      "steps": [
-        "Read the full offer on Scrimpr",
-        "Follow the referral link",
-        "Complete required steps"
-      ],
-      "timeFrame": "Check page",
-      "source": "Scrimpr",
-      "last_updated": "2026-04-01 18:03:50",
+      "timeFrame": "Check article",
+      "source": "Google News",
+      "last_updated": "2026-04-01 23:57:37",
+      "category": "bank_switch",
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0
@@ -1415,185 +772,26 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
+      "last_updated": "2026-04-01 23:57:37"
     },
     {
-      "store": "O2",
-      "item": "New Contract — £25 Amazon Voucher",
+      "store": "£25 Referral Bonus + £20 For Your Friend",
+      "item": "£25 Referral Bonus + £20 For Your Friend (When They Reach £5 Cashback)",
       "deal_price": "£25",
-      "link": "https://www.o2.co.uk/",
+      "link": "https://www.hotukdeals.com/deals/ps25-for-you-ps20-for-your-friend-4835297",
       "original_price": "£0",
       "saving_percent": 100,
-      "type": "referral",
-      "category": "mobile",
-      "code": "",
-      "expires": "2026-12-31",
-      "steps": [
-        "Sign up to O2 via referral",
-        "Take out new contract",
-        "Receive £25 Amazon voucher"
-      ],
-      "badge": "📱 MOBILE",
-      "effort": "5 min · contract signup",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
-    },
-    {
-      "store": "Vodafone",
-      "item": "New Contract — £25 Voucher",
-      "deal_price": "£25",
-      "link": "https://www.vodafone.co.uk/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "referral",
-      "category": "mobile",
-      "code": "",
-      "expires": "2026-12-31",
-      "steps": [
-        "Sign up to Vodafone via referral",
-        "Take out new contract",
-        "Receive £25 Amazon voucher"
-      ],
-      "badge": "📱 MOBILE",
-      "effort": "5 min · contract signup",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
-    },
-    {
-      "store": "Gousto",
-      "item": "65% off First Box",
-      "deal_price": "£25",
-      "link": "https://www.gousto.co.uk/",
-      "original_price": "£0",
-      "saving_percent": 65,
-      "type": "referral",
-      "category": "freebie",
-      "code": "",
-      "expires": "2026-12-31",
-      "steps": [
-        "Sign up to Gousto via referral",
-        "Choose your first recipe box",
-        "Get 65% discount on first box",
-        "Remember to cancel if not keeping"
-      ],
-      "badge": "🍽️ FOOD",
-      "effort": "3 min · subscription",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
-    },
-    {
-      "store": "Expedia",
-      "item": "£25 off £200+ Hotel Booking",
-      "deal_price": "£25",
-      "link": "https://www.expedia.co.uk/",
-      "original_price": "£200",
-      "saving_percent": 12,
-      "type": "referral",
-      "category": "travel",
-      "code": "",
-      "expires": "2026-12-31",
-      "steps": [
-        "Sign up to Expedia via referral",
-        "Book a hotel (min £200 spend)",
-        "£25 discount applied"
-      ],
-      "badge": "✈️ TRAVEL",
-      "effort": "2 min · book hotel",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
-    },
-    {
-      "store": "Penfold Pensions",
-      "item": "Deposit £25, get £25 free (~1 month)",
-      "deal_price": "£25",
-      "link": "https://www.reddit.com/r/beermoneyuk/search?q=title%3A%22penfold%22&amp;sort=new",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "megalist",
-      "category": "invest",
+      "type": "scraped_hotukdeals",
       "code": "",
       "steps": [
-        "Check the BeermoneyUK megalist",
-        "Follow the offer link",
+        "Check the HotUKDeals post",
+        "Follow the deal link",
         "Complete required steps"
       ],
-      "timeFrame": "Varies",
-      "source": "BeermoneyUK Megalist",
-      "last_updated": "2026-04-01 18:03:50",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Cityfibre",
-      "item": "£25 bonus",
-      "deal_price": "£25",
-      "link": "https://www.reddit.com/r/beermoneyuk/search?q=title%3A%22cityfibre%22&amp;sort=new",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "megalist",
-      "category": "utilities",
-      "code": "",
-      "steps": [
-        "Check the BeermoneyUK megalist",
-        "Follow the offer link",
-        "Complete required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "BeermoneyUK Megalist",
-      "last_updated": "2026-04-01 18:03:50",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Oddsmonkey",
-      "item": "32 Oddsmonkey Other Your Reward Free Trial free trial Claim Offer → More details",
-      "deal_price": "£25",
-      "link": "https://scrimpr.co.uk/offers/oddsmonkey/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "scrimpr",
-      "category": "other",
-      "code": "",
-      "steps": [
-        "Read the full offer on Scrimpr",
-        "Follow the referral link",
-        "Complete required steps"
-      ],
-      "timeFrame": "Check page",
-      "source": "Scrimpr",
-      "last_updated": "2026-04-01 18:03:50",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Animal Friends Pet Insurance",
-      "item": "36 Animal Friends Pet Insurance Finance Your Reward £25 Claim Offer → More detai",
-      "deal_price": "£25",
-      "link": "https://scrimpr.co.uk/offers/animal-friends-pet-insurance/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "scrimpr",
-      "category": "other",
-      "code": "",
-      "steps": [
-        "Read the full offer on Scrimpr",
-        "Follow the referral link",
-        "Complete required steps"
-      ],
-      "timeFrame": "Check page",
-      "source": "Scrimpr",
-      "last_updated": "2026-04-01 18:03:50",
+      "timeFrame": "Check post",
+      "source": "HotUKDeals",
+      "last_updated": "2026-04-01 23:57:37",
+      "category": "cashback",
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0
@@ -1617,7 +815,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
+      "last_updated": "2026-04-01 23:57:37"
     },
     {
       "store": "Quidco",
@@ -1638,171 +836,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
-    },
-    {
-      "store": "Zing",
-      "item": "First Spend — £20 Bonus",
-      "deal_price": "£20",
-      "link": "https://www.zing.me/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "referral",
-      "category": "bank",
-      "code": "",
-      "expires": "2026-12-31",
-      "steps": [
-        "Download Zing app",
-        "Open account",
-        "Make a £5+ card spend",
-        "Get £20 credited"
-      ],
-      "badge": "🏦 BANK BONUS",
-      "effort": "5 min · quick win",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
-    },
-    {
-      "store": "Voxi",
-      "item": "Sign Up — £10-£20 Voucher",
-      "deal_price": "£20",
-      "link": "https://www.voxi.co.uk/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "referral",
-      "category": "mobile",
-      "code": "",
-      "expires": "2026-12-31",
-      "steps": [
-        "Sign up to VOXI via referral",
-        "Make 2 payments",
-        "Receive Amazon/JustEat voucher"
-      ],
-      "badge": "📱 MOBILE",
-      "effort": "3 min · SIM signup",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
-    },
-    {
-      "store": "Tesco Mobile",
-      "item": "Referral — £20 Clubcard Voucher",
-      "deal_price": "£20",
-      "link": "https://www.tescomobile.com/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "referral",
-      "category": "mobile",
-      "code": "",
-      "expires": "2026-12-31",
-      "steps": [
-        "Sign up to Tesco Mobile via referral",
-        "Activate your SIM",
-        "Receive £20 Clubcard voucher"
-      ],
-      "badge": "📱 MOBILE",
-      "effort": "3 min · SIM signup",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
-    },
-    {
-      "store": "Hello Fresh",
-      "item": "70% off First Box",
-      "deal_price": "£20",
-      "link": "https://www.hellofresh.co.uk/",
-      "original_price": "£0",
-      "saving_percent": 70,
-      "type": "referral",
-      "category": "freebie",
-      "code": "",
-      "expires": "2026-12-31",
-      "steps": [
-        "Sign up to HelloFresh via referral",
-        "Choose your first recipe box",
-        "Get 70% off (min £10 spend)",
-        "Cancel if not keeping"
-      ],
-      "badge": "🍽️ FOOD",
-      "effort": "3 min · subscription",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
-    },
-    {
-      "store": "Freesmo",
-      "item": "Free vape credit — sometimes a £20 Amazon voucher too",
-      "deal_price": "£20",
-      "link": "https://www.reddit.com/r/beermoneyuk/search?q=title%3A%22freesmo%22&amp;sort=new",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "megalist",
-      "category": "cashback",
-      "code": "",
-      "steps": [
-        "Check the BeermoneyUK megalist",
-        "Follow the offer link",
-        "Complete required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "BeermoneyUK Megalist",
-      "last_updated": "2026-04-01 18:03:50",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Currensea",
-      "item": "5 FX Spends — £15 Bonus",
-      "deal_price": "£15",
-      "link": "https://www.currensea.com/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "referral",
-      "category": "travel",
-      "code": "",
-      "expires": "2026-12-31",
-      "steps": [
-        "Sign up to Currensea",
-        "Make 5 foreign currency transactions",
-        "Min total spend £100",
-        "Receive £15 bonus"
-      ],
-      "badge": "✈️ TRAVEL",
-      "effort": "5 min · travel card",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
-    },
-    {
-      "store": "Yougov",
-      "item": "Surveys — up to £13/month",
-      "deal_price": "£13",
-      "link": "https://yougov.co.uk/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "earn",
-      "category": "earn",
-      "code": "",
-      "expires": "2026-12-31",
-      "steps": [
-        "Sign up to YouGov",
-        "Complete profile surveys",
-        "Share bank data for extra points",
-        "Redeem points for cash"
-      ],
-      "badge": "💰 EARN",
-      "effort": "Ongoing · surveys",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
+      "last_updated": "2026-04-01 23:57:37"
     },
     {
       "store": "Freetrade",
@@ -1822,7 +856,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
+      "last_updated": "2026-04-01 23:57:37"
     },
     {
       "store": "Robinhood",
@@ -1842,7 +876,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
+      "last_updated": "2026-04-01 23:57:37"
     },
     {
       "store": "Topcashback",
@@ -1862,7 +896,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
+      "last_updated": "2026-04-01 23:57:37"
     },
     {
       "store": "Zopa (biscuit)",
@@ -1882,461 +916,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
-    },
-    {
-      "store": "Starling Bank",
-      "item": "Free National Trust Day Pass",
-      "deal_price": "£10",
-      "link": "https://www.starlingbank.com/referral/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "referral",
-      "category": "bank",
-      "code": "",
-      "expires": "2026-12-31",
-      "steps": [
-        "Open Starling account via referral",
-        "Complete account verification",
-        "Receive National Trust day pass"
-      ],
-      "badge": "🏦 FREEBIE",
-      "effort": "5 min · sign up",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
-    },
-    {
-      "store": "Kroo",
-      "item": "Refer a Friend — £10 Cash",
-      "deal_price": "£10",
-      "link": "https://kroo.com/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "referral",
-      "category": "bank",
-      "code": "",
-      "expires": "2026-12-31",
-      "steps": [
-        "Open Kroo account",
-        "Make a card spend",
-        "Get £10 credited"
-      ],
-      "badge": "🏦 BANK REFERRAL",
-      "effort": "3 min · quick win",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
-    },
-    {
-      "store": "Cashback.co.uk",
-      "item": "Complete Tasks — £10 Bonus",
-      "deal_price": "£10",
-      "link": "https://www.cashback.co.uk/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "earn",
-      "category": "earn",
-      "code": "",
-      "expires": "2026-12-31",
-      "steps": [
-        "Sign up to Cashback.co.uk",
-        "Complete 15 task levels",
-        "Receive £10 milestone bonus"
-      ],
-      "badge": "💰 EARN",
-      "effort": "Varies · task completion",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
-    },
-    {
-      "store": "Measure (msr)",
-      "item": "Data Sharing — £10/month",
-      "deal_price": "£10",
-      "link": "https://www.streamrail.com/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "earn",
-      "category": "earn",
-      "code": "",
-      "expires": "2026-12-31",
-      "steps": [
-        "Download Measure app",
-        "Complete digital tasks",
-        "Share anonymised data",
-        "Earn up to £10 per month"
-      ],
-      "badge": "💰 EARN",
-      "effort": "Ongoing · passive",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
-    },
-    {
-      "store": "Ribbon",
-      "item": "Pay Rent — £10 Bonus",
-      "deal_price": "£10",
-      "link": "https://ribbon.rent/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "referral",
-      "category": "earn",
-      "code": "",
-      "expires": "2026-12-31",
-      "steps": [
-        "Sign up to Ribbon",
-        "Pay your rent through the app",
-        "Receive £10 bonus after first payment"
-      ],
-      "badge": "💰 EARN",
-      "effort": "5 min · renters only",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
-    },
-    {
-      "store": "Uber Eats",
-      "item": "£10 off First Order",
-      "deal_price": "£10",
-      "link": "https://www.ubereats.com/gb",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "referral",
-      "category": "freebie",
-      "code": "",
-      "expires": "2026-12-31",
-      "steps": [
-        "Sign up to Uber Eats via referral",
-        "Place first order (min £15)",
-        "£10 discount applied automatically"
-      ],
-      "badge": "🍔 FOOD",
-      "effort": "2 min · order food",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
-    },
-    {
-      "store": "Deliveroo",
-      "item": "£10 off First 4 Orders",
-      "deal_price": "£10",
-      "link": "https://www.deliveroo.co.uk/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "referral",
-      "category": "freebie",
-      "code": "",
-      "expires": "2026-12-31",
-      "steps": [
-        "Sign up to Deliveroo via referral",
-        "Place first order",
-        "Get £10 off across 4 orders"
-      ],
-      "badge": "🍔 FOOD",
-      "effort": "2 min · order food",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
-    },
-    {
-      "store": "Remitly",
-      "item": "First Transfer — £10 Discount",
-      "deal_price": "£10",
-      "link": "https://www.remitly.com/gb/en/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "referral",
-      "category": "travel",
-      "code": "",
-      "expires": "2026-12-31",
-      "steps": [
-        "Sign up to Remitly via referral",
-        "Make first money transfer",
-        "Receive £10 discount and special rate"
-      ],
-      "badge": "💸 TRANSFER",
-      "effort": "3 min · send money",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
-    },
-    {
-      "store": "Worldremit",
-      "item": "First 3 Transfers — No Fees",
-      "deal_price": "£10",
-      "link": "https://www.worldremit.com/en/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "referral",
-      "category": "travel",
-      "code": "",
-      "expires": "2026-12-31",
-      "steps": [
-        "Sign up to WorldRemit via referral",
-        "Make money transfers",
-        "No fees on first 3 transfers"
-      ],
-      "badge": "💸 TRANSFER",
-      "effort": "3 min · send money",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
-    },
-    {
-      "store": "Gohenry",
-      "item": "Sign Up — £10 Bonus",
-      "deal_price": "£10",
-      "link": "https://www.gohenry.com/uk/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "referral",
-      "category": "freebie",
-      "code": "AFFBSWR215",
-      "expires": "2026-12-31",
-      "steps": [
-        "Sign up to GoHenry",
-        "Use code AFFBSWR215",
-        "Receive £10 bonus"
-      ],
-      "badge": "👨‍👩‍👧 FAMILY",
-      "effort": "3 min · sign up",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
-    },
-    {
-      "store": "Rooster Money",
-      "item": "Open Account — £10 Bonus",
-      "deal_price": "£10",
-      "link": "https://www.roostermoney.com/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "referral",
-      "category": "freebie",
-      "code": "",
-      "expires": "2026-12-31",
-      "steps": [
-        "Open Rooster Money account via referral",
-        "Set up pocket money",
-        "Receive £10 bonus"
-      ],
-      "badge": "👨‍👩‍👧 FAMILY",
-      "effort": "3 min · sign up",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
-    },
-    {
-      "store": "Klarna",
-      "item": "Refer Friend — £10 Discount",
-      "deal_price": "£10",
-      "link": "https://www.klarna.com/uk/",
-      "original_price": "£60",
-      "saving_percent": 17,
-      "type": "referral",
-      "category": "freebie",
-      "code": "",
-      "expires": "2026-12-31",
-      "steps": [
-        "Share Klarna referral link",
-        "Friend signs up and spends £60",
-        "Both receive £10 discount"
-      ],
-      "badge": "🛍️ SHOPPING",
-      "effort": "2 min · refer a friend",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
-    },
-    {
-      "store": "Clearpay",
-      "item": "First Purchase — £10 Off",
-      "deal_price": "£10",
-      "link": "https://www.clearpay.co.uk/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "referral",
-      "category": "freebie",
-      "code": "",
-      "expires": "2026-12-31",
-      "steps": [
-        "Sign up to Clearpay via referral",
-        "Make first purchase",
-        "Receive £10 discount"
-      ],
-      "badge": "🛍️ SHOPPING",
-      "effort": "2 min · sign up",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
-    },
-    {
-      "store": "Zable",
-      "item": "Free £10 with their credit builder card (~1 week)",
-      "deal_price": "£10",
-      "link": "https://www.reddit.com/r/beermoneyuk/search?q=title%3A%22zable%22&amp;sort=new",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "megalist",
-      "category": "freebie",
-      "code": "",
-      "steps": [
-        "Check the BeermoneyUK megalist",
-        "Follow the offer link",
-        "Complete required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "BeermoneyUK Megalist",
-      "last_updated": "2026-04-01 18:03:50",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Smarty",
-      "item": "£10 for signing up",
-      "deal_price": "£10",
-      "link": "https://www.reddit.com/r/beermoneyuk/search?q=title%3A%22smarty%22&amp;sort=new",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "megalist",
-      "category": "freebie",
-      "code": "",
-      "steps": [
-        "Check the BeermoneyUK megalist",
-        "Follow the offer link",
-        "Complete required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "BeermoneyUK Megalist",
-      "last_updated": "2026-04-01 18:03:50",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Western Union",
-      "item": "Send £50, get £10 back (~1 week)",
-      "deal_price": "£10",
-      "link": "https://www.reddit.com/r/beermoneyuk/search?q=title%3A%22western%22&amp;sort=new",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "megalist",
-      "category": "freebie",
-      "code": "",
-      "steps": [
-        "Check the BeermoneyUK megalist",
-        "Follow the offer link",
-        "Complete required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "BeermoneyUK Megalist",
-      "last_updated": "2026-04-01 18:03:50",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Earnlab",
-      "item": "Featured 6 Earnlab Cashback Your Reward 3 Mystery Boxes cash (+ cashback) Claim ",
-      "deal_price": "£10",
-      "link": "https://scrimpr.co.uk/offers/earnlab/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "scrimpr",
-      "category": "cashback",
-      "code": "",
-      "steps": [
-        "Read the full offer on Scrimpr",
-        "Follow the referral link",
-        "Complete required steps"
-      ],
-      "timeFrame": "Check page",
-      "source": "Scrimpr",
-      "last_updated": "2026-04-01 18:03:50",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Lemfi",
-      "item": "21 LemFi Money Transfer FCA: 900424 Your Reward £10 discount Claim Offer → More ",
-      "deal_price": "£10",
-      "link": "https://scrimpr.co.uk/offers/lemfi/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "scrimpr",
-      "category": "other",
-      "code": "",
-      "steps": [
-        "Read the full offer on Scrimpr",
-        "Follow the referral link",
-        "Complete required steps"
-      ],
-      "timeFrame": "Check page",
-      "source": "Scrimpr",
-      "last_updated": "2026-04-01 18:03:50",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Moneygram",
-      "item": "46 Moneygram Money Transfer Your Reward £10 discount Claim Offer → More details ",
-      "deal_price": "£10",
-      "link": "https://scrimpr.co.uk/offers/moneygram/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "scrimpr",
-      "category": "other",
-      "code": "",
-      "steps": [
-        "Read the full offer on Scrimpr",
-        "Follow the referral link",
-        "Complete required steps"
-      ],
-      "timeFrame": "Check page",
-      "source": "Scrimpr",
-      "last_updated": "2026-04-01 18:03:50",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "User Interviews",
-      "item": "20 User Interviews Market Research Your Reward £8 gift voucher Claim Offer → Mor",
-      "deal_price": "£8",
-      "link": "https://scrimpr.co.uk/offers/user-interviews/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "scrimpr",
-      "category": "other",
-      "code": "",
-      "steps": [
-        "Read the full offer on Scrimpr",
-        "Follow the referral link",
-        "Complete required steps"
-      ],
-      "timeFrame": "Check page",
-      "source": "Scrimpr",
-      "last_updated": "2026-04-01 18:03:50",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
+      "last_updated": "2026-04-01 23:57:37"
     },
     {
       "store": "Monzo",
@@ -2357,7 +937,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
+      "last_updated": "2026-04-01 23:57:37"
     },
     {
       "store": "Zilch",
@@ -2377,144 +957,29 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
+      "last_updated": "2026-04-01 23:57:37"
     },
     {
-      "store": "Monzo",
-      "item": "First Payment — £5 Cash",
-      "deal_price": "£5",
-      "link": "https://monzo.com/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "referral",
-      "category": "bank",
-      "code": "",
-      "expires": "2026-12-31",
-      "steps": [
-        "Open Monzo account via referral",
-        "Make first card payment in 30 days",
-        "Get £5 credited"
-      ],
-      "badge": "🏦 BANK REFERRAL",
-      "effort": "3 min · quick win",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
-    },
-    {
-      "store": "Giffgaff",
-      "item": "Sign Up — £5 Credit",
-      "deal_price": "£5",
-      "link": "https://www.giffgaff.com/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "referral",
-      "category": "mobile",
-      "code": "",
-      "expires": "2026-12-31",
-      "steps": [
-        "Order SIM via referral link",
-        "Activate SIM",
-        "Get £5 credit"
-      ],
-      "badge": "📱 MOBILE",
-      "effort": "2 min · free SIM",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
-    },
-    {
-      "store": "In-poll",
-      "item": "5 Surveys — £5 Bonus",
-      "deal_price": "£5",
-      "link": "https://www.in-poll.co.uk/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "earn",
-      "category": "earn",
-      "code": "",
-      "expires": "2026-12-31",
-      "steps": [
-        "Sign up to In-Poll",
-        "Complete first 5 surveys",
-        "Receive £5 bonus"
-      ],
-      "badge": "💰 EARN",
-      "effort": "15 min · surveys",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
-    },
-    {
-      "store": "Taptap",
-      "item": "Send £10, get £5 back (~1 week)",
-      "deal_price": "£5",
-      "link": "https://www.reddit.com/r/beermoneyuk/search?q=title%3A%22traptap%22&amp;sort=new",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "megalist",
-      "category": "freebie",
-      "code": "",
-      "steps": [
-        "Check the BeermoneyUK megalist",
-        "Follow the offer link",
-        "Complete required steps"
-      ],
-      "timeFrame": "Varies",
-      "source": "BeermoneyUK Megalist",
-      "last_updated": "2026-04-01 18:03:50",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Sprive",
-      "item": "48 Sprive Cashback Your Reward £5 voucher (+ cashback) Claim Offer → More detail",
-      "deal_price": "£5",
-      "link": "https://scrimpr.co.uk/offers/sprive/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "scrimpr",
-      "category": "cashback",
-      "code": "",
-      "steps": [
-        "Read the full offer on Scrimpr",
-        "Follow the referral link",
-        "Complete required steps"
-      ],
-      "timeFrame": "Check page",
-      "source": "Scrimpr",
-      "last_updated": "2026-04-01 18:03:50",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0
-    },
-    {
-      "store": "Caffe Nero",
-      "item": "Free Coffee on First Purchase",
+      "store": "Nintendo Switch Lite Console - Turquoise",
+      "item": "Nintendo Switch Lite Console - Turquoise (+Earn £4 Back In Reward Points)",
       "deal_price": "£4",
-      "link": "https://www.caffenero.com/uk/",
+      "link": "https://www.hotukdeals.com/deals/nintendo-switch-lite-console-turquoise-earn-ps4-back-in-reward-points-4849380",
       "original_price": "£0",
       "saving_percent": 100,
-      "type": "referral",
-      "category": "freebie",
+      "type": "scraped_hotukdeals",
       "code": "",
-      "expires": "2026-12-31",
       "steps": [
-        "Download Caffe Nero app",
-        "Sign up via referral",
-        "Make first app purchase",
-        "Receive free coffee voucher"
+        "Check the HotUKDeals post",
+        "Follow the deal link",
+        "Complete required steps"
       ],
-      "badge": "☕ FREEBIE",
-      "effort": "2 min · quick win",
+      "timeFrame": "Check post",
+      "source": "HotUKDeals",
+      "last_updated": "2026-04-01 23:57:37",
+      "category": "other",
       "stacked_price": 0,
       "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
+      "stacking_rate": 0
     },
     {
       "store": "Cheddar",
@@ -2534,7 +999,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
+      "last_updated": "2026-04-01 23:57:37"
     },
     {
       "store": "Jam Doughnut",
@@ -2554,7 +1019,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
+      "last_updated": "2026-04-01 23:57:37"
     },
     {
       "store": "Trainpal",
@@ -2575,7 +1040,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
+      "last_updated": "2026-04-01 23:57:37"
     },
     {
       "store": "Airtime",
@@ -2596,7 +1061,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
+      "last_updated": "2026-04-01 23:57:37"
     },
     {
       "store": "Everup",
@@ -2617,30 +1082,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
-    },
-    {
-      "store": "Custard",
-      "item": "Sign Up — £1 Bonus",
-      "deal_price": "£1",
-      "link": "https://www.custard.co.uk/",
-      "original_price": "£0",
-      "saving_percent": 100,
-      "type": "earn",
-      "category": "earn",
-      "code": "",
-      "expires": "2026-12-31",
-      "steps": [
-        "Download Custard app",
-        "Sign up via referral",
-        "Receive £1 bonus instantly"
-      ],
-      "badge": "💰 EARN",
-      "effort": "2 min · quick win",
-      "stacked_price": 0,
-      "best_payment_method": "N/A",
-      "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
+      "last_updated": "2026-04-01 23:57:37"
     },
     {
       "store": "Moneybox",
@@ -2660,7 +1102,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
+      "last_updated": "2026-04-01 23:57:37"
     },
     {
       "store": "Lebara",
@@ -2680,7 +1122,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
+      "last_updated": "2026-04-01 23:57:37"
     },
     {
       "store": "Costa",
@@ -2700,7 +1142,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
+      "last_updated": "2026-04-01 23:57:37"
     },
     {
       "store": "Waitrose",
@@ -2720,7 +1162,7 @@
       "stacked_price": 0,
       "best_payment_method": "JamDoughnut (3.5%) + MyWaitrose",
       "stacking_rate": 3.5,
-      "last_updated": "2026-04-01 18:03:50"
+      "last_updated": "2026-04-01 23:57:37"
     },
     {
       "store": "Wise",
@@ -2741,7 +1183,7 @@
       "stacked_price": 0,
       "best_payment_method": "N/A",
       "stacking_rate": 0,
-      "last_updated": "2026-04-01 18:03:50"
+      "last_updated": "2026-04-01 23:57:37"
     }
   ]
 }
