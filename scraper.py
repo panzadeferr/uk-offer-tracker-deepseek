@@ -1147,7 +1147,7 @@ def run_all_scrapers() -> Dict:
     all_deals = []
     
     # Get manual offers (30+)
-    print("\n📦 Fetching manual offers (bank switches, referrals, cashback)...")
+    print("\n[BOX] Fetching manual offers (bank switches, referrals, cashback)...")
     manual_offers = get_manual_offers()
     all_deals.extend(manual_offers)
     print(f"   Found {len(manual_offers)} manual offers")
