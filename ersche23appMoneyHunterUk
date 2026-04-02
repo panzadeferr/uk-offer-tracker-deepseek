@@ -1,0 +1,8 @@
+[33m5a8ea65[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Merge remote changes and remove Branded Surveys offer from Scrimpr scraper
+[33m95dab10[m Remove Branded Surveys offer from Scrimpr scraper
+[33mc91a693[m Auto: scrape 2026-04-01-2300
+[33m2833028[m Clean up pycache and deleted files
+[33mc3862a4[m Remove Branded Surveys offer - not in manual offers, restored scraper.py from backup
+[33m1066467[m fix: disable Reddit junk scraper, fix supermarket dupes, remove temp files
+[33m6336e9d[m Merge: keep new scraped data with 123 deals
+[33m9dbc9b4[m Auto: scrape 2026-04-01-1452
