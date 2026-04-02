@@ -2036,6 +2036,58 @@
       color: #000;
     }
 
+    
+    /* ── DESKTOP ARROW BUTTONS ──────────────────── */
+    .row-wrapper {
+      position: relative;
+    }
+    .row-arrow {
+      display: none;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--card);
+      border: 1px solid var(--line);
+      color: var(--text);
+      font-size: 16px;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,.3);
+      transition: .15s;
+      font-family: var(--fb);
+    }
+    .row-arrow:hover {
+      background: var(--green);
+      color: #000;
+      border-color: var(--green);
+    }
+    .row-arrow.left { left: -14px }
+    .row-arrow.right { right: -14px }
+    
+    /* Show arrows on non-touch devices */
+    @media (hover: hover) and (pointer: fine) {
+      .row-wrapper:hover .row-arrow {
+        display: flex;
+      }
+    }
+
+    /* Featured strip wrapper */
+    .featured-wrapper {
+      position: relative;
+    }
+    .featured-wrapper .row-arrow.left { left: -14px; top: 50% }
+    .featured-wrapper .row-arrow.right { right: -14px; top: 50% }
+    @media (hover: hover) and (pointer: fine) {
+      .featured-wrapper:hover .row-arrow {
+        display: flex;
+      }
+    }
+
     </style>
 </head>
 <body>
@@ -2166,7 +2218,11 @@
           <!-- Featured strip -->
           <div class="featured-strip">
             <div class="featured-label">⭐ Best Right Now</div>
-            <div class="featured-scroll" id="featuredStrip"></div>
+            <div class="row-wrapper">
+              <button class="row-arrow left" onclick="scrollRow('featuredStrip',-1)">&#8249;</button>
+              <div class="featured-scroll" id="featuredStrip"></div>
+              <button class="row-arrow right" onclick="scrollRow('featuredStrip',1)">&#8250;</button>
+            </div>
           </div>
           <!-- Category rows injected here -->
           <div id="categoryRows"></div>
@@ -3494,6 +3550,7 @@
 
     function switchView(view) {
       if (!views.includes(view)) return;
+      if (view !== 'home') history.pushState({ type: 'view', view }, '');
       document.querySelectorAll(".view").forEach(node => node.classList.remove("active"));
       document.querySelectorAll(".nav-btn").forEach(node => node.classList.remove("active"));
       document.getElementById(`view-${view}`)?.classList.add("active");
@@ -3735,6 +3792,7 @@
     let activePanel = null;
 
     function openPanel(offer) {
+      history.pushState({ type: 'panel', id: offer.id }, '');
       activePanel = offer;
       const enrich = getEnrichment(offer.id);
       const steps = enrich.steps.length ? enrich.steps : offer.steps;
@@ -4795,6 +4853,14 @@
       return offer.desc || offer.item || offer.action || '';
     }
 
+
+    function scrollRow(id, dir) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const cardWidth = 165; // mini-card width + gap
+      el.scrollBy({ left: dir * cardWidth * 2, behavior: 'smooth' });
+    }
+
     function setFilter(cat) {
       currentFilter = cat;
       // Update pills
@@ -4888,28 +4954,65 @@
       const el = document.getElementById('categoryRows');
       if (!el) return;
 
-      el.innerHTML = CATEGORY_ROWS.map(row => {
+      el.innerHTML = CATEGORY_ROWS.map((row, rowIdx) => {
         const rowOffers = offers.filter(o => getOfferCategory(o) === row.cat);
         if (rowOffers.length === 0) return '';
+        const scrollId = 'scroll-' + row.cat;
         return `
           <div class="category-row">
             <div class="category-row-head">
               <div class="category-row-title">${row.label}</div>
               <div class="category-row-count">${rowOffers.length} offers</div>
             </div>
-            <div class="category-scroll">
-              ${rowOffers.map(offer => `
-                <div class="mini-card" onclick="openOffer(${JSON.stringify(offer).replace(/"/g,'&quot;')})" style="background:linear-gradient(135deg,var(--card) 60%,${row.color} 100%)">
-                  <div class="mini-card-reward">${getOfferReward(offer)}</div>
-                  <div class="mini-card-name">${getOfferName(offer)}</div>
-                  <div class="mini-card-desc">${getOfferDesc(offer).slice(0,55)}</div>
-                  <div class="mini-card-badge">${(offer.badge||'').slice(0,20)}</div>
-                </div>
-              `).join('')}
+            <div class="row-wrapper">
+              <button class="row-arrow left" onclick="scrollRow('${scrollId}', -1)">&#8249;</button>
+              <div class="category-scroll" id="${scrollId}">
+                ${rowOffers.map(offer => `
+                  <div class="mini-card" onclick="openOffer(${JSON.stringify(offer).replace(/"/g,'&quot;')})" style="background:linear-gradient(135deg,var(--card) 60%,${row.color} 100%)">
+                    <div class="mini-card-reward">${getOfferReward(offer)}</div>
+                    <div class="mini-card-name">${getOfferName(offer)}</div>
+                    <div class="mini-card-desc">${getOfferDesc(offer).slice(0,55)}</div>
+                    <div class="mini-card-badge">${(offer.badge||'').slice(0,20)}</div>
+                  </div>
+                `).join('')}
+              </div>
+              <button class="row-arrow right" onclick="scrollRow('${scrollId}', 1)">&#8250;</button>
             </div>
           </div>
         `;
       }).join('');
+    }
+
+
+    // ── BACK BUTTON HANDLER (PWA) ──────────────────
+    function pushNavState(type, data) {
+      history.pushState({ type, data }, '');
+    }
+
+    window.addEventListener('popstate', function(e) {
+      const state = e.state;
+      // If offer panel is open - close it
+      const panel = document.getElementById('offerPanel');
+      if (panel && panel.classList.contains('active')) {
+        closePanel();
+        return;
+      }
+      // If not on home view - go home
+      const homeBtn = document.querySelector('.nav-btn[data-view="home"]');
+      const homeView = document.getElementById('view-home');
+      if (homeView && !homeView.classList.contains('active')) {
+        switchView('home');
+        history.pushState({ type: 'home' }, '');
+        return;
+      }
+      // Already on home - let browser handle (goes to landing)
+      // Push state again to prevent exit
+      history.pushState({ type: 'home' }, '');
+    });
+
+    // Push initial state on load
+    function initBackButton() {
+      history.replaceState({ type: 'home' }, '');
     }
 
     function renderAll() {
@@ -5111,6 +5214,7 @@
       initAuth();
       checkPasswordResetToken();
       checkAdminAccess();
+      initBackButton();
     })();
   </script>
 
