@@ -1904,11 +1904,12 @@
       margin-bottom: 8px;
     }
     .featured-card-reward {
-      font-size: 26px;
+      font-size: 32px;
       font-weight: 900;
       color: var(--text);
       line-height: 1;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
+      letter-spacing: -1px;
     }
     .featured-card-name {
       font-size: 13px;
@@ -1962,11 +1963,12 @@
     }
     .mini-card:active { transform: scale(.97) }
     .mini-card-reward {
-      font-size: 20px;
+      font-size: 24px;
       font-weight: 900;
       color: var(--green);
       margin-bottom: 4px;
       line-height: 1;
+      letter-spacing: -.5px;
     }
     .mini-card-name {
       font-size: 12px;
@@ -2086,6 +2088,41 @@
       .featured-wrapper:hover .row-arrow {
         display: flex;
       }
+    }
+
+    
+    /* ── JARGON TOOLTIPS ────────────────────────── */
+    .jargon {
+      border-bottom: 1px dashed var(--muted2);
+      cursor: help;
+      position: relative;
+      display: inline-block;
+    }
+    .jargon::after {
+      content: attr(data-tip);
+      position: absolute;
+      bottom: 130%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--card);
+      border: 1px solid var(--green);
+      border-radius: 8px;
+      padding: 6px 10px;
+      font-size: 11px;
+      color: var(--text);
+      white-space: nowrap;
+      max-width: 220px;
+      white-space: normal;
+      text-align: center;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity .2s;
+      z-index: 100;
+      line-height: 1.4;
+    }
+    .jargon:hover::after,
+    .jargon:focus::after {
+      opacity: 1;
     }
 
     </style>
@@ -2257,9 +2294,9 @@
           <div class="guide-steps-preview" id="guide-bankswitch">
             <div class="guide-step-item"><div class="guide-step-num">1</div><div class="guide-step-text"><strong>Check eligibility.</strong> You need to be a new customer. Most banks require you have not held an account with them in the last 12 months.</div></div>
             <div class="guide-step-item"><div class="guide-step-num">2</div><div class="guide-step-text"><strong>Open the new account.</strong> Use the referral link in the Offers tab. Takes 5-10 minutes. Have your ID ready.</div></div>
-            <div class="guide-step-item"><div class="guide-step-num">3</div><div class="guide-step-text"><strong>Start the CASS switch.</strong> CASS moves everything automatically — direct debits, standing orders, salary. Takes 7 working days. Important: do not switch your main everyday account first. Start with a secondary account.</div></div>
+            <div class="guide-step-item"><div class="guide-step-num">3</div><div class="guide-step-text"><strong>Start the <span class="jargon" data-tip="Current Account Switch Service — moves all your direct debits and standing orders automatically in 7 working days">CASS</span> switch.</strong> CASS moves everything automatically — direct debits, standing orders, salary. Takes 7 working days. Important: do not switch your main everyday account first. Start with a <span class="jargon" data-tip="A secondary account is a spare bank account you keep alongside your main one — open a free Chase or Monzo account to use for switching">secondary account</span>.</div></div>
             <div class="guide-step-item"><div class="guide-step-num">4</div><div class="guide-step-text"><strong>Pay in the required amount.</strong> Most switches need £1,000-£1,500 within 30 days. Send it from a different account, wait at least 1 day, then send it back. Never use money you cannot spare — this is just a temporary movement.</div></div>
-            <div class="guide-step-item"><div class="guide-step-num">5</div><div class="guide-step-text"><strong>Add direct debits if required.</strong> Some banks need 2 active direct debits. Use a direct debit service (see the Community tab for our recommended one) to set up cheap DDs quickly without using real subscriptions.</div></div>
+            <div class="guide-step-item"><div class="guide-step-num">5</div><div class="guide-step-text"><strong>Add direct debits if required.</strong> Some banks need 2 active <span class="jargon" data-tip="Direct Debits are automatic payments that leave your account on a set date — like Netflix, gym, or charity donations">direct debits</span>. Use a direct debit service (see the Community tab for our recommended one) to set up cheap DDs quickly without using real subscriptions.</div></div>
             <div class="guide-step-item"><div class="guide-step-num">6</div><div class="guide-step-text"><strong>Wait for the payout.</strong> Usually 30-60 days. Add it to Pending Payouts in this app so you never forget.</div></div>
             <div class="guide-step-item"><div class="guide-step-num">7</div><div class="guide-step-text"><strong>Stack multiple switches.</strong> Once paid, switch again. Lloyds → NatWest → Santander = £500+ in 3 months. Check Offers for all current deals.</div></div>
             <div class="guide-step-item"><div class="guide-step-num">8</div><div class="guide-step-text"><strong>Pro tip.</strong> Use a direct debit service to create cheap DDs quickly. Never miss a payout — track every switch in this app.</div></div>
