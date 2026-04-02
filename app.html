@@ -1657,7 +1657,208 @@
     .user-badge-dot{width:7px;height:7px;border-radius:50%;background:var(--green)}
     .sync-indicator{font-size:9px;color:var(--muted2);text-align:center;padding:4px;display:none}
     .sync-indicator.show{display:block}
-  </style>
+  
+    /* ── PLAYBOOK TAB ───────────────────── */
+    .playbook-hero{
+      background:linear-gradient(135deg,var(--card) 0%,rgba(57,255,100,.08) 100%);
+      border:1px solid var(--line);border-radius:16px;
+      padding:20px;margin-bottom:20px;text-align:center;
+    }
+    .playbook-hero h2{font-size:22px;font-weight:800;color:var(--text);margin-bottom:6px}
+    .playbook-hero p{font-size:13px;color:var(--muted2);margin:0}
+    .guide-list{display:flex;flex-direction:column;gap:12px;margin-bottom:24px}
+    .guide-card{
+      background:var(--card);border:1px solid var(--line);
+      border-radius:14px;padding:16px;cursor:pointer;
+      transition:.15s;-webkit-tap-highlight-color:transparent;
+    }
+    .guide-card:active{transform:scale(.98)}
+    .guide-card-head{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+    .guide-icon{
+      width:40px;height:40px;border-radius:10px;
+      display:flex;align-items:center;justify-content:center;
+      font-size:20px;flex-shrink:0;
+    }
+    .guide-icon.green{background:rgba(57,255,100,.12)}
+    .guide-icon.blue{background:rgba(57,130,255,.12)}
+    .guide-icon.yellow{background:rgba(255,200,57,.12)}
+    .guide-icon.purple{background:rgba(180,57,255,.12)}
+    .guide-card h3{font-size:15px;font-weight:700;color:var(--text);margin:0}
+    .guide-card .guide-meta{font-size:11px;color:var(--muted2);margin:0}
+    .guide-desc{font-size:12px;color:var(--muted2);margin-bottom:10px;line-height:1.5}
+    .guide-steps-preview{
+      display:none;flex-direction:column;gap:8px;
+      margin-top:12px;padding-top:12px;border-top:1px solid var(--line);
+    }
+    .guide-steps-preview.open{display:flex}
+    .guide-step-item{display:flex;gap:10px;align-items:flex-start}
+    .guide-step-num{
+      width:22px;height:22px;border-radius:50%;
+      background:var(--green);color:#000;font-size:11px;
+      font-weight:800;display:flex;align-items:center;
+      justify-content:center;flex-shrink:0;margin-top:1px;
+    }
+    .guide-step-text{font-size:12px;color:var(--text);line-height:1.5;flex:1}
+    .guide-step-text strong{color:var(--green);font-weight:700}
+    .guide-expand-btn{
+      width:100%;padding:8px;background:transparent;
+      border:1px solid var(--line);border-radius:8px;
+      color:var(--green);font-size:12px;font-weight:700;
+      cursor:pointer;margin-top:8px;font-family:var(--fb);
+    }
+    .playbook-tip{
+      background:rgba(57,255,100,.06);
+      border:1px solid rgba(57,255,100,.2);
+      border-radius:12px;padding:14px;margin-bottom:16px;
+      font-size:12px;color:var(--muted2);line-height:1.6;
+    }
+    .playbook-tip strong{color:var(--green)}
+
+    
+    /* ── GAMIFICATION SYSTEM ───────────────────── */
+
+    /* Milestone celebration overlay */
+    .milestone-overlay{
+      position:fixed;inset:0;z-index:9999;
+      display:flex;align-items:center;justify-content:center;
+      background:rgba(0,0,0,.7);backdrop-filter:blur(4px);
+      opacity:0;pointer-events:none;transition:.3s;
+    }
+    .milestone-overlay.show{opacity:1;pointer-events:all}
+    .milestone-box{
+      background:var(--card);border:2px solid var(--green);
+      border-radius:20px;padding:32px 24px;text-align:center;
+      max-width:300px;width:90%;
+      transform:scale(.8);transition:.3s;
+    }
+    .milestone-overlay.show .milestone-box{transform:scale(1)}
+    .milestone-emoji{font-size:56px;margin-bottom:12px;display:block}
+    .milestone-title{font-size:22px;font-weight:800;color:var(--text);margin-bottom:6px}
+    .milestone-sub{font-size:14px;color:var(--muted2);margin-bottom:20px}
+    .milestone-close{
+      width:100%;padding:12px;background:var(--green);
+      color:#000;border:none;border-radius:10px;
+      font-size:14px;font-weight:800;cursor:pointer;
+      font-family:var(--fb);
+    }
+
+    /* Confetti */
+    .confetti-container{
+      position:fixed;inset:0;z-index:9998;
+      pointer-events:none;overflow:hidden;
+    }
+    .confetti-piece{
+      position:absolute;top:-10px;
+      width:10px;height:10px;
+      border-radius:2px;
+      animation:confetti-fall linear forwards;
+    }
+    @keyframes confetti-fall{
+      to{transform:translateY(110vh) rotate(720deg);opacity:0}
+    }
+
+    /* Streak warning */
+    .streak-warning{
+      background:rgba(255,150,0,.12);
+      border:1px solid rgba(255,150,0,.4);
+      border-radius:12px;padding:12px 14px;
+      display:flex;align-items:center;gap:10px;
+      margin-bottom:12px;font-size:13px;color:var(--text);
+    }
+    .streak-warning.hidden{display:none}
+
+    /* Weekly missions */
+    .missions-section{margin-bottom:20px}
+    .mission-card{
+      background:var(--card);border:1px solid var(--line);
+      border-radius:12px;padding:14px;margin-bottom:8px;
+    }
+    .mission-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+    .mission-name{font-size:13px;font-weight:700;color:var(--text)}
+    .mission-reward{font-size:11px;color:var(--green);font-weight:700}
+    .mission-bar-bg{height:6px;background:var(--bg3);border-radius:3px;overflow:hidden}
+    .mission-bar{height:100%;background:var(--green);border-radius:3px;transition:.4s}
+    .mission-meta{font-size:11px;color:var(--muted2);margin-top:5px}
+
+    /* Badges */
+    .badges-grid{
+      display:grid;grid-template-columns:repeat(4,1fr);
+      gap:10px;margin-bottom:20px;
+    }
+    .badge-item{
+      background:var(--card);border:1px solid var(--line);
+      border-radius:12px;padding:12px 8px;text-align:center;
+    }
+    .badge-item.locked{opacity:.35;filter:grayscale(1)}
+    .badge-item.unlocked{border-color:var(--green)}
+    .badge-emoji{font-size:28px;display:block;margin-bottom:4px}
+    .badge-name{font-size:10px;color:var(--muted2);font-weight:600;line-height:1.3}
+
+    /* Raffle tickets (hidden until enabled) */
+    .raffle-section{display:none}
+    .raffle-section.enabled{display:block}
+    .ticket-count{
+      background:linear-gradient(135deg,rgba(57,255,100,.1),rgba(57,130,255,.1));
+      border:1px solid var(--green);border-radius:14px;
+      padding:16px;text-align:center;margin-bottom:12px;
+    }
+    .ticket-num{font-size:32px;font-weight:800;color:var(--green)}
+    .ticket-label{font-size:12px;color:var(--muted2);margin-top:4px}
+    .ticket-list{
+      display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;
+    }
+    .ticket-chip{
+      background:var(--card);border:1px solid var(--green);
+      border-radius:20px;padding:4px 10px;
+      font-size:11px;color:var(--green);font-weight:700;
+    }
+    .raffle-info{
+      background:rgba(57,255,100,.06);border:1px solid rgba(57,255,100,.2);
+      border-radius:12px;padding:12px;font-size:12px;
+      color:var(--muted2);line-height:1.6;
+    }
+
+    /* Admin panel */
+    .admin-panel{
+      display:none;position:fixed;inset:0;z-index:10000;
+      background:var(--bg);overflow-y:auto;padding:20px;
+    }
+    .admin-panel.visible{display:block}
+    .admin-header{
+      display:flex;justify-content:space-between;
+      align-items:center;margin-bottom:20px;
+    }
+    .admin-title{font-size:20px;font-weight:800;color:var(--green)}
+    .admin-close{
+      background:var(--card);border:1px solid var(--line);
+      border-radius:8px;padding:8px 14px;color:var(--text);
+      font-size:13px;cursor:pointer;font-family:var(--fb);
+    }
+    .admin-section{
+      background:var(--card);border:1px solid var(--line);
+      border-radius:14px;padding:16px;margin-bottom:16px;
+    }
+    .admin-section h3{font-size:15px;font-weight:700;color:var(--text);margin-bottom:12px}
+    .admin-btn{
+      width:100%;padding:12px;background:var(--green);
+      color:#000;border:none;border-radius:10px;
+      font-size:14px;font-weight:800;cursor:pointer;
+      font-family:var(--fb);margin-bottom:8px;
+    }
+    .admin-btn.secondary{background:var(--card);color:var(--text);border:1px solid var(--line)}
+    .admin-input{
+      width:100%;padding:10px 12px;background:var(--bg3);
+      border:1px solid var(--line);border-radius:8px;
+      color:var(--text);font-size:13px;margin-bottom:8px;
+      font-family:var(--fb);box-sizing:border-box;
+    }
+    .admin-result{
+      background:var(--bg3);border-radius:8px;
+      padding:12px;font-size:13px;color:var(--text);
+      margin-top:8px;min-height:40px;
+    }
+
+    </style>
 </head>
 <body>
   <header class="topbar">
@@ -1770,13 +1971,15 @@
           <input class="search" id="searchInput" type="text" placeholder="Search offers...">
           <select class="filter-select" id="filterSelect" aria-label="Filter offers">
             <option value="all">All offers</option>
-            <option value="bank">Bank / account</option>
-            <option value="invest">Invest</option>
-            <option value="cashback">Cashback</option>
-            <option value="gift">Gift cards</option>
-            <option value="business">Business</option>
-            <option value="earn">Earn online</option>
-            <option value="mobile">Mobile</option>
+            <option value="bank">🏦 Bank switches</option>
+            <option value="invest">📈 Invest bonuses</option>
+            <option value="cashback">💳 Cashback sites</option>
+            <option value="gift">🎁 Gift card cashback</option>
+            <option value="utilities">⚡ Utilities</option>
+            <option value="earn">💰 Earn online</option>
+            <option value="mobile">📱 Mobile</option>
+            <option value="travel">✈️ Travel</option>
+            <option value="business">💼 Business</option>
             <option value="travel">Travel / utility</option>
             <option value="freebie">Freebies / other</option>
           </select>
@@ -1787,24 +1990,129 @@
     </section>
 
     <section id="view-stack" class="view">
-      <section class="section">
-        <div class="section-head">
-          <h2 class="section-title">Cashback Battle</h2>
-          <div class="section-note" id="battleCount">0 entries</div>
+      <div class="playbook-hero">
+        <h2>📖 The Playbook</h2>
+        <p>Step-by-step guides to make the most from every UK money deal.</p>
+      </div>
+      <div class="guide-list">
+
+        <div class="guide-card" onclick="toggleGuide('guide-bankswitch')">
+          <div class="guide-card-head">
+            <div class="guide-icon green">🏦</div>
+            <div>
+              <h3>Bank Switch Bible</h3>
+              <p class="guide-meta">Up to £500 · 8 steps · 15 min</p>
+            </div>
+          </div>
+          <p class="guide-desc">The easiest free money in the UK. Banks pay you £150-£500 just to move your account. Here is exactly how to do it safely and stack multiple switches.</p>
+          <button class="guide-expand-btn" id="btn-guide-bankswitch">Read Guide ↓</button>
+          <div class="guide-steps-preview" id="guide-bankswitch">
+            <div class="guide-step-item"><div class="guide-step-num">1</div><div class="guide-step-text"><strong>Check eligibility.</strong> You need to be a new customer. Most banks require you have not held an account with them in the last 12 months.</div></div>
+            <div class="guide-step-item"><div class="guide-step-num">2</div><div class="guide-step-text"><strong>Open the new account.</strong> Use the referral link in the Offers tab. Takes 5-10 minutes. Have your ID ready.</div></div>
+            <div class="guide-step-item"><div class="guide-step-num">3</div><div class="guide-step-text"><strong>Start the CASS switch.</strong> CASS moves everything automatically — direct debits, standing orders, salary. Takes 7 working days. Important: do not switch your main everyday account first. Start with a secondary account.</div></div>
+            <div class="guide-step-item"><div class="guide-step-num">4</div><div class="guide-step-text"><strong>Pay in the required amount.</strong> Most switches need £1,000-£1,500 within 30 days. Send it from a different account, wait at least 1 day, then send it back. Never use money you cannot spare — this is just a temporary movement.</div></div>
+            <div class="guide-step-item"><div class="guide-step-num">5</div><div class="guide-step-text"><strong>Add direct debits if required.</strong> Some banks need 2 active direct debits. Use a direct debit service (see the Community tab for our recommended one) to set up cheap DDs quickly without using real subscriptions.</div></div>
+            <div class="guide-step-item"><div class="guide-step-num">6</div><div class="guide-step-text"><strong>Wait for the payout.</strong> Usually 30-60 days. Add it to Pending Payouts in this app so you never forget.</div></div>
+            <div class="guide-step-item"><div class="guide-step-num">7</div><div class="guide-step-text"><strong>Stack multiple switches.</strong> Once paid, switch again. Lloyds → NatWest → Santander = £500+ in 3 months. Check Offers for all current deals.</div></div>
+            <div class="guide-step-item"><div class="guide-step-num">8</div><div class="guide-step-text"><strong>Pro tip.</strong> Use a direct debit service to create cheap DDs quickly. Never miss a payout — track every switch in this app.</div></div>
+          </div>
+        </div>
+
+        <div class="guide-card" onclick="toggleGuide('guide-supermarket')">
+          <div class="guide-card-head">
+            <div class="guide-icon yellow">🛒</div>
+            <div>
+              <h3>Supermarket Stacking</h3>
+              <p class="guide-meta">Up to 8% back · 4 steps · 5 min setup</p>
+            </div>
+          </div>
+          <p class="guide-desc">Six rules that actually work. Follow these and you will save money reliably every week without the hassle of tracking issues.</p>
+          <button class="guide-expand-btn" id="btn-guide-supermarket">Read Guide ↓</button>
+          <div class="guide-steps-preview" id="guide-supermarket">
+            <div class="guide-step-item"><div class="guide-step-num">1</div><div class="guide-step-text"><strong>Start with a cashback debit card.</strong> Get a card that pays cashback automatically on most purchases — like the Chase card (1% back) or Krak card. Just use it instead of your regular card. No apps to remember, no links to click.</div></div>
+            <div class="guide-step-item"><div class="guide-step-num">2</div><div class="guide-step-text"><strong>Gift cards are more reliable than cashback sites.</strong> Apps like Jam Doughnut (code 8TGF) let you buy gift cards and get instant cashback. More reliable than traditional cashback sites — fewer tracking issues and you get paid immediately.</div></div>
+            <div class="guide-step-item"><div class="guide-step-num">3</div><div class="guide-step-text"><strong>Start fresh for each cashback purchase.</strong> Clear your browser history or use a private window. Accept cookies. Do not use coupon extensions like Honey — they interfere with cashback tracking. Click the cashback link and go straight to checkout.</div></div>
+            <div class="guide-step-item"><div class="guide-step-num">4</div><div class="guide-step-text"><strong>Test with a small purchase first.</strong> Before making a big purchase through a cashback site, buy something small like a £5 gift card to confirm the tracking works on your device and browser.</div></div>
+            <div class="guide-step-item"><div class="guide-step-num">5</div><div class="guide-step-text"><strong>Take guaranteed discounts over cashback promises.</strong> Always choose a definite discount or coupon code over potential cashback. Some cashback sites will not pay if you used a discount code — a guaranteed saving now beats a promised payment later.</div></div>
+            <div class="guide-step-item"><div class="guide-step-num">6</div><div class="guide-step-text"><strong>Withdraw your earnings regularly.</strong> Do not leave money sitting in cashback accounts. Take it out as soon as you hit the minimum withdrawal amount. Money in your account is real — money in theirs is not.</div></div>
+          </div>
+        </div>
+
+        <div class="guide-card" onclick="toggleGuide('guide-invest')">
+          <div class="guide-card-head">
+            <div class="guide-icon blue">📈</div>
+            <div>
+              <h3>Invest Bonus Guide</h3>
+              <p class="guide-meta">£10-£100 free shares · Low risk</p>
+            </div>
+          </div>
+          <p class="guide-desc">Get free shares just for depositing £1-£50. Genuinely low effort — deposit a small amount, get a random free share, withdraw when the hold period ends.</p>
+          <button class="guide-expand-btn" id="btn-guide-invest">Read Guide ↓</button>
+          <div class="guide-steps-preview" id="guide-invest">
+            <div class="guide-step-item"><div class="guide-step-num">1</div><div class="guide-step-text"><strong>Start with Freetrade.</strong> Deposit £1 and get a free share worth £10-£100. Takes 5 minutes. Use the referral link in Offers.</div></div>
+            <div class="guide-step-item"><div class="guide-step-num">2</div><div class="guide-step-text"><strong>Then Robinhood.</strong> Same deal — deposit £1, get a free share. Stack both in the same week.</div></div>
+            <div class="guide-step-item"><div class="guide-step-num">3</div><div class="guide-step-text"><strong>Hold the required period.</strong> Most platforms need you to hold the share for 30-90 days. Add to Pending Payouts so you do not forget.</div></div>
+            <div class="guide-step-item"><div class="guide-step-num">4</div><div class="guide-step-text"><strong>Move to bigger bonuses.</strong> Webull (£50 for £100 deposit), InvestEngine (up to £50), Lightyear (free shares for £50). All in Offers tab.</div></div>
+          </div>
+        </div>
+
+        <div class="guide-card" onclick="toggleGuide('guide-stacking')">
+          <div class="guide-card-head">
+            <div class="guide-icon purple">🔥</div>
+            <div>
+              <h3>Stack Multiple Deals</h3>
+              <p class="guide-meta">£500+ in 90 days · Advanced</p>
+            </div>
+          </div>
+          <p class="guide-desc">Do everything in the right order and you can make £500+ in your first 3 months without any complicated steps.</p>
+          <button class="guide-expand-btn" id="btn-guide-stacking">Read Guide ↓</button>
+          <div class="guide-steps-preview" id="guide-stacking">
+            <div class="guide-step-item"><div class="guide-step-num">1</div><div class="guide-step-text"><strong>Week 1 — Quick wins.</strong> Freetrade (£1 deposit), Robinhood (£1), Monzo (£5 for first spend), Zopa (£10 sign up). About £30 in one day.</div></div>
+            <div class="guide-step-item"><div class="guide-step-num">2</div><div class="guide-step-text"><strong>Week 2 — Bank switch 1.</strong> Open Lloyds, start CASS switch, deposit £1,000. Payout: £250 in about 30 days.</div></div>
+            <div class="guide-step-item"><div class="guide-step-num">3</div><div class="guide-step-text"><strong>Week 3 — Bank switch 2.</strong> Open NatWest or Santander while waiting for Lloyds. Switches run in parallel.</div></div>
+            <div class="guide-step-item"><div class="guide-step-num">4</div><div class="guide-step-text"><strong>Week 4 — Cashback setup.</strong> Join TopCashback and Quidco. Install browser extensions. Earn cashback on purchases you were already making.</div></div>
+            <div class="guide-step-item"><div class="guide-step-num">5</div><div class="guide-step-text"><strong>Month 2 — Supermarket stacking.</strong> Set up Jam Doughnut and Airtime. Buy gift cards before every shop. Saves £30-£50 per month ongoing.</div></div>
+            <div class="guide-step-item"><div class="guide-step-num">6</div><div class="guide-step-text"><strong>Month 3 — Collect payouts.</strong> Bank switch bonuses start landing. Track everything in Progress tab. Repeat best offers when eligible.</div></div>
+          </div>
+        </div>
+
+      </div>
+      <div class="playbook-tip">
+        <strong>💡 New deals added daily.</strong> Join our Telegram for instant alerts when new bank switches or invest bonuses go live.
+      </div>
+      <div style="display:flex;gap:10px;margin-bottom:80px">
+        <a class="primary-btn" href="https://t.me/MoneyHunterUK" target="_blank" rel="noreferrer" style="flex:1;text-align:center;text-decoration:none;padding:12px">📲 Telegram</a>
+        <a class="primary-btn" href="https://www.reddit.com/r/ReferralHunterUK/" target="_blank" rel="noreferrer" style="flex:1;text-align:center;text-decoration:none;padding:12px">💬 Reddit</a>
+      </div>
+    </section>
+
+    <section id="battleCount">0 entries</div>
         </div>
         <div class="comparison" id="battleTable"></div>
       </section>
 
-      <section class="section">
-        <div class="section-head">
-          <h2 class="section-title">Stacking Guides</h2>
-          <div class="section-note">Clear steps</div>
-        </div>
-        <div class="stack-list" id="stackList"></div>
-      </section>
     </section>
 
     <section id="view-progress" class="view">
+      <!-- Streak Warning -->
+      <div class="streak-warning hidden" id="streakWarning"></div>
+
+      <!-- Weekly Missions -->
+      <div class="missions-section" id="missionsSection"></div>
+
+      <!-- Badges -->
+      <div class="section">
+        <div class="section-head">
+          <h2 class="section-title">🏅 Badges</h2>
+          <div class="section-note" id="badgeCount">0 unlocked</div>
+        </div>
+        <div class="badges-grid" id="badgesGrid"></div>
+      </div>
+
+      <!-- Raffle Tickets -->
+      <div class="raffle-section" id="raffleSection"></div>
+
+
       <div class="profile-grid">
         <section class="profile-card card">
           <div class="profile-center">
@@ -2144,7 +2452,7 @@
       { id:"wise", name:"Wise", action:"Join Wise", reward:"Free Transfer", amount:5, code:"", url:"https://wise.com/invite/ahpc/albertob1508", desc:"Join through referral and use the fee-free first transfer benefit.", badge:"💸 TRANSFER", effort:"4 min · transfer account", steps:["Open Wise","Create account","Complete first transfer"], expectedDays:1 },
       { id:"trading-212", name:"Trading 212", action:"Watch Trading 212 for return", reward:"Coming Soon", amount:0, code:"", url:"https://www.trading212.com", desc:"Referral campaign paused for now, but worth watching.", badge:"⏸️ PAUSED", effort:"No action yet", steps:["Wait for campaign to return"], expectedDays:0 },
       { id:"nx-rewards", name:"NX Rewards", action:"Buy discounted gift cards on NX Rewards", reward:"Up to 15%", amount:15, code:"", url:"https://www.nxrewards.co.uk/", desc:"Buy discounted gift cards for major retailers at up to 15% off face value. No account needed for some cards.", badge:"🎵 GIFT CARD", effort:"2 min · instant saving", steps:["Go to nxrewards.co.uk","Browse available gift cards","Check the discount percentage","Buy the gift card for your chosen retailer","Use immediately in store or online"], expectedDays:1 },
-      { id:"complete-savings", name:"Complete Savings", action:"Join Complete Savings cashback", reward:"£15/month", amount:15, code:"", url:"https://www.completesavings.co.uk/", desc:"Monthly cashback on purchases. Often triggered automatically after an online purchase. Check terms carefully — there is a monthly subscription fee after a trial period.", badge:"💳 CASHBACK", effort:"5 min · check terms", steps:["Check if you were auto-enrolled after an online purchase","If not, sign up at completesavings.co.uk","Complete a qualifying purchase","Claim monthly cashback","Important: cancel before trial ends if you don't want to continue paying"], expectedDays:30 }
+      { id:"complete-savings", name:"Complete Savings", action:"Join Complete Savings cashback", reward:"£15/month", amount:15, code:"", url:"https://www.completesavings.co.uk/", desc:"Monthly cashback on purchases. Often triggered automatically after an online purchase. Check terms carefully — there is a monthly subscription fee after a trial period.", badge:"💳 CASHBACK", effort:"5 min · check terms", steps:["Check if you were auto-enrolled after an online purchase","If not, sign up at completesavings.co.uk","Complete a qualifying purchase","Claim monthly cashback","Important: cancel before trial ends if you do not want to continue paying"], expectedDays:30 }
     ];
 
     const views = ["home", "offers", "stack", "progress", "community"];
@@ -2604,6 +2912,10 @@
     }
 
     function openOffer(offer) {
+      // Record when offer was first opened (for time gate)
+      if (!getOfferClaimedDate(offer.id)) {
+        setOfferClaimedDate(offer.id);
+      }
       if (offer.code) {
         navigator.clipboard?.writeText(offer.code).catch(() => {});
         toast(`Code copied: ${offer.code}`);
@@ -2876,6 +3188,7 @@
     }
 
     function renderStacks() {
+      if (!ui.stackList) return;
       ui.stackList.innerHTML = stackGuides.map(guide => `
         <article class="stack-card">
           <h3>${guide.title}</h3>
@@ -2961,26 +3274,39 @@
       renderPendingPayouts();
     }
 
-    function renderLeaderboard() {
-      const players = [
-        { name:"DealKing92", xp:1850, saved:487 },
-        { name:"SarahSaves", xp:1340, saved:312 },
-        { name:"BeermoneyPro", xp:1100, saved:298 },
-        { name:"CashbackQueen", xp:890, saved:241 },
-        { name:"ReferralHero", xp:650, saved:178 },
-        { name:"StackMaster", xp:420, saved:134 },
-        { name:"You", xp:state.xp, saved:getEarnedTotal(), you:true }
-      ].sort((a, b) => b.xp - a.xp).slice(0, 8);
-
-      ui.leaderboard.innerHTML = players.map((player, index) => `
-        <div class="leaderboard-row ${player.you ? "you" : ""}">
-          <div class="left">
-            <strong>${index < 3 ? ["👇","🥈","🥉"][index] : "#" + (index + 1)} ${player.name}${player.you ? " (You)" : ""}</strong>
-            <span>Leaderboard position</span>
-          </div>
-          <div>${player.xp} XP · ${formatMoney(player.saved)}</div>
-        </div>
-      `).join("");
+    async function renderLeaderboard() {
+      if (!ui.leaderboard) return;
+      ui.leaderboard.innerHTML = '<div class="empty">Loading...</div>';
+      try {
+        const { data, error } = await db
+          .from('progress')
+          .select('id, xp')
+          .order('xp', { ascending: false })
+          .limit(10);
+        if (error || !data || !data.length) throw new Error('no data');
+        const withNames = await Promise.all(
+          data.map(async p => {
+            const { data: prof } = await db
+              .from('profiles').select('username')
+              .eq('id', p.id).single();
+            return { ...p, username: prof?.username || 'Hunter' };
+          })
+        );
+        const medals = ['🥇','🥈','🥉'];
+        ui.leaderboard.innerHTML = withNames.map((p,i) => `
+          <div class="leaderboard-row ${currentUser && p.id===currentUser.id ? 'you' : ''}">
+            <div class="left">
+              <strong>${medals[i]||'#'+(i+1)} ${p.username}${currentUser&&p.id===currentUser.id?' (You)':''}</strong>
+              <span>Level ${getLevel(p.xp).level}</span>
+            </div>
+            <div>${p.xp} XP</div>
+          </div>`).join('');
+      } catch(e) {
+        ui.leaderboard.innerHTML = currentUser
+          ? '<div class="empty">Complete offers to earn XP and appear here!</div>'
+          : '<div class="empty">Sign in to see the leaderboard</div>';
+      }
+      // dummy to satisfy old code
     }
 
     function switchView(view) {
@@ -3007,29 +3333,29 @@
     const offerEnrichment = {
       "chase-uk": {
         tips:[
-          "You don't need £1,000 sitting in your account — you can transfer it in, wait for the bonus, then move it back out",
+          "You do not need £1,000 sitting in your account — you can transfer it in, wait for the bonus, then move it back out",
           "The £1,000 can come from any bank account you own — just do a bank transfer",
           "After you get the bonus, Chase is worth keeping as your everyday card — it gives you 1% cashback on groceries and transport automatically",
           "You can open Chase AND switch other banks at the same time — they work independently"
         ],
         warnings:[
           "Never use Chase as the account you switch AWAY FROM — only use it as a new account you open",
-          "You must not have had a Chase account before — if you have, you won't qualify",
-          "The £1,000 must stay in the account for the full 30 days — don't withdraw it early or the bonus won't pay"
+          "You must not have had a Chase account before — if you have, you will not qualify",
+          "The £1,000 must stay in the account for the full 30 days — do not withdraw it early or the bonus will not pay"
         ],
         steps:[
           "Download the Chase app from the App Store or Google Play",
           "Tap 'Open an account' and fill in your details — takes about 5 minutes",
           "When asked for a referral code, enter: J2SK9W",
           "Once your account is open, transfer £1,000 into it from your existing bank (use bank transfer, not cash)",
-          "Leave the £1,000 sitting in Chase for 30 days — don't touch it",
+          "Leave the £1,000 sitting in Chase for 30 days — do not touch it",
           "Chase will send you £50 automatically — usually within a few days of the 30-day mark",
           "After that, you can move the £1,000 back to your main bank if you want"
         ]
       },
       "lloyds-bank": {
         tips:[
-          "A CASS switch means Lloyds automatically moves all your Direct Debits and Standing Orders from your old bank — you don't have to do it manually",
+          "A CASS switch means Lloyds automatically moves all your Direct Debits and Standing Orders from your old bank — you do not have to do it manually",
           "The £2,000 deposit can be split — e.g. pay in £1,000 twice. It just needs to arrive within 30 days",
           "Need Direct Debits? Use our Direct Debit service in the Community tab — it sets up real DDs for £1/month each",
           "This is one of the highest-value bank switches available right now — do this one first before others",
@@ -3057,25 +3383,25 @@
       },
       "natwest": {
         tips:["Open the 7% regular saver immediately after switch completes","Bonus usually paid within 10 working days","NatWest and Royal Bank of Scotland are the same group — check both"],
-        warnings:["Must not have held NatWest or Royal Bank of Scotland before","Must have 2 active Direct Debits — standing orders don't count"],
+        warnings:["Must not have held NatWest or Royal Bank of Scotland before","Must have 2 active Direct Debits — standing orders do not count"],
         steps:["Open NatWest account via the link","Use CASS to switch your existing account","Set up 2 Direct Debits","Open the 7% regular saver","Receive £150 bonus within 10 working days"]
       },
       "santander": {
         tips:["Santander Edge gives 1% cashback on selected bills — useful ongoing","Do Lloyds first then switch to Santander next for maximum value"],
-        warnings:["Must switch to Santander Edge specifically — other accounts don't qualify","Must set up 2 Direct Debits within 90 days"],
+        warnings:["Must switch to Santander Edge specifically — other accounts do not qualify","Must set up 2 Direct Debits within 90 days"],
         steps:["Open Santander Edge account","Use CASS to switch your existing account","Set up 2 Direct Debits within 90 days","Receive £200 bonus"]
       },
       "barclays": {
-        tips:["Hard deadline of 28 May 2026 — don't delay","Pay in the £2,000 as soon as possible after opening"],
+        tips:["Hard deadline of 28 May 2026 — do not delay","Pay in the £2,000 as soon as possible after opening"],
         warnings:["Must NOT have held Barclays since 10 March 2026","Offer ends 28 May 2026 — hard deadline","Must pay in £2,000 AND 2 Direct Debits"],
         steps:["Confirm no Barclays account since 10 March 2026","Open Barclays account via the link","Use CASS to switch","Pay in £2,000","Set up 2 Direct Debits","Receive £175 bonus"]
       },
       "freetrade": {
         tips:[
-          "You only need to deposit £1 — that's literally it. You can withdraw it straight after if you want",
+          "You only need to deposit £1 — that is literally it. You can withdraw it straight after if you want",
           "The free share is randomly assigned — it can be worth anywhere from £3 to £100+",
           "Opening a Stocks & Shares ISA wrapper (free) means your share grows tax-free",
-          "You can sell the share immediately once it arrives if you don't want to keep it"
+          "You can sell the share immediately once it arrives if you do not want to keep it"
         ],
         warnings:[
           "You must not have had a Freetrade account before — new customers only",
@@ -3098,7 +3424,7 @@
         steps:["Sign up via referral link","Complete UK identity verification","Deposit £1","Receive free share worth up to £140"]
       },
       "webull": {
-        tips:["Your £500 can stay in cash — doesn't have to be invested","Set a 60-day calendar reminder so you know when to withdraw"],
+        tips:["Your £500 can stay in cash — does not have to be invested","Set a 60-day calendar reminder so you know when to withdraw"],
         warnings:["Must hold for a full 60 days — withdrawing early forfeits the bonus"],
         steps:["Sign up via referral link","Complete identity verification","Deposit £500","Hold for 60 days","Receive £50 bonus"]
       },
@@ -3110,7 +3436,7 @@
           "Cashback stacks with discount codes — you can use a voucher AND earn cashback at the same time on many sites"
         ],
         warnings:[
-          "Cashback takes 30-90 days to become 'payable' — it's not instant",
+          "Cashback takes 30-90 days to become 'payable' — it is not instant",
           "You MUST click through TopCashback before adding items to your basket — going direct to the retailer means no cashback",
           "Don't clear your cookies before completing a purchase — it breaks the tracking"
         ],
@@ -3118,7 +3444,7 @@
           "Click the referral link and create a free TopCashback account",
           "Install the browser extension (optional but very useful — it reminds you when cashback is available)",
           "Next time you want to shop online, search for the retailer on TopCashback first",
-          "Click through to the retailer from TopCashback — don't open a new tab or go direct",
+          "Click through to the retailer from TopCashback — do not open a new tab or go direct",
           "Complete your purchase as normal",
           "Cashback will appear in your TopCashback account within a few days",
           "Once it becomes payable (30-90 days), withdraw to your bank account or PayPal"
@@ -3134,7 +3460,7 @@
         ],
         warnings:[
           "Rates shown are the rate TODAY — they can be different tomorrow, so always check before buying",
-          "Only buy what you plan to spend — gift cards can't easily be refunded"
+          "Only buy what you plan to spend — gift cards cannot easily be refunded"
         ],
         steps:[
           "Go to jamdoughnut.com and create a free account",
@@ -3158,7 +3484,7 @@
       },
       "octopus-energy": {
         tips:["Both you and the referrer get £50 — genuine win-win","One of the best-rated energy suppliers for customer service"],
-        warnings:["Must be switching from another supplier — existing Octopus customers don't qualify"],
+        warnings:["Must be switching from another supplier — existing Octopus customers do not qualify"],
         steps:["Click referral link","Switch energy supply to Octopus","Both receive £50 credit within 90 days"]
       },
       "amex-business-platinum": {
@@ -3183,7 +3509,7 @@
       },
       "complete-savings": {
         tips:["If you were enrolled automatically after an online purchase, you may already have cashback waiting","The £15/month cashback can cover the subscription cost if you use it every month","Works at hundreds of retailers including M&S, Currys, and John Lewis"],
-        warnings:["⚠️ IMPORTANT: There is a monthly subscription fee after the free trial — set a calendar reminder to cancel if you don't want to continue","You may have been auto-enrolled after buying something online — check your bank statements for a charge from Complete Savings","Always read the current terms before signing up"],
+        warnings:["⚠️ IMPORTANT: There is a monthly subscription fee after the free trial — set a calendar reminder to cancel if you do not want to continue","You may have been auto-enrolled after buying something online — check your bank statements for a charge from Complete Savings","Always read the current terms before signing up"],
         steps:["Check if you already have an account — search your email for Complete Savings","If enrolled, log in and claim any pending cashback","If not enrolled, visit completesavings.co.uk and read the current terms","Make a qualifying purchase through their portal","Claim your £15 cashback","Set a reminder to cancel before the trial ends if needed"]
       },
       "wise": {
@@ -3192,7 +3518,7 @@
         steps:["Sign up via referral link","Complete identity verification","Make first transfer fee-free","Receive free physical card"]
       },
       "curve-pay": {
-        tips:["Use Curve with Amex to earn Amex points at retailers that don't normally accept Amex","Go Back in Time feature lets you switch which card was charged after the fact"],
+        tips:["Use Curve with Amex to earn Amex points at retailers that do not normally accept Amex","Go Back in Time feature lets you switch which card was charged after the fact"],
         warnings:["1% cashback only lasts 30 days then drops to standard rate"],
         steps:["Sign up via link","Add your existing bank cards to Curve","Use Curve card for all spending","Earn 1% cashback for 30 days"]
       },
@@ -3777,6 +4103,7 @@
       if (session?.user) {
         currentUser = session.user;
         await pullProgressFromSupabase();
+        checkAdminAccess();
         const username = localStorage.getItem('mh_username') || session.user.email?.split('@')[0];
         updateUserBadge(username);
       } else {
@@ -3791,6 +4118,7 @@
       db.auth.onAuthStateChange((event, session) => {
         if (event === 'SIGNED_IN' && session?.user) {
           currentUser = session.user;
+        checkAdminAccess();
         } else if (event === 'SIGNED_OUT') {
           currentUser = null;
           document.getElementById('userBadge').style.display = 'none';
@@ -3899,6 +4227,349 @@
       }
     }
 
+
+    function toggleGuide(id) {
+      const el = document.getElementById(id);
+      const btn = document.getElementById('btn-' + id);
+      if (!el) return;
+      const isOpen = el.classList.contains('open');
+      el.classList.toggle('open', !isOpen);
+      if (btn) btn.textContent = isOpen ? 'Read Guide ↓' : 'Close Guide ↑';
+    }
+
+
+    // ══════════════════════════════════════════════
+    // GAMIFICATION SYSTEM
+    // ══════════════════════════════════════════════
+
+    const RAFFLE_ENABLED = false; // flip true when ready to launch
+    const ADMIN_SECRET = 'mh_admin_2026'; // secret URL param
+    const ADMIN_EMAIL = 'hello@moneyhunters.co.uk'; // your email
+
+    // ── BADGES DEFINITION ──────────────────────────
+    const BADGES = [
+      { id:'first_hunt',    emoji:'🎯', name:'First Hunt',     desc:'Claim your first offer',           check: s => s.claimed >= 1 },
+      { id:'bank_switch',   emoji:'🏦', name:'Bank Switcher',  desc:'Complete a bank switch offer',     check: s => Object.keys(s.offerStatus).some(id => id.includes('bank') || id.includes('lloyds') || id.includes('natwest') || id.includes('chase')) },
+      { id:'century',       emoji:'💰', name:'Century Club',   desc:'Earn £100+',                       check: s => getEarnedTotal() >= 100 },
+      { id:'fire',          emoji:'🔥', name:'On Fire',        desc:'Reach a 7-day streak',             check: s => s.streak >= 7 },
+      { id:'stack_master',  emoji:'⚡', name:'Stack Master',   desc:'Claim 5 offers',                   check: s => s.claimed >= 5 },
+      { id:'high_roller',   emoji:'🏆', name:'High Roller',    desc:'Earn £500+',                       check: s => getEarnedTotal() >= 500 },
+      { id:'elite',         emoji:'👑', name:'Elite Hunter',   desc:'Reach Level 20',                   check: s => getLevel(s.xp).level >= 20 },
+      { id:'loyal',         emoji:'📅', name:'Loyal Hunter',   desc:'30-day streak',                    check: s => s.streak >= 30 },
+      { id:'deal_stacker',  emoji:'🎪', name:'Deal Stacker',   desc:'Claim 10 offers',                  check: s => s.claimed >= 10 },
+      { id:'half_k',        emoji:'💎', name:'£500 Club',      desc:'Earn £500 total',                  check: s => getEarnedTotal() >= 500 },
+      { id:'first_grand',   emoji:'🚀', name:'Grand Hunter',   desc:'Earn £1,000+',                     check: s => getEarnedTotal() >= 1000 },
+      { id:'daily_10',      emoji:'📆', name:'Committed',      desc:'10-day streak',                    check: s => s.streak >= 10 },
+      { id:'offer_king',    emoji:'🎖️', name:'Offer King',     desc:'Claim 25 offers',                  check: s => s.claimed >= 25 },
+      { id:'money_bags',    emoji:'🤑', name:'Money Bags',     desc:'Earn £250+',                       check: s => getEarnedTotal() >= 250 },
+      { id:'hunter_pro',    emoji:'⭐', name:'Hunter Pro',     desc:'Reach Level 10',                   check: s => getLevel(s.xp).level >= 10 },
+    ];
+
+    // ── WEEKLY MISSIONS ────────────────────────────
+    function getWeekKey() {
+      const d = new Date();
+      const jan1 = new Date(d.getFullYear(), 0, 1);
+      const week = Math.ceil((((d - jan1) / 86400000) + jan1.getDay() + 1) / 7);
+      return d.getFullYear() + '-W' + week;
+    }
+
+    function getMissions() {
+      return [
+        { id:'w_claim3',  name:'Complete 3 offers',    target:3,  xp:100, check: () => state.claimed },
+        { id:'w_earn50',  name:'Log £50 earned',       target:50, xp:150, check: () => getEarnedTotal() },
+        { id:'w_streak7', name:'Reach 7-day streak',   target:7,  xp:200, check: () => state.streak },
+        { id:'w_open5',   name:'Open 5 different offers', target:5, xp:75, check: () => Object.keys(state.offerStatus).length },
+      ];
+    }
+
+    function getMissionProgress() {
+      const key = 'mh_missions_' + getWeekKey();
+      try { return JSON.parse(localStorage.getItem(key) || '{}'); }
+      catch { return {}; }
+    }
+
+    function saveMissionProgress(data) {
+      localStorage.setItem('mh_missions_' + getWeekKey(), JSON.stringify(data));
+    }
+
+    // ── TIME GATES ─────────────────────────────────
+    const TIME_GATES = {
+      bank_switch: 35,
+      bank: 35,
+      invest: 10,
+      pension: 10,
+      cashback: 7,
+      referral: 7,
+      utilities: 3,
+      mobile: 3,
+      travel: 3,
+      business: 14,
+      earn: 1,
+      freebie: 1,
+      gift: 1,
+    };
+
+    function getOfferGateDays(offer) {
+      return TIME_GATES[offer.category] || TIME_GATES[offer.type] || 7;
+    }
+
+    function getOfferClaimedDate(offerId) {
+      const key = 'mh_claimed_date_' + offerId;
+      return localStorage.getItem(key) || null;
+    }
+
+    function setOfferClaimedDate(offerId) {
+      localStorage.setItem('mh_claimed_date_' + offerId, new Date().toISOString());
+    }
+
+    function canCompleteOffer(offer) {
+      const claimedDate = getOfferClaimedDate(offer.id);
+      if (!claimedDate) return { can: true, daysLeft: 0 };
+      const days = (Date.now() - new Date(claimedDate)) / 86400000;
+      const gate = getOfferGateDays(offer);
+      if (days >= gate) return { can: true, daysLeft: 0 };
+      return { can: false, daysLeft: Math.ceil(gate - days) };
+    }
+
+    // ── RAFFLE TICKET SYSTEM ───────────────────────
+    function getTickets() {
+      try { return JSON.parse(localStorage.getItem('mh_tickets') || '[]'); }
+      catch { return []; }
+    }
+
+    function addTicket(reason) {
+      if (!RAFFLE_ENABLED) return;
+      const tickets = getTickets();
+      const num = Math.floor(Math.random() * 500) + 1;
+      tickets.push({ num, reason, date: new Date().toISOString() });
+      localStorage.setItem('mh_tickets', JSON.stringify(tickets));
+      toast('🎟️ Ticket #' + num + ' earned!');
+      return num;
+    }
+
+    function checkStreakTickets() {
+      if (!RAFFLE_ENABLED) return;
+      const milestones = [7, 14, 30];
+      const key = 'mh_streak_tickets';
+      const awarded = JSON.parse(localStorage.getItem(key) || '[]');
+      milestones.forEach(m => {
+        if (state.streak >= m && !awarded.includes(m)) {
+          const count = m === 30 ? 5 : m === 14 ? 3 : 2;
+          for (let i = 0; i < count; i++) addTicket(m + '-day streak');
+          awarded.push(m);
+          localStorage.setItem(key, JSON.stringify(awarded));
+        }
+      });
+    }
+
+    // ── MILESTONE CELEBRATIONS ──────────────────────
+    function showMilestone(emoji, title, sub) {
+      document.getElementById('milestoneEmoji').textContent = emoji;
+      document.getElementById('milestoneTitle').textContent = title;
+      document.getElementById('milestoneSub').textContent = sub;
+      document.getElementById('milestoneOverlay').classList.add('show');
+      launchConfetti();
+      vibrate(100);
+    }
+
+    function closeMilestone() {
+      document.getElementById('milestoneOverlay').classList.remove('show');
+    }
+
+    function launchConfetti() {
+      const container = document.getElementById('confettiContainer');
+      container.innerHTML = '';
+      const colours = ['#39FF64','#FFD700','#FF6B6B','#4ECDC4','#45B7D1','#FFA07A'];
+      for (let i = 0; i < 60; i++) {
+        const piece = document.createElement('div');
+        piece.className = 'confetti-piece';
+        piece.style.cssText = [
+          'left:' + Math.random() * 100 + '%',
+          'background:' + colours[Math.floor(Math.random() * colours.length)],
+          'width:' + (Math.random() * 10 + 6) + 'px',
+          'height:' + (Math.random() * 10 + 6) + 'px',
+          'animation-duration:' + (Math.random() * 2 + 2) + 's',
+          'animation-delay:' + Math.random() * 0.5 + 's',
+          'border-radius:' + (Math.random() > 0.5 ? '50%' : '2px'),
+        ].join(';');
+        container.appendChild(piece);
+      }
+      setTimeout(() => container.innerHTML = '', 4000);
+    }
+
+    function checkMilestones() {
+      const earned = getEarnedTotal();
+      const key = 'mh_milestones_shown';
+      const shown = JSON.parse(localStorage.getItem(key) || '[]');
+
+      const milestones = [
+        { threshold: 1,    type:'earn',  emoji:'🎯', title:'First Earnings!',    sub:'You logged your first money. Keep going!' },
+        { threshold: 50,   type:'earn',  emoji:'💰', title:'£50 Earned!',         sub:'You are officially making money hunting.' },
+        { threshold: 100,  type:'earn',  emoji:'🏅', title:'£100 Club!',           sub:'Incredible — triple figures earned.' },
+        { threshold: 250,  type:'earn',  emoji:'💎', title:'£250 Milestone!',      sub:'You are a serious Money Hunter now.' },
+        { threshold: 500,  type:'earn',  emoji:'🏆', title:'£500 High Roller!',    sub:'Half a grand from free money deals.' },
+        { threshold: 1000, type:'earn',  emoji:'🚀', title:'£1,000 Grand Hunter!', sub:'Four figures. Absolutely legendary.' },
+        { threshold: 1,    type:'claim', emoji:'🎉', title:'First Hunt!',           sub:'You claimed your first offer. Welcome!' },
+        { threshold: 5,    type:'claim', emoji:'⚡', title:'Stack Master!',         sub:'5 offers claimed. You know what you are doing.' },
+        { threshold: 10,   type:'claim', emoji:'🎪', title:'Deal Stacker!',         sub:'10 offers! You are a proper hunter now.' },
+        { threshold: 7,    type:'streak',emoji:'🔥', title:'7-Day Streak!',         sub:'A full week of hunting. You are on fire!' },
+        { threshold: 30,   type:'streak',emoji:'📅', title:'30-Day Streak!',        sub:'A whole month. Utterly dedicated.' },
+      ];
+
+      milestones.forEach(m => {
+        const mkey = m.type + '_' + m.threshold;
+        if (shown.includes(mkey)) return;
+        let val = m.type === 'earn' ? earned
+                : m.type === 'claim' ? state.claimed
+                : state.streak;
+        if (val >= m.threshold) {
+          shown.push(mkey);
+          localStorage.setItem(key, JSON.stringify(shown));
+          setTimeout(() => showMilestone(m.emoji, m.title, m.sub), 500);
+        }
+      });
+    }
+
+    // ── BADGE CHECKER ──────────────────────────────
+    function getUnlockedBadges() {
+      return BADGES.filter(b => { try { return b.check(state); } catch { return false; } });
+    }
+
+    function checkNewBadges() {
+      const key = 'mh_badges_shown';
+      const shown = JSON.parse(localStorage.getItem(key) || '[]');
+      getUnlockedBadges().forEach(b => {
+        if (!shown.includes(b.id)) {
+          shown.push(b.id);
+          localStorage.setItem(key, JSON.stringify(shown));
+          setTimeout(() => showMilestone(b.emoji, b.name + ' Badge!', b.desc), 800);
+        }
+      });
+    }
+
+    // ── STREAK WARNING ─────────────────────────────
+    function checkStreakWarning() {
+      const el = document.getElementById('streakWarning');
+      if (!el || state.streak < 2) return;
+      const lastDaily = state.lastDaily;
+      if (!lastDaily) return;
+      const hoursSince = (Date.now() - new Date(lastDaily)) / 3600000;
+      if (hoursSince > 20 && hoursSince < 24) {
+        el.classList.remove('hidden');
+        el.innerHTML = '⚠️ Your <strong>' + state.streak + '-day streak</strong> ends soon — claim your daily XP now!';
+      } else {
+        el.classList.add('hidden');
+      }
+    }
+
+    // ── ADMIN PANEL ────────────────────────────────
+    function checkAdminAccess() {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('admin') !== ADMIN_SECRET) return;
+      if (!currentUser || currentUser.email !== ADMIN_EMAIL) return;
+      document.getElementById('adminPanel').classList.add('visible');
+    }
+
+    function closeAdmin() {
+      document.getElementById('adminPanel').classList.remove('visible');
+    }
+
+    async function adminLoadStats() {
+      const el = document.getElementById('adminStats');
+      el.textContent = 'Loading...';
+      try {
+        const { data: users } = await db.from('profiles').select('id', { count:'exact' });
+        const { data: progress } = await db.from('progress').select('xp').order('xp', { ascending:false }).limit(1);
+        el.innerHTML = [
+          'Total users: ' + (users?.length || 0),
+          'Top XP: ' + (progress?.[0]?.xp || 0),
+          'Total offers: ' + document.querySelectorAll('.offer-card').length,
+        ].join('<br>');
+      } catch(e) {
+        el.textContent = 'Error: ' + e.message;
+      }
+    }
+
+    function adminDrawWinner() {
+      const el = document.getElementById('adminRaffleResult');
+      const num = Math.floor(Math.random() * 500) + 1;
+      el.innerHTML = '🎲 Winning ticket: <strong>#' + num + '</strong><br>Check who holds this ticket in Supabase.';
+    }
+
+    function adminListTickets() {
+      const el = document.getElementById('adminRaffleResult');
+      el.textContent = 'Ticket data stored in user localStorage. Check Supabase progress table for XP-based ranking.';
+    }
+
+    function adminAnnounceWinner() {
+      const name = document.getElementById('adminWinnerName').value.trim();
+      const prize = document.getElementById('adminPrize').value.trim();
+      const el = document.getElementById('adminAnnounceResult');
+      if (!name || !prize) { el.textContent = 'Fill in both fields'; return; }
+      localStorage.setItem('mh_last_winner', JSON.stringify({ name, prize, date: new Date().toISOString() }));
+      el.innerHTML = '✅ Winner saved: <strong>' + name + '</strong> won <strong>' + prize + '</strong>';
+    }
+
+    // ── RENDER BADGES ──────────────────────────────
+    function renderBadges() {
+      const el = document.getElementById('badgesGrid');
+      if (!el) return;
+      const unlocked = getUnlockedBadges().map(b => b.id);
+      el.innerHTML = BADGES.map(b => `
+        <div class="badge-item ${unlocked.includes(b.id) ? 'unlocked' : 'locked'}" title="${b.desc}">
+          <span class="badge-emoji">${b.emoji}</span>
+          <div class="badge-name">${b.name}</div>
+        </div>
+      `).join('');
+    }
+
+    // ── RENDER MISSIONS ────────────────────────────
+    function renderMissions() {
+      const el = document.getElementById('missionsSection');
+      if (!el) return;
+      const missions = getMissions();
+      el.innerHTML = '<h2 class="section-title" style="margin-bottom:12px">📋 Weekly Missions</h2>' +
+        missions.map(m => {
+          const current = Math.min(m.check(), m.target);
+          const pct = Math.round((current / m.target) * 100);
+          const done = current >= m.target;
+          return `
+            <div class="mission-card">
+              <div class="mission-head">
+                <span class="mission-name">${done ? '✅ ' : ''}${m.name}</span>
+                <span class="mission-reward">+${m.xp} XP</span>
+              </div>
+              <div class="mission-bar-bg">
+                <div class="mission-bar" style="width:${pct}%"></div>
+              </div>
+              <div class="mission-meta">${current} / ${m.target} ${done ? '— Complete!' : ''}</div>
+            </div>`;
+        }).join('');
+    }
+
+    // ── RENDER RAFFLE ──────────────────────────────
+    function renderRaffle() {
+      const el = document.getElementById('raffleSection');
+      if (!el) return;
+      if (RAFFLE_ENABLED) el.classList.add('enabled');
+      const tickets = getTickets();
+      const winner = JSON.parse(localStorage.getItem('mh_last_winner') || 'null');
+      el.innerHTML = `
+        <h2 class="section-title" style="margin-bottom:12px">🎟️ Weekly Raffle</h2>
+        <div class="ticket-count">
+          <div class="ticket-num">${tickets.length}</div>
+          <div class="ticket-label">tickets this week</div>
+        </div>
+        ${tickets.length > 0 ? `<div class="ticket-list">${tickets.slice(-10).map(t => `<div class="ticket-chip">#${t.num}</div>`).join('')}</div>` : ''}
+        <div class="raffle-info">
+          🎲 Earn tickets by completing offers and reaching streak milestones.<br>
+          Draw happens every Sunday when we reach 25 active hunters.<br>
+          ${winner ? `🏆 Last winner: <strong>${winner.name}</strong> won ${winner.prize}` : 'No draw yet — keep hunting!'}
+        </div>
+      `;
+    }
+
+
     function renderAll() {
       updateTopStats();
       updateDailyBox();
@@ -3910,6 +4581,16 @@
       renderStacks();
       renderProfile();
       renderLeaderboard();
+      renderBadges();
+      renderMissions();
+      renderRaffle();
+      checkStreakWarning();
+      checkMilestones();
+      checkNewBadges();
+      checkStreakTickets();
+      const unlocked = getUnlockedBadges().length;
+      const bc = document.getElementById('badgeCount');
+      if (bc) bc.textContent = unlocked + ' / ' + BADGES.length + ' unlocked';
     }
 
     document.addEventListener("click", (event) => {
@@ -3993,6 +4674,38 @@
 
     initTheme();
 
+    function mapOfferCategory(d) {
+      const t = (d.type||'').toLowerCase();
+      const s = (d.store||'').toLowerCase();
+      if (d.category && !['other','freebie'].includes(d.category)) return d.category;
+      const bankWords = ['bank','lloyds','natwest','barclays','hsbc','monzo',
+        'revolut','starling','santander','metro','ulster','rbs','chase',
+        'first direct','zopa','kroo','zing','halifax','co-op','hsbc'];
+      if (t==='bank_switch'||bankWords.some(w=>s.includes(w))) return 'bank';
+      const investWords = ['freetrade','robinhood','webull','trading212',
+        'lightyear','investengine','wealthify','nutmeg','chip','raisin',
+        'pensionbee','circa','xtb','wealthyhood','plum','moneybox'];
+      if (t==='invest'||t==='pension'||investWords.some(w=>s.includes(w))) return 'invest';
+      if (t==='cashback'||['topcashback','quidco','rakuten'].some(w=>s.includes(w))) return 'cashback';
+      if (['jam doughnut','airtime','cheddar','everup'].some(w=>s.includes(w))) return 'gift';
+      const utilWords = ['energy','octopus','edf','eon','british gas',
+        'so energy','good energy','sky','virgin media','talktalk',
+        'fibre','hyperoptic','broadband','ribbon'];
+      if (t==='utilities'||utilWords.some(w=>s.includes(w))) return 'utilities';
+      const mobileWords = ['voxi','giffgaff','o2','three mobile',
+        'vodafone','tesco mobile','sky mobile','lebara','smarty'];
+      if (mobileWords.some(w=>s.includes(w))) return 'mobile';
+      const travelWords = ['airbnb','expedia','currensea','remitly',
+        'worldremit','wise','trainpal','avios'];
+      if (travelWords.some(w=>s.includes(w))) return 'travel';
+      const earnWords = ['yougov','swagbucks','freecash','gemsloot',
+        'cashinstyle','earnlab','custard','in-poll','measure'];
+      if (t==='earn'||earnWords.some(w=>s.includes(w))) return 'earn';
+      if (t==='business'||['tide','worldfirst','vitality','gohenry',
+        'rooster','amex','american express'].some(w=>s.includes(w))) return 'business';
+      return 'freebie';
+    }
+
     async function loadOffersFromJSON() {
       try {
         const res = await fetch('/all_deals.json?v=' + Date.now());
@@ -4020,7 +4733,7 @@
                 (d.type === 'megalist' ? '-ml' :
                  d.type === 'scrimpr' ? '-sc' : '-s'),
           name: (d.store || 'New Offer').slice(0,40),
-          category: d.category || 'freebie',
+          category: mapOfferCategory(d),
           reward: d.deal_price || 'Bonus',
           amount: parseFloat(String(d.deal_price||'0')
             .replace(/[^0-9.]/g,'')) || 0,
@@ -4054,7 +4767,58 @@
       renderAll();
       initAuth();
       checkPasswordResetToken();
+      checkAdminAccess();
     })();
   </script>
+
+  <!-- Milestone Celebration Overlay -->
+  <div class="milestone-overlay" id="milestoneOverlay">
+    <div class="milestone-box">
+      <span class="milestone-emoji" id="milestoneEmoji">🎉</span>
+      <div class="milestone-title" id="milestoneTitle">Achievement!</div>
+      <div class="milestone-sub" id="milestoneSub">Keep hunting</div>
+      <button class="milestone-close" onclick="closeMilestone()">Continue →</button>
+    </div>
+  </div>
+  <div class="confetti-container" id="confettiContainer"></div>
+
+  <!-- Admin Panel -->
+  <div class="admin-panel" id="adminPanel">
+    <div class="admin-header">
+      <div class="admin-title">🔐 Money Hunters Admin</div>
+      <button class="admin-close" onclick="closeAdmin()">Close ✕</button>
+    </div>
+
+    <div class="admin-section">
+      <h3>🎟️ Weekly Raffle Draw</h3>
+      <div class="admin-result" id="adminRaffleResult">Click Draw Winner to pick a random ticket</div>
+      <button class="admin-btn" onclick="adminDrawWinner()">🎲 Draw Winner</button>
+      <button class="admin-btn secondary" onclick="adminListTickets()">📋 List All Tickets</button>
+    </div>
+
+    <div class="admin-section">
+      <h3>📊 App Statistics</h3>
+      <div class="admin-result" id="adminStats">Click to load stats</div>
+      <button class="admin-btn secondary" onclick="adminLoadStats()">Load Stats</button>
+    </div>
+
+    <div class="admin-section">
+      <h3>📢 Announce Winner</h3>
+      <input class="admin-input" id="adminWinnerName" placeholder="Winner username">
+      <input class="admin-input" id="adminPrize" placeholder="Prize (e.g. £10 Amazon voucher)">
+      <button class="admin-btn" onclick="adminAnnounceWinner()">📣 Save Announcement</button>
+      <div class="admin-result" id="adminAnnounceResult"></div>
+    </div>
+
+    <div class="admin-section">
+      <h3>⚙️ Raffle Settings</h3>
+      <div class="admin-result" id="adminSettings">
+        Minimum users for draw: 25<br>
+        Ticket range: 1-500<br>
+        Draw day: Sunday
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
