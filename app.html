@@ -3007,16 +3007,63 @@
     }
 
     function inferCategory(offer) {
-      const text = `${offer.name} ${offer.badge} ${offer.desc}`.toLowerCase();
-      if (/(bank|switch|current account|pension|biscuit)/.test(text)) return "bank";
-      if (/(invest|share|trading|savings|avios|gold)/.test(text)) return "invest";
-      if (/cashback/.test(text)) return "cashback";
-      if (/(gift|airtime|jam doughnut|cheddar|everup)/.test(text)) return "gift";
-      if (/(business|amex|worldfirst|tide)/.test(text)) return "business";
-      if (/(earn|survey|task|sb|gems)/.test(text)) return "earn";
-      if (/(mobile|sim|lebara|app)/.test(text)) return "mobile";
-      if (/(travel|transfer|energy|utilities)/.test(text)) return "travel";
-      return "freebie";
+      const name = (offer.name || offer.store || '').toLowerCase();
+      const badge = (offer.badge || '').toLowerCase();
+      const desc = (offer.desc || offer.item || offer.action || '').toLowerCase();
+      const text = name + ' ' + badge + ' ' + desc;
+
+      // Brand name matching first (most reliable)
+      const bankBrands = ['chase','lloyds','natwest','barclays','hsbc',
+        'santander','halifax','first direct','monzo','starling','revolut',
+        'rbs','ulster','co-op','cooperative','metro','zopa','zing','kroo',
+        'monese','suits me','bex','atom'];
+      if (bankBrands.some(b => name.includes(b))) return 'bank';
+
+      const investBrands = ['freetrade','robinhood','webull','trading212',
+        'lightyear','investengine','wealthify','wealthyhood','nutmeg',
+        'pensionbee','penfold','aj bell','ajbell','fidelity','etoro',
+        'xtb','chip','raisin','tembo','plum','moneybox','circa'];
+      if (investBrands.some(b => name.includes(b))) return 'invest';
+
+      const cashbackBrands = ['topcashback','quidco','rakuten','yonder',
+        'cashback.co.uk','custard'];
+      if (cashbackBrands.some(b => name.includes(b))) return 'cashback';
+
+      const giftBrands = ['jam doughnut','airtime','cheddar','everup'];
+      if (giftBrands.some(b => name.includes(b))) return 'gift';
+
+      const businessBrands = ['tide','worldfirst','amex','american express',
+        'countingup','sumup','revolut business'];
+      if (businessBrands.some(b => name.includes(b))) return 'business';
+
+      const earnBrands = ['swagbucks','freecash','gemsloot','cashinstyle',
+        'earnlab','yougov','in-poll','measure'];
+      if (earnBrands.some(b => name.includes(b))) return 'earn';
+
+      const mobileBrands = ['voxi','giffgaff','three mobile','vodafone',
+        'o2','tesco mobile','sky mobile','lebara','smarty'];
+      if (mobileBrands.some(b => name.includes(b))) return 'mobile';
+
+      const travelBrands = ['airbnb','expedia','currensea','remitly',
+        'worldremit','wise','trainpal','xe money','avios'];
+      if (travelBrands.some(b => name.includes(b))) return 'travel';
+
+      const utilBrands = ['octopus','edf','eon','british gas','so energy',
+        'good energy','sky','virgin media','talktalk','community fibre',
+        'youfibre','hyperoptic','befibre','brsk'];
+      if (utilBrands.some(b => name.includes(b))) return 'utilities';
+
+      // Text pattern matching fallback
+      if (/(bank|switch|current account)/.test(text)) return 'bank';
+      if (/(invest|share|trading|savings|gold)/.test(text)) return 'invest';
+      if (/cashback/.test(text)) return 'cashback';
+      if (/(gift card|gift)/.test(text)) return 'gift';
+      if (/(energy|broadband|fibre|mobile|sim)/.test(text)) return 'utilities';
+      if (/(business|ltd|company)/.test(text)) return 'business';
+      if (/(earn|survey|task)/.test(text)) return 'earn';
+      if (/(travel|transfer|abroad|foreign)/.test(text)) return 'travel';
+      if (/(pension|sipp)/.test(text)) return 'invest';
+      return 'freebie';
     }
 
     function getOfferStatus(id) {
@@ -4873,21 +4920,61 @@
     ];
 
     function getOfferCategory(offer) {
-      if (typeof mapOfferCategory === 'function') return mapOfferCategory(offer);
-      if (typeof inferCategory === 'function') return inferCategory(offer);
-      return offer.category || 'freebie';
+      const validCats = ['bank','invest','cashback','gift',
+        'utilities','earn','mobile','travel','business','freebie'];
+
+      // 1. Explicit valid category field
+      if (validCats.includes(offer.category)) return offer.category;
+
+      // 2. For JSON offers (have store/type fields) use mapOfferCategory
+      if (offer.store || offer.type) {
+        if (typeof mapOfferCategory === 'function') {
+          const mapped = mapOfferCategory(offer);
+          if (mapped && validCats.includes(mapped)) return mapped;
+        }
+      }
+
+      // 3. For hardcoded offers (have name/badge fields) use inferCategory
+      if (offer.name || offer.badge) {
+        if (typeof inferCategory === 'function') {
+          const inferred = inferCategory(offer);
+          if (inferred && validCats.includes(inferred)) return inferred;
+        }
+      }
+
+      // 4. Type-based fallback
+      const t = (offer.type || '').toLowerCase();
+      if (t === 'bank_switch') return 'bank';
+      if (t === 'invest' || t === 'pension') return 'invest';
+      if (t === 'cashback') return 'cashback';
+      if (t === 'utilities') return 'utilities';
+      if (t === 'earn') return 'earn';
+
+      // 5. Last resort - check name/store text
+      const text = (offer.name || offer.store || '').toLowerCase();
+      if (['lloyds','natwest','barclays','chase','monzo','revolut',
+           'santander','hsbc','starling','rbs','zopa','halifax',
+           'first direct'].some(b => text.includes(b))) return 'bank';
+      if (['freetrade','robinhood','webull','trading','invest',
+           'fidelity','ajbell','wealthify','lightyear'].some(b => text.includes(b))) return 'invest';
+      if (['cashback','quidco','topcashback','rakuten'].some(b => text.includes(b))) return 'cashback';
+
+      return 'freebie';
     }
 
     function getOfferReward(offer) {
-      return offer.reward || offer.deal_price || offer.amount || '?';
+      const r = offer.reward || offer.deal_price || '';
+      if (r && r !== '0') return r;
+      if (offer.amount && offer.amount > 0) return '£' + offer.amount;
+      return 'Bonus';
     }
 
     function getOfferName(offer) {
-      return offer.name || offer.store || 'Offer';
+      return offer.name || offer.store || offer.title || 'Offer';
     }
 
     function getOfferDesc(offer) {
-      return offer.desc || offer.item || offer.action || '';
+      return offer.desc || offer.item || offer.action || offer.effort || '';
     }
 
 
@@ -5060,7 +5147,7 @@
       renderHomePreview();
       renderOffers();
       renderBattle();
-      renderNetflix();
+      if (offers.length > 0) renderNetflix();
       renderStacks();
       renderProfile();
       renderLeaderboard();
@@ -5206,10 +5293,13 @@
                   'bank_switch','invest','cashback','referral',
                   'business','utilities','pension','credit',
                   'transfer','travel','earn','mobile',
-                  'gift','freebies'].includes(t);
+                  'gift','freebies','freebie'].includes(t);
         });
         if (!toLoad.length) return;
-        const existingIds = new Set(offers.map(o => o.id));
+        // Dedup by store name (normalised)
+        const existingNames = new Set(
+          offers.map(o => (o.name || o.store || '').toLowerCase().slice(0,15))
+        );
         const mapped = toLoad.map(d => ({
           id: (d.store || 'offer').toLowerCase()
                 .replace(/[^a-z0-9]/g,'-').slice(0,40) +
@@ -5235,10 +5325,15 @@
           warnings: ['Details may change — check source'],
           detailedSteps: d.steps || []
         }));
-        const newOffers = mapped.filter(o => !existingIds.has(o.id));
+        const newOffers = mapped.filter(o => {
+          const nameKey = (o.name || '').toLowerCase().slice(0,15);
+          return !existingNames.has(nameKey);
+        });
         if (newOffers.length) {
           offers.push(...newOffers);
           console.log('Loaded ' + newOffers.length + ' fresh offers from all_deals.json');
+        renderNetflix();
+        renderOffers();
         }
       } catch(e) {
         console.log('Using hardcoded offers only:', e.message);
