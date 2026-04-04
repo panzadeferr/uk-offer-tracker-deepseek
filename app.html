@@ -2125,6 +2125,103 @@
       opacity: 1;
     }
 
+    
+    /* ── ONBOARDING MODAL ───────────────────────── */
+    .onboard-overlay {
+      position: fixed;inset: 0;z-index: 9000;
+      background: rgba(0,0,0,.85);backdrop-filter: blur(6px);
+      display: flex;align-items: flex-end;justify-content: center;
+      opacity: 0;pointer-events: none;transition: .3s;
+    }
+    .onboard-overlay.show {
+      opacity: 1;pointer-events: all;
+    }
+    .onboard-sheet {
+      background: var(--card);
+      border-radius: 24px 24px 0 0;
+      border-top: 2px solid var(--green);
+      padding: 28px 20px 40px;
+      width: 100%;max-width: 480px;
+      transform: translateY(100%);transition: .4s cubic-bezier(.16,1,.3,1);
+    }
+    .onboard-overlay.show .onboard-sheet {
+      transform: translateY(0);
+    }
+    .onboard-handle {
+      width: 40px;height: 4px;border-radius: 2px;
+      background: var(--line);margin: 0 auto 20px;
+    }
+    .onboard-step {
+      display: none;
+    }
+    .onboard-step.active {
+      display: block;
+    }
+    .onboard-emoji {
+      font-size: 48px;text-align: center;
+      display: block;margin-bottom: 12px;
+    }
+    .onboard-title {
+      font-size: 22px;font-weight: 800;color: var(--text);
+      text-align: center;margin-bottom: 8px;
+    }
+    .onboard-sub {
+      font-size: 14px;color: var(--muted2);text-align: center;
+      line-height: 1.6;margin-bottom: 20px;
+    }
+    .onboard-offers {
+      display: flex;flex-direction: column;gap: 8px;
+      margin-bottom: 20px;
+    }
+    .onboard-offer-row {
+      display: flex;align-items: center;gap: 12px;
+      background: var(--bg3);border-radius: 12px;
+      padding: 12px 14px;cursor: pointer;
+      border: 1px solid var(--line);transition: .15s;
+    }
+    .onboard-offer-row:active { transform: scale(.98) }
+    .onboard-offer-reward {
+      font-size: 20px;font-weight: 900;color: var(--green);
+      min-width: 48px;
+    }
+    .onboard-offer-name {
+      font-size: 13px;font-weight: 700;color: var(--text);
+    }
+    .onboard-offer-meta {
+      font-size: 11px;color: var(--muted2);margin-top: 2px;
+    }
+    .onboard-btn {
+      width: 100%;padding: 16px;background: var(--green);
+      color: #000;border: none;border-radius: 12px;
+      font-size: 15px;font-weight: 800;cursor: pointer;
+      font-family: var(--fb);margin-bottom: 8px;
+    }
+    .onboard-btn.secondary {
+      background: transparent;color: var(--muted2);
+      font-size: 13px;padding: 8px;
+    }
+    .onboard-dots {
+      display: flex;justify-content: center;gap: 6px;margin-bottom: 20px;
+    }
+    .onboard-dot {
+      width: 6px;height: 6px;border-radius: 50%;
+      background: var(--line);transition: .2s;
+    }
+    .onboard-dot.active { background: var(--green);width: 20px;border-radius: 3px; }
+    .onboard-earn-row {
+      display: flex;justify-content: space-between;
+      padding: 10px 0;border-bottom: 1px solid var(--line);
+      font-size: 13px;
+    }
+    .onboard-earn-row:last-child { border-bottom: none }
+    .onboard-earn-row span:first-child { color: var(--muted2) }
+    .onboard-earn-row span:last-child { color: var(--green);font-weight: 800 }
+    .onboard-total {
+      display: flex;justify-content: space-between;
+      padding: 12px 0 0;font-size: 15px;font-weight: 800;
+      color: var(--text);margin-top: 4px;
+    }
+
     </style>
 </head>
 <body>
@@ -5346,6 +5443,7 @@ function renderAll() {
       checkPasswordResetToken();
       checkAdminAccess();
       initBackButton();
+      showOnboard();
     })();
   </script>
 
@@ -5398,6 +5496,132 @@ function renderAll() {
     </div>
   </div>
 
+
+
+  <!-- ONBOARDING MODAL -->
+  <div class="onboard-overlay" id="onboardOverlay">
+    <div class="onboard-sheet">
+      <div class="onboard-handle"></div>
+
+      <!-- Step 1: Welcome -->
+      <div class="onboard-step active" id="onboard-1">
+        <span class="onboard-emoji">🎯</span>
+        <div class="onboard-title">Welcome, Hunter!</div>
+        <div class="onboard-sub">
+          You're in the right place. UK banks and apps pay
+          real cash just for signing up — and we track every single one.
+        </div>
+        <div class="onboard-offers">
+          <div class="onboard-earn-row">
+            <span>🏦 Bank switches</span>
+            <span>up to £500</span>
+          </div>
+          <div class="onboard-earn-row">
+            <span>📈 Invest bonuses</span>
+            <span>up to £100</span>
+          </div>
+          <div class="onboard-earn-row">
+            <span>💳 Cashback sign-ups</span>
+            <span>up to £25</span>
+          </div>
+          <div class="onboard-earn-row">
+            <span>⚡ Energy switches</span>
+            <span>up to £50</span>
+          </div>
+          <div class="onboard-total">
+            <span>Your first month potential</span>
+            <span>£500+</span>
+          </div>
+        </div>
+        <div class="onboard-dots">
+          <div class="onboard-dot active"></div>
+          <div class="onboard-dot"></div>
+          <div class="onboard-dot"></div>
+        </div>
+        <button class="onboard-btn" onclick="onboardNext(2)">Show me the money →</button>
+        <button class="onboard-btn secondary" onclick="closeOnboard()">Skip intro</button>
+      </div>
+
+      <!-- Step 2: Start Here offers -->
+      <div class="onboard-step" id="onboard-2">
+        <span class="onboard-emoji">🚀</span>
+        <div class="onboard-title">Start here this week</div>
+        <div class="onboard-sub">
+          These 3 offers take under 15 mins each and pay out fast.
+          Perfect first steps.
+        </div>
+        <div class="onboard-offers">
+          <div class="onboard-offer-row" onclick="closeOnboardAndOpen('monzo')">
+            <div class="onboard-offer-reward">£5</div>
+            <div>
+              <div class="onboard-offer-name">Monzo — First Payment</div>
+              <div class="onboard-offer-meta">Open account · spend £1 · instant ⚡</div>
+            </div>
+            <div style="color:var(--muted2);font-size:18px">›</div>
+          </div>
+          <div class="onboard-offer-row" onclick="closeOnboardAndOpen('zopa-biscuit')">
+            <div class="onboard-offer-reward">£10</div>
+            <div>
+              <div class="onboard-offer-name">Zopa — Sign Up Bonus</div>
+              <div class="onboard-offer-meta">Open account · instant · no deposit ⚡</div>
+            </div>
+            <div style="color:var(--muted2);font-size:18px">›</div>
+          </div>
+          <div class="onboard-offer-row" onclick="closeOnboardAndOpen('freetrade')">
+            <div class="onboard-offer-reward">£10-£100</div>
+            <div>
+              <div class="onboard-offer-name">Freetrade — Free Share</div>
+              <div class="onboard-offer-meta">Deposit £50 · get free share · few days</div>
+            </div>
+            <div style="color:var(--muted2);font-size:18px">›</div>
+          </div>
+        </div>
+        <div class="onboard-dots">
+          <div class="onboard-dot"></div>
+          <div class="onboard-dot active"></div>
+          <div class="onboard-dot"></div>
+        </div>
+        <button class="onboard-btn" onclick="onboardNext(3)">Next: The big money →</button>
+        <button class="onboard-btn secondary" onclick="closeOnboard()">Skip intro</button>
+      </div>
+
+      <!-- Step 3: Bank switch teaser -->
+      <div class="onboard-step" id="onboard-3">
+        <span class="onboard-emoji">🏦</span>
+        <div class="onboard-title">The Playbook move</div>
+        <div class="onboard-sub">
+          Bank switches are the biggest earners. Banks pay
+          <strong style="color:var(--green)">£150-£500</strong> just to move your account.
+          Stack 3 in 3 months = £500+.
+        </div>
+        <div class="onboard-offers">
+          <div class="onboard-offer-row" onclick="closeOnboardAndOpen('lloyds-bank')">
+            <div class="onboard-offer-reward">£250</div>
+            <div>
+              <div class="onboard-offer-name">Lloyds — Switch Bonus</div>
+              <div class="onboard-offer-meta">CASS switch · ~30 days · highest right now 🔥</div>
+            </div>
+            <div style="color:var(--muted2);font-size:18px">›</div>
+          </div>
+          <div class="onboard-offer-row" onclick="switchView('stack');closeOnboard()">
+            <div class="onboard-offer-reward">📖</div>
+            <div>
+              <div class="onboard-offer-name">Read the Bank Switch Bible</div>
+              <div class="onboard-offer-meta">Step-by-step guide in the Playbook tab</div>
+            </div>
+            <div style="color:var(--muted2);font-size:18px">›</div>
+          </div>
+        </div>
+        <div class="onboard-dots">
+          <div class="onboard-dot"></div>
+          <div class="onboard-dot"></div>
+          <div class="onboard-dot active"></div>
+        </div>
+        <button class="onboard-btn" onclick="closeOnboard()">Start hunting →</button>
+      </div>
+
+    </div>
+  </div>
 
 </body>
 </html>
