@@ -2255,6 +2255,7 @@
           <span id="userBadgeName">Account</span>
         </div>
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" onclick="toggleTheme()" id="themeIcon">☀️</button>
+          <button class="auth-quick-btn" id="authQuickBtn" onclick="showAuthModal()" style="height:32px;padding:0 12px;border-radius:8px;background:var(--bg3);border:1px solid var(--line);color:var(--muted);font-size:12px;font-weight:600;cursor:pointer;font-family:var(--fb)">Sign in</button>
           
           
         </div>
@@ -2392,6 +2393,7 @@
     </section>
 
     <section id="view-stack" class="view">
+      <div id="stackList" style="display:none"></div>
       <div class="playbook-hero">
         <h2>📖 The Playbook</h2>
         <p>Step-by-step guides to make the most from every UK money deal.</p>
@@ -3068,7 +3070,7 @@
       saveMoneyBtn:document.getElementById("saveMoneyBtn"),
       pendingList:document.getElementById("pendingList"),
       leaderboard:document.getElementById("leaderboard"),
-      shareBtn:document.getElementById("shareBtn"),
+      
       brandHome:document.getElementById("brandHome"),
       battleDrawer:document.getElementById("battleDrawer"),
       closeDrawer:document.getElementById("closeDrawer"),
@@ -4150,7 +4152,6 @@
 
     // Wire up panel events
     document.getElementById("panelClose").addEventListener("click", closePanel);
-    document.getElementById("panelShare").addEventListener("click", sharePanelOffer);
     
     // Add swipe-down gesture to close panel
     const panel = document.getElementById("offerPanel");
@@ -4559,6 +4560,8 @@
         } else if (event === 'SIGNED_OUT') {
           currentUser = null;
           document.getElementById('userBadge').style.display = 'none';
+        const qBtn2 = document.getElementById('authQuickBtn');
+        if (qBtn2) { qBtn2.textContent = 'Sign in'; qBtn2.style.color = 'var(--muted)'; }
         }
       });
     }
@@ -5399,7 +5402,6 @@
     ui.dailyBtn.addEventListener("click", claimDaily);
     ui.searchInput.addEventListener("input", onSearchInput);
     // filterSelect replaced by pills
-    ui.shareBtn.addEventListener("click", shareApp);
     ui.brandHome.addEventListener("click", () => switchView("home"));
     ui.closeDrawer.addEventListener("click", closeBattleDetail);
     ui.drawerAction.addEventListener("click", () => {
