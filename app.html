@@ -2180,7 +2180,7 @@
     .panel-close:hover { color:var(--text);border-color:var(--green) }
 
     
-    /* ── IMPROVED OFFER CARDS ───────────────────── */
+    
     .offer-cat-label {
       font-size:10px;font-weight:700;
       color:var(--green);text-transform:uppercase;
@@ -2255,6 +2255,253 @@
       margin-left:4px;
     }
     .offer-card-chevron.open { transform:rotate(180deg) }
+
+    
+    /* ── PENDING PAYOUTS ────────────────────────── */
+    .payout-card {
+      background:var(--card);border:1px solid var(--line);
+      border-radius:12px;padding:14px;margin-bottom:8px;
+      display:flex;align-items:center;gap:12px;
+    }
+    .payout-card.urgent {
+      border-color:rgba(255,207,90,.4);
+      background:rgba(255,207,90,.05);
+    }
+    .payout-card.very-urgent {
+      border-color:rgba(255,100,100,.4);
+      background:rgba(255,100,100,.05);
+    }
+    .payout-icon { font-size:28px;flex-shrink:0 }
+    .payout-info { flex:1;min-width:0 }
+    .payout-name {
+      font-size:14px;font-weight:700;color:var(--text);
+      margin-bottom:2px;
+    }
+    .payout-days {
+      font-size:12px;color:var(--muted2);
+    }
+    .payout-days.soon { color:var(--yellow);font-weight:700 }
+    .payout-days.very-soon { color:#ff6464;font-weight:700 }
+    .payout-amount {
+      font-size:20px;font-weight:900;color:var(--green);
+      letter-spacing:-.5px;flex-shrink:0;
+    }
+    .payout-empty {
+      text-align:center;padding:24px 16px;
+      color:var(--muted2);font-size:13px;
+      line-height:1.6;
+    }
+    /* Payout reminder toast */
+    .payout-reminder {
+      position:fixed;top:70px;left:12px;right:12px;
+      background:var(--card);border:1px solid var(--green);
+      border-radius:14px;padding:14px 16px;
+      z-index:8000;box-shadow:0 8px 32px rgba(0,0,0,.3);
+      display:flex;align-items:center;gap:12px;
+      animation:slideDown .4s cubic-bezier(.16,1,.3,1);
+      cursor:pointer;
+    }
+    .payout-reminder-text { flex:1 }
+    .payout-reminder-title {
+      font-size:13px;font-weight:700;color:var(--text);
+      margin-bottom:2px;
+    }
+    .payout-reminder-sub {
+      font-size:11px;color:var(--muted2);
+    }
+    .payout-reminder-close {
+      font-size:16px;color:var(--muted2);
+      background:none;border:none;cursor:pointer;
+      padding:4px;
+    }
+    @keyframes slideDown {
+      from { opacity:0;transform:translateY(-20px) }
+      to { opacity:1;transform:translateY(0) }
+    }
+
+    
+    /* ── PAYOUT ROWS ────────────────────────────── */
+    .payout-row {
+      background:var(--card);border:1px solid var(--line);
+      border-radius:12px;margin-bottom:8px;
+      overflow:hidden;cursor:pointer;transition:.15s;
+    }
+    .payout-row:active { transform:scale(.99) }
+    .payout-urgency-bar {
+      height:3px;width:100%;
+    }
+    .payout-urgency-bar.due { background:var(--green) }
+    .payout-urgency-bar.urgent { background:#ff6b35 }
+    .payout-urgency-bar.soon { background:var(--yellow) }
+    .payout-row-inner {
+      display:flex;justify-content:space-between;
+      align-items:center;padding:12px 14px;gap:12px;
+    }
+    .payout-row-name {
+      font-size:14px;font-weight:700;color:var(--text);
+      margin-bottom:2px;
+    }
+    .payout-row-meta {
+      font-size:11px;color:var(--muted2);
+    }
+    .payout-row-reward {
+      font-size:18px;font-weight:900;color:var(--green);
+      text-align:right;
+    }
+    .payout-row-days {
+      font-size:11px;font-weight:700;
+      text-align:right;margin-top:2px;
+    }
+    .payout-empty {
+      text-align:center;padding:24px 16px;
+      color:var(--muted2);font-size:13px;line-height:1.6;
+    }
+
+    
+    /* ── PAYOUT REMINDER BANNER ─────────────────── */
+    .payout-reminder-banner {
+      display:flex;align-items:center;justify-content:space-between;
+      gap:8px;padding:10px 14px;margin:12px 12px 0;
+      background:rgba(31,232,135,.1);border:1px solid rgba(31,232,135,.3);
+      border-radius:12px;font-size:13px;font-weight:600;
+      color:var(--text);transition:.3s;
+    }
+    .payout-reminder-banner.hidden { display:none }
+    .reminder-text { flex:1;line-height:1.4 }
+    .reminder-dismiss {
+      background:transparent;border:none;
+      color:var(--muted2);font-size:16px;cursor:pointer;
+      padding:0 4px;flex-shrink:0;
+    }
+
+    
+    .offer-card-code {
+      background:var(--bg3);border:1px solid var(--line);
+      border-radius:10px;padding:10px 12px;margin:8px 0;
+    }
+    .offer-card-code-label {
+      font-size:10px;font-weight:700;color:var(--muted2);
+      text-transform:uppercase;letter-spacing:.06em;
+      display:block;margin-bottom:6px;
+    }
+    .offer-card-code-row {
+      display:flex;align-items:center;
+      justify-content:space-between;gap:8px;
+    }
+    .offer-card-code-val {
+      font-size:16px;font-weight:800;color:var(--green);
+      letter-spacing:.05em;
+    }
+    .offer-card-code-copy {
+      padding:4px 10px;background:var(--green);color:#000;
+      border:none;border-radius:6px;font-size:11px;
+      font-weight:700;cursor:pointer;font-family:var(--fb);
+    }
+    .offer-card-steps-hint {
+      font-size:12px;color:var(--muted2);
+      margin:6px 0 4px;
+    }
+
+    
+    /* ── CLEAN OFFER CARDS v2 ───────────────────── */
+    .offer-card {
+      background:var(--card);border:1px solid var(--line);
+      border-radius:14px;margin-bottom:8px;
+      overflow:hidden;transition:.15s;
+    }
+    .offer-card.completed { border-color:rgba(31,232,135,.3) }
+    .offer-card.pending { border-color:rgba(255,207,90,.3) }
+    .offer-card-top {
+      display:flex;align-items:center;
+      justify-content:space-between;
+      padding:14px 16px;cursor:pointer;gap:12px;
+    }
+    .offer-card-top:active { opacity:.8 }
+    .offer-card-name-wrap {
+      display:flex;align-items:center;gap:6px;
+      min-width:0;flex:1;
+    }
+    .offer-name {
+      font-size:15px;font-weight:700;
+      color:var(--text);line-height:1.3;
+    }
+    .offer-status-pill { font-size:12px;flex-shrink:0 }
+    .offer-card-right {
+      display:flex;align-items:center;gap:8px;flex-shrink:0;
+    }
+    .reward {
+      font-size:18px;font-weight:900;
+      color:var(--green);letter-spacing:-.3px;
+    }
+    .offer-card-chevron {
+      font-size:11px;color:var(--muted2);
+      transition:transform .3s;display:inline-block;
+    }
+    .offer-card-chevron.open { transform:rotate(180deg) }
+    .offer-card-body {
+      max-height:0;overflow:hidden;
+      transition:max-height .35s cubic-bezier(.16,1,.3,1);
+      padding:0 16px;
+    }
+    .offer-card-body.open { max-height:500px;padding:0 16px 16px }
+    .offer-card-desc {
+      font-size:13px;color:var(--muted);line-height:1.6;
+      margin-bottom:12px;border-top:1px solid var(--line);
+      padding-top:12px;
+    }
+    .offer-card-steps-hint { font-size:12px;color:var(--muted2);margin-bottom:10px }
+    .offer-card-claim {
+      width:100%;padding:13px;background:var(--green);color:#000;
+      border:none;border-radius:10px;font-size:14px;font-weight:800;
+      font-family:var(--fb);cursor:pointer;
+    }
+
+    
+    /* ── CATEGORY SECTIONS ──────────────────────── */
+    .cat-section {
+      margin-bottom:20px;
+    }
+    .cat-section-head {
+      display:flex;align-items:center;justify-content:space-between;
+      padding:0 4px 8px;
+    }
+    .cat-section-title {
+      font-size:14px;font-weight:800;color:var(--text);
+    }
+    .cat-section-count {
+      font-size:11px;color:var(--muted2);font-weight:600;
+    }
+    .cat-section-list {
+      display:flex;flex-direction:column;gap:0;
+    }
+
+    
+    /* ── DAILY XP CARD ──────────────────────────── */
+    .daily-xp-card {
+      padding:16px;
+    }
+    .daily-xp-top {
+      display:flex;gap:12px;align-items:flex-start;
+      margin-bottom:12px;
+    }
+    .daily-xp-top > span { font-size:28px }
+    .daily-xp-title {
+      font-size:14px;font-weight:700;color:var(--text);
+      margin-bottom:3px;
+    }
+    .daily-xp-sub {
+      font-size:11px;color:var(--muted2);line-height:1.5;
+    }
+    .daily-xp-explainer {
+      margin-top:14px;padding-top:12px;
+      border-top:1px solid var(--line);
+      display:flex;flex-direction:column;gap:6px;
+    }
+    .xp-explain-row {
+      display:flex;gap:8px;align-items:center;
+      font-size:12px;color:var(--muted);
+    }
+    .xp-explain-row span:first-child { font-size:14px }
 
     </style>
 </head>
@@ -2362,6 +2609,12 @@
 
   <main class="app">
     <section id="view-home" class="view active">
+      <!-- Payout Reminder Banner -->
+      <div id="payoutReminderBanner" class="payout-reminder-banner hidden">
+        <span class="reminder-text"></span>
+        <button onclick="dismissPayoutReminder()" class="reminder-dismiss">✕</button>
+      </div>
+
       <section class="compact-hero card">
         <h1>Fast daily money moves</h1>
         <p>Start with the plan, open the best offers, then track payouts as they move from pending to earned.</p>
@@ -2393,17 +2646,7 @@
         </div>
       </section>
 
-      <section class="section">
-        <div class="daily-box card">
-          <div class="daily-head">
-            <h2 class="daily-title"><span id="dailyEmoji">🎵</span> Daily Box</h2>
-            <div class="daily-status" id="dailyStatus">Ready</div>
-          </div>
-          <p class="daily-copy" id="dailyCopy">Claim your daily XP bonus and keep your streak moving.</p>
-          <div class="streak-row" id="streakRow"></div>
-          <button class="primary-btn" id="dailyBtn">Claim Daily XP</button>
-        </div>
-      </section>
+      
 
       <section class="section">
         <div class="section-head">
@@ -2415,10 +2658,10 @@
 
       <section class="section">
         <div class="section-head">
-          <h2 class="section-title">All Offers</h2>
-          <div class="section-note">Quick view</div>
+          <h2 class="section-title">Today's Best Offers</h2>
+          <div class="section-note" id="todayDayLabel"></div>
         </div>
-        <div class="offers-grid" id="homeOffersPreview"></div>
+        <div id="homeOffersPreview"></div>
       </section>
     </section>
 
@@ -2577,6 +2820,41 @@
     <section id="view-progress" class="view">
       <!-- Streak Warning -->
       <div class="streak-warning hidden" id="streakWarning"></div>
+
+      <!-- Pending Payouts — TOP PRIORITY -->
+      
+      <!-- Daily XP Check-in -->
+      <div class="section" style="margin-bottom:16px">
+        <div class="section-head">
+          <h2 class="section-title">⚡ Daily Check-in</h2>
+          <div class="section-note" id="dailyStatus">Ready</div>
+        </div>
+        <div class="daily-xp-card card">
+          <div class="daily-xp-top">
+            <span id="dailyEmoji">🎵</span>
+            <div class="daily-xp-info">
+              <div class="daily-xp-title" id="dailyCopy">Claim your daily XP bonus</div>
+              <div class="daily-xp-sub">Keep your streak alive · Earn badges · Unlock rewards</div>
+            </div>
+          </div>
+          <div class="streak-row" id="streakRow"></div>
+          <button class="primary-btn" id="dailyBtn" onclick="claimDaily()" style="width:100%;margin-top:12px">Claim Daily XP</button>
+          <div class="daily-xp-explainer">
+            <div class="xp-explain-row"><span>📋</span><span>Claim an offer → +50 XP</span></div>
+            <div class="xp-explain-row"><span>🔥</span><span>Daily check-in → +10 XP</span></div>
+            <div class="xp-explain-row"><span>🏆</span><span>Complete offer → +100 XP</span></div>
+            <div class="xp-explain-row"><span>🎯</span><span>7-day streak → Unlock badge</span></div>
+          </div>
+        </div>
+      </div>
+
+<div class="section" id="pendingPayoutsSection">
+        <div class="section-head">
+          <h2 class="section-title">💰 Pending Payouts</h2>
+          <div class="section-note" id="pendingPayoutsNote">Loading...</div>
+        </div>
+        <div id="pendingPayoutsList"></div>
+      </div>
 
       <!-- Weekly Missions -->
       <div class="missions-section" id="missionsSection"></div>
@@ -2874,13 +3152,13 @@
       <span class="nav-icon">🔥</span>
       <span class="nav-label">Offers</span>
     </button>
-    <button class="nav-btn" data-view="stack">
-      <span class="nav-icon">⚡</span>
-      <span class="nav-label">Stack</span>
-    </button>
     <button class="nav-btn" data-view="progress">
       <span class="nav-icon">📊</span>
       <span class="nav-label">Progress</span>
+    </button>
+    <button class="nav-btn" data-view="stack">
+      <span class="nav-icon">⚡</span>
+      <span class="nav-label">Playbook</span>
     </button>
     <button class="nav-btn" data-view="community">
       <span class="nav-icon">👥</span>
@@ -3667,12 +3945,55 @@
     }
 
     function renderBestOffers() {
-      const best = [...offers].filter(o => o.amount > 0).sort((a, b) => b.amount - a.amount).slice(0, 4);
-      ui.bestOffers.innerHTML = best.map(buildOfferCard).join("");
+      if (!ui.bestOffers) return;
+      // Featured referral offers - fixed order
+      const featuredIds = ['lloyds-bank','chase-uk','freetrade','amex-business-platinum','robinhood-uk'];
+      const featured = featuredIds.map(function(id) {
+        return offers.find(function(o) { return o.id === id; });
+      }).filter(Boolean);
+      // Fallback to highest value if not found
+      if (featured.length === 0) {
+        const best = [...offers].filter(function(o) { return o.amount > 0; })
+          .sort(function(a,b) { return b.amount - a.amount; }).slice(0,4);
+        ui.bestOffers.innerHTML = best.map(buildOfferCard).join('');
+        return;
+      }
+      ui.bestOffers.innerHTML = featured.map(buildOfferCard).join('');
     }
 
     function renderHomePreview() {
-      ui.homeOffersPreview.innerHTML = offers.slice(0, 4).map(buildOfferCard).join("");
+      if (!ui.homeOffersPreview) return;
+      // Daily 5 offers - rotate by day of week focusing on different categories
+      const dayCategories = {
+        0: ['bank','invest'],      // Sunday
+        1: ['bank','cashback'],    // Monday
+        2: ['invest','earn'],      // Tuesday
+        3: ['bank','utilities'],   // Wednesday
+        4: ['invest','cashback'],  // Thursday
+        5: ['bank','gift'],        // Friday
+        6: ['cashback','mobile']   // Saturday
+      };
+      const today = new Date().getDay();
+      const cats = dayCategories[today] || ['bank','invest'];
+      let daily = [];
+      cats.forEach(function(cat) {
+        const catOffers = offers.filter(function(o) {
+          return getOfferCategory(o) === cat && getOfferStatus(o.id) !== 'completed';
+        }).slice(0, 3);
+        daily = daily.concat(catOffers);
+      });
+      // Deduplicate and limit to 5
+      const seen = new Set();
+      daily = daily.filter(function(o) {
+        if (seen.has(o.id)) return false;
+        seen.add(o.id);
+        return true;
+      }).slice(0, 5);
+      if (daily.length === 0) daily = offers.slice(0,5);
+      const dayNames = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+      const dayLabel = document.getElementById('todayDayLabel');
+      if (dayLabel) dayLabel.textContent = dayNames[today];
+      ui.homeOffersPreview.innerHTML = daily.map(buildOfferCard).join('');
     }
 
     function renderOffers() {
@@ -3731,24 +4052,91 @@
     }
 
     function renderPendingPayouts() {
-      const rows = Object.values(state.pendingPayouts)
-        .sort((a, b) => a.dueAt - b.dueAt)
-        .map(item => {
-          const diff = item.dueAt - Date.now();
-          const days = Math.max(0, Math.ceil(diff / (24 * 60 * 60 * 1000)));
-          return `
-            <div class="pending-row">
-              <div class="left">
-                <strong>${item.name}</strong>
-                <span>${item.reward}</span>
-              </div>
-              <div class="pending-days">${days === 0 ? "Due now" : `${days}d left`}</div>
-            </div>
-          `;
-        });
+      const list = document.getElementById('pendingPayoutsList');
+      const note = document.getElementById('pendingPayoutsNote');
+      if (!list) return;
 
-      ui.pendingList.innerHTML = rows.length ? rows.join("") : `<div class="empty">No pending payouts yet.</div>`;
+      const pending = offers.filter(function(o) {
+        return state.offerStatus[o.id] === 'pending' ||
+          (state.offerStatus[o.id] === 'none' && getOfferClaimedDate(o.id));
+      });
+
+      if (pending.length === 0) {
+        list.innerHTML = '<div class="payout-empty">No pending payouts yet.<br>Claim an offer to start tracking.</div>';
+        if (note) note.textContent = 'none yet';
+        return;
+      }
+
+      const withDays = pending.map(function(o) {
+        return { offer: o, days: getDaysUntilPayout(o.id) };
+      }).sort(function(a, b) {
+        if (a.days === null) return 1;
+        if (b.days === null) return -1;
+        return a.days - b.days;
+      });
+
+      if (note) {
+        var next = withDays.find(function(x) { return x.days !== null; });
+        if (next) note.textContent = next.days <= 0 ? 'due now!' : 'next in ' + next.days + 'd';
+      }
+
+      var html = '';
+      withDays.forEach(function(item) {
+        var offer = item.offer;
+        var days = item.days;
+        var claimedDate = getOfferClaimedDate(offer.id);
+        var claimedStr = claimedDate
+          ? new Date(claimedDate).toLocaleDateString('en-GB', {day:'numeric', month:'short'})
+          : 'recently';
+        var name = offer.name || offer.store || 'Offer';
+        var reward = offer.reward || offer.deal_price || '?';
+
+        var daysLabel, daysColor, urgencyBar;
+        if (days === null) {
+          daysLabel = 'Tracking...';
+          daysColor = 'var(--muted2)';
+          urgencyBar = '';
+        } else if (days <= 0) {
+          daysLabel = '🎉 Due now!';
+          daysColor = 'var(--green)';
+          urgencyBar = '<div class="payout-urgency-bar due"></div>';
+        } else if (days <= 3) {
+          daysLabel = days + ' days left';
+          daysColor = '#ff6b35';
+          urgencyBar = '<div class="payout-urgency-bar urgent"></div>';
+        } else if (days <= 7) {
+          daysLabel = days + ' days left';
+          daysColor = 'var(--yellow)';
+          urgencyBar = '<div class="payout-urgency-bar soon"></div>';
+        } else {
+          daysLabel = days + ' days left';
+          daysColor = 'var(--muted)';
+          urgencyBar = '';
+        }
+
+        var cat = getOfferCategory(offer);
+        var catEmojis = {bank:'🏦',invest:'📈',cashback:'💳',utilities:'⚡',
+          earn:'💰',gift:'🎁',mobile:'📱',travel:'✈️',business:'💼'};
+        var catEmoji = catEmojis[cat] || '📋';
+
+        html += '<div class="payout-row" data-oid="' + offer.id + '" onclick="openOfferById(this.getAttribute(\"data-oid\"))">';
+        html += urgencyBar;
+        html += '<div class="payout-row-inner">';
+        html += '<div class="payout-row-left">';
+        html += '<div class="payout-row-name">' + catEmoji + ' ' + name + '</div>';
+        html += '<div class="payout-row-meta">Claimed ' + claimedStr + '</div>';
+        html += '</div>';
+        html += '<div class="payout-row-right">';
+        html += '<div class="payout-row-reward">' + reward + '</div>';
+        html += '<div class="payout-row-days" style="color:' + daysColor + '">' + daysLabel + '</div>';
+        html += '</div>';
+        html += '</div>';
+        html += '</div>';
+      });
+
+      list.innerHTML = html;
     }
+
 
     function renderProfile() {
       const current = getLevel(state.xp);
@@ -4110,12 +4498,21 @@
         </div>`;
       }
 
-      // Status
-      html += `<div class="panel-status-row">
-        <button class="status-btn ${status==='none'?'active-none':''}" data-status-id="${offer.id}" data-status-value="none">Not started</button>
-        <button class="status-btn ${status==='pending'?'active-pending':''}" data-status-id="${offer.id}" data-status-value="pending">⏳ Pending</button>
-        <button class="status-btn ${status==='completed'?'active-completed':''}" data-status-id="${offer.id}" data-status-value="completed">✓ Done</button>
-      </div>`;
+      // Steps
+      if (steps.length) {
+        const pct = stepsTotal > 0 ? Math.round(stepsDone / stepsTotal * 100) : 0;
+        html += `<div class="panel-section">
+          <div class="panel-section-title">📋 Steps — ${stepsDone}/${stepsTotal} · ${pct}%</div>
+          <div class="step-progress-bar"><div class="step-progress-fill" id="spf_p_${offer.id}" style="width:${pct}%"></div></div>
+          ${steps.map((step, i) => {
+            const checked = (state.offerSteps[offer.id] || [])[i] || false;
+            return `<div class="panel-step-row">
+              <div class="panel-step-check ${checked?'done':''}" onclick="togglePanelStep('${offer.id}', ${i})">${checked?'✔':''}</div>
+              <div class="panel-step-label ${checked?'done':''}">${step}</div>
+            </div>`;
+          }).join("")}
+        </div>`;
+      }
 
       // Tips
       if (enrich.tips && enrich.tips.length) {
@@ -4133,21 +4530,12 @@
         </div>`;
       }
 
-      // Steps
-      if (steps.length) {
-        const pct = stepsTotal > 0 ? Math.round(stepsDone / stepsTotal * 100) : 0;
-        html += `<div class="panel-section">
-          <div class="panel-section-title">📋 Steps — ${stepsDone}/${stepsTotal} · ${pct}%</div>
-          <div class="step-progress-bar"><div class="step-progress-fill" id="spf_p_${offer.id}" style="width:${pct}%"></div></div>
-          ${steps.map((step, i) => {
-            const checked = (state.offerSteps[offer.id] || [])[i] || false;
-            return `<div class="panel-step-row">
-              <div class="panel-step-check ${checked?'done':''}" onclick="togglePanelStep('${offer.id}', ${i})">${checked?'✔':''}</div>
-              <div class="panel-step-label ${checked?'done':''}">${step}</div>
-            </div>`;
-          }).join("")}
-        </div>`;
-      }
+      // Status
+      html += `<div class="panel-status-row">
+        <button class="status-btn ${status==='none'?'active-none':''}" data-status-id="${offer.id}" data-status-value="none">Not started</button>
+        <button class="status-btn ${status==='pending'?'active-pending':''}" data-status-id="${offer.id}" data-status-value="pending">⏳ Pending</button>
+        <button class="status-btn ${status==='completed'?'active-completed':''}" data-status-id="${offer.id}" data-status-value="completed">✓ Done</button>
+      </div>`;
 
       // Save earnings
       html += `<div class="panel-section">
@@ -4524,6 +4912,32 @@
         name.textContent = username || 'Account';
         badge.style.display = 'flex';
       }
+      // Update top bar quick button
+      const qBtn = document.getElementById('authQuickBtn');
+      if (qBtn) {
+        qBtn.textContent = username || 'Account';
+        qBtn.style.color = 'var(--green)';
+        qBtn.style.background = 'rgba(31,232,135,.1)';
+        qBtn.style.borderColor = 'rgba(31,232,135,.3)';
+        qBtn.onclick = function() { signOut(); };
+        qBtn.title = 'Sign out';
+      }
+    }
+
+    function signOut() {
+      db.auth.signOut();
+      currentUser = null;
+      const qBtn = document.getElementById('authQuickBtn');
+      if (qBtn) {
+        qBtn.textContent = 'Sign in';
+        qBtn.style.color = 'var(--muted)';
+        qBtn.style.background = 'var(--bg3)';
+        qBtn.style.borderColor = 'var(--line)';
+        qBtn.onclick = function() { showAuthModal(); };
+        qBtn.title = '';
+      }
+      document.getElementById('userBadge').style.display = 'none';
+      toast('Signed out');
     }
 
     function showSyncing() {
@@ -4692,7 +5106,38 @@
       document.getElementById('themeToggle').textContent = isLight ? '☀️' : '🏅';
     }
 
-    function initTheme() {
+    
+    function preCheckAuth() {
+      // Check localStorage for existing Supabase session synchronously
+      // This updates the button before async initAuth completes
+      try {
+        const keys = Object.keys(localStorage);
+        const authKey = keys.find(function(k) {
+          return k.includes('auth-token') || k.includes('supabase');
+        });
+        if (authKey) {
+          const raw = localStorage.getItem(authKey);
+          if (raw) {
+            const parsed = JSON.parse(raw);
+            const user = parsed?.user || parsed?.data?.user;
+            if (user) {
+              const username = localStorage.getItem('mh_username') || 
+                user.email?.split('@')[0] || 'Account';
+              const qBtn = document.getElementById('authQuickBtn');
+              if (qBtn) {
+                qBtn.textContent = username;
+                qBtn.style.color = 'var(--green)';
+                qBtn.style.background = 'rgba(31,232,135,.1)';
+                qBtn.style.borderColor = 'rgba(31,232,135,.3)';
+                qBtn.onclick = function() { signOut(); };
+              }
+            }
+          }
+        }
+      } catch(e) {}
+    }
+
+function initTheme() {
       const saved = localStorage.getItem('mh_theme');
       let isLight = false;
       if (saved) {
@@ -5315,32 +5760,21 @@
       const el = document.getElementById('categoryRows');
       if (!el) return;
 
-      el.innerHTML = CATEGORY_ROWS.map((row, rowIdx) => {
-        const rowOffers = offers.filter(o => getOfferCategory(o) === row.cat);
+      el.innerHTML = CATEGORY_ROWS.map(function(row) {
+        const rowOffers = offers.filter(function(o) { return getOfferCategory(o) === row.cat; });
         if (rowOffers.length === 0) return '';
-        const scrollId = 'scroll-' + row.cat;
-        return `
-          <div class="category-row">
-            <div class="category-row-head">
-              <div class="category-row-title">${row.label}</div>
-              <div class="category-row-count">${rowOffers.length} offers</div>
-            </div>
-            <div class="row-wrapper">
-              <button class="row-arrow left" onclick="scrollRow('${scrollId}', -1)">&#8249;</button>
-              <div class="category-scroll" id="${scrollId}">
-                ${rowOffers.map(offer => `
-                  <div class="mini-card" onclick="openOffer(${JSON.stringify(offer).replace(/"/g,'&quot;')})" style="background:linear-gradient(135deg,var(--card) 60%,${row.color} 100%)">
-                    <div class="mini-card-reward">${getOfferReward(offer)}</div>
-                    <div class="mini-card-name">${getOfferName(offer)}</div>
-                    <div class="mini-card-desc">${getOfferDesc(offer).slice(0,55)}</div>
-                    <div class="mini-card-badge">${(offer.badge||'').slice(0,20)}</div>
-                  </div>
-                `).join('')}
-              </div>
-              <button class="row-arrow right" onclick="scrollRow('${scrollId}', 1)">&#8250;</button>
-            </div>
-          </div>
-        `;
+
+        let html = '<div class="cat-section">';
+        html += '<div class="cat-section-head">';
+        html += '<div class="cat-section-title">' + row.label + '</div>';
+        html += '<div class="cat-section-count">' + rowOffers.length + ' offers</div>';
+        html += '</div>';
+        html += '<div class="cat-section-list">';
+        rowOffers.forEach(function(offer) {
+          html += buildOfferCard(offer);
+        });
+        html += '</div></div>';
+        return html;
       }).join('');
     }
 
@@ -5449,30 +5883,39 @@
 
 
         function buildAccordionBody(offer, enrich) {
-      const steps = (enrich && enrich.steps && enrich.steps.length) 
-        ? enrich.steps.slice(0,3) 
-        : (offer.steps || []).slice(0,3);
+      const desc = offer.desc || offer.item || '';
       const totalSteps = (enrich && enrich.steps && enrich.steps.length)
         ? enrich.steps.length
         : (offer.steps || []).length;
-      const desc = offer.desc || offer.item || '';
-      
+
       let html = '';
+
+      // 1. Brief description
       if (desc) {
         html += '<div class="offer-card-desc">' + desc + '</div>';
       }
-      steps.forEach(function(s, i) {
-        html += '<div class="offer-card-step">';
-        html += '<div class="offer-card-step-num">' + (i+1) + '</div>';
-        html += '<div>' + s + '</div>';
+
+      // 2. Referral code if exists
+      if (offer.code) {
+        html += '<div class="offer-card-code">';
+        html += '<span class="offer-card-code-label">Referral code</span>';
+        html += '<div class="offer-card-code-row">';
+        html += '<span class="offer-card-code-val">' + offer.code + '</span>';
+        html += '<button class="offer-card-code-copy" data-code="' + offer.code + '" onclick="event.stopPropagation();copyCode(this.dataset.code)">Copy</button>';
         html += '</div>';
-      });
-      if (totalSteps > 3) {
-        html += '<div style="font-size:11px;color:var(--muted2);margin:6px 0 8px 26px">+ ' + (totalSteps-3) + ' more steps inside</div>';
+        html += '</div>';
       }
-      // Use data-id attribute and global handler to avoid escaping issues
+
+      // 3. Step count teaser
+      if (totalSteps > 0) {
+        html += '<div class="offer-card-steps-hint">';
+        html += '📋 ' + totalSteps + ' step guide inside';
+        html += '</div>';
+      }
+
+      // 4. View Full Guide button
       html += '<button class="offer-card-claim" style="margin-top:10px" data-open-id="' + offer.id + '" onclick="event.stopPropagation();openOfferById(this.dataset.openId)">';
-      html += 'View Full Guide & Claim →</button>';
+      html += '🎯 View Full Guide & Claim →</button>';
       return html;
     }
 
@@ -5488,6 +5931,115 @@
       if (offer) openPanel(offer);
     }
 
+
+    // ── PENDING PAYOUTS SYSTEM ──────────────────
+    function getPayoutDate(offerId) {
+      const claimed = getOfferClaimedDate(offerId);
+      if (!claimed) return null;
+      const offer = offers.find(o => o.id === offerId);
+      if (!offer || !offer.expectedDays) return null;
+      const payoutDate = new Date(claimed);
+      payoutDate.setDate(payoutDate.getDate() + offer.expectedDays);
+      return payoutDate;
+    }
+
+    function getDaysUntilPayout(offerId) {
+      const payoutDate = getPayoutDate(offerId);
+      if (!payoutDate) return null;
+      const today = new Date();
+      today.setHours(0,0,0,0);
+      payoutDate.setHours(0,0,0,0);
+      return Math.ceil((payoutDate - today) / (1000 * 60 * 60 * 24));
+    }
+
+    function checkPayoutReminders() {
+      if (!currentUser) return;
+      const today = new Date().toDateString();
+      const lastShown = localStorage.getItem('mh_payout_reminder_date');
+      if (lastShown === today) return; // Only show once per day
+
+      // Find offers paying out in ≤7 days
+      const urgent = offers.filter(o => {
+        if (state.offerStatus[o.id] !== 'pending' && !getOfferClaimedDate(o.id)) return false;
+        const days = getDaysUntilPayout(o.id);
+        return days !== null && days >= 0 && days <= 7;
+      }).sort((a, b) => getDaysUntilPayout(a.id) - getDaysUntilPayout(b.id));
+
+      if (urgent.length === 0) return;
+
+      const offer = urgent[0];
+      const days = getDaysUntilPayout(offer.id);
+      const daysText = days === 0 ? 'TODAY' : 'in ' + days + ' day' + (days === 1 ? '' : 's');
+      
+      // Show reminder toast
+      const reminder = document.createElement('div');
+      reminder.className = 'payout-reminder';
+      reminder.innerHTML = 
+        '<div style="font-size:24px">🏦</div>' +
+        '<div class="payout-reminder-text">' +
+          '<div class="payout-reminder-title">' + (offer.name || offer.store) + ' pays out ' + daysText + '!</div>' +
+          '<div class="payout-reminder-sub">Don\'t close the account — tap to track</div>' +
+        '</div>' +
+        '<button class="payout-reminder-close" onclick="this.parentElement.remove()">✕</button>';
+      
+      reminder.onclick = function(e) {
+        if (e.target.className !== 'payout-reminder-close') {
+          switchView('progress');
+          reminder.remove();
+        }
+      };
+
+      document.body.appendChild(reminder);
+      localStorage.setItem('mh_payout_reminder_date', today);
+      
+      // Auto dismiss after 8 seconds
+      setTimeout(() => { if (reminder.parentElement) reminder.remove(); }, 8000);
+    }
+
+
+    function checkPayoutReminders() {
+      if (!currentUser) return; // only for signed in users
+      const today = localStorage.getItem('mh_reminder_shown');
+      const todayStr = new Date().toDateString();
+      if (today === todayStr) return; // only once per day
+
+      // Find offers paying out in ≤7 days
+      const upcoming = offers.filter(o => {
+        if (state.offerStatus[o.id] !== 'pending' && !getOfferClaimedDate(o.id)) return false;
+        const days = getDaysUntilPayout(o.id);
+        return days !== null && days >= 0 && days <= 7;
+      }).sort((a, b) => getDaysUntilPayout(a.id) - getDaysUntilPayout(b.id));
+
+      if (upcoming.length === 0) return;
+
+      const offer = upcoming[0];
+      const days = getDaysUntilPayout(offer.id);
+      const name = offer.name || offer.store;
+      const reward = offer.reward || offer.deal_price || '';
+
+      let msg;
+      if (days === 0) {
+        msg = '🎉 ' + name + ' should pay out TODAY! Check your account.';
+      } else if (days === 1) {
+        msg = '⏰ ' + name + ' (' + reward + ') pays out tomorrow!';
+      } else {
+        msg = '📅 ' + name + ' (' + reward + ') pays out in ' + days + ' days';
+      }
+
+      // Show as a dismissible banner on home screen
+      const banner = document.getElementById('payoutReminderBanner');
+      if (banner) {
+        banner.querySelector('.reminder-text').textContent = msg;
+        banner.classList.remove('hidden');
+        localStorage.setItem('mh_reminder_shown', todayStr);
+      }
+    }
+
+    function dismissPayoutReminder() {
+      const banner = document.getElementById('payoutReminderBanner');
+      if (banner) banner.classList.add('hidden');
+    }
+
     function renderAll() {
       updateTopStats();
       updateDailyBox();
@@ -5499,6 +6051,7 @@
       if (offers.length > 0) renderNetflix();
       renderStacks();
       renderProfile();
+      renderPendingPayouts();
       renderLeaderboard();
       renderBadges();
       renderMissions();
@@ -5688,6 +6241,7 @@
       }
     }
 
+    preCheckAuth();
     (async () => {
       await loadOffersFromJSON();
       renderAll();
@@ -5696,6 +6250,8 @@
       checkAdminAccess();
       initBackButton();
       showOnboard();
+      setTimeout(checkPayoutReminders, 1500);
+      setTimeout(checkPayoutReminders, 2000);
     })();
   </script>
 
