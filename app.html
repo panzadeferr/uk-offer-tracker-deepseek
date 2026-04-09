@@ -321,7 +321,7 @@
     .blue{color:var(--blue)}
 
     .view{display:none}
-    .view.active{display:block;animation:fadeUp .18s ease;min-height:50vh;background:var(--bg);padding-bottom:80px}
+    .view.active{display:block;animation:fadeUp .18s ease;min-height:50vh;background:var(--bg);padding:12px 12px 80px}
     @keyframes fadeUp{
       from{opacity:0;transform:translateY(4px)}
       to{opacity:1;transform:translateY(0)}
@@ -6496,21 +6496,18 @@ function initTheme() {
       if (!title || !sub) return;
       if (currentUser) {
         const username = localStorage.getItem('mh_username') ||
-          currentUser.email?.split('@')[0] || 'Hunter';
-        const earned = parseFloat(localStorage.getItem('mh_total_saved') || '0');
-        const pending = Object.keys(state.offerStatus)
+          (currentUser.email ? currentUser.email.split('@')[0] : 'Hunter');
+        const pendingCount = Object.keys(state.offerStatus)
           .filter(function(id) { return state.offerStatus[id] === 'pending'; }).length;
         title.textContent = 'Welcome back, ' + username + ' 👋';
-        if (pending > 0) {
-          sub.textContent = pending + ' offer' + (pending > 1 ? 's' : '') + ' pending payout · Keep going!';
-        } else if (earned > 0) {
-          sub.textContent = '£' + earned.toFixed(0) + ' earned so far · Follow the Playbook for more';
+        if (pendingCount > 0) {
+          sub.textContent = pendingCount + ' offer' + (pendingCount > 1 ? 's' : '') + ' pending payout · Keep going!';
         } else {
-          sub.textContent = 'Ready to start? Follow the Playbook to make your first £500';
+          sub.textContent = 'Ready to earn more? Follow the Playbook ↓';
         }
       } else {
-        title.textContent = 'Make your first £500 this month';
-        sub.textContent = 'Bank switches · Cashback · Free shares · All in one place';
+        title.textContent = 'Make up to £360 this week →';
+        sub.textContent = 'Tap to see the 3 offers that get you there';
       }
     }
 
