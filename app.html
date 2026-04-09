@@ -2510,6 +2510,100 @@
     }
     .today-offers-body.open { max-height:2000px }
 
+    
+    /* ── TODAY'S MONEY PLAN ─────────────────────── */
+    .plan-collapsed-head {
+      display:flex;align-items:center;justify-content:space-between;
+      background:var(--card);border:1px solid var(--line);
+      border-radius:14px;padding:14px 16px;cursor:pointer;
+      transition:.15s;margin-bottom:0;
+    }
+    .plan-collapsed-head:active { opacity:.8 }
+    .plan-collapsed-label {
+      font-size:12px;font-weight:700;color:var(--muted2);
+      text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px;
+    }
+    .plan-collapsed-amount {
+      font-size:22px;font-weight:900;color:var(--green);
+      letter-spacing:-.5px;
+    }
+    .plan-collapsed-right {
+      display:flex;align-items:center;gap:6px;flex-shrink:0;
+    }
+    .plan-collapsed-hint {
+      font-size:11px;color:var(--muted2);
+    }
+    .plan-chevron {
+      font-size:14px;color:var(--muted2);
+      transition:transform .3s;display:inline-block;
+    }
+    .plan-body {
+      max-height:0;overflow:hidden;
+      transition:max-height .4s cubic-bezier(.16,1,.3,1);
+    }
+    .plan-body.open { max-height:1000px }
+
+    
+    /* ── XP / GAMIFICATION TABLE ────────────────── */
+    .xp-table {
+      background:var(--bg3);border-radius:10px;
+      overflow:hidden;margin-top:8px;
+    }
+    .xp-row {
+      display:flex;justify-content:space-between;
+      align-items:center;padding:9px 12px;
+      border-bottom:1px solid var(--line);
+      font-size:12px;color:var(--text);
+    }
+    .xp-row:last-child { border-bottom:none }
+    .xp-val {
+      font-weight:700;color:var(--green);
+      font-size:11px;text-align:right;
+    }
+    .guide-section-title {
+      font-size:12px;font-weight:800;color:var(--text);
+      text-transform:uppercase;letter-spacing:.06em;
+      margin-bottom:6px;
+    }
+    .guide-p {
+      font-size:13px;color:var(--muted);
+      line-height:1.6;margin-bottom:8px;
+    }
+
+    
+    /* ── FEATURED REVEAL BUTTON ─────────────────── */
+    .featured-reveal-btn {
+      display:flex;align-items:center;justify-content:space-between;
+      background:linear-gradient(135deg,var(--card),rgba(31,232,135,.06));
+      border:1px solid rgba(31,232,135,.25);
+      border-radius:14px;padding:16px;cursor:pointer;
+      margin-bottom:0;transition:.15s;
+    }
+    .featured-reveal-btn:active { transform:scale(.99) }
+    .featured-reveal-label {
+      font-size:12px;font-weight:700;color:var(--muted2);
+      text-transform:uppercase;letter-spacing:.06em;
+      margin-bottom:4px;
+    }
+    .featured-reveal-amount {
+      font-size:22px;font-weight:900;color:var(--green);
+      letter-spacing:-.5px;
+    }
+    .featured-reveal-right {
+      display:flex;flex-direction:column;
+      align-items:flex-end;gap:4px;flex-shrink:0;
+    }
+    .featured-reveal-hint {
+      font-size:12px;font-weight:600;color:var(--muted2);
+      background:var(--bg3);border:1px solid var(--line);
+      padding:4px 10px;border-radius:20px;
+    }
+    .featured-reveal-chevron {
+      font-size:14px;color:var(--muted2);
+      transition:transform .3s;display:block;
+      text-align:right;
+    }
+
     </style>
 </head>
 <body>
@@ -2637,38 +2731,34 @@
       </div>
 
       <section class="section">
-        <div class="section-head">
-          <h2 class="section-title">Today's Money Plan</h2>
-          <div class="section-note">Start here</div>
-        </div>
-        <div class="plan-card card">
-          <div class="plan-top">
-            <div>
-              <div class="plan-kicker">You can make today</div>
-              <div class="plan-amount" id="planAmount">£0</div>
-            </div>
-            <p class="plan-copy">Tap a task to jump to the right offer immediately.</p>
+        <div class="plan-collapsed-head" onclick="toggleMoneyPlan()" id="planHead">
+          <div class="plan-collapsed-left">
+            <div class="plan-collapsed-label">💰 Today's Money Plan</div>
+            <div class="plan-collapsed-amount" id="planAmount">£0 available</div>
           </div>
+          <div class="plan-collapsed-right">
+            <span class="plan-collapsed-hint">Tap to see offers</span>
+            <span class="plan-chevron" id="planChevron">▾</span>
+          </div>
+        </div>
+        <div class="plan-body" id="planBody">
           <div class="tasks" id="todayTasks"></div>
         </div>
       </section>
 
       
 
-      <section class="section">
-        <div class="section-head">
-          <h2 class="section-title">Best Offers to Start</h2>
-          <div class="section-note">Highest value</div>
-        </div>
-        <div class="offers-grid" id="bestOffers"></div>
-      </section>
+      
 
       <section class="section">
-        <div class="section-head today-offers-head" onclick="toggleTodayOffers()" style="cursor:pointer">
-          <h2 class="section-title">💰 Today's Best Offers</h2>
-          <div style="display:flex;align-items:center;gap:6px">
-            <span id="todayDayLabel" style="font-size:11px;color:var(--muted2)"></span>
-            <span id="todayChevron" style="color:var(--muted2);font-size:12px;transition:.3s">▾</span>
+        <div class="featured-reveal-btn" onclick="toggleTodayOffers()" id="featuredRevealBtn">
+          <div class="featured-reveal-left">
+            <div class="featured-reveal-label">⭐ Featured Offers</div>
+            <div class="featured-reveal-amount" id="featuredTotalAmount">Up to £680+ available</div>
+          </div>
+          <div class="featured-reveal-right">
+            <span class="featured-reveal-hint">Tap to see</span>
+            <span id="todayChevron" class="featured-reveal-chevron">▾</span>
           </div>
         </div>
         <div id="homeOffersPreview" class="today-offers-body"></div>
@@ -2811,6 +2901,69 @@
         </div>
 
       </div>
+
+      <!-- GAMIFICATION GUIDE -->
+      <div class="guide-list" style="margin-top:8px">
+
+        <div class="guide-card card">
+          <div class="guide-head" onclick="toggleGuide(this)">
+            <span class="guide-icon">🎮</span>
+            <div class="guide-meta">
+              <div class="guide-title">How the Rewards System Works</div>
+              <div class="guide-sub">XP · Badges · Streaks · Missions</div>
+            </div>
+            <span class="guide-chevron">▾</span>
+          </div>
+          <div class="guide-body">
+
+            <div class="guide-section-title">⚡ What is XP?</div>
+            <p class="guide-p">XP (Experience Points) tracks your activity inside Money Hunters. The more offers you explore and complete, the more XP you earn. XP is purely for tracking your progress — it does not affect your earnings.</p>
+            <div class="xp-table">
+              <div class="xp-row"><span>📋 Claim an offer</span><span class="xp-val">+50 XP</span></div>
+              <div class="xp-row"><span>✅ Complete an offer</span><span class="xp-val">+100 XP</span></div>
+              <div class="xp-row"><span>🔥 Daily check-in</span><span class="xp-val">+10 XP</span></div>
+              <div class="xp-row"><span>📅 7-day streak</span><span class="xp-val">+50 XP</span></div>
+              <div class="xp-row"><span>🏆 Complete a mission</span><span class="xp-val">+25 XP</span></div>
+            </div>
+
+            <div class="guide-section-title" style="margin-top:16px">🏅 Badges</div>
+            <p class="guide-p">Badges are earned by hitting milestones. They are displayed on your profile and show off your hunting experience. Some badges are rare — only the most active hunters will unlock them.</p>
+            <div class="xp-table">
+              <div class="xp-row"><span>🥇 First Claim</span><span class="xp-val">Claim your 1st offer</span></div>
+              <div class="xp-row"><span>🔥 On Fire</span><span class="xp-val">7-day streak</span></div>
+              <div class="xp-row"><span>💰 Money Maker</span><span class="xp-val">£100 earned</span></div>
+              <div class="xp-row"><span>🏦 Bank Buster</span><span class="xp-val">Complete 3 bank switches</span></div>
+              <div class="xp-row"><span>📈 Investor</span><span class="xp-val">Complete 3 invest offers</span></div>
+              <div class="xp-row"><span>⚡ Speed Hunter</span><span class="xp-val">5 offers in one week</span></div>
+              <div class="xp-row"><span>🎯 Sharp Shooter</span><span class="xp-val">10 offers completed</span></div>
+              <div class="xp-row"><span>👑 Elite Hunter</span><span class="xp-val">£500 earned total</span></div>
+            </div>
+
+            <div class="guide-section-title" style="margin-top:16px">🔥 Streaks</div>
+            <p class="guide-p">A streak is the number of consecutive days you log in and claim your daily XP. Keep your streak alive to unlock bonus XP and exclusive badges. Miss a day and your streak resets to zero.</p>
+            <div class="xp-table">
+              <div class="xp-row"><span>7-day streak</span><span class="xp-val">🔥 On Fire badge</span></div>
+              <div class="xp-row"><span>14-day streak</span><span class="xp-val">💎 Dedicated badge</span></div>
+              <div class="xp-row"><span>30-day streak</span><span class="xp-val">👑 Legendary badge</span></div>
+            </div>
+
+            <div class="guide-section-title" style="margin-top:16px">🎯 Weekly Missions</div>
+            <p class="guide-p">Every week you get a fresh set of missions to complete. Missions give you a target to aim for and bonus XP when completed. Examples:</p>
+            <div class="xp-table">
+              <div class="xp-row"><span>Claim 3 offers this week</span><span class="xp-val">+75 XP</span></div>
+              <div class="xp-row"><span>Complete a bank switch</span><span class="xp-val">+100 XP</span></div>
+              <div class="xp-row"><span>Log a pending payout</span><span class="xp-val">+25 XP</span></div>
+              <div class="xp-row"><span>Maintain a 7-day streak</span><span class="xp-val">+50 XP</span></div>
+            </div>
+
+            <div class="guide-section-title" style="margin-top:16px">🎟️ Raffle (Coming Soon)</div>
+            <p class="guide-p">Complete real offers to earn raffle tickets. The more offers you complete, the more tickets you get. When we reach 25 active hunters, we will draw a winner for a cash prize. Watch this space!</p>
+
+          </div>
+        </div>
+
+      </div>
+
       <div class="playbook-tip">
         <strong>💡 New deals added daily.</strong> Join our Telegram for instant alerts when new bank switches or invest bonuses go live.
       </div>
@@ -3844,7 +3997,7 @@
       const catLabel = catLabels[cat] || offer.badge || '';
 
       return `
-        <article class="offer-card ${cardClass}" data-offer-id="${offer.id}">
+        <article class="offer-card ${cardClass}">
           <div class="offer-card-top" onclick="toggleOfferCard(this)" data-offer-id="${offer.id}" style="cursor:pointer">
             <div style="min-width:0;flex:1">
               <div class="offer-cat-label">${catLabel}</div>
@@ -3923,7 +4076,7 @@
       const allDone = tasks.every(o => getOfferStatus(o.id) !== "none");
 
       if (allDone) {
-        ui.planAmount.textContent = "All done!";
+        ui.planAmount.textContent = "All done today! ✓";
         ui.todayTasks.innerHTML = `
           <div class="empty" style="text-align:center;padding:18px">
             <div style="font-size:28px;margin-bottom:8px">🎉</div>
@@ -3934,7 +4087,7 @@
       }
 
       const total = tasks.reduce((sum, o) => sum + (o.amount || 0), 0);
-      ui.planAmount.textContent = total ? `£${Math.min(total, 500)}+` : "£0";
+      ui.planAmount.textContent = total ? '£' + Math.min(total, 500) + '+ available' : 'See today\'s offers';
 
       ui.todayTasks.innerHTML = `
         <div style="padding:8px 10px;margin-bottom:8px;background:rgba(255,207,90,.08);border-radius:10px;border:1px solid rgba(255,207,90,.2)">
@@ -3955,55 +4108,39 @@
     }
 
     function renderBestOffers() {
-      if (!ui.bestOffers) return;
-      // Featured referral offers - fixed order
-      const featuredIds = ['lloyds-bank','chase-uk','freetrade','amex-business-platinum','robinhood-uk'];
-      const featured = featuredIds.map(function(id) {
-        return offers.find(function(o) { return o.id === id; });
-      }).filter(Boolean);
-      // Fallback to highest value if not found
-      if (featured.length === 0) {
-        const best = [...offers].filter(function(o) { return o.amount > 0; })
-          .sort(function(a,b) { return b.amount - a.amount; }).slice(0,4);
-        ui.bestOffers.innerHTML = best.map(buildOfferCard).join('');
-        return;
-      }
-      ui.bestOffers.innerHTML = featured.map(buildOfferCard).join('');
+      // Now merged into renderHomePreview - no separate section
     }
 
     function renderHomePreview() {
       if (!ui.homeOffersPreview) return;
-      // Daily 5 offers - rotate by day of week focusing on different categories
+      // Always show featured referral offers first (your personal referrals)
+      const featuredIds = ['lloyds-bank','chase-uk','freetrade','amex-business-platinum','robinhood-uk'];
+      const featured = featuredIds.map(function(id) {
+        return offers.find(function(o) { return o.id === id; });
+      }).filter(Boolean);
+      // Fill remaining slots with daily rotating offers by category
       const dayCategories = {
-        0: ['bank','invest'],      // Sunday
-        1: ['bank','cashback'],    // Monday
-        2: ['invest','earn'],      // Tuesday
-        3: ['bank','utilities'],   // Wednesday
-        4: ['invest','cashback'],  // Thursday
-        5: ['bank','gift'],        // Friday
-        6: ['cashback','mobile']   // Saturday
+        0: 'invest', 1: 'bank', 2: 'cashback',
+        3: 'utilities', 4: 'invest', 5: 'earn', 6: 'gift'
       };
       const today = new Date().getDay();
-      const cats = dayCategories[today] || ['bank','invest'];
-      let daily = [];
-      cats.forEach(function(cat) {
-        const catOffers = offers.filter(function(o) {
-          return getOfferCategory(o) === cat && getOfferStatus(o.id) !== 'completed';
-        }).slice(0, 3);
-        daily = daily.concat(catOffers);
-      });
-      // Deduplicate and limit to 5
-      const seen = new Set();
-      daily = daily.filter(function(o) {
-        if (seen.has(o.id)) return false;
-        seen.add(o.id);
-        return true;
-      }).slice(0, 5);
-      if (daily.length === 0) daily = offers.slice(0,5);
+      const bonusCat = dayCategories[today];
+      const bonus = offers.filter(function(o) {
+        return getOfferCategory(o) === bonusCat &&
+          !featured.find(function(f) { return f.id === o.id; });
+      }).slice(0, 2);
+      const daily = featured.concat(bonus).slice(0, 7);
       const dayNames = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
       const dayLabel = document.getElementById('todayDayLabel');
       if (dayLabel) dayLabel.textContent = dayNames[today];
       ui.homeOffersPreview.innerHTML = daily.map(buildOfferCard).join('');
+      // Update total amount on reveal button
+      const total = daily.reduce(function(sum, o) {
+        const amt = parseFloat(String(o.reward || o.deal_price || '0').replace(/[^0-9.]/g,'')) || 0;
+        return sum + amt;
+      }, 0);
+      const amtEl = document.getElementById('featuredTotalAmount');
+      if (amtEl && total > 0) amtEl.textContent = 'Up to £' + Math.round(total) + '+ available';
     }
 
     function renderOffers() {
@@ -5757,7 +5894,7 @@ function initTheme() {
       }
 
       el.innerHTML = featured.map(offer => `
-        <div class="featured-card" data-offer-id="${offer.id}" onclick="openOfferById(this.dataset.offerId)">
+        <div class="featured-card" data-fid="${offer.id}" onclick="openOfferById(this.dataset.fid)">
           <div class="featured-card-badge">${offer.badge || '⭐ TOP PICK'}</div>
           <div class="featured-card-reward">${getOfferReward(offer)}</div>
           <div class="featured-card-name">${getOfferName(offer)}</div>
@@ -5972,7 +6109,7 @@ function initTheme() {
       const urgent = offers.filter(o => {
         if (state.offerStatus[o.id] !== 'pending' && !getOfferClaimedDate(o.id)) return false;
         const days = getDaysUntilPayout(o.id);
-        return days !== null && days >= 0 && days <= 7;
+        return days !== null && days >= 0;
       }).sort((a, b) => getDaysUntilPayout(a.id) - getDaysUntilPayout(b.id));
 
       if (urgent.length === 0) return;
@@ -6008,7 +6145,6 @@ function initTheme() {
 
 
     function checkPayoutReminders() {
-      if (!currentUser) return; // only for signed in users
       const today = localStorage.getItem('mh_reminder_shown');
       const todayStr = new Date().toDateString();
       if (today === todayStr) return; // only once per day
@@ -6017,7 +6153,7 @@ function initTheme() {
       const upcoming = offers.filter(o => {
         if (state.offerStatus[o.id] !== 'pending' && !getOfferClaimedDate(o.id)) return false;
         const days = getDaysUntilPayout(o.id);
-        return days !== null && days >= 0 && days <= 7;
+        return days !== null && days >= 0;
       }).sort((a, b) => getDaysUntilPayout(a.id) - getDaysUntilPayout(b.id));
 
       if (upcoming.length === 0) return;
@@ -6054,6 +6190,18 @@ function initTheme() {
     function toggleTodayOffers() {
       const body = document.getElementById('homeOffersPreview');
       const chev = document.getElementById('todayChevron');
+      const btn = document.getElementById('featuredRevealBtn');
+      if (!body) return;
+      const isOpen = body.classList.contains('open');
+      body.classList.toggle('open', !isOpen);
+      if (chev) chev.style.transform = isOpen ? '' : 'rotate(180deg)';
+      if (btn) btn.style.borderColor = isOpen ? 'rgba(31,232,135,.25)' : 'rgba(31,232,135,.5)';
+    }
+
+
+    function toggleMoneyPlan() {
+      const body = document.getElementById('planBody');
+      const chev = document.getElementById('planChevron');
       if (!body) return;
       const isOpen = body.classList.contains('open');
       body.classList.toggle('open', !isOpen);
@@ -6093,12 +6241,7 @@ function initTheme() {
         return;
       }
 
-      const offerButton = event.target.closest("[data-offer-id]");
-      if (offerButton) {
-        const offer = offers.find(item => item.id === offerButton.dataset.offerId);
-        if (offer) openPanel(offer);
-        return;
-      }
+      // data-offer-id handled by individual card onclick handlers
 
       const saveButton = event.target.closest("[data-save-id]");
       if (saveButton) {
