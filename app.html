@@ -2503,6 +2503,13 @@
     }
     .xp-explain-row span:first-child { font-size:14px }
 
+    
+    .today-offers-body {
+      max-height:0;overflow:hidden;
+      transition:max-height .4s cubic-bezier(.16,1,.3,1);
+    }
+    .today-offers-body.open { max-height:2000px }
+
     </style>
 </head>
 <body>
@@ -2657,11 +2664,14 @@
       </section>
 
       <section class="section">
-        <div class="section-head">
-          <h2 class="section-title">Today's Best Offers</h2>
-          <div class="section-note" id="todayDayLabel"></div>
+        <div class="section-head today-offers-head" onclick="toggleTodayOffers()" style="cursor:pointer">
+          <h2 class="section-title">💰 Today's Best Offers</h2>
+          <div style="display:flex;align-items:center;gap:6px">
+            <span id="todayDayLabel" style="font-size:11px;color:var(--muted2)"></span>
+            <span id="todayChevron" style="color:var(--muted2);font-size:12px;transition:.3s">▾</span>
+          </div>
         </div>
-        <div id="homeOffersPreview"></div>
+        <div id="homeOffersPreview" class="today-offers-body"></div>
       </section>
     </section>
 
@@ -5747,7 +5757,7 @@ function initTheme() {
       }
 
       el.innerHTML = featured.map(offer => `
-        <div class="featured-card" onclick="openOffer(${JSON.stringify(offer).replace(/"/g,'&quot;')})">
+        <div class="featured-card" data-offer-id="${offer.id}" onclick="openOfferById(this.dataset.offerId)">
           <div class="featured-card-badge">${offer.badge || '⭐ TOP PICK'}</div>
           <div class="featured-card-reward">${getOfferReward(offer)}</div>
           <div class="featured-card-name">${getOfferName(offer)}</div>
@@ -6038,6 +6048,16 @@ function initTheme() {
     function dismissPayoutReminder() {
       const banner = document.getElementById('payoutReminderBanner');
       if (banner) banner.classList.add('hidden');
+    }
+
+
+    function toggleTodayOffers() {
+      const body = document.getElementById('homeOffersPreview');
+      const chev = document.getElementById('todayChevron');
+      if (!body) return;
+      const isOpen = body.classList.contains('open');
+      body.classList.toggle('open', !isOpen);
+      if (chev) chev.style.transform = isOpen ? '' : 'rotate(180deg)';
     }
 
     function renderAll() {
