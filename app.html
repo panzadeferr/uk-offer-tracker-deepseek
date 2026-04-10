@@ -317,20 +317,20 @@
     .blue{color:var(--blue)}
 
     .view{display:none}
-    .view.active{display:block;animation:fadeUp .18s ease;min-height:50vh}
+    .view.active{display:block;animation:fadeUp .18s ease;min-height:50vh;background:var(--bg);padding:12px 12px 90px}
     @keyframes fadeUp{
       from{opacity:0;transform:translateY(4px)}
       to{opacity:1;transform:translateY(0)}
     }
 
     .card{
-      background:linear-gradient(180deg, rgba(255,255,255,.018), rgba(255,255,255,.008));
+      background:var(--card);
       border:1px solid var(--line);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
     }
 
-    .section{margin-top:9px}
+    .section{margin-top:0;margin-bottom:16px}
 
     .section-head{
       display:flex;
@@ -581,7 +581,6 @@
 
     .offer-card{
       position:relative;
-      overflow:hidden;
       background:var(--card);
       border:1px solid var(--line);
       border-radius:12px;
@@ -2396,7 +2395,7 @@
     .offer-card {
       background:var(--card);border:1px solid var(--line);
       border-radius:14px;margin-bottom:8px;
-      overflow:hidden;transition:.15s;
+      transition:.15s;
     }
     .offer-card.completed { border-color:rgba(31,232,135,.3) }
     .offer-card.pending { border-color:rgba(255,207,90,.3) }
@@ -2622,11 +2621,11 @@
       flex:1;text-align:center;
     }
     .gaming-breakdown-val {
-      font-size:15px;font-weight:800;color:var(--text);
+      font-size:15px;font-weight:800;color:#f6f8fb;
       margin-bottom:3px;
     }
     .gaming-breakdown-label {
-      font-size:10px;color:rgba(255,255,255,.4);
+      font-size:10px;color:rgba(246,248,251,.5);
     }
     .gaming-breakdown-divider {
       width:1px;height:30px;background:rgba(255,255,255,.08);
@@ -2776,6 +2775,13 @@
       -webkit-tap-highlight-color:transparent;
     }
     .offer-card-top:active { opacity:.8 }
+
+    #view-progress .section { margin-bottom:16px }
+    #pendingPayoutsSection .payout-empty {
+      background:var(--card);border:1px solid var(--line);
+      border-radius:12px;padding:16px;text-align:center;
+      font-size:13px;color:var(--muted);
+    }
 </style>
 </head>
 <body>
@@ -2851,7 +2857,7 @@
           <div class="user-badge-dot"></div>
           <span id="userBadgeName">Account</span>
         </div>
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" onclick="toggleTheme()" id="themeIcon">☀️</button>
+        <button class="theme-toggle" id="themeIcon" aria-label="Toggle theme" onclick="toggleTheme()">☀️</button>
           <button class="auth-quick-btn" id="authQuickBtn" onclick="showAuthModal()" style="height:32px;padding:0 12px;border-radius:8px;background:var(--bg3);border:1px solid var(--line);color:var(--muted);font-size:12px;font-weight:600;cursor:pointer;font-family:var(--fb)">Sign in</button>
           
           
@@ -4067,21 +4073,21 @@
     }
 
     function updateTopStats() {
-      ui.statSaved.textContent = formatMoney(getEarnedTotal());
-      ui.statPending.textContent = formatMoney(getPendingTotal());
-      ui.statXp.textContent = String(state.xp);
-      ui.statStreak.textContent = `${state.streak}🔥`;
+      uiSet('statSaved', formatMoney(getEarnedTotal()));
+      uiSet('statPending', formatMoney(getPendingTotal()));
+      uiSet('statXp', String(state.xp));
+      uiSet('statStreak', state.streak + '🔥');
     }
 
     function updateDailyBox() {
       const today = todayKey();
       const claimedToday = state.lastDaily === today;
-      ui.dailyStatus.textContent = claimedToday ? "Claimed" : "Ready";
-      ui.dailyCopy.textContent = claimedToday ? "Come back tomorrow to keep your streak alive." : "Quick XP boost for checking in today.";
-      ui.dailyEmoji.textContent = claimedToday ? "✅" : "🎵";
+      uiSet('dailyStatus', claimedToday ? 'Claimed' : 'Ready');
+      uiSet('dailyCopy', claimedToday ? 'Come back tomorrow to keep your streak alive.' : 'Quick XP boost for checking in today.');
+      uiSet('dailyEmoji', claimedToday ? '✅' : '🎵');
       ui.dailyBtn.disabled = claimedToday;
       ui.dailyBtn.className = claimedToday ? "secondary-btn" : "primary-btn";
-      ui.dailyBtn.textContent = claimedToday ? "Daily XP Claimed" : "Claim Daily XP";
+      uiSet('dailyBtn', claimedToday ? 'Daily XP Claimed' : 'Claim Daily XP');
 
       ui.streakRow.innerHTML = "";
       for (let i = 0; i < 7; i += 1) {
@@ -4156,7 +4162,7 @@
 
     function getOfferProgress(offer) {
       const done = getCompletedStepsCount(offer.id);
-      const total = offer.steps.length || 0;
+      const total = (offer.steps && offer.steps.length) ? offer.steps.length : 0;
       const pct = total ? Math.round((done / total) * 100) : 0;
       return { done, total, pct };
     }
@@ -4215,7 +4221,7 @@
 
       return `
         <article class="offer-card ${cardClass}">
-          <div class="offer-card-top" onclick="toggleOfferCard(this)" data-offer-id="${offer.id}">
+          <div class="offer-card-top" data-offer-id="${offer.id}" style="cursor:pointer">
             <div style="min-width:0;flex:1">
               <div class="offer-cat-label">${catLabel}</div>
               <h3 class="offer-name" style="margin:2px 0 3px">${offer.name || offer.store} <span class="offer-card-chevron" id="chev_${offer.id}">▾</span></h3>
@@ -4293,7 +4299,7 @@
       const allDone = tasks.every(o => getOfferStatus(o.id) !== "none");
 
       if (allDone) {
-        ui.planAmount.textContent = "All done!";
+        uiSet('planAmount', 'All done!');
         ui.todayTasks.innerHTML = `
           <div class="empty" style="text-align:center;padding:18px">
             <div style="font-size:28px;margin-bottom:8px">🎉</div>
@@ -4304,7 +4310,7 @@
       }
 
       const total = tasks.reduce((sum, o) => sum + (o.amount || 0), 0);
-      ui.planAmount.textContent = total ? `£${Math.min(total, 500)}+` : "£0";
+      uiSet('planAmount', total ? '£' + Math.min(total, 500) + '+' : '£0');
 
       ui.todayTasks.innerHTML = `
         <div style="padding:8px 10px;margin-bottom:8px;background:rgba(255,207,90,.08);border-radius:10px;border:1px solid rgba(255,207,90,.2)">
@@ -4381,7 +4387,7 @@
     }
 
     function renderBattle() {
-      ui.battleCount.textContent = `${battleData.length} entries`;
+      if (ui.battleCount) ui.battleCount.textContent = `${battleData.length} entries`;
       ui.battleTable.innerHTML = battleData.map((item, index) => `
         <div class="battle-row ${item.featured ? 'featured' : ''}" data-battle-index="${index}">
           <div class="battle-icon">${item.icon}</div>
@@ -4396,17 +4402,17 @@
 
     function openBattleDetail(item) {
       activeBattleUrl = item.url;
-      ui.drawerTitle.textContent = item.name;
-      ui.drawerSource.textContent = `Via ${item.source}`;
-      ui.drawerRate.textContent = item.rate;
-      ui.drawerTip.textContent = item.tip;
+      uiSet('drawerTitle', item.name);
+      uiSet('drawerSource', 'Via ' + item.source);
+      uiSet('drawerRate', item.rate);
+      uiSet('drawerTip', item.tip);
       ui.drawerSteps.innerHTML = item.steps.map((step, index) => `
         <div class="drawer-step">
           <div class="drawer-step-num">${index + 1}</div>
           <div>${step}</div>
         </div>
       `).join("");
-      ui.drawerTotal.textContent = item.total;
+      uiSet('drawerTotal', item.total);
       ui.battleDrawer.classList.add("active");
     }
 
@@ -4525,19 +4531,19 @@
       const span = current.next - current.min;
       const progress = span > 0 ? Math.min(100, ((state.xp - current.min) / span) * 100) : 100;
 
-      ui.profileLevel.textContent = `Level ${current.level}`;
-      ui.profileXp.textContent = `${state.xp} XP`;
+      uiSet('profileLevel', 'Level ' + current.level);
+      uiSet('profileXp', state.xp + ' XP');
       ui.xpBar.style.width = `${progress}%`;
-      ui.xpCopy.textContent = `${state.xp - current.min} / ${current.next - current.min} XP to next level`;
+      uiSet('xpCopy', (state.xp - current.min) + ' / ' + (current.next - current.min) + ' XP to next level');
 
-      ui.profileClaims.textContent = String(state.claimed);
-      ui.profileCompleted.textContent = String(getCompletedCount());
-      ui.profilePendingCount.textContent = String(getPendingCount());
-      ui.profileStreak.textContent = `${state.streak}🔥`;
+      uiSet('profileClaims', String(state.claimed));
+      uiSet('profileCompleted', String(getCompletedCount()));
+      if (ui.profilePendingCount) ui.profilePendingCount.textContent = String(getPendingCount());
+      if (ui.profileStreak) ui.profileStreak.textContent = `${state.streak}🔥`;
 
-      ui.earnedTotal.textContent = formatMoney(getEarnedTotal());
-      ui.pendingTotal.textContent = formatMoney(getPendingTotal());
-      ui.activeTotal.textContent = String(getActiveOffersCount());
+      if (ui.earnedTotal) ui.earnedTotal.textContent = formatMoney(getEarnedTotal());
+      if (ui.pendingTotal) ui.pendingTotal.textContent = formatMoney(getPendingTotal());
+      if (ui.activeTotal) ui.activeTotal.textContent = String(getActiveOffersCount());
 
       const milestones = [
         { name:"First £50 earned", amount:50, value:getEarnedTotal() },
@@ -4614,6 +4620,8 @@
       document.getElementById(`view-${view}`)?.classList.add("active");
       document.querySelector(`.nav-btn[data-view="${view}"]`)?.classList.add("active");
       window.scrollTo({ top: 0, behavior: "smooth" });
+      if (view === 'offers') renderNetflix();
+      if (view === 'progress') { renderPendingPayouts(); renderBadges(); renderMissions(); }
     }
 
     function shareApp() {
@@ -4842,6 +4850,11 @@
       }
     };
 
+    // Null-safe ui setter
+    function uiSet(key, val) {
+      if (ui[key]) ui[key].textContent = val;
+    }
+
     function getEnrichment(offerId) {
       return offerEnrichment[offerId] || { tips:[], warnings:[], steps:[] };
     }
@@ -4860,7 +4873,7 @@
       const isBank = offer.badge && offer.badge.includes("BANK") || offer.badge && offer.badge.includes("SWITCH") || (offer.expectedDays||0) > 14;
       const saved = state.savingsMap[offer.id] || 0;
 
-      document.getElementById("panelTitle").textContent = offer.name;
+      const panelTitleEl = document.getElementById("panelTitle"); if(panelTitleEl) panelTitleEl.textContent = offer.name;
 
       let html = "";
 
@@ -5916,10 +5929,10 @@ function initTheme() {
 
     // ── RENDER MISSIONS ────────────────────────────
     function renderMissions() {
-      const el = document.getElementById('missionsSection');
+      const el = document.getElementById('missionsList');
       if (!el) return;
       const missions = getMissions();
-      el.innerHTML = '<h2 class="section-title" style="margin-bottom:12px">📋 Weekly Missions</h2>' +
+      el.innerHTML =
         missions.map(m => {
           const current = Math.min(m.check(), m.target);
           const pct = Math.round((current / m.target) * 100);
@@ -6252,25 +6265,24 @@ function initTheme() {
 
 
     function toggleOfferCard(el) {
-      // Walk up to find the element with data-offer-id
-      var target = el;
-      while (target && !target.dataset.offerId) {
-        target = target.parentElement;
+      var offerId = el.dataset.offerId;
+      if (!offerId) {
+        // walk up as fallback
+        var t = el;
+        while (t && !t.dataset.offerId) t = t.parentElement;
+        if (!t) return;
+        offerId = t.dataset.offerId;
       }
-      if (!target) return;
-      var offerId = target.dataset.offerId;
       var body = document.getElementById('acc_' + offerId);
       var chev = document.getElementById('chev_' + offerId);
       if (!body) return;
       var isOpen = body.classList.contains('open');
-      // Close all others
       document.querySelectorAll('.offer-card-body.open').forEach(function(b) {
         b.classList.remove('open');
       });
       document.querySelectorAll('.offer-card-chevron.open').forEach(function(c) {
         c.classList.remove('open');
       });
-      // Toggle this one
       if (!isOpen) {
         body.classList.add('open');
         if (chev) chev.classList.add('open');
@@ -6319,14 +6331,6 @@ function initTheme() {
       const offer = offers.find(function(o) { return o.id === id; });
       if (offer) openPanel(offer);
     }
-
-
-
-    function openOfferById(id) {
-      const offer = offers.find(function(o) { return o.id === id; });
-      if (offer) openPanel(offer);
-    }
-
 
     // ── PENDING PAYOUTS SYSTEM ──────────────────
     function getPayoutDate(offerId) {
@@ -6603,7 +6607,11 @@ function initTheme() {
         return;
       }
 
-      // offer cards use toggleOfferCard directly
+      const offerTop = event.target.closest("[data-offer-id]");
+      if (offerTop) {
+        toggleOfferCard(offerTop);
+        return;
+      }
 
       const saveButton = event.target.closest("[data-save-id]");
       if (saveButton) {
@@ -6619,7 +6627,8 @@ function initTheme() {
 
       const taskButton = event.target.closest("[data-plan-offer]");
       if (taskButton) {
-        const offer = offers.find(item => item.id === taskButton.dataset.planOffer);
+        const offerId = taskButton.dataset.planOffer;
+        const offer = offers.find(o => o.id === offerId);
         if (offer) openPanel(offer);
         return;
       }
