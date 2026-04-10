@@ -2148,11 +2148,11 @@
     .onboard-emoji{font-size:48px;text-align:center;display:block;margin-bottom:12px}
     .onboard-title{font-size:22px;font-weight:800;color:var(--text);text-align:center;margin-bottom:8px}
     .onboard-sub{font-size:14px;color:var(--muted2);text-align:center;line-height:1.6;margin-bottom:20px}
-    .onboard-offer-row{display:flex;align-items:center;gap:12px;background:var(--bg3);border-radius:12px;padding:12px 14px;cursor:pointer;border:1px solid var(--line);transition:.15s;margin-bottom:8px}
+    .onboard-offer-row{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.08);border-radius:12px;padding:12px 14px;cursor:pointer;border:1px solid rgba(255,255,255,.12);transition:.15s;margin-bottom:8px}
     .onboard-offer-row:active{transform:scale(.98)}
-    .onboard-offer-reward{font-size:20px;font-weight:900;color:var(--green);min-width:52px}
-    .onboard-offer-name{font-size:13px;font-weight:700;color:var(--text)}
-    .onboard-offer-meta{font-size:11px;color:var(--muted2);margin-top:2px}
+    .onboard-offer-reward{font-size:20px;font-weight:900;color:#1fe887;min-width:52px}
+    .onboard-offer-name{font-size:13px;font-weight:700;color:#fff}
+    .onboard-offer-meta{font-size:11px;color:rgba(255,255,255,.5);margin-top:2px}
     .onboard-btn{width:100%;padding:16px;background:var(--green);color:#000;border:none;border-radius:12px;font-size:15px;font-weight:800;cursor:pointer;font-family:var(--fb);margin-bottom:8px}
     .onboard-btn.secondary{background:transparent;color:var(--muted2);font-size:13px;padding:8px;border:none;width:100%;cursor:pointer;font-family:var(--fb)}
     .onboard-dots{display:flex;justify-content:center;gap:6px;margin-bottom:20px}
@@ -2594,22 +2594,24 @@
     .home-playbook-cta-title { font-size:15px;font-weight:800;color:#000;margin-bottom:3px }
     .home-playbook-cta-sub { font-size:12px;color:rgba(0,0,0,.6) }
     .home-playbook-arrow { font-size:22px;color:#000;font-weight:700;flex-shrink:0 }
-    .plan-collapsed-head { display:flex;align-items:center;justify-content:space-between;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;cursor:pointer;transition:.15s }
+    .plan-collapsed-head { display:flex;align-items:center;justify-content:space-between;background:var(--card);border:2px solid var(--line);border-radius:14px;padding:14px 16px;cursor:pointer;transition:.15s }
     .plan-collapsed-head:active { opacity:.8 }
     .plan-collapsed-label { font-size:12px;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px }
     .plan-collapsed-amount { font-size:22px;font-weight:900;color:var(--green);letter-spacing:-.5px }
     .plan-collapsed-right { display:flex;align-items:center;gap:6px;flex-shrink:0 }
-    .plan-collapsed-hint { font-size:11px;color:var(--muted2) }
-    .plan-chevron { font-size:14px;color:var(--muted2);transition:transform .3s;display:inline-block }
+    .plan-collapsed-hint { font-size:11px;font-weight:600;color:var(--muted2);background:var(--bg3);border:1px solid var(--line);padding:3px 9px;border-radius:20px }
+    .plan-chevron { font-size:16px;color:var(--green);transition:transform .3s;display:inline-block;font-weight:700 }
+    .plan-chevron.open { transform:rotate(180deg) }
     .plan-body { max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.16,1,.3,1) }
     .plan-body.open { max-height:1000px }
-    .featured-reveal-btn { display:flex;align-items:center;justify-content:space-between;background:linear-gradient(135deg,var(--card),rgba(31,232,135,.06));border:1px solid rgba(31,232,135,.25);border-radius:14px;padding:16px;cursor:pointer;margin-bottom:0;transition:.15s }
+    .featured-reveal-btn { display:flex;align-items:center;justify-content:space-between;background:linear-gradient(135deg,var(--card),rgba(31,232,135,.06));border:2px solid rgba(31,232,135,.35);border-radius:14px;padding:16px;cursor:pointer;margin-bottom:0;transition:.15s }
     .featured-reveal-btn:active { transform:scale(.99) }
     .featured-reveal-label { font-size:12px;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px }
     .featured-reveal-amount { font-size:22px;font-weight:900;color:var(--green);letter-spacing:-.5px }
     .featured-reveal-right { display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0 }
-    .featured-reveal-hint { font-size:12px;font-weight:600;color:var(--muted2);background:var(--bg3);border:1px solid var(--line);padding:4px 10px;border-radius:20px }
-    .featured-reveal-chevron { font-size:14px;color:var(--muted2);transition:transform .3s;display:block;text-align:right }
+    .featured-reveal-hint { font-size:11px;font-weight:600;color:var(--green);background:rgba(31,232,135,.12);border:1px solid rgba(31,232,135,.3);padding:4px 10px;border-radius:20px }
+    .featured-reveal-chevron { font-size:16px;color:var(--green);transition:transform .3s;display:block;text-align:right;font-weight:700 }
+    .featured-reveal-chevron.open { transform:rotate(180deg) }
     .today-offers-body { max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.16,1,.3,1) }
     .today-offers-body.open { max-height:2000px }
     /* Quick guide modal */
@@ -2860,7 +2862,7 @@
             <div class="plan-collapsed-amount" id="planAmount">£0 available</div>
           </div>
           <div class="plan-collapsed-right">
-            <span class="plan-collapsed-hint">Tap to see offers</span>
+            <span class="plan-collapsed-hint">Tap to open ▾</span>
             <span class="plan-chevron" id="planChevron">▾</span>
           </div>
         </div>
@@ -2877,7 +2879,7 @@
             <div class="featured-reveal-amount" id="featuredTotalAmount">Up to £680+ available</div>
           </div>
           <div class="featured-reveal-right">
-            <span class="featured-reveal-hint">Tap to see</span>
+            <span class="featured-reveal-hint">Tap to open ▾</span>
             <span id="todayChevron" class="featured-reveal-chevron">▾</span>
           </div>
         </div>
@@ -3053,7 +3055,7 @@
 
       </div>
       <div class="playbook-tip">
-        <strong>💡 New deals added daily.</strong> Join our Telegram for instant alerts when new bank switches or invest bonuses go live.
+        <strong>💡 New deals added daily.</strong> Check the Offers tab regularly — new bank switches and invest bonuses are added as they go live.
       </div>
       <div style="display:flex;gap:10px;margin-bottom:80px">
         <a class="primary-btn" href="https://t.me/MoneyHunterUK" target="_blank" rel="noreferrer" style="flex:1;text-align:center;text-decoration:none;padding:12px">📲 Telegram</a>
@@ -3072,7 +3074,7 @@
       <!-- Streak Warning -->
       <div class="streak-warning hidden" id="streakWarning"></div>
 
-      <!-- Pending Payouts — TOP PRIORITY -->
+      <!-- 1. Pending Payouts -->
       <div class="section" id="pendingPayoutsSection">
         <div class="section-head">
           <h2 class="section-title">💰 Pending Payouts</h2>
@@ -3081,7 +3083,41 @@
         <div id="pendingPayoutsList"></div>
       </div>
 
-      <!-- Daily XP Check-in -->
+      <!-- 2. Money Tracker -->
+      <div class="section" style="margin-bottom:16px">
+        <div class="section-head">
+          <h2 class="section-title">💵 Money Tracker</h2>
+          <div class="section-note">Totals</div>
+        </div>
+        <div class="card" style="padding:16px">
+          <div class="money-grid">
+            <div class="money-box">
+              <div class="money-box-label">Earned</div>
+              <div class="money-box-value green" id="earnedTotal">£0</div>
+            </div>
+            <div class="money-box">
+              <div class="money-box-label">Pending</div>
+              <div class="money-box-value yellow" id="pendingTotal">£0</div>
+            </div>
+            <div class="money-box">
+              <div class="money-box-label">Active</div>
+              <div class="money-box-value blue" id="activeTotal">0</div>
+            </div>
+          </div>
+          <div class="money-form" style="margin-top:12px">
+            <select class="filter-select" id="moneyOfferSelect">
+              <option value="">Select offer</option>
+            </select>
+            <div class="money-form-row">
+              <input class="money-input" id="earnedInput" type="number" min="0" step="0.01" placeholder="Earned £">
+              <input class="money-input" id="pendingInput" type="number" min="0" step="0.01" placeholder="Pending £">
+              <button class="mini-btn" id="saveMoneyBtn">Save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Daily XP Check-in -->
       <div class="section" style="margin-bottom:16px">
         <div class="section-head">
           <h2 class="section-title">⚡ Daily Check-in</h2>
@@ -3106,10 +3142,10 @@
         </div>
       </div>
 
-      <!-- Weekly Missions -->
+      <!-- 4. Weekly Missions -->
       <div class="missions-section" id="missionsSection"></div>
 
-      <!-- Badges -->
+      <!-- 5. Badges -->
       <div class="section">
         <div class="section-head">
           <h2 class="section-title">🏅 Badges</h2>
@@ -3118,9 +3154,8 @@
         <div class="badges-grid" id="badgesGrid"></div>
       </div>
 
-      <!-- Raffle Tickets -->
+      <!-- 6. Raffle Tickets -->
       <div class="raffle-section" id="raffleSection"></div>
-
 
       <div class="profile-grid">
         <section class="profile-card card">
@@ -3167,47 +3202,6 @@
           </div>
         </section>
 
-        <section class="earn-card card">
-          <div class="section-head">
-            <h2 class="section-title">Money Tracker</h2>
-            <div class="section-note">Totals</div>
-          </div>
-
-          <div class="money-grid">
-            <div class="money-box">
-              <div class="money-box-label">Earned</div>
-              <div class="money-box-value green" id="earnedTotal">£0</div>
-            </div>
-            <div class="money-box">
-              <div class="money-box-label">Pending</div>
-              <div class="money-box-value yellow" id="pendingTotal">£0</div>
-            </div>
-            <div class="money-box">
-              <div class="money-box-label">Active</div>
-              <div class="money-box-value blue" id="activeTotal">0</div>
-            </div>
-          </div>
-
-          <div class="money-form">
-            <select class="filter-select" id="moneyOfferSelect">
-              <option value="">Select offer</option>
-            </select>
-            <div class="money-form-row">
-              <input class="money-input" id="earnedInput" type="number" min="0" step="0.01" placeholder="Earned £">
-              <input class="money-input" id="pendingInput" type="number" min="0" step="0.01" placeholder="Pending £">
-              <button class="mini-btn" id="saveMoneyBtn">Save</button>
-            </div>
-          </div>
-        </section>
-
-        <section class="milestone-card card">
-          <div class="section-head">
-            <h2 class="section-title">Pending Payouts</h2>
-            <div class="section-note">Countdown</div>
-          </div>
-          <div class="pending-list" id="pendingList"></div>
-        </section>
-
         <section class="milestone-card card">
           <div class="section-head">
             <h2 class="section-title">Milestones</h2>
@@ -3220,15 +3214,6 @@
 
     <section id="view-community" class="view">
       <div class="community-grid">
-
-        <section class="community-card card">
-          <h3>📲 Share Money Hunters</h3>
-          <p>Know someone who could earn £500+ from UK deals? Share the app and help them start hunting.</p>
-          <button class="primary-btn" onclick="shareApp()" style="width:100%;margin-top:8px;display:flex;align-items:center;justify-content:center;gap:8px">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
-            Share with a friend
-          </button>
-        </section>
 
         <section class="community-card card">
           <h3>r/ReferralHunterUK</h3>
@@ -3263,6 +3248,16 @@
           </div>
           <div class="email-done" id="emailDone">✓ You're in! Check your inbox for a welcome email.</div>
         </div>
+
+        <section class="community-card card">
+          <h3>📲 Share Money Hunters</h3>
+          <p>Know someone who could earn £500+ from UK deals? Share the app and help them start hunting.</p>
+          <button class="primary-btn" onclick="shareApp()" style="width:100%;margin-top:8px;display:flex;align-items:center;justify-content:center;gap:8px">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+            Share with a friend
+          </button>
+        </section>
+
       </div>
 
       <section class="section">
@@ -3272,7 +3267,8 @@
         </div>
         <div class="leaderboard" id="leaderboard"></div>
         <div class="footer-note">
-          Referral links may earn a commission at no extra cost to the user. Always verify current terms directly with the provider.
+          Referral links may earn a commission at no extra cost to the user. Always verify current terms directly with the provider.<br>
+          <a href="mailto:hello@moneyhunters.co.uk" style="color:var(--muted2);text-decoration:none;margin-top:4px;display:inline-block">hello&#64;moneyhunters.co.uk</a>
         </div>
       </section>
     </section>
@@ -4086,7 +4082,7 @@
       const catLabel = catLabels[cat] || offer.badge || '';
 
       return `
-        <article class="offer-card ${cardClass}" data-offer-id="${offer.id}">
+        <article class="offer-card ${cardClass}">
           <div class="offer-card-top" onclick="toggleOfferCard(this)" data-offer-id="${offer.id}" style="cursor:pointer">
             <div style="min-width:0;flex:1">
               <div class="offer-cat-label">${catLabel}</div>
@@ -5338,12 +5334,14 @@
       db.auth.onAuthStateChange((event, session) => {
         if (event === 'SIGNED_IN' && session?.user) {
           currentUser = session.user;
-        checkAdminAccess();
+          checkAdminAccess();
+          const username = localStorage.getItem('mh_username') || session.user.email?.split('@')[0] || 'Account';
+          updateUserBadge(username);
         } else if (event === 'SIGNED_OUT') {
           currentUser = null;
           document.getElementById('userBadge').style.display = 'none';
-        const qBtn2 = document.getElementById('authQuickBtn');
-        if (qBtn2) { qBtn2.textContent = 'Sign in'; qBtn2.style.color = 'var(--muted)'; }
+          const qBtn2 = document.getElementById('authQuickBtn');
+          if (qBtn2) { qBtn2.textContent = 'Sign in'; qBtn2.style.color = 'var(--muted)'; qBtn2.style.background = 'var(--bg3)'; qBtn2.style.borderColor = 'var(--line)'; qBtn2.onclick = function(){ showAuthModal(); }; }
         }
       });
     }
@@ -6193,13 +6191,6 @@ function initTheme() {
     }
 
 
-
-    function openOfferById(id) {
-      const offer = offers.find(function(o) { return o.id === id; });
-      if (offer) openPanel(offer);
-    }
-
-
     // ── PENDING PAYOUTS SYSTEM ──────────────────
     function getPayoutDate(offerId) {
       const claimed = getOfferClaimedDate(offerId);
@@ -6323,7 +6314,7 @@ function initTheme() {
       if (!body) return;
       var isOpen = body.classList.contains('open');
       body.classList.toggle('open', !isOpen);
-      if (chev) chev.style.transform = isOpen ? '' : 'rotate(180deg)';
+      if (chev) chev.classList.toggle('open', !isOpen);
     }
     function toggleTodayOffers() {
       var body = document.getElementById('homeOffersPreview');
@@ -6332,8 +6323,9 @@ function initTheme() {
       if (!body) return;
       var isOpen = body.classList.contains('open');
       body.classList.toggle('open', !isOpen);
-      if (chev) chev.style.transform = isOpen ? '' : 'rotate(180deg)';
-      if (btn) btn.style.borderColor = isOpen ? 'rgba(31,232,135,.25)' : 'rgba(31,232,135,.5)';
+      if (chev) chev.classList.toggle('open', !isOpen);
+      if (btn) btn.style.borderColor = isOpen ? 'rgba(31,232,135,.35)' : 'rgba(31,232,135,.6)';
+    }
     }
     function renderHomeInProgress() {
       var el = document.getElementById('homeInProgress');
@@ -6357,10 +6349,14 @@ function initTheme() {
       el.innerHTML = html;
     }
     function updateGamingCard() {
-      // Calculate totals by category from all offers
+      // Only count curated hardcoded offers — exclude scraped/JSON offers and cap per-offer at £500
+      var scrapedBadges = ['FIND','DEAL','HOTUKDEALS','SCRIMPR','REDDIT','BEERMONEY'];
       var bankTotal = 0, investTotal = 0, cashTotal = 0;
       offers.forEach(function(o) {
-        var amt = o.amount || 0;
+        var amt = Math.min(o.amount || 0, 500);
+        if (amt <= 0) return;
+        var badge = (o.badge || '').toUpperCase();
+        if (scrapedBadges.some(function(w){ return badge.includes(w); })) return;
         var cat = getOfferCategory(o);
         if (cat === 'bank') bankTotal += amt;
         else if (cat === 'invest') investTotal += amt;
@@ -6434,8 +6430,7 @@ function initTheme() {
 
       const offerButton = event.target.closest("[data-offer-id]");
       if (offerButton) {
-        const offer = offers.find(item => item.id === offerButton.dataset.offerId);
-        if (offer) openPanel(offer);
+        toggleOfferCard(offerButton);
         return;
       }
 
