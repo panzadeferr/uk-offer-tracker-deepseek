@@ -18,16 +18,16 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Syne:wght@700;800&display=swap" rel="stylesheet">
   <style>
     :root{
       --bg:#0b0f14;
       --bg2:#11161d;
       --bg3:#171d25;
       --bg4:#202833;
-      --card:#121821;
-      --line:rgba(255,255,255,.07);
-      --line-2:rgba(255,255,255,.1);
+      --card:#131921;
+      --line:rgba(255,255,255,.04);
+      --line-2:rgba(255,255,255,.07);
       --text:#f6f8fb;
       --muted:#a8b4c1;
       --muted2:#6f8091;
@@ -38,12 +38,13 @@
       --blue:#63a7ff;
       --blue-soft:rgba(99,167,255,.12);
       --red:#ff6b6b;
-      --radius:14px;
-      --radius-sm:10px;
-      --fh:"Inter",sans-serif;
+      --radius:18px;
+      --radius-sm:12px;
+      --fh:"Syne","Inter",sans-serif;
       --fb:"Inter",sans-serif;
-      --shadow:0 10px 22px rgba(0,0,0,.2);
-      --topbar-bg:rgba(11,15,20,.92);
+      --shadow:0 2px 12px rgba(0,0,0,.3), 0 1px 3px rgba(0,0,0,.2);
+      --shadow-lg:0 8px 32px rgba(0,0,0,.4), 0 2px 8px rgba(0,0,0,.2);
+      --topbar-bg:rgba(11,15,20,.95);
     }
 
 
@@ -73,8 +74,8 @@
 
     /* Light mode element overrides */
     body.light .topbar{border-bottom:1px solid rgba(0,0,0,.1)}
-    body.light .card{background:#fff;border-color:rgba(0,0,0,.08);box-shadow:0 1px 8px rgba(0,0,0,.06)}
-    body.light .offer-card{background:#fff;border-color:rgba(0,0,0,.09)}
+    body.light .card{background:#fff;box-shadow:0 2px 12px rgba(0,0,0,.08), 0 1px 3px rgba(0,0,0,.05)}
+    body.light .offer-card{background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.08)}
     body.light .offer-card.completed{background:rgba(5,150,82,.05);border-color:rgba(5,150,82,.2)}
     body.light .offer-card.pending{background:rgba(180,83,9,.05);border-color:rgba(180,83,9,.2)}
     body.light .stat{background:#fff;border-color:rgba(0,0,0,.08)}
@@ -101,8 +102,9 @@
     body.light .pending-row,body.light .leaderboard-row{background:rgba(0,0,0,.03)}
     body.light .list-item{background:rgba(0,0,0,.03);border-color:rgba(0,0,0,.07)}
     body.light .nav-btn{color:var(--muted2)}
-    body.light .nav-btn.active{color:var(--green);background:#fff;border-color:rgba(0,0,0,.08)}
-    body.light .bottom-nav{background:rgba(240,244,248,.97);border-top:1px solid rgba(0,0,0,.1)}
+    body.light .nav-btn.active{color:var(--green)}
+    body.light .nav-btn.active .nav-icon-wrap{background:rgba(5,150,82,.12)}
+    body.light .bottom-nav{background:rgba(240,244,248,.97);box-shadow:0 -1px 0 rgba(0,0,0,.06), 0 -4px 24px rgba(0,0,0,.08)}
     body.light .icon-btn{background:var(--bg3);border-color:rgba(0,0,0,.1);color:var(--text)}
     body.light .progress-bar{background:var(--bg3)}
     body.light .streak-dot{background:var(--bg3)}
@@ -155,9 +157,10 @@
       font-family:var(--fb);
       font-size:15px;
       background:
-        radial-gradient(circle at top right, rgba(99,167,255,.08), transparent 24%),
-        radial-gradient(circle at top left, rgba(31,232,135,.05), transparent 26%),
+        radial-gradient(ellipse at 80% 0%, rgba(31,232,135,.07) 0%, transparent 50%),
+        radial-gradient(ellipse at 20% 100%, rgba(99,167,255,.05) 0%, transparent 50%),
         var(--bg);
+      background-attachment:fixed;
       color:var(--text);
       -webkit-font-smoothing:antialiased;
       overflow-x:hidden;
@@ -167,23 +170,6 @@
       min-height:100vh;
     }
     
-    /* Font loading optimization */
-    @font-face {
-      font-family: 'Inter';
-      font-style: normal;
-      font-weight: 700 800;
-      font-display: swap;
-      src: local('Inter'), url(https://fonts.gstatic.com/s/syne/v22/8vIS7w4qzmVxsWxjBZRjr0FKM_04uQ6tTYhE.woff2) format('woff2');
-    }
-    
-    @font-face {
-      font-family: 'Inter';
-      font-style: normal;
-      font-weight: 400 700;
-      font-display: swap;
-      src: local('Inter'), url(https://fonts.gstatic.com/s/dmsans/v15/rP2Hp2ywxg089UriCZOIHQ.woff2) format('woff2');
-    }
-
     a{color:inherit;text-decoration:none}
     button,input,select{font:inherit}
     button{font-family:var(--fb)}
@@ -191,19 +177,20 @@
     .topbar{
       z-index:50;
       background:var(--topbar-bg);
-      backdrop-filter:blur(16px);
-      border-bottom:1px solid var(--line);
+      backdrop-filter:blur(20px);
+      -webkit-backdrop-filter:blur(20px);
+      box-shadow:0 1px 0 rgba(255,255,255,.04), 0 4px 16px rgba(0,0,0,.3);
     }
 
     .topbar-inner,
     .app{
       width:min(100%, 920px);
       margin:0 auto;
-      padding-left:10px;
-      padding-right:10px;
+      padding-left:14px;
+      padding-right:14px;
     }
 
-    .topbar-inner{padding-top:9px;padding-bottom:9px}
+    .topbar-inner{padding-top:10px;padding-bottom:10px}
     .app{padding-top:8px;padding-bottom:24px;min-height:calc(100vh - 60px)}
 
     .brand-row{
@@ -211,7 +198,6 @@
       align-items:center;
       justify-content:space-between;
       gap:8px;
-      margin-bottom:8px;
     }
 
     .brand{
@@ -225,7 +211,16 @@
 
     .brand span{color:var(--green)}
 
-    .top-actions{display:flex;gap:6px}
+    .top-actions{display:flex;align-items:center;gap:8px}
+
+    .auth-quick-btn{
+      height:32px;padding:0 14px;border-radius:999px;
+      background:var(--bg3);border:1px solid var(--line);
+      color:var(--muted);font-size:12px;font-weight:700;
+      cursor:pointer;font-family:var(--fb);
+      transition:.15s;
+    }
+    .auth-quick-btn:hover{border-color:var(--green);color:var(--green)}
 
     .icon-btn,
     .nav-btn,
@@ -325,12 +320,11 @@
 
     .card{
       background:var(--card);
-      border:1px solid var(--line);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
     }
 
-    .section{margin-top:0;margin-bottom:16px}
+    .section{margin-top:0;margin-bottom:24px}
 
     .section-head{
       display:flex;
@@ -342,16 +336,18 @@
 
     .section-title{
       margin:0;
-      font-size:17px;
+      font-size:18px;
       font-family:var(--fh);
-      letter-spacing:-.03em;
+      font-weight:800;
+      letter-spacing:-.04em;
       line-height:1.05;
+      color:var(--text);
     }
 
     .section-note{
       color:var(--muted2);
       font-size:11px;
-      font-weight:700;
+      font-weight:600;
       text-transform:uppercase;
       letter-spacing:.07em;
       text-align:right;
@@ -518,17 +514,24 @@
     .primary-btn,
     .secondary-btn{
       width:100%;
-      padding:13px 14px;
-      border-radius:11px;
-      font-size:14px;
+      padding:15px 14px;
+      border-radius:14px;
+      font-size:15px;
       font-weight:800;
       letter-spacing:-.01em;
+      transition:transform .12s, box-shadow .12s;
+      cursor:pointer;
+      border:none;
+      font-family:var(--fb);
     }
-
+    .primary-btn:active,
+    .secondary-btn:active{ transform:scale(.97) }
     .primary-btn{
       background:var(--green);
       color:#07130d;
+      box-shadow:0 4px 16px rgba(31,232,135,.25);
     }
+    .primary-btn:hover{ box-shadow:0 6px 20px rgba(31,232,135,.35) }
 
     .secondary-btn{
       background:var(--bg3);
@@ -538,14 +541,17 @@
 
     .ghost-btn{
       width:100%;
-      padding:9px 10px;
-      border-radius:11px;
-      background:transparent;
+      padding:10px 12px;
+      border-radius:12px;
+      background:var(--bg3);
       color:var(--muted);
-      border:1px solid var(--line);
-      font-size:11px;
-      font-weight:700;
+      border:none;
+      font-size:12px;
+      font-weight:600;
+      cursor:pointer;
+      transition:opacity .15s;
     }
+    .ghost-btn:active{ opacity:.7 }
 
     .toolbar{
       display:grid;
@@ -582,22 +588,17 @@
     .offer-card{
       position:relative;
       background:var(--card);
-      border:1px solid var(--line);
-      border-radius:12px;
-      padding:12px;
+      border-radius:18px;
+      margin-bottom:10px;
       cursor:pointer;
-      transition:border-color .15s, transform .12s;
+      box-shadow:0 2px 10px rgba(0,0,0,.25);
+      transition:transform .12s, box-shadow .15s;
+      overflow:hidden;
     }
-    .offer-card:active{transform:scale(.99)}
-    .offer-card::before{
-      content:"";
-      position:absolute;
-      inset:0 0 auto 0;
-      height:3px;
-      background:linear-gradient(90deg,var(--green),var(--blue),var(--yellow));
-    }
+    .offer-card:active{transform:scale(.99);box-shadow:0 1px 4px rgba(0,0,0,.2)}
+    .offer-card:hover{box-shadow:0 6px 24px rgba(0,0,0,.35)}
     .offer-card.completed{
-      border-color:rgba(31,232,135,.22);
+      background:linear-gradient(135deg,var(--card),rgba(31,232,135,.04));
       background:linear-gradient(180deg, rgba(31,232,135,.06), rgba(255,255,255,.01));
     }
     .offer-card.pending{
@@ -639,10 +640,12 @@
 
     .reward{
       font-family:var(--fh);
-      font-size:18px;
+      font-size:20px;
+      font-weight:900;
       color:var(--yellow);
       white-space:nowrap;
       line-height:1;
+      letter-spacing:-.03em;
     }
 
     .meta-row{
@@ -657,10 +660,9 @@
       align-items:center;
       gap:4px;
       border-radius:999px;
-      padding:5px 9px;
+      padding:5px 10px;
       background:var(--bg3);
       color:var(--muted);
-      border:1px solid var(--line);
       font-size:11px;
       font-weight:700;
       line-height:1;
@@ -759,23 +761,31 @@
     }
 
     .mini-btn{
-      min-width:68px;
-      padding:10px 10px;
+      min-width:64px;
+      padding:10px 12px;
       border-radius:10px;
-      background:var(--blue);
-      color:#06121d;
-      font-weight:800;
-      font-size:11px;
+      background:var(--bg3);
+      color:var(--text);
+      font-weight:700;
+      font-size:12px;
+      border:none;
+      cursor:pointer;
+      transition:opacity .15s;
     }
+    .mini-btn:active{ opacity:.7; transform:scale(.97) }
 
     .link-btn{
       background:transparent;
-      color:var(--blue);
-      font-size:11px;
+      color:var(--green);
+      font-size:12px;
       font-weight:700;
       padding:0;
       text-align:left;
+      border:none;
+      cursor:pointer;
+      transition:opacity .15s;
     }
+    .link-btn:active{ opacity:.6 }
 
     .expand-area{
       display:none;
@@ -829,26 +839,26 @@
     }
 
     .status-btn{
-      padding:7px 5px;
-      border-radius:9px;
+      padding:8px 5px;
+      border-radius:10px;
       background:var(--bg3);
       color:var(--muted2);
-      border:1px solid var(--line);
+      border:none;
       font-size:10px;
       font-weight:800;
       white-space:nowrap;
+      cursor:pointer;
+      transition:background .15s, color .15s;
     }
 
     .status-btn.active-completed{
       background:var(--green-soft);
       color:var(--green);
-      border-color:rgba(31,232,135,.2);
     }
 
     .status-btn.active-pending{
       background:var(--yellow-soft);
       color:var(--yellow);
-      border-color:rgba(255,207,90,.2);
     }
 
     .status-btn.active-none{
@@ -998,7 +1008,7 @@
     .earn-card,
     .community-card,
     .milestone-card{
-      padding:10px;
+      padding:18px;
     }
 
     .profile-center{
@@ -1145,17 +1155,19 @@
     .community-grid{display:grid;gap:7px}
 
     .community-card h3{
-      margin:0 0 6px;
+      margin:0 0 8px;
       font-family:var(--fh);
-      font-size:16px;
+      font-size:17px;
+      font-weight:800;
+      letter-spacing:-.02em;
       line-height:1.1;
     }
 
     .community-card p{
-      margin:0 0 12px;
+      margin:0 0 14px;
       color:var(--muted);
       font-size:13px;
-      line-height:1.4;
+      line-height:1.6;
     }
 
     .community-card a.primary-btn,
@@ -1383,38 +1395,64 @@
       z-index:60;
       display:grid;
       grid-template-columns:repeat(5,1fr);
-      gap:5px;
-      padding:5px 5px calc(5px + env(safe-area-inset-bottom));
+      padding:6px 4px calc(8px + env(safe-area-inset-bottom));
       background:var(--topbar-bg);
-      backdrop-filter:blur(16px);
-      border-top:1px solid var(--line);
+      backdrop-filter:blur(20px);
+      -webkit-backdrop-filter:blur(20px);
+      box-shadow:0 -1px 0 rgba(255,255,255,.04), 0 -4px 24px rgba(0,0,0,.35);
     }
 
     .nav-btn{
       background:transparent;
       color:var(--muted2);
-      border-radius:10px;
-      padding:8px 4px;
+      border-radius:14px;
+      padding:6px 4px 4px;
       display:flex;
       flex-direction:column;
       align-items:center;
-      gap:3px;
-      border:1px solid transparent;
+      gap:4px;
+      border:none;
+      cursor:pointer;
+      transition:color .15s, transform .1s;
+      -webkit-tap-highlight-color:transparent;
+      min-height:52px;
+      justify-content:center;
     }
+    .nav-btn:active{ transform:scale(.9) }
 
     .nav-btn.active{
       color:var(--green);
-      background:var(--card);
-      border-color:var(--line);
     }
 
-    .nav-icon{font-size:20px;line-height:1}
+    .nav-btn.active .nav-icon-wrap{
+      background:rgba(31,232,135,.15);
+      border-radius:12px;
+    }
+
+    .nav-btn.active .nav-label{
+      font-size:10px;
+      font-weight:800;
+      color:var(--green);
+    }
+
+    .nav-icon-wrap{
+      width:44px;
+      height:30px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:12px;
+      transition:background .15s;
+    }
+
+    .nav-icon-wrap svg{ transition:stroke-width .15s; }
+    .nav-btn.active .nav-icon-wrap svg{ stroke-width:2.5; }
     .nav-label{
       font-size:10px;
-      text-transform:uppercase;
-      letter-spacing:.05em;
-      font-weight:800;
+      letter-spacing:.02em;
+      font-weight:700;
       line-height:1;
+      transition:color .15s;
     }
 
     .toast{
@@ -1529,6 +1567,13 @@
       padding:6px 11px;font-size:11px;font-weight:800;cursor:pointer;font-family:var(--fb);
     }
     .panel-save-row{display:flex;gap:6px}
+    .panel-next-offer{
+      background:var(--bg3);border:1px solid var(--line);
+      border-radius:14px;padding:14px;margin-top:8px;
+      cursor:pointer;transition:.15s;
+    }
+    .panel-next-offer:active{transform:scale(.98);opacity:.9}
+    .panel-next-offer:hover{border-color:rgba(31,232,135,.25);background:rgba(31,232,135,.04)}
     .panel-save-row input{
       flex:1;background:var(--card);border:1px solid var(--line);border-radius:9px;
       padding:9px 10px;font-size:13px;font-family:var(--fb);outline:none;color:var(--text);
@@ -1657,14 +1702,19 @@
     .playbook-hero{
       background:linear-gradient(135deg,var(--card) 0%,rgba(57,255,100,.08) 100%);
       border:1px solid var(--line);border-radius:16px;
-      padding:20px;margin-bottom:20px;text-align:center;
+      padding:20px;margin-bottom:12px;text-align:center;
     }
     .playbook-hero h2{font-size:22px;font-weight:800;color:var(--text);margin-bottom:6px}
     .playbook-hero p{font-size:13px;color:var(--muted2);margin:0}
+    .playbook-pills{display:flex;gap:7px;overflow-x:auto;padding-bottom:4px;margin-bottom:16px;scrollbar-width:none}
+    .playbook-pills::-webkit-scrollbar{display:none}
+    .pb-pill{flex-shrink:0;padding:7px 14px;border-radius:999px;font-size:12px;font-weight:700;cursor:pointer;border:1px solid var(--line);background:var(--bg3);color:var(--muted);white-space:nowrap;transition:.15s}
+    .pb-pill.active{background:var(--green);color:#000;border-color:var(--green)}
     .guide-list{display:flex;flex-direction:column;gap:12px;margin-bottom:24px}
     .guide-card{
-      background:var(--card);border:1px solid var(--line);
-      border-radius:14px;padding:16px;cursor:pointer;
+      background:var(--card);
+      border-radius:18px;padding:18px;cursor:pointer;
+      box-shadow:0 2px 10px rgba(0,0,0,.2);
       transition:.15s;-webkit-tap-highlight-color:transparent;
     }
     .guide-card:active{transform:scale(.98)}
@@ -1678,9 +1728,11 @@
     .guide-icon.blue{background:rgba(57,130,255,.12)}
     .guide-icon.yellow{background:rgba(255,200,57,.12)}
     .guide-icon.purple{background:rgba(180,57,255,.12)}
-    .guide-card h3{font-size:15px;font-weight:700;color:var(--text);margin:0}
-    .guide-card .guide-meta{font-size:11px;color:var(--muted2);margin:0}
-    .guide-desc{font-size:12px;color:var(--muted2);margin-bottom:10px;line-height:1.5}
+    .guide-icon.orange{background:rgba(255,140,57,.12)}
+    .guide-icon.red{background:rgba(255,70,70,.12)}
+    .guide-card h3{font-size:16px;font-weight:800;color:var(--text);margin:0;letter-spacing:-.02em}
+    .guide-card .guide-meta{font-size:11px;color:var(--muted2);margin:3px 0 0;line-height:1.4}
+    .guide-desc{font-size:13px;color:var(--muted);margin-bottom:12px;line-height:1.6}
     .guide-steps-preview{
       display:none;flex-direction:column;gap:8px;
       margin-top:12px;padding-top:12px;border-top:1px solid var(--line);
@@ -2178,20 +2230,20 @@
     
     .offer-cat-label {
       font-size:10px;font-weight:700;
-      color:var(--green);text-transform:uppercase;
-      letter-spacing:.06em;margin-bottom:2px;
+      color:var(--muted2);text-transform:uppercase;
+      letter-spacing:.08em;margin-bottom:3px;
     }
     .offer-name {
-      font-size:16px !important;font-weight:700;
-      color:var(--text);line-height:1.3;
+      font-size:15px !important;font-weight:700;
+      color:var(--text);line-height:1.3;letter-spacing:-.01em;
     }
     .offer-effort {
-      font-size:11px;color:var(--muted2);margin-top:2px;
+      font-size:11px;color:var(--muted2);margin-top:3px;line-height:1.4;
     }
-    .offer-status-dot { font-size:10px }
+    .offer-status-dot { font-size:10px;margin-top:3px }
     .reward {
       font-size:22px !important;font-weight:900 !important;
-      color:var(--green);letter-spacing:-.5px;
+      color:var(--yellow);letter-spacing:-.5px;
       line-height:1;
     }
     
@@ -2205,10 +2257,11 @@
     .offer-card:active { transform:scale(.99) }
     .offer-card-body {
       max-height:0;overflow:hidden;
-      transition:max-height .35s cubic-bezier(.16,1,.3,1);
+      transition:max-height .4s cubic-bezier(.16,1,.3,1), opacity .3s ease;
       padding:0 14px;
+      opacity:0;
     }
-    .offer-card-body.open { max-height:600px; padding:0 14px 14px; }
+    .offer-card-body.open { max-height:700px; padding:0 14px 14px; opacity:1 }
     .offer-card-desc {
       font-size:13px;color:var(--muted);
       line-height:1.6;margin-bottom:12px;
@@ -2239,10 +2292,11 @@
     }
     .offer-card-chevron {
       font-size:12px;color:var(--muted2);
-      transition:transform .3s;display:inline-block;
+      transition:transform .4s cubic-bezier(.16,1,.3,1), color .2s;
+      display:inline-block;
       margin-left:4px;
     }
-    .offer-card-chevron.open { transform:rotate(180deg) }
+    .offer-card-chevron.open { transform:rotate(180deg);color:var(--green) }
 
     
     /* ── PENDING PAYOUTS ────────────────────────── */
@@ -2419,15 +2473,17 @@
     }
     .offer-card-chevron {
       font-size:11px;color:var(--muted2);
-      transition:transform .3s;display:inline-block;
+      transition:transform .4s cubic-bezier(.16,1,.3,1), color .2s;
+      display:inline-block;
     }
-    .offer-card-chevron.open { transform:rotate(180deg) }
+    .offer-card-chevron.open { transform:rotate(180deg);color:var(--green) }
     .offer-card-body {
       max-height:0;overflow:hidden;
-      transition:max-height .35s cubic-bezier(.16,1,.3,1);
-      padding:0 16px;
+      transition:max-height .4s cubic-bezier(.16,1,.3,1), opacity .3s ease;
+      padding:0 18px;
+      opacity:0;
     }
-    .offer-card-body.open { max-height:500px;padding:0 16px 16px }
+    .offer-card-body.open { max-height:700px;padding:0 18px 18px;opacity:1 }
     .offer-card-desc {
       font-size:13px;color:var(--muted);line-height:1.6;
       margin-bottom:12px;border-top:1px solid var(--line);
@@ -2590,32 +2646,97 @@
     .quick-guide-close { width:100%;padding:16px;background:var(--green);color:#000;border:none;border-radius:12px;font-size:15px;font-weight:800;font-family:inherit;cursor:pointer }
 
     /* GAMING CARD */
+    .hero-desc {
+      font-size:13px;color:var(--muted2);line-height:1.6;
+      padding:10px 4px 4px;margin-bottom:4px;
+    }
+
+    /* Quick Wins */
+    .quick-wins { margin-bottom:20px }
+    .quick-wins-header { margin-bottom:12px }
+    .quick-wins-title { font-size:17px;font-weight:800;color:var(--text);letter-spacing:-.03em }
+    .quick-wins-sub { font-size:12px;color:var(--muted2);margin-top:2px }
+    .quick-wins-list { display:flex;flex-direction:column;gap:10px }
+    .quick-win-card {
+      background:var(--card);
+      border-radius:18px;
+      padding:16px 18px;
+      display:flex;align-items:center;gap:14px;
+      cursor:pointer;
+      box-shadow:0 2px 10px rgba(0,0,0,.25);
+      transition:transform .12s, box-shadow .15s;
+      -webkit-tap-highlight-color:transparent;
+    }
+    .quick-win-card:active { transform:scale(.98);box-shadow:0 1px 4px rgba(0,0,0,.2) }
+    .quick-win-logo {
+      width:44px;height:44px;border-radius:12px;
+      background:var(--bg3);
+      display:flex;align-items:center;justify-content:center;
+      flex-shrink:0;overflow:hidden;font-size:16px;font-weight:800;color:var(--muted2);
+    }
+    .quick-win-logo img { width:32px;height:32px;object-fit:contain }
+    .quick-win-info { flex:1;min-width:0 }
+    .quick-win-name { font-size:15px;font-weight:700;color:var(--text);line-height:1.2 }
+    .quick-win-meta { font-size:11px;color:var(--muted2);margin-top:3px }
+    .quick-win-right { display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0 }
+    .quick-win-reward { font-family:var(--fh);font-size:20px;font-weight:800;color:var(--yellow);letter-spacing:-.03em;line-height:1 }
+    .quick-win-btn {
+      background:var(--green);color:#000;
+      border:none;border-radius:999px;
+      padding:6px 14px;font-size:12px;font-weight:800;
+      cursor:pointer;font-family:var(--fb);
+      white-space:nowrap;
+    }
+
+    /* Home greeting */
+    .home-greeting {
+      display:flex;align-items:center;justify-content:space-between;
+      padding:4px 2px 14px;
+    }
+    .home-greeting-time {
+      font-size:12px;font-weight:600;color:var(--muted2);margin-bottom:2px;
+    }
+    .home-greeting-name {
+      font-family:var(--fh);
+      font-size:22px;font-weight:800;color:var(--text);letter-spacing:-.03em;line-height:1.2;
+    }
+    .home-greeting-streak {
+      background:rgba(255,207,90,.1);border:1px solid rgba(255,207,90,.25);
+      border-radius:12px;padding:8px 14px;text-align:center;
+      font-size:18px;font-weight:900;color:var(--yellow);
+    }
+
     .gaming-card {
-      background:linear-gradient(135deg,#0d1117,#111a14);
-      border:1.5px solid rgba(31,232,135,.35);
-      border-radius:20px;padding:22px 18px 18px;
+      background:linear-gradient(135deg,#0a1f12,#0d1a10);
+      border:1.5px solid rgba(31,232,135,.3);
+      border-radius:20px;padding:24px 20px 20px;
       margin-bottom:12px;cursor:pointer;
       position:relative;overflow:hidden;transition:.15s;
     }
     .gaming-card::before {
       content:'';position:absolute;inset:0;
-      background:radial-gradient(ellipse at 30% 50%,rgba(31,232,135,.08),transparent 70%);
+      background:radial-gradient(ellipse at 80% 0%,rgba(31,232,135,.15),transparent 60%);
       pointer-events:none;
     }
     .gaming-card:active { transform:scale(.99) }
     .gaming-card-label {
       font-size:10px;font-weight:700;color:rgba(31,232,135,.7);
-      text-transform:uppercase;letter-spacing:.12em;margin-bottom:6px;
+      text-transform:uppercase;letter-spacing:.12em;margin-bottom:8px;
     }
     .gaming-card-amount {
-      font-size:52px;font-weight:900;color:#1fe887;
-      letter-spacing:-3px;line-height:1;margin-bottom:16px;
+      font-family:var(--fh);
+      font-size:52px;font-weight:800;color:#1fe887;
+      letter-spacing:-2px;line-height:1;margin-bottom:6px;
       font-variant-numeric:tabular-nums;
+    }
+    .gaming-card-tagline {
+      font-size:13px;color:rgba(255,255,255,.55);line-height:1.5;
+      margin-bottom:16px;max-width:280px;
     }
     .gaming-card-breakdown {
       display:flex;align-items:center;gap:0;
-      background:rgba(255,255,255,.04);border-radius:12px;
-      padding:10px 0;margin-bottom:14px;
+      background:rgba(255,255,255,.05);border-radius:12px;
+      padding:10px 0;margin-bottom:16px;
     }
     .gaming-breakdown-item {
       flex:1;text-align:center;
@@ -2625,15 +2746,19 @@
       margin-bottom:3px;
     }
     .gaming-breakdown-label {
-      font-size:10px;color:rgba(246,248,251,.5);
+      font-size:10px;color:rgba(246,248,251,.45);
     }
     .gaming-breakdown-divider {
       width:1px;height:30px;background:rgba(255,255,255,.08);
     }
-    .gaming-card-cta {
-      font-size:13px;font-weight:700;color:rgba(31,232,135,.8);
-      text-align:center;
+    .gaming-card-btn {
+      width:100%;background:var(--green);color:#000;
+      border:none;border-radius:14px;padding:14px;
+      font-size:15px;font-weight:800;cursor:pointer;
+      font-family:var(--fb);transition:.15s;
+      display:flex;align-items:center;justify-content:center;gap:8px;
     }
+    .gaming-card-btn:active { transform:scale(.97) }
     /* APP DESCRIPTION */
     .app-description {
       background:var(--bg3);border:1px solid var(--line);
@@ -2713,12 +2838,13 @@
     .guide-icon.green { background:rgba(31,232,135,.15) }
     .guide-chevron { margin-left:auto;color:var(--muted2);font-size:12px;transition:transform .3s }
     .guide-chevron.open { transform:rotate(180deg) }
-    .guide-body { max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.16,1,.3,1) }
-    .guide-body.open { max-height:3000px;margin-top:12px }
+    .guide-body { max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.16,1,.3,1), opacity .3s ease;opacity:0 }
+    .guide-body.open { max-height:3000px;margin-top:12px;opacity:1 }
     .guide-step { display:flex;gap:10px;padding:8px 0;border-bottom:1px solid var(--line);font-size:13px;color:var(--muted);line-height:1.5 }
     .guide-step:last-child { border-bottom:none }
     .guide-step-num { width:20px;height:20px;border-radius:50%;background:var(--green);color:#000;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px }
     .guide-tip { background:rgba(31,232,135,.08);border:1px solid rgba(31,232,135,.2);border-radius:10px;padding:10px 12px;margin-top:10px;font-size:12px;color:var(--muted);line-height:1.5 }
+    .guide-warning { background:rgba(255,150,50,.08);border:1px solid rgba(255,150,50,.25);border-radius:10px;padding:10px 12px;margin-top:10px;font-size:12px;color:var(--muted);line-height:1.5 }
     /* XP */
     .xp-table { background:var(--bg3);border-radius:10px;overflow:hidden;margin-top:8px }
     .xp-row { display:flex;justify-content:space-between;align-items:center;padding:9px 12px;border-bottom:1px solid var(--line);font-size:12px;color:var(--text) }
@@ -2745,7 +2871,22 @@
     .daily-xp-title { font-size:14px;font-weight:700;color:var(--text);margin-bottom:2px }
     .daily-xp-sub { font-size:11px;color:var(--muted2);line-height:1.4 }
     .xp-bar-wrap { background:var(--bg3);border-radius:20px;height:6px;overflow:hidden }
-    .xp-bar { height:100%;background:var(--green);border-radius:20px;transition:width .5s;width:0% }
+    .xp-bar { height:100%;background:linear-gradient(90deg,var(--green),var(--blue));border-radius:20px;transition:width .5s;width:0% }
+    /* Level shield card */
+    .level-shield { width:44px;height:44px;background:linear-gradient(135deg,var(--green),#0a8a45);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;box-shadow:0 4px 16px rgba(31,232,135,.3) }
+    .streak-hero-pill { background:rgba(255,207,90,.1);border:1px solid rgba(255,207,90,.25);border-radius:10px;padding:8px 10px;text-align:center;flex-shrink:0 }
+    /* Coloured stat hero cards */
+    .stat-hero-row { display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:8px }
+    .stat-hero-card { border-radius:14px;padding:14px 12px;position:relative }
+    .stat-hero-card.earned { background:linear-gradient(135deg,#0d2e1a,#0a2015);border:1px solid rgba(31,232,135,.3) }
+    .stat-hero-card.pending { background:linear-gradient(135deg,#1e1a0a,#221e0c);border:1px solid rgba(255,207,90,.25) }
+    .stat-hero-card.total { background:var(--bg3);border:1px solid var(--line) }
+    .shc-check { position:absolute;top:10px;right:12px;font-size:10px;color:var(--green);font-weight:800 }
+    .shc-label { font-size:10px;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px }
+    .shc-val { font-family:var(--fh);font-size:clamp(20px,4vw,26px);font-weight:800;letter-spacing:-.5px;color:var(--text) }
+    .shc-val.green { color:var(--green) }
+    .shc-val.yellow { color:var(--yellow) }
+    .shc-sub { font-size:10px;color:var(--muted2);margin-top:3px }
     .xp-level-badge { font-size:13px;font-weight:700;color:var(--green);margin-bottom:4px }
     .streak-row { display:flex;gap:4px;margin:8px 0 4px;flex-wrap:wrap }
     .streak-dot { width:20px;height:20px;border-radius:50%;background:var(--bg3);border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:9px }
@@ -2768,18 +2909,21 @@
     .pending-payout-reward { font-size:18px;font-weight:900;color:var(--green) }
 
     
+    .offer-vg-btn { background:rgba(31,232,135,.1);border:1px solid rgba(31,232,135,.2);border-radius:8px;padding:4px 9px;font-size:11px;font-weight:700;color:var(--green);cursor:pointer;display:flex;align-items:center;gap:4px;font-family:var(--fb) }
+    .offer-vg-btn:active { transform:scale(.96) }
+    .offer-xp-tag { background:rgba(99,167,255,.15);border-radius:4px;padding:1px 5px;font-size:9px;font-weight:800;color:var(--blue) }
     /* offer-card-top - single clean rule */
     .offer-card-top {
       display:flex;align-items:center;justify-content:space-between;
-      padding:14px 16px;cursor:pointer;gap:12px;
+      padding:16px 18px;cursor:pointer;gap:14px;
       -webkit-tap-highlight-color:transparent;
     }
     .offer-card-top:active { opacity:.8 }
     .offer-logo {
-      width:36px;height:36px;border-radius:8px;
-      background:var(--bg3);border:1px solid var(--line);
+      width:40px;height:40px;border-radius:10px;
+      background:var(--bg3);
       display:flex;align-items:center;justify-content:center;
-      flex-shrink:0;overflow:hidden;font-size:13px;font-weight:800;
+      flex-shrink:0;overflow:hidden;font-size:14px;font-weight:800;
       color:var(--muted2);
     }
     .offer-logo img {
@@ -2863,38 +3007,25 @@
       <div class="brand-row">
         <div class="brand" id="brandHome">Money<span>Hunters</span></div>
         <div class="top-actions">
+          <button class="theme-toggle" id="themeIcon" aria-label="Toggle theme" onclick="toggleTheme()">☀️</button>
           <div id="userBadge" class="user-badge" onclick="showAuthModal()" style="display:none">
-          <div class="user-badge-dot"></div>
-          <span id="userBadgeName">Account</span>
-        </div>
-        <button class="theme-toggle" id="themeIcon" aria-label="Toggle theme" onclick="toggleTheme()">☀️</button>
-          <button class="auth-quick-btn" id="authQuickBtn" onclick="showAuthModal()" style="height:32px;padding:0 12px;border-radius:8px;background:var(--bg3);border:1px solid var(--line);color:var(--muted);font-size:12px;font-weight:600;cursor:pointer;font-family:var(--fb)">Sign in</button>
-          
-          
+            <div class="user-badge-dot"></div>
+            <span id="userBadgeName">Account</span>
+          </div>
+          <button class="auth-quick-btn" id="authQuickBtn" onclick="showAuthModal()">Sign in</button>
         </div>
       </div>
-
-      <div class="stats">
-        <div class="stat">
-          <div class="stat-label">Earned</div>
-          <div class="stat-value green" id="statSaved">£0</div>
-        </div>
-        <div class="stat">
-          <div class="stat-label">Pending</div>
-          <div class="stat-value yellow" id="statPending">£0</div>
-        </div>
-        <div class="stat">
-          <div class="stat-label">XP</div>
-          <div class="stat-value blue" id="statXp">0</div>
-        </div>
-        <div class="stat">
-          <div class="stat-label">Streak</div>
-          <div class="stat-value yellow" id="statStreak">0🔥</div>
-        </div>
-      </div>
-    <div class="sync-indicator" id="syncIndicator">↻ Syncing...</div>
+      <div class="sync-indicator" id="syncIndicator">↻ Syncing...</div>
     </div>
   </header>
+
+  <!-- Hidden stat IDs kept for JS compatibility -->
+  <div style="display:none">
+    <span id="statSaved"></span>
+    <span id="statPending"></span>
+    <span id="statXp"></span>
+    <span id="statStreak"></span>
+  </div>
 
   <main class="app">
     <section id="view-home" class="view active">
@@ -2904,10 +3035,22 @@
         <button onclick="dismissPayoutReminder()" class="reminder-dismiss">✕</button>
       </div>
 
-      <!-- GAMING CARD -->
-      <div class="gaming-card" id="gamingCard" onclick="showQuickGuide()">
-        <div class="gaming-card-label">💰 AVAILABLE TO EARN</div>
+      <!-- PERSONAL GREETING -->
+      <div class="home-greeting" id="homeGreeting">
+        <div class="home-greeting-left">
+          <div class="home-greeting-time" id="greetingTime">Good morning</div>
+          <div class="home-greeting-name" id="greetingName">Hunter 👋</div>
+        </div>
+        <div class="home-greeting-streak" id="greetingStreak" style="display:none">
+          <span id="greetingStreakVal">0</span>🔥
+        </div>
+      </div>
+
+      <!-- GAMING CARD / HERO -->
+      <div class="gaming-card" id="gamingCard">
+        <div class="gaming-card-label">💰 Available to earn right now</div>
         <div class="gaming-card-amount" id="gamingAmount">£0</div>
+        <div class="gaming-card-tagline">Bank switches, free shares and cashback — all in one place. No experience needed. Follow the guides and get paid.</div>
         <div class="gaming-card-breakdown" id="gamingBreakdown">
           <div class="gaming-breakdown-item">
             <div class="gaming-breakdown-val" id="gamingBank">£0</div>
@@ -2924,12 +3067,14 @@
             <div class="gaming-breakdown-label">💳 Cash</div>
           </div>
         </div>
-        <div class="gaming-card-cta" id="gamingCta">Tap to start earning →</div>
+        <button class="gaming-card-btn" onclick="showQuickGuide()">
+          📖 See your personalised earning plan →
+        </button>
       </div>
 
-      <!-- APP DESCRIPTION (new users only) -->
-      <div class="app-description" id="appDescription">
-        <p>MoneyHunters tracks UK bank switches, cashback deals and free shares. Follow step-by-step guides, track your payouts, and stack offers to earn £500+ in your first 3 months.</p>
+      <!-- HERO DESCRIPTION -->
+      <div class="hero-desc">
+        🇬🇧 We track every UK bank switch, free share and cashback deal. Follow the simple guides — no experience needed.
       </div>
 
       <!-- QUICK GUIDE MODAL -->
@@ -2939,41 +3084,21 @@
             <div class="quick-guide-handle-inline"></div>
             <button class="quick-guide-x" onclick="hideQuickGuide()">✕</button>
           </div>
-          <div class="quick-guide-title">🎯 Make £360 this week</div>
-          <div class="quick-guide-sub">Three simple offers. About 20 minutes total.</div>
-          <div class="quick-guide-step">
-            <div class="quick-guide-step-num">1</div>
-            <div class="quick-guide-step-content">
-              <div class="quick-guide-step-title">📈 Freetrade <span class="quick-guide-badge">up to £100</span></div>
-              <div class="quick-guide-step-desc">Open a Freetrade account and deposit £50. Get a randomly assigned free share worth £10–£100. Takes 5 minutes.</div>
-              <button class="quick-guide-btn" onclick="hideQuickGuide();openOfferById('freetrade')">Open Freetrade guide →</button>
-            </div>
-          </div>
-          <div class="quick-guide-step">
-            <div class="quick-guide-step-num">2</div>
-            <div class="quick-guide-step-content">
-              <div class="quick-guide-step-title">💳 TopCashback <span class="quick-guide-badge">£10 free</span></div>
-              <div class="quick-guide-step-desc">Sign up and earn £10 just for joining. Then get cashback on everything you buy online. Takes 2 minutes.</div>
-              <button class="quick-guide-btn" onclick="hideQuickGuide();openOfferById('topcashback')">Open TopCashback guide →</button>
-            </div>
-          </div>
-          <div class="quick-guide-step">
-            <div class="quick-guide-step-num">3</div>
-            <div class="quick-guide-step-content">
-              <div class="quick-guide-step-title">🏦 Lloyds Bank Switch <span class="quick-guide-badge">£250</span></div>
-              <div class="quick-guide-step-desc">Switch your current account using CASS. Takes 15 minutes to start and pays £250 in about 30 days.</div>
-              <button class="quick-guide-btn" onclick="hideQuickGuide();openOfferById('lloyds-bank')">Open Lloyds guide →</button>
-            </div>
-          </div>
-          <div class="quick-guide-total">Total from these 3: <strong style="color:var(--green)">up to £360</strong></div>
+          <div class="quick-guide-title" id="quickGuideTitle">🎯 Your next moves</div>
+          <div class="quick-guide-sub" id="quickGuideSub">Based on what you haven't done yet</div>
+          <div id="quickGuideSteps"></div>
+          <div class="quick-guide-total" id="quickGuideTotal"></div>
           <button class="quick-guide-close" onclick="hideQuickGuide()">Got it — start hunting →</button>
         </div>
       </div>
 
-      <!-- HIDDEN STAT IDS for top bar -->
-      <div style="display:none">
-        <span id="statSaved"></span><span id="statPending"></span>
-        <span id="statXp"></span><span id="statStreak"></span>
+      <!-- QUICK WINS THIS WEEK -->
+      <div class="quick-wins" id="quickWins">
+        <div class="quick-wins-header">
+          <div class="quick-wins-title">⚡ Quick wins this week</div>
+          <div class="quick-wins-sub">Start any of these in 5 minutes</div>
+        </div>
+        <div class="quick-wins-list" id="quickWinsList"></div>
       </div>
 
       <!-- IN PROGRESS -->
@@ -3007,30 +3132,14 @@
             <div class="plan-collapsed-amount" id="planAmount">Tap to reveal</div>
           </div>
           <div class="plan-collapsed-right">
-            <span class="plan-collapsed-hint">See today's offers</span>
-            <span class="plan-chevron" id="planChevron">▾</span>
+            <span class="plan-collapsed-hint">Tap to collapse</span>
+            <span class="plan-chevron open" id="planChevron">▾</span>
           </div>
         </div>
-        <div class="plan-body" id="planBody">
+        <div class="plan-body open" id="planBody">
           <div class="tasks" id="todayTasks"></div>
         </div>
       </section>
-
-      <!-- FEATURED OFFERS -->
-      <section class="section">
-        <div class="featured-reveal-btn" onclick="toggleTodayOffers()" id="featuredRevealBtn">
-          <div class="featured-reveal-left">
-            <div class="featured-reveal-label">⭐ Featured Offers</div>
-            <div class="featured-reveal-amount" id="featuredTotalAmount">Up to £680+ available</div>
-          </div>
-          <div class="featured-reveal-right">
-            <span class="featured-reveal-hint">Tap to see</span>
-            <span id="todayChevron" class="featured-reveal-chevron">▾</span>
-          </div>
-        </div>
-        <div id="homeOffersPreview" class="today-offers-body"></div>
-      </section>
-
 
     </section>
 
@@ -3081,80 +3190,289 @@
       <div id="stackList" style="display:none"></div>
       <div class="playbook-hero">
         <h2>📖 The Playbook</h2>
-        <p>Step-by-step guides to make the most from every UK money deal.</p>
+        <p>Everything you need to know, explained simply. No experience needed.</p>
+      </div>
+      <!-- Filter pills -->
+      <div class="playbook-pills" id="playbookPills">
+        <div class="pb-pill active" onclick="filterPlaybook('all',this)">All Guides</div>
+        <div class="pb-pill" onclick="filterPlaybook('bank',this)">🏦 Bank Switch</div>
+        <div class="pb-pill" onclick="filterPlaybook('cashback',this)">💳 Cashback</div>
+        <div class="pb-pill" onclick="filterPlaybook('invest',this)">📈 Investing</div>
+        <div class="pb-pill" onclick="filterPlaybook('supermarket',this)">🛒 Supermarket</div>
+        <div class="pb-pill" onclick="filterPlaybook('energy',this)">⚡ Energy</div>
+        <div class="pb-pill" onclick="filterPlaybook('directdebit',this)">🔄 Direct Debits</div>
+        <div class="pb-pill" onclick="filterPlaybook('stack',this)">⚡ 90-Day Plan</div>
+        <div class="pb-pill" onclick="filterPlaybook('mistakes',this)">⚠️ Mistakes</div>
       </div>
       <div class="guide-list">
 
-        <div class="guide-card card">
+        <!-- GUIDE 1: BANK SWITCH BIBLE -->
+        <div class="guide-card card" data-guide="bank">
           <div class="guide-card-head" onclick="toggleGuide('guide-bankswitch')">
             <div class="guide-icon green">🏦</div>
             <div>
               <h3>Bank Switch Bible</h3>
-              <p class="guide-meta">Up to £500 · 8 steps · 15 min</p>
+              <p class="guide-meta">Up to £500 · Beginner friendly · 15 min to set up</p>
             </div>
           </div>
           <button class="guide-expand-btn" id="btn-guide-bankswitch" onclick="toggleGuide('guide-bankswitch')">Read Guide ↓</button>
           <div class="guide-body" id="guide-bankswitch">
-            <div class="guide-step"><span class="guide-step-num">1</span><span>Open the CASS switching page on your new bank's app</span></div>
-            <div class="guide-step"><span class="guide-step-num">2</span><span>Set up 2 active Direct Debits (charity donation for £1/month works)</span></div>
-            <div class="guide-step"><span class="guide-step-num">3</span><span>Initiate a full switch — your new bank contacts your old bank</span></div>
-            <div class="guide-step"><span class="guide-step-num">4</span><span>Switch completes in 7 working days — all DDs move automatically</span></div>
-            <div class="guide-step"><span class="guide-step-num">5</span><span>Meet any deposit requirements (e.g. pay in £1,000 within 30 days)</span></div>
-            <div class="guide-step"><span class="guide-step-num">6</span><span>Keep account open until bonus is paid (up to 45 working days)</span></div>
-            <div class="guide-tip">💡 Stack multiple switches: do Lloyds first, then NatWest 30 days later. Each pays separately.</div>
+            <p class="guide-p">Banks will pay you £150–£500 just to move your current account to them. This sounds too good to be true, but it's completely legitimate — banks compete for customers and use cash bonuses to win them. You are not doing anything unusual. Thousands of people do this every month.</p>
+
+            <div class="guide-section-title">What is a bank switch?</div>
+            <p class="guide-p">A bank switch means moving your current account from one bank to another. The UK government runs a free service called CASS (Current Account Switch Service) that does all the hard work for you — it automatically moves your direct debits, standing orders, and salary to the new account. Your old account closes automatically. The whole thing takes 7 working days.</p>
+
+            <div class="guide-section-title">Before you start — check these</div>
+            <div class="guide-step"><span class="guide-step-num">✓</span><span><strong>You must be a new customer.</strong> Most banks require you have not held an account with them in the last 12 months. If you had a Lloyds account 2 years ago, you can do the Lloyds switch. If you had one last year, you cannot.</span></div>
+            <div class="guide-step"><span class="guide-step-num">✓</span><span><strong>Do not switch your only bank account.</strong> First open a free secondary account (Chase or Monzo take 5 minutes) to use as the account you switch FROM. That way your main finances are never disrupted.</span></div>
+            <div class="guide-step"><span class="guide-step-num">✓</span><span><strong>Check your credit file.</strong> Switching banks involves a soft credit check, which does not affect your credit score. However, opening multiple accounts in a short period can show up — space your switches at least 3–4 weeks apart if you are planning to apply for a mortgage soon.</span></div>
+
+            <div class="guide-section-title">Step by step</div>
+            <div class="guide-step"><span class="guide-step-num">1</span><span><strong>Pick your switch.</strong> Go to the Offers tab and choose a bank switch offer. Lloyds (£250) is the best right now. Open the guide inside the offer for the specific link and requirements.</span></div>
+            <div class="guide-step"><span class="guide-step-num">2</span><span><strong>Apply for the new account.</strong> Click the referral link in the offer. Fill in your details — name, address, date of birth. Have your passport or driving licence ready. Most applications take 5–10 minutes and give an instant decision.</span></div>
+            <div class="guide-step"><span class="guide-step-num">3</span><span><strong>Start the CASS switch.</strong> During the application (or once your account is open), choose the option to switch from another bank. Enter the sort code and account number of the account you want to switch FROM. CASS does the rest — it contacts your old bank and moves everything over in 7 working days.</span></div>
+            <div class="guide-step"><span class="guide-step-num">4</span><span><strong>Set up Direct Debits if needed.</strong> Most bank switches require 2 active Direct Debits. If you do not have 2, use the Direct Debit service in the Community tab to set them up cheaply. An active DD just means one that has taken at least one payment.</span></div>
+            <div class="guide-step"><span class="guide-step-num">5</span><span><strong>Pay in the required amount.</strong> Most offers require you to pay in £1,000–£2,000 within 30 days. You do not need to leave it there permanently — pay it in, wait 24–48 hours for it to register, then transfer it back to your main account if you need it. Always wait at least 24 hours before moving it to avoid fraud flags.</span></div>
+            <div class="guide-step"><span class="guide-step-num">6</span><span><strong>Wait for the bonus.</strong> Bonuses are paid between 10 and 45 working days after you meet all the requirements. Add the offer to Pending Payouts in the Progress tab so you do not forget. The money arrives directly in your new account.</span></div>
+            <div class="guide-step"><span class="guide-step-num">7</span><span><strong>Stack another switch.</strong> Once your first switch is done and the bonus is paid, you can do another one. Do Lloyds first, then NatWest 4–6 weeks later, then First Direct. Each one pays separately. Total from 3 switches: £575+.</span></div>
+
+            <div class="guide-warning">⚠️ Watch out for: Not reading the exact requirements before applying. Each bank has slightly different rules — some need specific types of Direct Debits, some need debit card payments, some have a deadline to pay in funds. Check the individual offer guide for your specific bank.</div>
+            <div class="guide-tip">💡 Pro tip: Keep a cheap Chase account permanently as your "switching account". Every time you do a new switch, switch FROM Chase (not your real main account). Chase lets you open multiple accounts so you can always top it back up.</div>
           </div>
         </div>
 
-        <div class="guide-card card">
+        <!-- GUIDE 2: CASHBACK GUIDE -->
+        <div class="guide-card card" data-guide="cashback">
+          <div class="guide-card-head" onclick="toggleGuide('guide-cashback')">
+            <div class="guide-icon yellow">💳</div>
+            <div>
+              <h3>Cashback — The Complete Guide</h3>
+              <p class="guide-meta">Save £200–£500/year · 3 methods · Set and forget</p>
+            </div>
+          </div>
+          <button class="guide-expand-btn" id="btn-guide-cashback" onclick="toggleGuide('guide-cashback')">Read Guide ↓</button>
+          <div class="guide-body" id="guide-cashback">
+            <p class="guide-p">Cashback means getting a percentage of your money back when you spend. You are already spending — cashback just means you get some of it back. There are three main ways to earn it, and the best approach is to use all three together.</p>
+
+            <div class="guide-section-title">Method 1 — Cashback debit cards (easiest)</div>
+            <p class="guide-p">These are bank accounts with cashback built in. You spend normally, cashback appears automatically. No apps to remember, no links to click.</p>
+            <div class="guide-step"><span class="guide-step-num">→</span><span><strong>Chase UK</strong> gives 1% cashback on everyday spending including groceries, petrol, and transport. Free account, no fees. This should be your everyday spending card.</span></div>
+            <div class="guide-step"><span class="guide-step-num">→</span><span>The 1% compounds: on £1,500/month of spending, that is £180/year back automatically with zero effort.</span></div>
+
+            <div class="guide-section-title">Method 2 — Gift card apps (highest rates)</div>
+            <p class="guide-p">Instead of buying your groceries with a debit card, you first buy a gift card for that supermarket through an app. The app gives you cashback instantly — usually 3–8%. Then you use the gift card to pay for your shop as normal.</p>
+            <div class="guide-step"><span class="guide-step-num">1</span><span><strong>Download JamDoughnut</strong> (use code 8TGF for a signup bonus). Before every supermarket shop, check what cashback rate they have on Tesco, Asda, Sainsbury's etc.</span></div>
+            <div class="guide-step"><span class="guide-step-num">2</span><span><strong>Buy the gift card</strong> in the app. Pay with your Chase card for an extra 1% on top. The gift card loads to your phone instantly — no physical card needed.</span></div>
+            <div class="guide-step"><span class="guide-step-num">3</span><span><strong>Use the gift card</strong> to pay for your shop. The cashback is already in your JamDoughnut account — withdraw it to your bank anytime.</span></div>
+            <div class="guide-step"><span class="guide-step-num">4</span><span><strong>Also check</strong> Airtime Rewards (code FRJKFXX3) and Everup — rates vary by retailer. Takes 30 seconds to compare before buying.</span></div>
+
+            <div class="guide-section-title">Method 3 — Cashback websites (online shopping)</div>
+            <p class="guide-p">Before buying anything online — clothes, electronics, insurance, holidays — check TopCashback or Quidco first. They track your purchase and pay you a percentage back, usually within 30–90 days.</p>
+            <div class="guide-step"><span class="guide-step-num">1</span><span><strong>Sign up to both</strong> TopCashback and Quidco. Each has a £10 sign-up bonus in the Offers tab. Keep both because rates differ by retailer — sometimes one pays double the other.</span></div>
+            <div class="guide-step"><span class="guide-step-num">2</span><span><strong>Always start from the cashback site.</strong> Click through to the shop from TopCashback or Quidco, then buy as normal. Do not go directly to the shop — the tracking only works if you arrive via their link.</span></div>
+            <div class="guide-step"><span class="guide-step-num">3</span><span><strong>Use a clean browser.</strong> Disable ad blockers and coupon extensions like Honey before clicking — they interfere with tracking and can cause your cashback to be rejected.</span></div>
+            <div class="guide-step"><span class="guide-step-num">4</span><span><strong>Withdraw regularly.</strong> Do not leave money sitting in the cashback site's account. Withdraw as soon as you hit the minimum — usually £1–5.</span></div>
+
+            <div class="guide-warning">⚠️ Watch out for: Using a discount code or voucher on a cashback purchase. Many cashback sites will void your cashback if you also used a promotional code. Always choose cashback over a discount code unless the discount is significantly larger.</div>
+            <div class="guide-tip">💡 Stack all three: Buy a Tesco gift card via JamDoughnut (5% back), pay for it with Chase (1% back), then do your Tesco shop. Three layers of cashback on the same spend. On a £200 weekly shop that is £624/year saved.</div>
+          </div>
+        </div>
+
+        <!-- GUIDE 3: SUPERMARKET STACKING -->
+        <div class="guide-card card" data-guide="supermarket">
           <div class="guide-card-head" onclick="toggleGuide('guide-supermarket')">
-            <div class="guide-icon yellow">🛒</div>
+            <div class="guide-icon orange">🛒</div>
             <div>
               <h3>Supermarket Stacking</h3>
-              <p class="guide-meta">Save 4–8% on every shop · 3 steps</p>
+              <p class="guide-meta">Save £300–£600/year · 5 min setup · Weekly habit</p>
             </div>
           </div>
           <button class="guide-expand-btn" id="btn-guide-supermarket" onclick="toggleGuide('guide-supermarket')">Read Guide ↓</button>
           <div class="guide-body" id="guide-supermarket">
-            <div class="guide-step"><span class="guide-step-num">1</span><span>Buy supermarket gift cards through JamDoughnut or TopCashback (4–8% cashback)</span></div>
-            <div class="guide-step"><span class="guide-step-num">2</span><span>Pay for the gift cards using Chase debit card (1% cashback on all spending)</span></div>
-            <div class="guide-step"><span class="guide-step-num">3</span><span>Use the gift card for your weekly shop — cashback stacks on top</span></div>
-            <div class="guide-tip">💡 On a £100 weekly shop: JamDoughnut 5% = £5 + Chase 1% = £1. That's £312/year from groceries alone.</div>
+            <p class="guide-p">Most people pay full price for their weekly shop without realising they could be getting 5–9% back every single week. This is not a complicated trick — it just requires buying a gift card before you shop instead of paying directly.</p>
+
+            <div class="guide-section-title">The basic stack (anyone can do this today)</div>
+            <div class="guide-step"><span class="guide-step-num">1</span><span><strong>Open JamDoughnut</strong> and use code 8TGF. Find your supermarket (Tesco, Asda, Sainsbury's, Morrisons, Waitrose, Aldi, Lidl). Check the current cashback rate.</span></div>
+            <div class="guide-step"><span class="guide-step-num">2</span><span><strong>Buy a gift card</strong> for the amount of your expected shop — e.g. £80. The cashback (e.g. 5% = £4) is credited to your JamDoughnut account immediately.</span></div>
+            <div class="guide-step"><span class="guide-step-num">3</span><span><strong>Pay with Chase</strong> when buying the gift card. Chase gives you 1% back on that payment too (= another 80p).</span></div>
+            <div class="guide-step"><span class="guide-step-num">4</span><span><strong>Do your shop</strong> using the gift card. You will spend the same amount you always do — you are just getting money back on it.</span></div>
+            <div class="guide-step"><span class="guide-step-num">5</span><span><strong>Withdraw your JamDoughnut cashback</strong> to your bank account once a month.</span></div>
+
+            <div class="guide-section-title">The advanced stack (add these for maximum savings)</div>
+            <div class="guide-step"><span class="guide-step-num">→</span><span><strong>Loyalty cards.</strong> Use your Tesco Clubcard or Sainsbury's Nectar card on top of everything above. Points are separate from cashback — you earn both at the same time.</span></div>
+            <div class="guide-step"><span class="guide-step-num">→</span><span><strong>Airtime Rewards.</strong> Sign up with code FRJKFXX3 and link your debit card. Airtime gives you additional cashback at certain supermarkets automatically when you tap your card — no gift cards needed for this layer.</span></div>
+            <div class="guide-step"><span class="guide-step-num">→</span><span><strong>Compare rates before buying.</strong> JamDoughnut, Everup, and Airtime all have different rates for different supermarkets. The 30 seconds it takes to compare can mean the difference between 3% and 7% back.</span></div>
+
+            <div class="guide-warning">⚠️ Watch out for: Buying more gift card value than you need. If you buy £100 but only spend £60, the remaining £40 sits in the gift card — not a problem, but only buy what you will actually use within a reasonable time.</div>
+            <div class="guide-tip">💡 Real numbers: £150/week shopping × 5% JamDoughnut + 1% Chase = £9/week = £468/year. Add loyalty points and Airtime and you are realistically saving £500–£600/year from the exact same shopping you already do.</div>
           </div>
         </div>
 
-        <div class="guide-card card">
+        <!-- GUIDE 4: INVEST BONUSES -->
+        <div class="guide-card card" data-guide="invest">
           <div class="guide-card-head" onclick="toggleGuide('guide-invest')">
             <div class="guide-icon blue">📈</div>
             <div>
-              <h3>Invest Bonus Guide</h3>
-              <p class="guide-meta">Up to £300 in free shares · 5 steps</p>
+              <h3>Free Shares — Invest Bonus Guide</h3>
+              <p class="guide-meta">Up to £300 in free shares · Low risk · 5 min each</p>
             </div>
           </div>
           <button class="guide-expand-btn" id="btn-guide-invest" onclick="toggleGuide('guide-invest')">Read Guide ↓</button>
           <div class="guide-body" id="guide-invest">
-            <div class="guide-step"><span class="guide-step-num">1</span><span>Sign up to Freetrade via referral link — both get a free share worth £10–£100</span></div>
-            <div class="guide-step"><span class="guide-step-num">2</span><span>Deposit £50 minimum to unlock your free share</span></div>
-            <div class="guide-step"><span class="guide-step-num">3</span><span>Repeat with Robinhood UK and Webull for more free shares</span></div>
-            <div class="guide-step"><span class="guide-step-num">4</span><span>Hold shares for 90 days before withdrawing to avoid clawback</span></div>
-            <div class="guide-tip">💡 All three platforms: Freetrade + Robinhood + Webull = up to £300 in free shares from £150 total deposit.</div>
+            <p class="guide-p">Several investing apps will give you a free share just for signing up and depositing a small amount. The share is randomly assigned but can be worth £10–£100+. You can sell it as soon as the holding period ends and withdraw the cash. You do not need to know anything about investing.</p>
+
+            <div class="guide-section-title">Is this safe?</div>
+            <p class="guide-p">Yes. These are all regulated UK investing platforms. Your deposit is protected. The free share is a real share in a real company — it might go up or down slightly while you hold it, but you are only holding it for a short period. The deposit you put in is always yours to withdraw.</p>
+
+            <div class="guide-section-title">Step by step — do these in order</div>
+            <div class="guide-step"><span class="guide-step-num">1</span><span><strong>Freetrade (up to £100 free share).</strong> Sign up via the referral link in Offers. Deposit £50. You will receive a randomly assigned free share within 7 days. You must hold it for 30 days before selling. After 30 days, sell the share and withdraw everything.</span></div>
+            <div class="guide-step"><span class="guide-step-num">2</span><span><strong>Robinhood UK (free share).</strong> Sign up via the Offers tab. Deposit £1. You get a free share. Hold for the required period, sell, withdraw.</span></div>
+            <div class="guide-step"><span class="guide-step-num">3</span><span><strong>Webull (up to £50 bonus).</strong> Deposit £100 to unlock the bonus. Hold for 90 days. Same process — bonus appears in your account, then you can withdraw.</span></div>
+            <div class="guide-step"><span class="guide-step-num">4</span><span><strong>Add each offer to Pending Payouts</strong> in the Progress tab with the date you deposited and the expected hold period end date. This is the most important step — people forget and miss their withdrawal window.</span></div>
+            <div class="guide-step"><span class="guide-step-num">5</span><span><strong>Check your tax position.</strong> Free shares are generally treated as income — if they are worth over £1,000 total you may want to note this. For most people earning a few hundred in free shares it is below the relevant thresholds, but worth being aware of.</span></div>
+
+            <div class="guide-warning">⚠️ Watch out for: Monthly subscription fees. Some platforms charge £3–5/month for a premium account. Make sure you are signed up for the free tier, or cancel the premium as soon as you receive your bonus.</div>
+            <div class="guide-tip">💡 Stack all three: Freetrade + Robinhood + Webull = up to £200+ in bonuses from around £150 in deposits. Your deposits come back to you — the bonuses are on top. Total outlay: your time (about 15 minutes per platform).</div>
           </div>
         </div>
 
-        <div class="guide-card card">
+        <!-- GUIDE 5: ENERGY & BROADBAND -->
+        <div class="guide-card card" data-guide="energy">
+          <div class="guide-card-head" onclick="toggleGuide('guide-energy')">
+            <div class="guide-icon yellow">⚡</div>
+            <div>
+              <h3>Energy &amp; Broadband Switching</h3>
+              <p class="guide-meta">Up to £170 bonus · One-off · 10 min</p>
+            </div>
+          </div>
+          <button class="guide-expand-btn" id="btn-guide-energy" onclick="toggleGuide('guide-energy')">Read Guide ↓</button>
+          <div class="guide-body" id="guide-energy">
+            <p class="guide-p">Switching your energy supplier or broadband provider earns you referral bonuses and cashback on top of any savings on your bill. You are going to pay for energy anyway — you might as well get paid to choose who you pay.</p>
+
+            <div class="guide-section-title">Energy switching — Octopus Energy</div>
+            <div class="guide-step"><span class="guide-step-num">1</span><span><strong>Switch to Octopus Energy</strong> via the referral link in Offers. Both you and the referrer get £50 credit added to your energy account.</span></div>
+            <div class="guide-step"><span class="guide-step-num">2</span><span><strong>Stack with TopCashback.</strong> Go to TopCashback first and find Octopus. Click through from there, then sign up. You can earn additional cashback on top of the referral bonus — always check TopCashback before switching any utility.</span></div>
+            <div class="guide-step"><span class="guide-step-num">3</span><span><strong>The switch takes 3–6 weeks.</strong> Octopus contacts your current supplier and manages the whole process. You do not need to cancel with your old supplier. The £50 credit appears in your Octopus account once the switch completes.</span></div>
+
+            <div class="guide-section-title">Broadband switching</div>
+            <div class="guide-step"><span class="guide-step-num">1</span><span><strong>Check TopCashback and Quidco</strong> for cashback on broadband deals before signing up anywhere. Providers like BT, Sky, Virgin, and Vodafone regularly offer £50–£120 cashback through these sites.</span></div>
+            <div class="guide-step"><span class="guide-step-num">2</span><span><strong>Compare at Uswitch or MoneySavingExpert</strong> to find the cheapest deal, then go back to TopCashback and find the same provider to click through for cashback.</span></div>
+            <div class="guide-step"><span class="guide-step-num">3</span><span><strong>The cashback tracks</strong> when you complete the order. It usually takes 30–90 days to confirm once your broadband is installed and active.</span></div>
+
+            <div class="guide-warning">⚠️ Watch out for: Early termination fees on your current broadband contract. Check if you are in a minimum term before switching — if you are, wait until the last month, then switch. Your new provider usually handles the transfer automatically.</div>
+            <div class="guide-tip">💡 Timing trick: When your broadband contract is about to end, always go to TopCashback first. Do not phone your provider to renew — that never goes through cashback. Always sign up via the cashback site as a new customer where possible.</div>
+          </div>
+        </div>
+
+        <!-- GUIDE 6: DIRECT DEBITS -->
+        <div class="guide-card card" data-guide="directdebit">
+          <div class="guide-card-head" onclick="toggleGuide('guide-directdebit')">
+            <div class="guide-icon green">🔄</div>
+            <div>
+              <h3>Direct Debit Setup Guide</h3>
+              <p class="guide-meta">Essential for bank switches · 5 min · Cheap</p>
+            </div>
+          </div>
+          <button class="guide-expand-btn" id="btn-guide-directdebit" onclick="toggleGuide('guide-directdebit')">Read Guide ↓</button>
+          <div class="guide-body" id="guide-directdebit">
+            <p class="guide-p">Many bank switch bonuses require you to have 2 active Direct Debits on the account you are switching. A Direct Debit is just an automatic payment that leaves your account on a regular date — like a Netflix subscription or gym membership. If you do not have 2, this guide explains how to get them cheaply.</p>
+
+            <div class="guide-section-title">What counts as an active Direct Debit?</div>
+            <p class="guide-p">An active Direct Debit is one that has successfully collected at least one payment. It must be a real Direct Debit — not a standing order (which you set up yourself). Most banks need 2 active DDs as part of the switch requirements.</p>
+
+            <div class="guide-section-title">Option 1 — Use existing Direct Debits (free)</div>
+            <div class="guide-step"><span class="guide-step-num">→</span><span>If you already pay for things like Netflix, Spotify, a gym, a phone contract, or any subscription via Direct Debit — these count. The CASS switch will automatically move them to your new account.</span></div>
+            <div class="guide-step"><span class="guide-step-num">→</span><span>Log in to your current bank app and check your Direct Debits list. If you have 2 or more active ones, you are already sorted.</span></div>
+
+            <div class="guide-section-title">Option 2 — Set up cheap Direct Debits</div>
+            <div class="guide-step"><span class="guide-step-num">1</span><span><strong>Use the Direct Debit service</strong> in the Community tab. This sets up real Direct Debits on your account quickly and cheaply — ideal when you need DDs specifically to meet a bank switch requirement.</span></div>
+            <div class="guide-step"><span class="guide-step-num">2</span><span><strong>Alternatively, donate £1/month</strong> to a charity via Direct Debit. Cancer Research, RNLI, and others all accept £1/month donations and set up a DD automatically. You can cancel after the switch bonus is paid.</span></div>
+            <div class="guide-step"><span class="guide-step-num">3</span><span><strong>Wait for at least one payment to clear</strong> before starting the switch. The DD needs to be "active" — meaning at least one payment has been taken. This usually means waiting for one monthly cycle.</span></div>
+
+            <div class="guide-warning">⚠️ Watch out for: Some banks specify that Direct Debits must be for specific types of bills (household bills, regular subscriptions). Always check the specific requirements for each bank switch offer. NatWest and Santander are particularly specific about what counts.</div>
+            <div class="guide-tip">💡 Once set up, leave the DDs running across all your switches — they move automatically via CASS each time, so you only need to set them up once.</div>
+          </div>
+        </div>
+
+        <!-- GUIDE 7: STACK £500 IN 90 DAYS -->
+        <div class="guide-card card" data-guide="stack">
           <div class="guide-card-head" onclick="toggleGuide('guide-stack')">
             <div class="guide-icon green">⚡</div>
             <div>
-              <h3>Stack Multiple Deals</h3>
-              <p class="guide-meta">Earn £500+ in 3 months · Full plan</p>
+              <h3>Stack £500 in 90 Days — The Full Plan</h3>
+              <p class="guide-meta">Month by month · Proven order · £500–£1,000+ total</p>
             </div>
           </div>
           <button class="guide-expand-btn" id="btn-guide-stack" onclick="toggleGuide('guide-stack')">Read Guide ↓</button>
           <div class="guide-body" id="guide-stack">
-            <div class="guide-step"><span class="guide-step-num">1</span><span>Month 1: Do Lloyds switch (£250) + Freetrade (up to £100) + TopCashback signup (£10)</span></div>
-            <div class="guide-step"><span class="guide-step-num">2</span><span>Month 2: Do NatWest switch (£200) + Robinhood (up to £100) + Quidco signup (£10)</span></div>
-            <div class="guide-step"><span class="guide-step-num">3</span><span>Month 3: Do First Direct (£175) or Barclays (£200) + Webull (up to £75)</span></div>
-            <div class="guide-step"><span class="guide-step-num">4</span><span>Throughout: Use Chase for all spending (1% cashback) + JamDoughnut for gift cards</span></div>
-            <div class="guide-tip">💡 Total potential: £500–£1,000+ depending on eligibility. Track everything in the Progress tab.</div>
+            <p class="guide-p">This is the complete month-by-month plan. Follow it in order and you can realistically earn £500–£1,000 in your first 3 months. Each step builds on the last. Do not skip ahead — the order matters.</p>
+
+            <div class="guide-section-title">Week 1 — Quick wins (Day 1–7)</div>
+            <div class="guide-step"><span class="guide-step-num">→</span><span><strong>Sign up to TopCashback</strong> — £10 bonus. Takes 2 minutes.</span></div>
+            <div class="guide-step"><span class="guide-step-num">→</span><span><strong>Sign up to Quidco</strong> — £10 bonus. Takes 2 minutes.</span></div>
+            <div class="guide-step"><span class="guide-step-num">→</span><span><strong>Open Freetrade</strong> via referral, deposit £50, get free share (up to £100). 5 minutes.</span></div>
+            <div class="guide-step"><span class="guide-step-num">→</span><span><strong>Open JamDoughnut</strong> with code 8TGF. Start using it for your weekly shop this week.</span></div>
+            <div class="guide-step"><span class="guide-step-num">→</span><span><strong>Open Chase account</strong> if you do not have one. Use it as your everyday card for 1% cashback.</span></div>
+            <div class="guide-step"><span class="guide-step-num">→</span><span><strong>Week 1 total: £20–£120</strong> depending on your Freetrade share.</span></div>
+
+            <div class="guide-section-title">Month 1 — First bank switch</div>
+            <div class="guide-step"><span class="guide-step-num">→</span><span><strong>Do the Lloyds Bank switch</strong> — £250 bonus. Open the offer in the Offers tab for the full guide. This takes 15 minutes to set up. The £250 arrives in about 30 days.</span></div>
+            <div class="guide-step"><span class="guide-step-num">→</span><span><strong>Open Robinhood UK</strong> — free share bonus. Deposit £1.</span></div>
+            <div class="guide-step"><span class="guide-step-num">→</span><span><strong>Month 1 total so far: £270–£370+</strong></span></div>
+
+            <div class="guide-section-title">Month 2 — Second bank switch</div>
+            <div class="guide-step"><span class="guide-step-num">→</span><span><strong>Do the NatWest switch</strong> — £150–£200 bonus. Switch FROM Chase (not your main account). Takes 15 minutes.</span></div>
+            <div class="guide-step"><span class="guide-step-num">→</span><span><strong>Open Webull</strong> — deposit £100 for bonus. Hold 90 days.</span></div>
+            <div class="guide-step"><span class="guide-step-num">→</span><span><strong>Collect your Lloyds bonus</strong> — it should land this month.</span></div>
+            <div class="guide-step"><span class="guide-step-num">→</span><span><strong>Month 2 total: £420–£570+</strong></span></div>
+
+            <div class="guide-section-title">Month 3 — Third bank switch + collect</div>
+            <div class="guide-step"><span class="guide-step-num">→</span><span><strong>Do First Direct or Barclays switch</strong> — £175–£250 bonus.</span></div>
+            <div class="guide-step"><span class="guide-step-num">→</span><span><strong>Collect your NatWest bonus</strong> — arrives this month.</span></div>
+            <div class="guide-step"><span class="guide-step-num">→</span><span><strong>Sell your Freetrade and Robinhood shares</strong> if holding period is up. Withdraw the cash.</span></div>
+            <div class="guide-step"><span class="guide-step-num">→</span><span><strong>Switch Octopus Energy</strong> if you have not already — £50 credit.</span></div>
+            <div class="guide-step"><span class="guide-step-num">→</span><span><strong>Month 3 total: £650–£1,000+</strong></span></div>
+
+            <div class="guide-section-title">Ongoing — keep the engine running</div>
+            <div class="guide-step"><span class="guide-step-num">→</span><span>Use JamDoughnut + Chase for every weekly shop. £300–£600/year ongoing.</span></div>
+            <div class="guide-step"><span class="guide-step-num">→</span><span>Check the Offers tab for new bank switch deals as they appear. Banks launch new offers every few months.</span></div>
+            <div class="guide-step"><span class="guide-step-num">→</span><span>Use TopCashback for every online purchase. Set it as your browser homepage so you never forget.</span></div>
+
+            <div class="guide-tip">💡 Track everything in the Progress tab. Add every pending payout with its expected date. Forgotten payouts are lost payouts — the tracker is there so that never happens to you.</div>
+          </div>
+        </div>
+
+        <!-- GUIDE 8: COMMON MISTAKES -->
+        <div class="guide-card card" data-guide="mistakes">
+          <div class="guide-card-head" onclick="toggleGuide('guide-mistakes')">
+            <div class="guide-icon red">⚠️</div>
+            <div>
+              <h3>Common Mistakes — And How to Avoid Them</h3>
+              <p class="guide-meta">Read this before you start · Saves you £££</p>
+            </div>
+          </div>
+          <button class="guide-expand-btn" id="btn-guide-mistakes" onclick="toggleGuide('guide-mistakes')">Read Guide ↓</button>
+          <div class="guide-body" id="guide-mistakes">
+            <p class="guide-p">Most people who miss out on bonuses make the same avoidable mistakes. Read through these before you start any offer.</p>
+
+            <div class="guide-section-title">Bank switch mistakes</div>
+            <div class="guide-step"><span class="guide-step-num">✗</span><span><strong>Switching your main account first.</strong> Always open a secondary account (Chase or Monzo) and switch that. Never disrupt your main salary account.</span></div>
+            <div class="guide-step"><span class="guide-step-num">✗</span><span><strong>Not reading the exact requirements.</strong> Each bank is different. Lloyds needs £2,000 paid in AND 2 DDs. NatWest needs 2 DDs. First Direct needs £1,000 paid in within 3 months. Missing one condition = no bonus.</span></div>
+            <div class="guide-step"><span class="guide-step-num">✗</span><span><strong>Moving the deposit money too quickly.</strong> Pay the money in, wait at least 24–48 hours before moving it out. Moving it immediately can trigger fraud checks and stop the bonus.</span></div>
+            <div class="guide-step"><span class="guide-step-num">✗</span><span><strong>Closing the account before the bonus is paid.</strong> Keep the account open until the money arrives. Closing it first means the bonus has nowhere to go.</span></div>
+            <div class="guide-step"><span class="guide-step-num">✗</span><span><strong>Not checking eligibility first.</strong> If you held an account with that bank in the last 12 months, you will not qualify. Check before you apply — a wasted application still leaves a footprint.</span></div>
+
+            <div class="guide-section-title">Cashback mistakes</div>
+            <div class="guide-step"><span class="guide-step-num">✗</span><span><strong>Going directly to the shop instead of via the cashback site.</strong> The cashback only tracks if you click through from TopCashback or Quidco. Bookmark the cashback site and start every online purchase there.</span></div>
+            <div class="guide-step"><span class="guide-step-num">✗</span><span><strong>Using a discount code on a cashback purchase.</strong> Most cashback sites void your cashback if you also use a promo code. Pick one — usually cashback is worth more than a 5% discount code.</span></div>
+            <div class="guide-step"><span class="guide-step-num">✗</span><span><strong>Leaving your browser ad blocker on.</strong> Ad blockers can prevent cashback tracking. Disable them when clicking through to make a cashback purchase.</span></div>
+            <div class="guide-step"><span class="guide-step-num">✗</span><span><strong>Never withdrawing.</strong> Money in a cashback account is not real money yet. Withdraw as soon as you hit the minimum threshold.</span></div>
+
+            <div class="guide-section-title">Invest bonus mistakes</div>
+            <div class="guide-step"><span class="guide-step-num">✗</span><span><strong>Selling the free share before the hold period ends.</strong> Most platforms have a 30–90 day hold. Selling early forfeits the bonus. Add the end date to your Pending Payouts tracker.</span></div>
+            <div class="guide-step"><span class="guide-step-num">✗</span><span><strong>Accidentally upgrading to a paid plan.</strong> Many apps prompt you to upgrade during onboarding. Decline and stick to the free account unless you specifically want the premium features.</span></div>
+
+            <div class="guide-tip">💡 The single most important habit: track everything in the Progress tab the moment you start an offer. A forgotten pending payout is money you earned but never collected.</div>
           </div>
         </div>
 
@@ -3162,7 +3480,7 @@
 
       <!-- GAMIFICATION GUIDE -->
       <div class="guide-list" style="margin-top:8px">
-        <div class="guide-card card">
+        <div class="guide-card card" data-guide="gamification">
           <div class="guide-card-head" onclick="toggleGuide('guide-gamification')">
             <div class="guide-icon green">🎮</div>
             <div>
@@ -3199,7 +3517,7 @@
 
       <!-- CASHBACK BATTLE -->
       <div class="guide-list" style="margin-top:8px">
-        <div class="guide-card card">
+        <div class="guide-card card" data-guide="battle">
           <div class="guide-card-head" onclick="toggleGuide('guide-battle')">
             <div class="guide-icon green">⚔️</div>
             <div>
@@ -3237,26 +3555,44 @@
         <div class="section-head">
           <h2 class="section-title">💰 Money Tracker</h2>
         </div>
-        <div class="card" style="padding:14px">
-          <div id="profileLevel" class="xp-level-badge"></div>
-          <div class="xp-bar-wrap" style="margin:8px 0">
-            <div class="xp-bar" id="xpBar"></div>
+        <!-- Level + XP bar -->
+        <div class="level-hero-card card" style="padding:14px;display:flex;align-items:center;gap:12px;margin-bottom:10px">
+          <div class="level-shield">🛡️</div>
+          <div style="flex:1;min-width:0">
+            <div style="font-size:11px;color:var(--muted2);font-weight:600">Level</div>
+            <div id="profileLevel" style="font-size:16px;font-weight:800;color:var(--green)">1 Hunter</div>
+            <div class="xp-bar-wrap" style="margin:5px 0 0"><div class="xp-bar" id="xpBar"></div></div>
+            <div class="xp-copy" id="xpCopy" style="font-size:10px;color:var(--muted2);margin-top:3px"></div>
           </div>
-          <div class="xp-copy" id="xpCopy" style="font-size:11px;color:var(--muted2);margin-bottom:12px"></div>
-          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px">
-            <div style="background:var(--bg3);border-radius:10px;padding:10px;text-align:center">
-              <div style="font-size:20px;font-weight:800;color:var(--text)" id="profileClaims">0</div>
-              <div style="font-size:10px;font-weight:600;color:var(--muted2);text-transform:uppercase;margin-top:2px">Claimed</div>
-            </div>
-            <div style="background:var(--bg3);border-radius:10px;padding:10px;text-align:center">
-              <div style="font-size:20px;font-weight:800;color:var(--text)" id="profileCompleted">0</div>
-              <div style="font-size:10px;font-weight:600;color:var(--muted2);text-transform:uppercase;margin-top:2px">Completed</div>
-            </div>
-            <div style="background:var(--bg3);border-radius:10px;padding:10px;text-align:center">
-              <div style="font-size:20px;font-weight:800;color:var(--green)" id="profileXp">0</div>
-              <div style="font-size:10px;font-weight:600;color:var(--muted2);text-transform:uppercase;margin-top:2px">XP</div>
-            </div>
+          <div class="streak-hero-pill">
+            <div id="profileStreak" style="font-size:15px;font-weight:800;color:var(--yellow)">0🔥</div>
+            <div style="font-size:9px;color:var(--muted2)">Streak</div>
           </div>
+        </div>
+        <!-- Coloured stat cards -->
+        <div class="stat-hero-row">
+          <div class="stat-hero-card earned">
+            <div class="shc-check">✓</div>
+            <div class="shc-label">Earned</div>
+            <div class="shc-val green" id="earnedHero">£0</div>
+            <div class="shc-sub" id="profileCompleted2">0 offers done</div>
+          </div>
+          <div class="stat-hero-card pending">
+            <div class="shc-label">Pending</div>
+            <div class="shc-val yellow" id="pendingHero">£0</div>
+            <div class="shc-sub">Awaiting payout</div>
+          </div>
+          <div class="stat-hero-card total">
+            <div class="shc-label">Available</div>
+            <div class="shc-val" id="totalHero">£0</div>
+            <div class="shc-sub">All offers</div>
+          </div>
+        </div>
+        <!-- Hidden legacy IDs so JS doesn't break -->
+        <div style="display:none">
+          <span id="profileClaims">0</span>
+          <span id="profileCompleted">0</span>
+          <span id="profileXp">0</span>
         </div>
       </section>
 
@@ -3541,23 +3877,33 @@
 
   <nav class="bottom-nav">
     <button class="nav-btn active" data-view="home">
-      <span class="nav-icon">🏠</span>
+      <div class="nav-icon-wrap">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </div>
       <span class="nav-label">Home</span>
     </button>
     <button class="nav-btn" data-view="offers">
-      <span class="nav-icon">🔥</span>
+      <div class="nav-icon-wrap">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </div>
       <span class="nav-label">Offers</span>
     </button>
     <button class="nav-btn" data-view="progress">
-      <span class="nav-icon">📊</span>
+      <div class="nav-icon-wrap">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+      </div>
       <span class="nav-label">Progress</span>
     </button>
     <button class="nav-btn" data-view="stack">
-      <span class="nav-icon">⚡</span>
+      <div class="nav-icon-wrap">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+      </div>
       <span class="nav-label">Playbook</span>
     </button>
     <button class="nav-btn" data-view="community">
-      <span class="nav-icon">👥</span>
+      <div class="nav-icon-wrap">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
       <span class="nav-label">Community</span>
     </button>
   </nav>
@@ -4089,6 +4435,34 @@
       uiSet('statStreak', state.streak + '🔥');
     }
 
+    function updateGreeting() {
+      const hour = new Date().getHours();
+      const timeEl = document.getElementById('greetingTime');
+      const nameEl = document.getElementById('greetingName');
+      const streakEl = document.getElementById('greetingStreak');
+      const streakVal = document.getElementById('greetingStreakVal');
+
+      if (timeEl) {
+        const greeting = hour < 12 ? 'Good morning' : hour < 18 ? 'Good afternoon' : 'Good evening';
+        timeEl.textContent = greeting;
+      }
+
+      if (nameEl) {
+        const username = localStorage.getItem('mh_username') ||
+          (currentUser && currentUser.email ? currentUser.email.split('@')[0] : null);
+        nameEl.textContent = username ? username + ' 👋' : 'Hunter 👋';
+      }
+
+      if (streakEl && streakVal) {
+        if (state.streak > 0) {
+          streakVal.textContent = state.streak;
+          streakEl.style.display = 'block';
+        } else {
+          streakEl.style.display = 'none';
+        }
+      }
+    }
+
     function updateDailyBox() {
       const today = todayKey();
       const claimedToday = state.lastDaily === today;
@@ -4244,9 +4618,9 @@
               <h3 class="offer-name" style="margin:2px 0 3px">${offer.name || offer.store} <span class="offer-card-chevron" id="chev_${offer.id}">▾</span></h3>
               <div class="offer-effort">${offer.effort || ''}</div>
             </div>
-            <div>
+            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:5px;flex-shrink:0;min-width:80px">
               <div class="reward">${offer.reward || offer.deal_price}</div>
-              <div class="offer-status-dot" style="color:${statusColor};font-size:10px;text-align:right;margin-top:3px">${statusLabel}</div>
+              <button class="offer-vg-btn" onclick="event.stopPropagation();openOfferById('${offer.id}')" style="white-space:nowrap;width:100%;justify-content:center">Guide <span class="offer-xp-tag">+50XP</span></button>
             </div>
           </div>
 
@@ -4336,6 +4710,58 @@
         </div>
         ${tasks.map(offer => buildOfferCard(offer)).join('')}
       `;
+    }
+
+    function renderQuickWins() {
+      const el = document.getElementById('quickWinsList');
+      const wrap = document.getElementById('quickWins');
+      if (!el) return;
+
+      // Curated quick win IDs — always these 3 in this order
+      const quickIds = ['lloyds-bank', 'freetrade', 'topcashback'];
+      const picks = quickIds
+        .map(id => offers.find(o => o.id === id))
+        .filter(Boolean)
+        .filter(o => getOfferStatus(o.id) !== 'completed')
+        .slice(0, 3);
+
+      // Fallback: highest value unclaimed offers
+      if (picks.length === 0) {
+        const fallbacks = offers
+          .filter(o => {
+            const b = (o.badge||'').toUpperCase();
+            return !['FIND','DEAL','HOTUKDEALS','SCRIMPR','REDDIT'].some(w=>b.includes(w))
+              && (o.amount||0) > 0
+              && getOfferStatus(o.id) !== 'completed';
+          })
+          .sort((a,b) => (b.amount||0) - (a.amount||0))
+          .slice(0, 3);
+        if (fallbacks.length === 0) { if (wrap) wrap.style.display = 'none'; return; }
+        picks.push(...fallbacks);
+      }
+
+      if (wrap) wrap.style.display = '';
+      el.innerHTML = picks.map(offer => {
+        const domain = getOfferDomain(offer);
+        const letter = (offer.name||offer.store||'?')[0].toUpperCase();
+        const logoHtml = domain
+          ? `<img src="https://www.google.com/s2/favicons?domain=${domain}&sz=64" alt="" onerror="this.style.display='none'" loading="lazy">`
+          : letter;
+        const status = getOfferStatus(offer.id);
+        const meta = status === 'pending' ? '⏳ Pending payout' : (offer.effort || 'Quick win');
+        return `
+          <div class="quick-win-card" onclick="openOfferById('${offer.id}')">
+            <div class="quick-win-logo">${logoHtml}</div>
+            <div class="quick-win-info">
+              <div class="quick-win-name">${offer.name || offer.store}</div>
+              <div class="quick-win-meta">${meta}</div>
+            </div>
+            <div class="quick-win-right">
+              <div class="quick-win-reward">${offer.reward || '£' + offer.amount}</div>
+              <button class="quick-win-btn" onclick="event.stopPropagation();openOfferById('${offer.id}')">Start →</button>
+            </div>
+          </div>`;
+      }).join('');
     }
 
     function renderBestOffers() {
@@ -4539,7 +4965,7 @@
       const span = current.next - current.min;
       const progress = span > 0 ? Math.min(100, ((state.xp - current.min) / span) * 100) : 100;
 
-      uiSet('profileLevel', 'Level ' + current.level);
+      uiSet('profileLevel', current.level + ' Hunter');
       uiSet('profileXp', state.xp + ' XP');
       ui.xpBar.style.width = `${progress}%`;
       uiSet('xpCopy', (state.xp - current.min) + ' / ' + (current.next - current.min) + ' XP to next level');
@@ -4552,6 +4978,19 @@
       if (ui.earnedTotal) ui.earnedTotal.textContent = formatMoney(getEarnedTotal());
       if (ui.pendingTotal) ui.pendingTotal.textContent = formatMoney(getPendingTotal());
       if (ui.activeTotal) ui.activeTotal.textContent = String(getActiveOffersCount());
+
+      // Update hero stat cards
+      const earnedHero = document.getElementById('earnedHero');
+      const pendingHero = document.getElementById('pendingHero');
+      const totalHero = document.getElementById('totalHero');
+      const comp2 = document.getElementById('profileCompleted2');
+      if (earnedHero) earnedHero.textContent = formatMoney(getEarnedTotal());
+      if (pendingHero) pendingHero.textContent = formatMoney(getPendingTotal());
+      if (totalHero) {
+        var grandTotal = offers.filter(function(o){ var b = (o.badge||'').toUpperCase(); return !['FIND','DEAL','HOTUKDEALS','SCRIMPR','REDDIT','BEERMONEY'].some(function(w){return b.includes(w);}); }).reduce(function(s,o){ return s + Math.min(o.amount||0,500); }, 0);
+        totalHero.textContent = '£' + grandTotal.toLocaleString('en-GB');
+      }
+      if (comp2) comp2.textContent = getCompletedCount() + ' offer' + (getCompletedCount() !== 1 ? 's' : '') + ' done';
 
       const milestones = [
         { name:"First £50 earned", amount:50, value:getEarnedTotal() },
@@ -4948,6 +5387,42 @@
           <button onclick="panelLogSaving('${offer.id}')">Log</button>
         </div>
       </div>`;
+
+      // Next recommended offer
+      const currentCat = getOfferCategory(offer);
+      const nextOffer = offers.find(function(o) {
+        if (o.id === offer.id) return false;
+        var badge = (o.badge || '').toUpperCase();
+        if (['FIND','DEAL','HOTUKDEALS','SCRIMPR','REDDIT','BEERMONEY'].some(function(w){ return badge.includes(w); })) return false;
+        return getOfferCategory(o) === currentCat && (o.amount || 0) > 0;
+      }) || offers.find(function(o) {
+        if (o.id === offer.id) return false;
+        var badge = (o.badge || '').toUpperCase();
+        if (['FIND','DEAL','HOTUKDEALS','SCRIMPR','REDDIT','BEERMONEY'].some(function(w){ return badge.includes(w); })) return false;
+        return (o.amount || 0) > 0;
+      });
+
+      if (nextOffer) {
+        const nextDomain = getOfferDomain(nextOffer);
+        const nextLetter = (nextOffer.name || nextOffer.store || '?')[0].toUpperCase();
+        const nextLogoHtml = nextDomain
+          ? `<img src="https://www.google.com/s2/favicons?domain=${nextDomain}&sz=64" style="width:22px;height:22px;object-fit:contain" onerror="this.style.display='none'">`
+          : `<span style="font-size:13px;font-weight:800;color:var(--muted2)">${nextLetter}</span>`;
+        html += `<div class="panel-next-offer" onclick="openOfferById('${nextOffer.id}')">
+          <div style="font-size:10px;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px">👉 Do this next</div>
+          <div style="display:flex;align-items:center;gap:12px">
+            <div style="width:36px;height:36px;border-radius:10px;background:var(--bg3);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden">${nextLogoHtml}</div>
+            <div style="flex:1;min-width:0">
+              <div style="font-size:14px;font-weight:700;color:var(--text)">${nextOffer.name || nextOffer.store}</div>
+              <div style="font-size:11px;color:var(--muted2);margin-top:1px">${nextOffer.effort || 'Quick win'}</div>
+            </div>
+            <div style="text-align:right;flex-shrink:0">
+              <div style="font-size:18px;font-weight:900;color:var(--green)">${nextOffer.reward || '£' + nextOffer.amount}</div>
+              <div style="font-size:10px;color:var(--muted2)">Open →</div>
+            </div>
+          </div>
+        </div>`;
+      }
 
       document.getElementById("panelBody").innerHTML = html;
 
@@ -5489,12 +5964,21 @@
       db.auth.onAuthStateChange((event, session) => {
         if (event === 'SIGNED_IN' && session?.user) {
           currentUser = session.user;
-        checkAdminAccess();
+          checkAdminAccess();
+          const username = localStorage.getItem('mh_username') || session.user.email?.split('@')[0] || 'Account';
+          updateUserBadge(username);
         } else if (event === 'SIGNED_OUT') {
           currentUser = null;
-          document.getElementById('userBadge').style.display = 'none';
-        const qBtn2 = document.getElementById('authQuickBtn');
-        if (qBtn2) { qBtn2.textContent = 'Sign in'; qBtn2.style.color = 'var(--muted)'; }
+          const badge = document.getElementById('userBadge');
+          if (badge) badge.style.display = 'none';
+          const qBtn2 = document.getElementById('authQuickBtn');
+          if (qBtn2) {
+            qBtn2.textContent = 'Sign in';
+            qBtn2.style.color = 'var(--muted)';
+            qBtn2.style.background = 'var(--bg3)';
+            qBtn2.style.borderColor = 'var(--line)';
+            qBtn2.onclick = function(){ showAuthModal(); };
+          }
         }
       });
     }
@@ -5647,6 +6131,24 @@ function initTheme() {
       const isOpen = el.classList.contains('open');
       el.classList.toggle('open', !isOpen);
       if (btn) btn.textContent = isOpen ? 'Read Guide ↓' : 'Close Guide ↑';
+    }
+
+    function filterPlaybook(cat, pillEl) {
+      // Update active pill
+      document.querySelectorAll('.pb-pill').forEach(function(p){ p.classList.remove('active'); });
+      if (pillEl) pillEl.classList.add('active');
+      // Show/hide guide cards
+      document.querySelectorAll('.guide-card[data-guide]').forEach(function(card) {
+        if (cat === 'all') {
+          card.style.display = '';
+        } else {
+          card.style.display = card.dataset.guide === cat ? '' : 'none';
+        }
+      });
+      // Always show gamification and battle cards
+      document.querySelectorAll('.guide-card[data-guide="gamification"], .guide-card[data-guide="battle"]').forEach(function(card) {
+        card.style.display = cat === 'all' ? '' : 'none';
+      });
     }
 
 
@@ -5925,8 +6427,15 @@ function initTheme() {
     // ── RENDER BADGES ──────────────────────────────
     function renderBadges() {
       const el = document.getElementById('badgesGrid');
+      const section = el ? el.closest('.section') : null;
       if (!el) return;
       const unlocked = getUnlockedBadges().map(b => b.id);
+      // Hide entire section if no badges unlocked yet — reduces noise for new users
+      if (unlocked.length === 0 && section) {
+        section.style.display = 'none';
+        return;
+      }
+      if (section) section.style.display = '';
       el.innerHTML = BADGES.map(b => `
         <div class="badge-item ${unlocked.includes(b.id) ? 'unlocked' : 'locked'}" title="${b.desc}">
           <span class="badge-emoji">${b.emoji}</span>
@@ -5938,8 +6447,14 @@ function initTheme() {
     // ── RENDER MISSIONS ────────────────────────────
     function renderMissions() {
       const el = document.getElementById('missionsList');
+      const section = document.getElementById('missionsSection');
       if (!el) return;
       const missions = getMissions();
+      if (!missions || missions.length === 0) {
+        if (section) section.style.display = 'none';
+        return;
+      }
+      if (section) section.style.display = '';
       el.innerHTML =
         missions.map(m => {
           const current = Math.min(m.check(), m.target);
@@ -5963,7 +6478,10 @@ function initTheme() {
     function renderRaffle() {
       const el = document.getElementById('raffleSection');
       if (!el) return;
-      if (RAFFLE_ENABLED) el.classList.add('enabled');
+      // Hide entirely when raffle not yet enabled — reduces clutter for new users
+      if (!RAFFLE_ENABLED) { el.style.display = 'none'; return; }
+      el.style.display = '';
+      el.classList.add('enabled');
       const tickets = getTickets();
       const winner = JSON.parse(localStorage.getItem('mh_last_winner') || 'null');
       el.innerHTML = `
@@ -6175,11 +6693,9 @@ function initTheme() {
       el.innerHTML = CATEGORY_ROWS.map(function(row) {
         const rowOffers = offers.filter(function(o) { return getOfferCategory(o) === row.cat; });
         if (rowOffers.length === 0) return '';
-
         let html = '<div class="cat-section">';
         html += '<div class="cat-section-head">';
         html += '<div class="cat-section-title">' + row.label + '</div>';
-        html += '<div class="cat-section-count">' + rowOffers.length + ' offers</div>';
         html += '</div>';
         html += '<div class="cat-section-list">';
         rowOffers.forEach(function(offer) {
@@ -6459,7 +6975,126 @@ function initTheme() {
     
     function showQuickGuide() {
       var el = document.getElementById('quickGuideOverlay');
-      if (el) el.classList.remove('hidden');
+      if (!el) return;
+
+      // Referral offer IDs — prioritise these (Alberto's referral links)
+      var referralIds = [
+        'chase-uk','lloyds-bank','first-direct','natwest','santander',
+        'freetrade','robinhood-uk','webull','wealthify','plum',
+        'topcashback','quidco','rakuten','curve-pay','wise',
+        'octopus-energy','moneybox','revolut','zilch'
+      ];
+
+      // Bank switch IDs
+      var bankIds = ['lloyds-bank','first-direct','natwest','santander','chase-uk','barclays'];
+
+      // Score each offer: referral=3, bank=2, any=1, already done=skip
+      function scoreOffer(o) {
+        var status = getOfferStatus(o.id);
+        if (status === 'completed') return -1;
+        var score = 0;
+        if (referralIds.indexOf(o.id) > -1) score += 3;
+        if (bankIds.indexOf(o.id) > -1) score += 2;
+        score += Math.min((o.amount || 0) / 100, 3); // up to 3 points for value
+        return score;
+      }
+
+      // Filter valid offers (no scraped junk)
+      var validOffers = offers.filter(function(o) {
+        var b = (o.badge || '').toUpperCase();
+        var skip = ['FIND','DEAL','HOTUKDEALS','SCRIMPR','REDDIT','BEERMONEY'];
+        return !skip.some(function(w){ return b.includes(w); }) && (o.amount || 0) > 0;
+      });
+
+      // User tier based on XP
+      var xp = state.xp || 0;
+      var completedCount = getCompletedCount();
+
+      var title, sub;
+      if (xp === 0 && completedCount === 0) {
+        title = '🎯 Start here — your first £300+';
+        sub = 'Three simple offers to get you started. Takes about 20 minutes total.';
+      } else if (xp < 200) {
+        title = '🎯 Your next moves';
+        sub = 'The best unclaimed offers for you right now.';
+      } else {
+        title = '🎯 Keep stacking';
+        sub = 'Highest-value offers you haven\'t claimed yet.';
+      }
+
+      // Pick: 1 bank switch (prefer Chase — Lloyds is in Quick Wins) + 1-2 referrals
+      var bankPriority = ['chase-uk','first-direct','natwest','santander','barclays','lloyds-bank'];
+      var bankPick = null;
+      for (var bi = 0; bi < bankPriority.length; bi++) {
+        var candidate = validOffers.find(function(o){ return o.id === bankPriority[bi] && getOfferStatus(o.id) !== 'completed'; });
+        if (candidate) { bankPick = candidate; break; }
+      }
+
+      // Exclude Quick Wins offers (lloyds-bank, freetrade, topcashback) from modal
+      var quickWinIds = ['lloyds-bank', 'freetrade', 'topcashback'];
+
+      var referralPicks = validOffers
+        .filter(function(o){
+          return referralIds.indexOf(o.id) > -1
+            && bankIds.indexOf(o.id) === -1
+            && quickWinIds.indexOf(o.id) === -1
+            && getOfferStatus(o.id) !== 'completed'
+            && (!bankPick || o.id !== bankPick.id);
+        })
+        .sort(function(a,b){ return scoreOffer(b) - scoreOffer(a); })
+        .slice(0, 2);
+
+      var picks = [];
+      if (bankPick) picks.push(bankPick);
+      picks = picks.concat(referralPicks);
+
+      // Fallback if not enough — also exclude Quick Wins offers
+      if (picks.length < 3) {
+        var extra = validOffers
+          .filter(function(o){
+            return getOfferStatus(o.id) !== 'completed'
+              && quickWinIds.indexOf(o.id) === -1
+              && picks.every(function(p){ return p.id !== o.id; });
+          })
+          .sort(function(a,b){ return (b.amount||0) - (a.amount||0); })
+          .slice(0, 3 - picks.length);
+        picks = picks.concat(extra);
+      }
+
+      picks = picks.slice(0, 3);
+
+      // Build steps HTML
+      var totalAmount = picks.reduce(function(sum, o){ return sum + (o.amount || 0); }, 0);
+      var stepsHtml = picks.map(function(offer, i) {
+        var desc = offer.desc || offer.description || 'Follow the step-by-step guide to claim this offer.';
+        if (desc.length > 120) desc = desc.substring(0, 120) + '...';
+        var reward = offer.reward || ('£' + offer.amount);
+        var name = offer.name || offer.store || 'Offer';
+        return '<div class="quick-guide-step">' +
+          '<div class="quick-guide-step-num">' + (i+1) + '</div>' +
+          '<div class="quick-guide-step-content">' +
+            '<div class="quick-guide-step-title">' + name +
+              ' <span class="quick-guide-badge">' + reward + '</span>' +
+            '</div>' +
+            '<div class="quick-guide-step-desc">' + desc + '</div>' +
+            '<button class="quick-guide-btn" onclick="hideQuickGuide();openOfferById(\'' + offer.id + '\')">Open ' + name.split(' ')[0] + ' guide →</button>' +
+          '</div>' +
+        '</div>';
+      }).join('');
+
+      // Update modal
+      var titleEl = document.getElementById('quickGuideTitle');
+      var subEl = document.getElementById('quickGuideSub');
+      var stepsEl = document.getElementById('quickGuideSteps');
+      var totalEl = document.getElementById('quickGuideTotal');
+      if (titleEl) titleEl.textContent = title;
+      if (subEl) subEl.textContent = sub;
+      if (stepsEl) stepsEl.innerHTML = stepsHtml;
+      if (totalEl) totalEl.innerHTML = picks.length > 0
+        ? 'Total from these ' + picks.length + ': <strong style="color:var(--green)">up to £' + totalAmount.toLocaleString('en-GB') + '</strong>'
+        : '';
+
+      el.classList.remove('hidden');
     }
     function hideQuickGuide() {
       var el = document.getElementById('quickGuideOverlay');
@@ -6572,9 +7207,6 @@ function initTheme() {
         var username = localStorage.getItem('mh_username') || currentUser.email.split('@')[0];
         cta.textContent = 'Welcome back ' + username + ' — keep hunting →';
       }
-      // Show description only for non-signed-in users
-      var desc = document.getElementById('appDescription');
-      if (desc) desc.style.display = currentUser ? 'none' : 'block';
     }
 
     
@@ -6589,7 +7221,9 @@ function initTheme() {
 
     function renderAll() {
       updateTopStats();
+      updateGreeting();
       renderGamingCard();
+      renderQuickWins();
       updateDailyBox();
       renderTodayPlan();
       renderBestOffers();
