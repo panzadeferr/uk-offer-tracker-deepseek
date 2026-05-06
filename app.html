@@ -3983,11 +3983,12 @@
     */
     const offers = [
       { id:"chase-uk", name:"Chase UK", action:"Open Chase account", reward:"£50", amount:50, code:"J2SK9W", url:"https://chase.co.uk/raf", desc:"Deposit £1,000 and follow the current referral steps to get £50.", badge:"🔥 TOP PICK", effort:"5 min · requires deposit", steps:["Open the Chase app","Enter referral code J2SK9W","Deposit £1,000","Wait for payout"], expectedDays:30 },
-      { id:"lloyds-bank", name:"Lloyds Bank", action:"Switch to Lloyds Bank", reward:"£250", amount:250, code:"", url:"https://apply.lloydsbank.co.uk/sales-content/cwa/l/onboardpca/index-app.html?from=ob&webDirect=true&redesign=true&token=JpGVwskEUPxoFpO3Mg4RTAUZg6q6Emjz578QtNaABT8=&redesign=true#/refer-friend", desc:"Switch using CASS, pay in the qualifying amount, and meet the listed conditions for the full reward.", badge:"🏅 BEST VALUE", effort:"12 min · bank switch", steps:["Open Lloyds current account","Start CASS switch","Pay in required amount","Add direct debits","Wait for payout"], expectedDays:30 },
-      { id:"first-direct", name:"First Direct", action:"Switch to First Direct", reward:"£175 + £50 RAF", amount:225, code:"", url:"https://www.firstdirect.com/banking/switching-bank-accounts/", desc:"Switch using CASS and complete the qualifying steps for the current bonus.", badge:"⭐ POPULAR", effort:"12 min · bank switch", steps:["Open First Direct account","Start switch","Pay in required amount","Meet current offer rules","Wait for payout"], expectedDays:28 },
-      { id:"natwest", name:"NatWest", action:"Switch to NatWest", reward:"£150", amount:200, code:"", url:"https://www.natwest.com/current-accounts/switch-your-banking-to-natwest.html", desc:"Switch and meet the current direct debit and eligibility requirements.", badge:"⭐ POPULAR", effort:"12 min · direct debits needed", steps:["Open NatWest account","Start switch","Add 2 direct debits","Meet switch rules","Wait for payout"], expectedDays:30 },
-      { id:"santander", name:"Santander", action:"Switch to Santander Edge", reward:"£180", amount:180, code:"", url:"https://www.santander.co.uk/personal/current-accounts/switch", desc:"Switch to Santander Edge and complete the provider's current bonus steps.", badge:"🛒 NEW", effort:"12 min · bank switch", steps:["Open Santander Edge","Start switch","Meet funding rules","Add required direct debits","Wait for payout"], expectedDays:30 },
-      { id:"barclays", name:"Barclays", action:"Switch to Barclays", reward:"£250", amount:175, code:"", url:"https://www.barclays.co.uk/current-accounts/switch/", desc:"Switch via CASS, pay in the required amount, and check the latest eligibility rules.", badge:"⏳ ENDS 28 MAY", effort:"12 min · bank switch", steps:["Check eligibility","Open Barclays account","Start switch","Pay in required amount","Wait for payout"], expectedDays:30 },
+      { id:"lloyds-bank", name:"Lloyds Bank", action:"Switch to Lloyds Bank", reward:"£250", amount:250, code:"", url:"https://apply.lloydsbank.co.uk/sales-content/cwa/l/onboardpca/index-app.html?from=ob&webDirect=true&redesign=true&token=JpGVwskEUPxoFpO3Mg4RTAUZg6q6Emjz578QtNaABT8=&redesign=true#/refer-friend", desc:"Switch using CASS, pay in the qualifying amount, and meet the listed conditions for the full reward.", badge:"🏅 BEST VALUE", effort:"12 min · bank switch", steps:["Open Lloyds current account","Start CASS switch","Pay in required amount","Add 2 direct debits","Wait for payout"], expectedDays:30 },
+      { id:"first-direct", name:"First Direct", action:"Switch to First Direct", reward:"£175 + £45 Quidco", amount:220, code:"", url:"https://www.firstdirect.com/banking/switching-bank-accounts/", desc:"Switch using CASS, pay in £1,000 within 45 days, make 5 debit card payments. Get extra £45 cashback via Quidco. Cannot have had HSBC account since Jan 2018.", badge:"⭐ POPULAR", effort:"12 min · bank switch", steps:["Sign up via Quidco first to get extra £45","Open First Direct account","Start CASS switch (2 direct debits needed)","Pay in £1,000 within 45 days","Make 5 debit card payments","Bonus paid by 20th of following month"], expectedDays:45 },
+      { id:"natwest", name:"NatWest", action:"Switch to NatWest", reward:"£1,000", amount:1000, code:"", url:"https://www.natwest.com/current-accounts/switch-your-banking-to-natwest.html", desc:"Premier account — requires £5,000/month income. £250 switch bonus + £750 for opening Flexible Saver with £100,000. High earners only.", badge:"👑 PREMIER", effort:"12 min · high earners only", steps:["Must earn £5,000+/month","Open NatWest Premier account","Complete CASS switch","Pay in £5,000 within 60 days","Open Flexible Saver with £100,000 for extra £750","Log into NatWest app within 60 days"], expectedDays:30 },
+      { id:"santander", name:"Santander", action:"Switch to Santander", reward:"£180 + £20 TopCashback", amount:200, code:"", url:"https://www.santander.co.uk/personal/current-accounts/switch", desc:"Switch to Santander Everyday or Edge account. Pay in £1,500 within 60 days, set up 2 household direct debits. Get extra £20 via TopCashback.", badge:"💳 GOOD VALUE", effort:"12 min · bank switch", steps:["Sign up via TopCashback first for extra £20","Open Santander Everyday or Edge account","Complete full CASS switch","Pay in £1,500 within 60 days","Set up 2 household direct debits","Bonus paid within 60–90 days"], expectedDays:90 },
+      { id:"barclays", name:"Barclays", action:"Switch to Barclays", reward:"£200", amount:200, code:"", url:"https://www.barclays.co.uk/current-accounts/switch/", desc:"Switch via CASS, deposit £2,000 within 30 days, set up 2 active direct debits. Must use Barclays app to open. Offer ends 28 May 2026.", badge:"⏳ ENDS 28 MAY", effort:"12 min · bank switch", steps:["Open Barclays Current Account via app (9am-5pm only)","Initiate full CASS switch with 2 active direct debits","Deposit £2,000 within 30 days","Bonus paid after conditions met"], expectedDays:30 },
+      { id:"hsbc-premier", name:"HSBC Premier", action:"Switch to HSBC Premier", reward:"£500", amount:500, code:"", url:"https://www.hsbc.co.uk/current-accounts/products/premier/", desc:"£500 for switching to HSBC Premier. Requires £100,000+ in savings/investments or £75,000+ salary. No monthly fee but strict eligibility.", badge:"👑 HIGH EARNERS", effort:"12 min · eligibility required", steps:["Check eligibility (£100k savings or £75k salary)","Apply for HSBC Premier account","Complete full CASS switch","Meet all eligibility requirements","Receive £500 bonus"], expectedDays:30 },
       { id:"co-operative-bank", name:"Co-operative Bank", action:"Switch to Co-operative Bank", reward:"£175", amount:175, code:"", url:"https://www.co-operativebank.co.uk/current-accounts", desc:"Open and switch to Co-operative Bank, then follow the active offer terms.", badge:"🛒 ADDED", effort:"10 min · bank switch", steps:["Open Co-operative account","Start switch","Meet current offer terms","Wait for payout"], expectedDays:30 },
       { id:"monzo", name:"Monzo", action:"Open Monzo and spend £1", reward:"£5-£50", amount:50, code:"", url:"https://join.monzo.com/r/", desc:"Join and complete a qualifying spend to get the current random referral reward.", badge:"📱 APP", effort:"4 min · quick signup", steps:["Open Monzo via referral","Verify account","Spend £1","Wait for reward"], expectedDays:7 },
       { id:"revolut", name:"Revolut", action:"Open Revolut and complete signup", reward:"£20", amount:20, code:"", url:"https://revolut.com/referral/?referral-code=ludoviv2sq!MAR1-26-AR-H2&geo-redirect", desc:"Sign up and complete the referral actions for the current offer.", badge:"📱 APP", effort:"5 min · app signup", steps:["Open Revolut","Verify identity","Complete required card or spend steps","Wait for reward"], expectedDays:7 },
@@ -4695,8 +4696,9 @@
 
       const domain = getOfferDomain(offer);
       const fallbackLetter = (offer.name || offer.store || '?')[0].toUpperCase();
-      const logoHtml = domain
-        ? `<div class="offer-logo"><img src="https://www.google.com/s2/favicons?domain=${domain}&sz=64" alt="" onerror="this.parentElement.textContent='${fallbackLetter}'" loading="lazy"></div>`
+      const logoSrc = getOfferLogoSrc(offer);
+      const logoHtml = logoSrc
+        ? `<div class="offer-logo"><img src="${logoSrc}" alt="" onerror="this.parentElement.textContent='${fallbackLetter}'" loading="lazy"></div>`
         : `<div class="offer-logo">${fallbackLetter}</div>`;
 
       // Featured badge — shown on top unclaimed high-value offers
@@ -4705,11 +4707,10 @@
 
       // Ending soon — offers known to be time-limited (update dates as needed)
       const endingSoon = {
-        'lloyds-bank':    '2026-05-31',
-        'natwest':        '2026-05-15',
+        'barclays':       '2026-05-28',
+        'natwest':        '2026-06-30',
         'first-direct':   '2026-06-30',
-        'santander':      '2026-05-20',
-        'moneybox':       '2026-04-30',
+        'santander':      '2026-06-30',
       };
       const expiryDate = endingSoon[offer.id];
       const isEndingSoon = expiryDate && status === 'none' && new Date(expiryDate) > new Date();
@@ -4851,8 +4852,9 @@
       el.innerHTML = picks.map(offer => {
         const domain = getOfferDomain(offer);
         const letter = (offer.name||offer.store||'?')[0].toUpperCase();
-        const logoHtml = domain
-          ? `<img src="https://www.google.com/s2/favicons?domain=${domain}&sz=64" alt="" onerror="this.style.display='none'" loading="lazy">`
+        const logoSrc = getOfferLogoSrc(offer);
+        const logoHtml = logoSrc
+          ? `<img src="${logoSrc}" alt="" onerror="this.style.display='none'" loading="lazy">`
           : letter;
         const status = getOfferStatus(offer.id);
         const meta = status === 'pending' ? '⏳ Pending payout' : (offer.effort || 'Quick win');
@@ -5512,8 +5514,9 @@
       if (nextOffer) {
         const nextDomain = getOfferDomain(nextOffer);
         const nextLetter = (nextOffer.name || nextOffer.store || '?')[0].toUpperCase();
-        const nextLogoHtml = nextDomain
-          ? `<img src="https://www.google.com/s2/favicons?domain=${nextDomain}&sz=64" style="width:22px;height:22px;object-fit:contain" onerror="this.style.display='none'">`
+        const nextLogoSrc = getOfferLogoSrc(nextOffer);
+        const nextLogoHtml = nextLogoSrc
+          ? `<img src="${nextLogoSrc}" style="width:22px;height:22px;object-fit:contain" onerror="this.style.display='none'">`
           : `<span style="font-size:13px;font-weight:800;color:var(--muted2)">${nextLetter}</span>`;
         html += `<div class="panel-next-offer" onclick="openOfferById('${nextOffer.id}')">
           <div style="font-size:10px;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px">👉 Do this next</div>
@@ -6697,6 +6700,19 @@ function initTheme() {
       } catch(e) { return ''; }
     }
 
+    // Local logo overrides — use uploaded PNGs instead of Google favicons
+    var localLogos = {
+      'lloyds-bank': 'logo-lloyds.png',
+      'freetrade':   'logo-freetrade.png',
+    };
+
+    function getOfferLogoSrc(offer) {
+      if (localLogos[offer.id]) return localLogos[offer.id];
+      var domain = getOfferDomain(offer);
+      if (!domain) return '';
+      return 'https://www.google.com/s2/favicons?domain=' + domain + '&sz=64';
+    }
+
 
     function scrollRow(id, dir) {
       const el = document.getElementById(id);
@@ -7271,9 +7287,9 @@ function initTheme() {
       // Use curated top offers only for realistic total
       var CURATED = [
         {id:'lloyds-bank',    amt:250, cat:'bank'},
-        {id:'natwest',        amt:200, cat:'bank'},
+        {id:'natwest',        amt:1000, cat:'bank'},
         {id:'barclays',       amt:200, cat:'bank'},
-        {id:'first-direct',   amt:175, cat:'bank'},
+        {id:'first-direct',   amt:220, cat:'bank'},
         {id:'chase-uk',       amt:50,  cat:'bank'},
         {id:'freetrade',      amt:100, cat:'invest'},
         {id:'robinhood-uk',   amt:100, cat:'invest'},
